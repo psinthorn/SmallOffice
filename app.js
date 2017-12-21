@@ -12,7 +12,7 @@ const app = express();
 
 //1st route 
 app.get('/', (req, res) => {
-    res.sendç('Hello Happy :)');
+    res.send('Hello Happy :)');
 });
 
 //use auth route
