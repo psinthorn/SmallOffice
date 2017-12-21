@@ -1,0 +1,67 @@
+<nav class="grey darken-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">CodeStory</a>
+            <a href="#" data-activates="main-menu" class="button-collapse show-on-large">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <!-- Right Navbar -->
+            <ul class="right hide-on-small-only">
+                {{#if user}}
+                <li>
+                    <a href="/dashboard">Welcome
+                        <i class="fa fa-user-o"></i> {{user.firstName}}</a>
+                </li>
+                <li>
+                    <a href="/auth/logout">
+                        <i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/stories">
+                        <i class="fa fa-book"></i> Code Stories</a>
+                </li>
+                <li>
+                    <a href="/auth/google">
+                        <i class="fa fa-sign-in"></i> Login</a>
+                </li>
+                {{/if}}
+            </ul>
+
+            <!-- Side-Nav Menu -->
+            <ul class="side-nav" id="main-menu">
+               
+                {{#if user}}
+                
+                {{else}}
+                <li>
+                    <a class="btn red darken-1" href="/auth/google"><i class="fa fa-google"></i> Login with Google</a>
+                </li>
+                 
+               
+                {{/if}}
+                
+                  <li>
+                    <a href="/stories"><i class="fa fa-book"></i> Public Code Stories</a>
+                </li>
+                <li class="divider"></li>
+
+                {{#if user}}
+                 <li>
+                    <a href="/dashboard"><i class="fa fa-cogs"></i>Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="/stories/my-stories"><i class="fa fa-comments-o"></i> My Stories</a>
+                </li>
+                 <li>
+                    <a href="/auth/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+
+                {{/if}}
+            </ul>
+
+        </div>
+    </div>
+</nav>
