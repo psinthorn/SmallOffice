@@ -1,4 +1,44 @@
 <div class="container">
     <h1>Add</h1>
-    <hr>
+
+    <form action="/stories" method="post">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title">
+                <label for="title">Title</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <p>
+                <input type="checkbox" class="filled-in" id="filled-in-box" name="allowComments" checked="checked">
+                <label for="allowComments">Allow Comments</label>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Code your story here</h5>
+                <textarea type="text" name="story"></textarea>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+        </div>
+        
+    </form>
 </div>
