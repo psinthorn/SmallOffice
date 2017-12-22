@@ -1,7 +1,31 @@
-<div class="container-fluid " style-"margin-top: 50px">
-    <hr>
-    <div class="container">
-        <span class="text-secondary"><small>CodeStory V.11.12.17</small></span>
-    </div>
-        
-</div>
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">CodeStory</h5>
+                <p class="grey-text text-lighten-4">Share your coding content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="/stories">Public Code Stories</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/about">About</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                  {{#if user}}
+                     <li><a class="grey-text text-lighten-3" href="/auth/logout">Logout</a></li>
+                  {{else}}
+                     <li><a class="grey-text text-lighten-3" href="/auth/login">Login</a></li>
+                  {{/if}}
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Copyright CodeStory
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+            
