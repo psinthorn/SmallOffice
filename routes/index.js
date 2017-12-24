@@ -1,5 +1,8 @@
 const express =  require('express')
 const router = express.Router();
+const mongoose = require('mongoose');
+const Story = mongoose.model('stories');
+const User = mongoose.model('users');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 
@@ -10,7 +13,17 @@ router.get('/', ensureGuest, (req, res) => {
 
 //Dashboard page
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
-    res.render('index/dashboard');
+    // console.log(req.user.id);
+    Story.find({
+        user: req.user.id
+    })
+    .populate('user')
+    .then(stories => {
+        res.render('index/dashboard', {
+            stories: stories
+        });
+    })
+    
 });
 
 //about page

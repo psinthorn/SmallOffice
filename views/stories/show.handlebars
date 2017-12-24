@@ -1,3 +1,31 @@
 <div class="container">
-    <h1>Show Stories</h1>
+    <h1>Story</h1>
+    {{!-- <div class="divider"></div> --}}
+    <div class="row">
+        <div class="col s12 m8 l8">
+            <div class="card">
+                <div class="card-content text-grey darken-4">
+                    <div class="card-title">{{story.title}}</div>
+                   
+                    <p>{{{story.body}}}</p>
+                    <br>
+                    <p>Story create date: <small>{{formatDate story.date 'Do MMMM YYYY'}}</small></p>
+                </div>
+                
+                <div class="card-action"><a href="">Link</a></div>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <div class="card">
+                <div class="card-content center-align">
+                    <img src="{{story.user.image}}" class="circle responsive-img" alt="Story Author">
+                    <br>
+                    {{story.user.firstName}} {{story.user.lastName}}
+                    
+                </div>
+                <div class="card-action"><a href="#">More story from {{story.user.firstName}}</a></div>
+            </div>
+
+        </div>
+    </div>
 </div>

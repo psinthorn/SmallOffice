@@ -16,3 +16,11 @@ body {
       margin-top: 30px;
 
   }
+
+  #delete-form{
+    display: inline;
+  }
+
+  .text-capitalize{
+    text-transform: capitalize;
+  }
