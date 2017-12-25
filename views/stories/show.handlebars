@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Story</h1>
+    <h1>Code Story</h1>
     {{!-- <div class="divider"></div> --}}
     <div class="row">
         <div class="col s12 m8 l8">
@@ -23,7 +23,7 @@
                     {{story.user.firstName}} {{story.user.lastName}}
                     
                 </div>
-                <div class="card-action"><a href="#">More story from {{story.user.firstName}}</a></div>
+                <div class="card-action"><a href="/stories/{{story.user.id}}">More story from {{story.user.firstName}}</a></div>
             </div>
 
         </div>

@@ -18,6 +18,22 @@ router.get('/', (req,res) => {
    
 });
 
+//user stories
+router.get('/:id', (req,res) => {
+    Story.find({
+        user: req.params.id,
+        status:  'public'
+    })
+    .populate('user')
+    .then(stories => {
+        res.render('stories/index', {
+            stories: stories
+        });
+    });
+
+});
+
+
 //show individual story
 router.get('/show/:id', (req, res) => {
     Story.findOne({
@@ -29,6 +45,7 @@ router.get('/show/:id', (req, res) => {
     })
     
 });
+
 
 //stories add form
 router.get('/add', ensureAuthenticated, (req, res) => {
