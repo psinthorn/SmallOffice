@@ -1,11 +1,12 @@
 <div class="container" style="padding-bottom: 50px">
-    <h1>Welcome </h1>
-    <p>Welcome to CodeStory</p>
-    <p>Write your coding stroy and let's the wolrd can read your life of coding. You can control by public or private</p>
+    <div class="center-align">
+        <h1>Welcome </h1>
+        <p><h4>Welcome to CodeStory</h4></p>
+        <p>Start to Write and Share your coding stroy form now on.</p>
 
-    {{#if user}}
-
-    {{else}}
-    <a class="btn red darken-1" href="/auth/google" ><i class="fa fa-google left"></i> Login with Google</a>
-    {{/if}}
+        {{#if user}} {{else}}
+        <a class="btn red darken-1" href="/auth/google">
+            <i class="fa fa-google left"></i> Login with Google</a>
+        {{/if}}
+    </div>
 </div>
