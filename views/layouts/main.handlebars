@@ -21,7 +21,6 @@
     {{#if user}}
         {{> _add-btn}}
      {{else}}   
-         {{> _add-btn}}
     {{/if}}
         <main>
             {{{body}}}
@@ -44,7 +43,7 @@
             $('select').material_select();
         }); 
 
-       {{!-- Add CKEditor to textarea name body   --}}
+       
        CKEDITOR.replace('body', {plugins: 'wysiwygarea,toolbar,link,basicstyles'});
     </script>
 

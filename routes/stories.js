@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
-const Story = mongoose.model('stories');
 const User = mongoose.model('users');
+const Story = mongoose.model('stories');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
+
+const router = express.Router();
 
 //public stories
 router.get('/', (req,res) => {
@@ -33,7 +34,6 @@ router.get('/:id', (req,res) => {
 
 });
 
-
 //show individual story
 router.get('/show/:id', (req, res) => {
     Story.findOne({
@@ -46,18 +46,11 @@ router.get('/show/:id', (req, res) => {
     
 });
 
-
-//stories add form
-router.get('/add', ensureAuthenticated, (req, res) => {
-    res.render('stories/add');
-}); 
-
-
 //add story form post
 router.post('/', (req, res) => {
-    console.log(req.user.id);
-
+    
     let allowComments;
+
     if(req.body.allowComments){
         allowComments = true;
     }else{
@@ -98,6 +91,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
     }).then(story => {
 
         let allowComments;
+
         if(req.body.allowComments){
             allowComments = true;
         }else{
@@ -123,7 +117,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 
 
 //delete story
-router.delete('/:id', (req, res) => {
+router.delete('/:id',ensureAuthenticated, (req, res) => {
 
     Story.remove({ _id: req.params.id })
     .then(() => {

@@ -26,6 +26,10 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     
 });
 
+router.get('/add', (req, res) => {
+    res.render('stories/add');
+});
+
 //about page
 router.get('/about', (req, res) => {
     res.render('index/about');
