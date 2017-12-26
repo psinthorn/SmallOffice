@@ -8,7 +8,7 @@ const router = express.Router();
 
 //public stories
 router.get('/', (req,res) => {
-    Story.find({status: 'public'})
+    Story.find({status: 'public'}).sort({"date": -1})
     .populate('user')
     .then(stories => {
         res.render('stories/index', {
@@ -24,7 +24,7 @@ router.get('/:id', (req,res) => {
     Story.find({
         user: req.params.id,
         status:  'public'
-    })
+    }).sort({"date": -1})
     .populate('user')
     .then(stories => {
         res.render('stories/index', {
