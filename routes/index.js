@@ -26,7 +26,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     
 });
 
-router.get('/add', (req, res) => {
+router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('stories/add');
 });
 
