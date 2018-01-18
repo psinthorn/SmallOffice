@@ -1,12 +1,11 @@
 <div class="container">
-    <h4>Add new adventure stories</h4>
-    <hr>
-    
-
-        <form action="/stories" method="post">
+    <h4>Edit story</h4>
+    <br>
+        <form action="/stories/{{story.id}}?_method=PUT" method="post">
+            <input type="hidden" name="_method" value="PUT" >
             <div class="row">
                 <div class="input-field">
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="{{story.title}}">
                     <label for="title">Title</label>
                 </div>
 
@@ -15,9 +14,11 @@
             <div class="row">
                 <div class="input-field">
                     <select name="status" id="status">
-                        <option value="public" selected>Public</option>
+                        {{#select story.status}}
+                        <option value="public">Public</option>
                         <option value="private">Private</option>
                         <option value="unpublished">Unpublished</option>
+                        {{/select}}
                     </select>
                     <label for="status">Status</label>
                 </div>
@@ -25,7 +26,7 @@
 
             <div class="row">
                 <p>
-                    <input type="checkbox" class="filled-in" id="filled-in-box" name="allowComments" checked="checked">
+                    <input type="checkbox" class="filled-in" id="filled-in-box" name="allowComments" {{#if story.allowComments}} checked="checked" {{/if}}>
                     <label for="filled-in-box">Allow Comments</label>
                 </p>
             </div>
@@ -33,7 +34,7 @@
             <div class="row">
                 <div class="input-field">
                     <h5>Code your story here</h5>
-                    <textarea type="text" name="body"></textarea>
+                    <textarea type="text" name="body">{{story.body}}</textarea>
 
                 </div>
 

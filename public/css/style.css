@@ -24,3 +24,7 @@ body {
   .text-capitalize{
     text-transform: capitalize;
   }
+
+  .darken-3 {
+    background-color: blue;
+  }

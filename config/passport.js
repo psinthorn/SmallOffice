@@ -36,6 +36,7 @@ module.exports = function(passport){
             if(user){
                 //if user found
                 done(null, user);
+                
             }else{
                 //create new user
                 new User(newUser).save()

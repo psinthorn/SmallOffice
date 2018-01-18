@@ -30,6 +30,8 @@ mongoose.connect(keys.mongoURI, {
 //load auth router
 const auth = require('./routes/auth'); 
 const stories = require('./routes/stories');
+// const stories = require('./routes/tours');
+// const stories = require('./routes/transfers');
 const index = require('./routes/index');
 
 const app = express();
@@ -78,6 +80,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use auth route
+//app.use('./tours', tours);
 app.use('/stories', stories);
 app.use('/auth', auth);
 app.use('/', index);
