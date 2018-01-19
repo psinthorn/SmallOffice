@@ -12,6 +12,7 @@ const keys  = require('./config/key');
 //load user model
 require('./models/Users');
 require('./models/Stories');
+require('./models/Tours');
 
 //Load config
 require('./config/passport')(passport);
@@ -30,7 +31,7 @@ mongoose.connect(keys.mongoURI, {
 //load auth router
 const auth = require('./routes/auth'); 
 const stories = require('./routes/stories');
-// const stories = require('./routes/tours');
+const tours = require('./routes/tours');
 // const stories = require('./routes/transfers');
 const index = require('./routes/index');
 
@@ -80,7 +81,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use auth route
-//app.use('./tours', tours);
+app.use('/tours', tours);
 app.use('/stories', stories);
 app.use('/auth', auth);
 app.use('/', index);

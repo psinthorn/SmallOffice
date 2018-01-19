@@ -15,25 +15,50 @@
                 <div class="card-action"></a></div>
             </div>
 
-            {{#if story.allComments }}
+            {{#if story.allowComments }}
 
         <div class="card">
             <div class="card card-content">
-                <div class="card card-title">
-                    Comment Here
-                </div>
+                <span class="card-title">
+                    {{#if user}}
+                
+                    <form method="post" action="/stories/comment/{{story.id}}">
+                    <div class="input-field">
+                        <label>Add your comment here.</label>
+                        <textarea name="commentBody" id="commentBody" class="materialize-textarea"></textarea>
+                        
+                    </div>
+                    <div >
+                        <input type="Submit" value="Submit" class="btn">
+                    </div>
+                        
+                    
+                    </form>
+
+                    {{else}}
+                        <p>Please log in to lave a comment <a href="/auth/google">Login</a></p>
+                    {{/if}}
+                </span>
             </div>
         </div>
 
+        {{#each story.comments }}
+            <div class="card">
+                <div class="card-content" style="padding-bottom: 30px">
+                    
+                    <p>" {{commentBody}} "</p>   
+                    
+                </div>
+
+            <div class="card-action">  
+                <div class="chip" style="display: inline-block">
+                        <img src="{{commentUser.image}}" alt="user image"> {{commentUser.firstName}} {{commentUser.lastName}}
+                </div>
+                <p style="display: inline-block; float: right">Comment date: <small>{{formatDate story.date 'Do MMMM YYYY'}}</small></p></div>
+
+            </div>
+         {{/each}}   
         {{/if }}
-
-         <div class="card">
-            <div class="card card-content">
-                <div class="card card-title">
-                    Comment Here
-                </div>
-            </div>
-        </div>
         
         </div>
 

@@ -1,4 +1,4 @@
-<nav class="grey darken-3">
+<nav class="blue darken-3">
     <div class="container">
         <div class="nav-wrapper">
             <a href="/" class="brand-logo center">OceanTour</a>
@@ -22,41 +22,84 @@
                     <a href="/stories">
                         <i class="fa fa-book"></i>Public Adventure Stories</a>
                 </li>
-                {{!-- <li>
+                {{!--
+                <li>
                     <a href="/auth/google">
                         <i class="fa fa-sign-in"></i> Login</a>
-                </li> --}}
-                {{/if}}
+                </li> --}} {{/if}}
             </ul>
 
             <!-- Side-Nav Menu -->
             <ul class="side-nav" id="main-menu">
-               
+
                 {{#if user}}
-                
-                {{else}}
                 <li>
-                    <a class="btn red darken-1" href="/auth/google"><i class="fa fa-google"></i> Login with Google</a>
+                    {{!-- padding property padding: top right bottom left --}}
+                    <div style="text-align:center; padding: 30px 0 30px 0">
+                    <div class="chip" style="display: inline-block; text-align: center">
+                        <img src="{{user.image}}" alt="user image"> {{user.firstName}} {{user.lastName}}
+                    </div>
+                    </div>
                 </li>
-                 
-               
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa fa-cogs"></i>My Dashboard</a>
+                </li>
+                {{else}}
+
+                <li>
+                    <a class="btn red darken-1" href="/auth/google">
+                        <i class="fa fa-google"></i> Login with Google</a>
+                </li>
+
+
                 {{/if}}
-                
-                  <li>
-                    <a href="/stories"><i class="fa fa-book"></i> Public Adventure Stories</a>
+
+                <li>
+                    <a href="/stories">
+                        <i class="fa fa-book"></i> Public Adventure Stories</a>
                 </li>
                 <li class="divider"></li>
-
-                {{#if user}}
-                 <li>
-                    <a href="/dashboard"><i class="fa fa-cogs"></i>Dashboard</a>
+                <li>
+                    <a href="/tours">
+                        <i class="fa fa-book"></i>Tour Package</a>
+                </li>
+                <li>
+                    <a href="/tours">
+                        <i class="fa fa-book"></i>Transfers Service</a>
                 </li>
 
-                {{!-- <li>
-                    <a href="/stories/my-stories"><i class="fa fa-comments-o"></i> My Stories</a>
+                <li>
+                    <a href="/tours">
+                        <i class="fa fa-book"></i>One Day Trip</a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/tours">
+                        <i class="fa fa-book"></i>Fullmoon Party</a>
+                </li>
+
+                <li>
+                    <a href="/tours">
+                        <i class="fa fa-book"></i>Haftmoon Festival</a>
+                </li>
+
+                <li class="divider"></li>
+
+                {{#if user}} {{!--
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa fa-cogs"></i>Dashboard</a>
+                </li> --}} {{!--
+                <li>
+                    <a href="/stories/my-stories">
+                        <i class="fa fa-comments-o"></i> My Stories</a>
                 </li> --}}
-                 <li>
-                    <a href="/auth/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                <li>
+                    <a href="/auth/logout">
+                        <i class="fa fa-sign-out"></i>Logout</a>
                 </li>
 
                 {{/if}}

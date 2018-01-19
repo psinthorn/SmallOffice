@@ -8,14 +8,14 @@ const router = express.Router();
 
 //public stories
 router.get('/', (req,res) => {
-    Story.find({status: 'public'}).sort({"date": -1})
-    .populate('user')
-    .then(tours => {
-        res.render('tours/index', {
-            tours: tours
-        });
-    });
-
+    // Tour.find({status: 'public'}).sort({"date": -1})
+    // .populate('user')
+    // .then(tours => {
+    //     res.render('tours/index', {
+    //         tours: tours
+    //     });
+    // });
+    res.render('tours/index');
    
 });
 

@@ -9,7 +9,7 @@ body {
   }
 
   .nav-wrapper .fa-bars {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   footer{
@@ -25,6 +25,6 @@ body {
     text-transform: capitalize;
   }
 
-  .darken-3 {
+  .blue-primary {
     background-color: blue;
   }
