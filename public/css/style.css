@@ -34,5 +34,14 @@ body {
   }
 
   .parallax-container {
-    
+    /* background-image: url(../imags/parallax1.jpg); */
+    background-size: cover;
+    height: 95vh;
+  }
+
+  .banner-index {
+    height: 95vh;
+    background-image: url(../imags/parallax1.jpg);
+    background-size: cover;
+    background-color: #777;
   }
