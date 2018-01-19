@@ -34,14 +34,32 @@ body {
   }
 
   .parallax-container {
-    /* background-image: url(../imags/parallax1.jpg); */
-    background-size: cover;
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    /* background-size: cover; */
     height: 95vh;
+    /* background-position: top; */
   }
+
+  .parallax-container-textbox-left {
+
+    display: inline-block;
+    /* float: left; */
+    padding: 150px;
+    color: #eee;
+  }
+
+  .parallax-container-textbox-right {
+        display: inline-block;
+        /* float: right; */
+        padding: 180px;
+        color: #eee;
+   }
 
   .banner-index {
     height: 95vh;
-    background-image: url(../imags/parallax1.jpg);
+    background-image: url(../imags/natours/nat-5.jpg);
     background-size: cover;
     background-color: #777;
+    background-position: top;
+    
   }

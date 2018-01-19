@@ -1,23 +1,59 @@
 <div class="container-fluid" style="padding-bottom: 50px">
     <div class="center-align">
 
-    <div class="parallax-container">
-      <div class="parallax"><img src="imags/natours/nat-5.jpg"></div>
-    </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="imags/natours/nat-5.jpg">
 
-        {{!-- <div class="banner-index"></div> --}}
+            </div>
 
-        <p><h4>Welcome to Ocean Tour</h4></p>
-        <p>Adventure is your journey start new journey with us.</p>
-       <p class="lead"> Sign in  and START NOW</p> 
+            <div class="row">
 
-       
+                <div class="col s12 m6 l6">
+                    <div class="parallax-container-textbox-left">
+                        <p>
+                            <h1>Welcome </h1>
+                            <h2>to Ocean Tour</h2>
+                        </p>
+                        <p>Adventure is your journey start new journey with us.</p>
+                     
 
-        {{#if user}} 
-        
-        {{else}}
-        <a class="btn red darken-1" href="/auth/google">
-            <i class="fa fa-google left"></i> Login with Google Account</a>
-        {{/if}}
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l6">
+
+                    <div class="parallax-container-textbox-right">
+                        <p>
+                            <h4>Get 20% Discount</h4>
+                        </p>
+                        <p>When write and Share Your Story with us.</p>
+                        <p class="lead"> Sign in and START NOW</p>
+
+                        {{#if user}} {{else}}
+                        <a class="btn red darken-1" href="/auth/google">
+                            <i class="fa fa-google left"></i> Login with Google Account</a>
+                        {{/if}}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        {{!--
+        <div class="banner-index">
+
+
+        </div> --}}
+
+
+
+
+
     </div>
 </div>
