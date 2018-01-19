@@ -10,6 +10,14 @@ body {
 
   .nav-wrapper .fa-bars {
     font-size: 30px;
+
+  }
+
+  .nav-wrapper  {
+    
+    background-color:     #084672;
+      
+    
   }
 
   footer{
@@ -25,6 +33,6 @@ body {
     text-transform: capitalize;
   }
 
-  .blue-primary {
-    background-color: blue;
+  .parallax-container {
+    
   }

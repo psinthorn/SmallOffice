@@ -1,0 +1,39 @@
+/* //== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:               #191919;
+$gray-darkest:            #212121;
+$gray-darken:             #595959;
+$gray-darker:             #393a3c;
+$gray-dark:               #747474;
+$gray:                   #8f8f8f;
+$gray-light:              #f2f2f2;
+$gray-lighter:            #f5f5f5;
+$gray-lightest:           #f7f7f7;
+
+$brand-primary:           #084672;
+$brand-success:           #69b02a;
+$brand-success-dark:      #569112;
+$brand-info:              #79ccf2;
+$brand-warning:           #fcbe16;
+$brand-danger:            #d74646;
+
+// Derivatives colors
+$brand-ripe-lemon:        #00adbd;
+$brand-zircon:            #f8f8f8;
+$brand-silver:            #c2c2c2;
+$brand-chathams-blue:     #09416c;
+$brand-shark:             #292a2d;
+$brand-mercury:           #e8e8e8;
+$brand-silver-dark:       #bdbdbd;
+$brand-geyser:            #d1d7e4;
+$brand-botticelli:        rgba(236,217,193,1);
+$brand-alto:              #e0e0e0;
+//$brand-botticelli:        #d2d9e7;
+
+$brand-pizazz:            #fe8d03;
+$brand-primary-darker:    #3256a4;
+$brand-grayscale:         #e1e1e1;
+
+$white: #fff; */

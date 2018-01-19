@@ -1,13 +1,20 @@
-<div class="container" style="padding-bottom: 50px">
+<div class="container-fluid" style="padding-bottom: 50px">
     <div class="center-align">
-        <h1>Welcome </h1>
+
+    <div class="parallax-container">
+      <div class="parallax"><img src="imgs/parallax1.jpg"></div>
+    </div>
+
+        
         <p><h4>Welcome to Ocean Tour</h4></p>
         <p>Adventure is your journey start new journey with us.</p>
-       <p class="lead"> SIGN IN and START NOW</p> 
+       <p class="lead"> Sign in  and START NOW</p> 
 
-        {{#if user}} {{else}}
+        {{#if user}} 
+        
+        {{else}}
         <a class="btn red darken-1" href="/auth/google">
-            <i class="fa fa-google left"></i> Login with Google</a>
+            <i class="fa fa-google left"></i> Login with Google Account</a>
         {{/if}}
     </div>
 </div>
