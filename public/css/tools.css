@@ -1,0 +1,15 @@
+.parallax-container-textbox-left {
+    
+        display: inline-block;
+        /* float: left; */
+        padding: 150px;
+        color: #eee;
+      }
+    
+.parallax-container-textbox-right {
+            display: inline-block;
+            /* float: right; */
+            padding: 180px;
+            color: #eee;
+       }
+    

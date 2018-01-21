@@ -1,0 +1,15 @@
+.parallax-container {
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    /* background-size: cover; */
+    height: 95vh;
+    /* background-position: top; */
+  }
+
+  .banner-index {
+    height: 95vh;
+    background-image: url(../imags/natours/nat-5.jpg);
+    background-size: cover;
+    background-color: #777;
+    background-position: top;
+    
+  }
