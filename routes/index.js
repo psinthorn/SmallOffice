@@ -35,4 +35,9 @@ router.get('/about', (req, res) => {
     res.render('index/about');
 });
 
+//Contact Us
+router.get('/contact-us', (req,res) => {
+    res.render('index/contact-us');
+});
+
 module.exports = router;

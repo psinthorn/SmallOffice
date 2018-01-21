@@ -4,7 +4,7 @@
         /* float: left; */
         padding-top: 150px;
         text-align: center;
-        color: #eee;
+        color: #fff;
       }
     
 .parallax-container-textbox-right {
@@ -12,6 +12,20 @@
             /* float: right; */
             padding-top: 180px;
             text-align: center;
-            color: #eee;
+            color: #fff;
        }
+
+ .hr-1px {
+   display: inline-block;
+   border-bottom: 1px solid grey;
+   width: 100%;
+   margin-bottom: 30px;
+ }  
+ 
+ .hr-1px-p10 {
+  display: inline-block;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  margin-bottom: 10px;
+}   
     
