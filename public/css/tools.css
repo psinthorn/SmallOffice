@@ -2,14 +2,16 @@
     
         display: inline-block;
         /* float: left; */
-        padding: 150px;
+        padding-top: 150px;
+        text-align: center;
         color: #eee;
       }
     
 .parallax-container-textbox-right {
             display: inline-block;
             /* float: right; */
-            padding: 180px;
+            padding-top: 180px;
+            text-align: center;
             color: #eee;
        }
     
