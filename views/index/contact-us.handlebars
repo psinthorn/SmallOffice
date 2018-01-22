@@ -10,21 +10,28 @@
 
             
             <div class="row">
-                <form class="col s12">
+                <form  action="/mail/send" method="post" >
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
+                            <input placeholder="Placeholder" id="firstName"  name="firstName" type="text" class="validate">
+                            <label for="firstName">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
+                            <input id="lastName" name="lastName" type="text" class="validate">
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input placeholder="Placeholder" id="subject"  name="subject" type="text" class="validate">
+                            <label for="subject">Subject</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea value="You message here" id="contactBody" class="materialize-textarea"></textarea>
-                            <label for="contactBody">Message</label>
+                            <textarea value="You message here" id="emailBody" name="emailBody" class="materialize-textarea"></textarea>
+                            <label for="emailBody">Message</label>
                         </div>
                     </div>
                     {{!--
@@ -36,12 +43,14 @@
                     </div> --}}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
+                            <input id="toEmail" name="toEmail" type="email" class="validate">
+                            <label for="toEmail">Email</label>
                         </div>
                     </div>
 
-                    <a class="waves-effect waves-light btn">Send</a>
+                     <div class="row">
+                <input type="submit" value="Send" class="btn right">
+            </div>
 
                 </form>
             </div>
