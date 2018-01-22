@@ -32,6 +32,7 @@ mongoose.connect(keys.mongoURI, {
 const auth = require('./routes/auth'); 
 const stories = require('./routes/stories');
 const tours = require('./routes/tours');
+const mail = require('./routes/mail');
 // const stories = require('./routes/transfers');
 const index = require('./routes/index');
 
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use auth route
+app.use('/mail', mail);
 app.use('/tours', tours);
 app.use('/stories', stories);
 app.use('/auth', auth);
