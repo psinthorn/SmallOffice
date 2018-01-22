@@ -49,7 +49,12 @@ router.post('/send', (req, res) => {
         //to: req.body.to, // list of receivers
         to: toEmail,
         subject: subject, // Subject line
-        text: emailBody, // plain text body
+        text: `Hello ${firstName} ${lastName} 
+        
+        ${emailBody}
+        
+        Ocean Tour Team
+        Thank you for contact us have a good trip :) `, // plain text body
         //html: '<b>NodeJS Email Tutorial</b>' // html body
     };
 
