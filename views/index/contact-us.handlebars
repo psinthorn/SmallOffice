@@ -8,24 +8,35 @@
                 use a quick contact form below or visit our office personally. We would be happy to answer your questions.
             </p>
 
-
+            <div class="row">
+                <div class="input-field col s12">
+                    {{#each errors}}
+                    <div class="alert alert-danger">{{error}}</div>
+                    {{/each}} 
+                    
+                    {{#each successMsg}}
+                    <div class="alert alert-success">{{success}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            
             <div class="row">
                 <form action="/mail/contact" method="post">
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="firstName" name="firstName" type="text" class="validate">
+                            <input  id="firstName" name="firstName" type="text" class="validate" value={{firstName}} >
                             <label for="firstName" data-error="First Name Require">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="lastName" name="lastName" type="text" class="validate">
+                            <input id="lastName" name="lastName" type="text" class="validate" value={{lastName}} >
                             <label for="lastName">Last Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
-                            <input id="toEmail" name="toEmail" type="email" class="validate">
+                            <input id="toEmail" name="toEmail" type="email" class="validate" value={{toEmail}} >
                             <label for="toEmail" data-error="Invalid Email Address" data-success="Valid Email Address">Email</label>
                         </div>
                     </div>
@@ -33,14 +44,14 @@
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">edit</i>
-                            <input id="subject" name="subject" type="text" class="validate">
+                            <input id="subject" name="subject" type="text" class="validate" value={{subject}} >
                             <label for="subject">Subject</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">drafts</i>
-                            <textarea value="You message here" id="emailBody" name="emailBody" class="materialize-textarea"></textarea>
+                            <textarea value="You message here" id="emailBody" name="emailBody" class="materialize-textarea" >{{emailBody}}</textarea>
                             <label for="emailBody">Message</label>
                         </div>
                     </div>
@@ -50,20 +61,19 @@
                             <input id="password" type="password" class="validate">
                             <label for="password">Password</label>
                         </div>
-                    </div> --}}
-
+                    </div> --}} {{!--
                     <div class="row">
                         <div class="input-field col s12">
                             <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                        </div>                       
-                    </div>
+                        </div>
+                    </div> --}}
 
-                    
+
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="submit" value="Send" class="btn right">
                         </div>
-                        
+
                     </div>
 
                 </form>
