@@ -18,31 +18,31 @@ router.get('/send', (req, res) => {
 
 router.post('/send', (req, res) => {
 
-        const firstName = req.body.firstName;
-        const lastName = req.body.lastName;
-        const fromEmail = 'seaflyers@hotmail.com';
-        const toEmail   = req.body.toEmail;
-        const subject = req.body.subject;
-        const emailBody = req.body.emailBody;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const fromEmail = 'seaflyers@hotmail.com';
+    const toEmail = req.body.toEmail;
+    const subject = req.body.subject;
+    const emailBody = req.body.emailBody;
 
-        // console.log('Name ' +firstName);
-        // console.log('Sure Name ' +lastName);
-        // console.log('From ' +fromEmail);
-        // console.log('To ' +toEmail);
-        // console.log('Subject ' +subject);
-        // console.log('Email Body' +emailBody);
+    // console.log('Name ' +firstName);
+    // console.log('Sure Name ' +lastName);
+    // console.log('From ' +fromEmail);
+    // console.log('To ' +toEmail);
+    // console.log('Subject ' +subject);
+    // console.log('Email Body' +emailBody);
 
-        let transporter = nodeMailer.createTransport({
-            host: 'mail.directbooking.co.th',
-            port: 25,
-            secure: false,
-            auth: {
-                user: 'sinthorn@directbooking.co.th',
-                pass: '1978#$Life'
-            },
-            tls: {
-                rejectUnauthorized:false
-            }
+    let transporter = nodeMailer.createTransport({
+        host: 'mail.directbooking.co.th',
+        port: 25,
+        secure: false,
+        auth: {
+            user: 'sinthorn@directbooking.co.th',
+            pass: '1978#$Life'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
     });
     let mailOptions = {
         from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
@@ -64,43 +64,43 @@ router.post('/send', (req, res) => {
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
         res.render('index/contact-us');
-        });
     });
+});
 
-    router.post('/fullmoon', (req, res) => {
-        
-                const firstName = req.body.firstName;
-                const lastName = req.body.lastName;
-                const fromEmail = 'seaflyers@hotmail.com';
-                const toEmail   = req.body.toEmail;
-                const subject = req.body.subject;
-                const emailBody = req.body.emailBody;
-        
-                // console.log('Name ' +firstName);
-                // console.log('Sure Name ' +lastName);
-                // console.log('From ' +fromEmail);
-                // console.log('To ' +toEmail);
-                // console.log('Subject ' +subject);
-                // console.log('Email Body' +emailBody);
-        
-                let transporter = nodeMailer.createTransport({
-                    host: 'mail.directbooking.co.th',
-                    port: 25,
-                    secure: false,
-                    auth: {
-                        user: 'sinthorn@directbooking.co.th',
-                        pass: '1978#$Life'
-                    },
-                    tls: {
-                        rejectUnauthorized:false
-                    }
-            });
-            let mailOptions = {
-                from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
-                //to: req.body.to, // list of receivers
-                to: toEmail,
-                subject: subject, // Subject line
-                text: `Hello ${firstName} ${lastName} 
+router.post('/fullmoon', (req, res) => {
+
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const fromEmail = 'seaflyers@hotmail.com';
+    const toEmail = req.body.toEmail;
+    const subject = req.body.subject;
+    const emailBody = req.body.emailBody;
+
+    // console.log('Name ' +firstName);
+    // console.log('Sure Name ' +lastName);
+    // console.log('From ' +fromEmail);
+    // console.log('To ' +toEmail);
+    // console.log('Subject ' +subject);
+    // console.log('Email Body' +emailBody);
+
+    let transporter = nodeMailer.createTransport({
+        host: 'mail.directbooking.co.th',
+        port: 25,
+        secure: false,
+        auth: {
+            user: 'sinthorn@directbooking.co.th',
+            pass: '1978#$Life'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+    let mailOptions = {
+        from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
+        //to: req.body.to, // list of receivers
+        to: toEmail,
+        subject: subject, // Subject line
+        text: `Hello ${firstName} ${lastName} 
                 
                 Fullmoon Party Reservation 
                 
@@ -108,17 +108,179 @@ router.post('/send', (req, res) => {
                 
                 Samui Ocean Tour Team
                 Thank you for contact us have a good trip :) `, // plain text body
-                //html: '<b>NodeJS Email Tutorial</b>' // html body
-            };
-        
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    return console.log(error);
+        //html: '<b>NodeJS Email Tutorial</b>' // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        res.render('index/contact-us');
+    });
+});
+
+
+router.post('/haftmoon', (req, res) => {
+
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const fromEmail = 'seaflyers@hotmail.com';
+    const toEmail = req.body.toEmail;
+    const subject = req.body.subject;
+    const emailBody = req.body.emailBody;
+
+    // console.log('Name ' +firstName);
+    // console.log('Sure Name ' +lastName);
+    // console.log('From ' +fromEmail);
+    // console.log('To ' +toEmail);
+    // console.log('Subject ' +subject);
+    // console.log('Email Body' +emailBody);
+
+    let transporter = nodeMailer.createTransport({
+        host: 'mail.directbooking.co.th',
+        port: 25,
+        secure: false,
+        auth: {
+            user: 'sinthorn@directbooking.co.th',
+            pass: '1978#$Life'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+    let mailOptions = {
+        from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
+        //to: req.body.to, // list of receivers
+        to: toEmail,
+        subject: subject, // Subject line
+        text: `Hello ${firstName} ${lastName} 
+                        
+                        Haftmoon Festival Reservation 
+                        
+                        ${emailBody}
+                        
+                        Samui Ocean Tour Team
+                        Thank you for contact us have a good trip :) `, // plain text body
+        //html: '<b>NodeJS Email Tutorial</b>' // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        res.render('index/contact-us');
+    });
+});
+
+
+router.post('/nangyuan-kohtao', (req, res) => {
+
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const fromEmail = 'seaflyers@hotmail.com';
+    const toEmail = req.body.toEmail;
+    const subject = req.body.subject;
+    const emailBody = req.body.emailBody;
+
+    // console.log('Name ' +firstName);
+    // console.log('Sure Name ' +lastName);
+    // console.log('From ' +fromEmail);
+    // console.log('To ' +toEmail);
+    // console.log('Subject ' +subject);
+    // console.log('Email Body' +emailBody);
+
+    let transporter = nodeMailer.createTransport({
+        host: 'mail.directbooking.co.th',
+        port: 25,
+        secure: false,
+        auth: {
+            user: 'sinthorn@directbooking.co.th',
+            pass: '1978#$Life'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+    let mailOptions = {
+        from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
+        //to: req.body.to, // list of receivers
+        to: toEmail,
+        subject: subject, // Subject line
+        text: `Hello ${firstName} ${lastName} 
+                                
+                                Kohnangyuan & Koh Tao Reservation 
+                                
+                                ${emailBody}
+                                
+                                Samui Ocean Tour Team
+                                Thank you for contact us have a good trip :) `, // plain text body
+        //html: '<b>NodeJS Email Tutorial</b>' // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        res.render('index/contact-us');
+    });
+});
+
+router.post('/angthong', (req, res) => {
+    
+            const firstName = req.body.firstName;
+            const lastName = req.body.lastName;
+            const fromEmail = 'seaflyers@hotmail.com';
+            const toEmail   = req.body.toEmail;
+            const subject = req.body.subject;
+            const emailBody = req.body.emailBody;
+    
+            // console.log('Name ' +firstName);
+            // console.log('Sure Name ' +lastName);
+            // console.log('From ' +fromEmail);
+            // console.log('To ' +toEmail);
+            // console.log('Subject ' +subject);
+            // console.log('Email Body' +emailBody);
+    
+            let transporter = nodeMailer.createTransport({
+                host: 'mail.directbooking.co.th',
+                port: 25,
+                secure: false,
+                auth: {
+                    user: 'sinthorn@directbooking.co.th',
+                    pass: '1978#$Life'
+                },
+                tls: {
+                    rejectUnauthorized:false
                 }
-                console.log('Message %s sent: %s', info.messageId, info.response);
-                res.render('index/contact-us');
-                });
+        });
+        let mailOptions = {
+            from: '"Sinthorn Pradutnam" <sinthorn@directbooking.co.th>', // sender address
+            //to: req.body.to, // list of receivers
+            to: toEmail,
+            subject: subject, // Subject line
+            text: `Hello ${firstName} ${lastName} 
+            
+            Angthong Nation Marine Park Reservation 
+            
+            ${emailBody}
+            
+            Samui Ocean Tour Team
+            Thank you for contact us have a good trip :) `, // plain text body
+            //html: '<b>NodeJS Email Tutorial</b>' // html body
+        };
+    
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+            res.render('index/contact-us');
             });
+        });
+
 
 module.exports = router;
 
