@@ -8,13 +8,14 @@
                 use a quick contact form below or visit our office personally. We would be happy to answer your questions.
             </p>
 
-            
+
             <div class="row">
-                <form  action="/mail/send" method="post" >
+                <form action="/mail/contact" method="post">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input  id="firstName"  name="firstName" type="text" class="validate">
-                            <label for="firstName">First Name</label>
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="firstName" name="firstName" type="text" class="validate">
+                            <label for="firstName" data-error="First Name Require">First Name</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="lastName" name="lastName" type="text" class="validate">
@@ -23,19 +24,22 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
                             <input id="toEmail" name="toEmail" type="email" class="validate">
-                            <label for="toEmail">Email</label>
+                            <label for="toEmail" data-error="Invalid Email Address" data-success="Valid Email Address">Email</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input  id="subject"  name="subject" type="text" class="validate">
+                            <i class="material-icons prefix">edit</i>
+                            <input id="subject" name="subject" type="text" class="validate">
                             <label for="subject">Subject</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">drafts</i>
                             <textarea value="You message here" id="emailBody" name="emailBody" class="materialize-textarea"></textarea>
                             <label for="emailBody">Message</label>
                         </div>
@@ -47,11 +51,14 @@
                             <label for="password">Password</label>
                         </div>
                     </div> --}}
-                    
 
-                     <div class="row">
-                <input type="submit" value="Send" class="btn right">
-            </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="submit" value="Send" class="btn right">
+                        </div>
+                        
+                    </div>
 
                 </form>
             </div>
@@ -76,7 +83,7 @@
             <div class="row">
                 <h5>Email</h5>
                 <div class="hr-1px-p10"></div>
-                 <div class="col s12 m2 l2">
+                <div class="col s12 m2 l2">
                     <p>
                         <i class="material-icons">drafts</i>
                     </p>
@@ -90,7 +97,7 @@
             <div class="row">
                 <h5>Phone</h5>
                 <div class="hr-1px-p10"></div>
-                 <div class="col s12 m2 l2">
+                <div class="col s12 m2 l2">
                     <p>
                         <i class="material-icons">call</i>
                     </p>
@@ -104,7 +111,7 @@
             <div class="row">
                 <h5>Address</h5>
                 <div class="hr-1px-p10"></div>
-                 <div class="col s12 m2 l2">
+                <div class="col s12 m2 l2">
                     <p>
                         <i class="material-icons">location_on</i>
                     </p>
