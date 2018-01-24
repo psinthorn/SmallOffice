@@ -16,6 +16,7 @@ router.get('/send', (req, res) => {
     //     }
 });
 
+//Contact us email send
 router.post('/contact', (req, res) => {
 
     let errors = [];
@@ -49,7 +50,7 @@ router.post('/contact', (req, res) => {
             toEmail: req.body.toEmail,
             subject: req.body.subject,
             emailBody: req.body.emailBody,
-        });
+    });
         
     }else{
         
@@ -57,7 +58,7 @@ router.post('/contact', (req, res) => {
             {
                 success: 'You message has been sent. And thank you for contact us.',
                 thankYou: 'Thank You'
-    });
+        });
 
         const firstName = req.body.firstName;
         const lastName = req.body.lastName;
@@ -118,69 +119,106 @@ router.post('/contact', (req, res) => {
  
 });
 
-router.get('/reservations/:id', (req, res) => {
-    const selectedPackage = req.params.id;
-    
-       console.log(selectedPackage);
-    
-});
 
+
+//Tour package reservation
 router.post('/reservations', (req, res) => {
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const fromEmail = 'seaflyers@hotmail.com';
-    const toEmail = req.body.toEmail;
-    const choosePackage = req.body.choosePackage;
-    const emailBody = req.body.emailBody;
-    const reservationEmail = 'psinthorn@gmail.com';
 
-    // console.log('Name ' +firstName);
-    // console.log('Sure Name ' +lastName);
-    // console.log('From ' +fromEmail);
-    // console.log('To ' +toEmail);
-    // console.log('Subject ' +subject);
-    // console.log('Email Body' +emailBody);
-    //  console.log('Email Body' +choosePackage);
+    let errors = [];
+    let successMsg = [];
 
-    let transporter = nodeMailer.createTransport({
-        host: 'mail.directbooking.co.th',
-        port: 25,
-        secure: false,
-        auth: {
-            user: 'sinthorn@directbooking.co.th',
-            pass: '1978#$Life'
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-    let mailOptions = {
-        from: `Samui Ocean Tour ${fromEmail}`, // sender address
-        //to: req.body.to, // list of receivers
-        to: toEmail,
-        bcc: reservationEmail,
-        subject: `Tour Reservations From Website`, // Subject line
-        text: `Dear ${firstName} ${lastName} 
-                                
-                                Your Package Selection: ${choosePackage}
-                                
-                                ${emailBody}
-                                
-                                Samui Ocean Tour Team
-                                Thank you for contact us have a good trip :) `, // plain text body
-        //html: '<b>NodeJS Email Tutorial</b>' // html body
-    };
+    if(!req.body.choosePackage){
+        errors.push({error: '*Please select a package'});
+    }
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message %s sent: %s', info.messageId, info.response);
-        res.render('reservations/thank-you');
-    });
+    if(!req.body.firstName){
+        errors.push({error: '*First name is require'});
+    }
+
+    if(!req.body.lastName){
+        errors.push({error: '*Last name is require'});
+    }
+
+    if(!req.body.toEmail){
+        errors.push({error: '*Email address is require'});
+    }
+
+
+    if(errors.length > 0){
+        res.render('reservations/index', {
+
+            errors: errors,
+            choosePackage: req.body.choosePackage,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            toEmail: req.body.toEmail,
+            emailBody: req.body.emailBody
+
+        });
+
+    }else{
+
+        successMsg.push({success: 'Your reservation is success we will contact you back shortly :) ', thankYou: 'Thank You'});
+
+        const firstName = req.body.firstName;
+        const lastName = req.body.lastName;
+        const fromEmail = 'seaflyers@hotmail.com';
+        const toEmail = req.body.toEmail;
+        const choosePackage = req.body.choosePackage;
+        const emailBody = req.body.emailBody;
+        const reservationEmail = 'psinthorn@gmail.com';
+    
+        // console.log('Name ' +firstName);
+        // console.log('Sure Name ' +lastName);
+        // console.log('From ' +fromEmail);
+        // console.log('To ' +toEmail);
+        // console.log('Subject ' +subject);
+        // console.log('Email Body' +emailBody);
+        //  console.log('Email Body' +choosePackage);
+    
+        let transporter = nodeMailer.createTransport({
+            host: 'mail.directbooking.co.th',
+            port: 25,
+            secure: false,
+            auth: {
+                user: 'sinthorn@directbooking.co.th',
+                pass: '1978#$Life'
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        let mailOptions = {
+            from: `Samui Ocean Tour ${fromEmail}`, // sender address
+            //to: req.body.to, // list of receivers
+            to: toEmail,
+            bcc: reservationEmail,
+            subject: `Tour Reservations From Website`, // Subject line
+            text: `Dear ${firstName} ${lastName} 
+                                    
+                                    Your Package Selection: ${choosePackage}
+                                    
+                                    ${emailBody}
+                                    
+                                    Samui Ocean Tour Team
+                                    Thank you for contact us have a good trip :) `, // plain text body
+            //html: '<b>NodeJS Email Tutorial</b>' // html body
+        };
+    
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+            res.render('reservations/index', {successMsg: successMsg});
+        });
+
+    }
+
+    
 });
 
 
-
+//Export router
 module.exports = router;
 
