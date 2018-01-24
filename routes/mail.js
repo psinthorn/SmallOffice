@@ -53,7 +53,11 @@ router.post('/contact', (req, res) => {
         
     }else{
         
-        successMsg.push({success: 'You message has been sent. And thank you for contact us.'});
+        successMsg.push(
+            {
+                success: 'You message has been sent. And thank you for contact us.',
+                thankYou: 'Thank You'
+    });
 
         const firstName = req.body.firstName;
         const lastName = req.body.lastName;
