@@ -2,36 +2,40 @@
     <h3>Content</h3>
     <div class="hr-1px"></div>
     <div class="row">
-        {{#each contents }}
-        <div class="col s12 m4 ">
-            <div class="card hoverable">
-                <div class="card-image">
+       
+        {{#if contents}}
+        <table class="striped">
+        <thead>
+          <tr>
+              <th>Title</th>
+              <th>Body</th>
+              <th>Status</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
 
-                    {{!-- <a href="/stories/edit/{{id}}" class="btn-floating halfway-fab red">
-                        <i class="fa fa-pencil"></i>
-                    </a> --}}
-                </div>
-                <div class="card-content grey-text darken-4 center-align">
-                    <span class="card-title">{{title}}</span>
-                    <p class="card-text">{{stripTags (truncate body 100)}}</p>
-                    <br>
-                    <div class="chip">
-                        <img src="{{user.image}}" alt="user image"> {{user.firstName}} {{user.lastName}}
-                    </div>
-                </div>
-                <div class="card-action center-align">
-                    <a class="btn grey" href="#">Read More</a>
-                    {{!-- <a class="btn grey" href="/stories/show/{{id}}">Read More</a> --}}
-                </div>
+        <tbody>
 
+          
+            {{#each contents }}
 
-            </div>
-        </div>
+            
+          <tr>
+            <td>{{title}}</td>
+            <td>{{stripTags (truncate body 100)}}</td>
+            <td>{{status}}</td>
+            <td>Edit | Delete</td>
+
+          </tr>
+           {{/each}}
+            
+        </tbody>
+      </table>
 
         {{else}}
         <p>No Content Found!</p>
-        {{/each}}
-
+       {{/if}}
+     
 
     </div>
 </div>
