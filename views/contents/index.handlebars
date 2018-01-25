@@ -1,0 +1,37 @@
+<div class="container">
+    <h3>Content</h3>
+    <div class="hr-1px"></div>
+    <div class="row">
+        {{#each contents }}
+        <div class="col s12 m4 ">
+            <div class="card hoverable">
+                <div class="card-image">
+
+                    {{!-- <a href="/stories/edit/{{id}}" class="btn-floating halfway-fab red">
+                        <i class="fa fa-pencil"></i>
+                    </a> --}}
+                </div>
+                <div class="card-content grey-text darken-4 center-align">
+                    <span class="card-title">{{title}}</span>
+                    <p class="card-text">{{stripTags (truncate body 100)}}</p>
+                    <br>
+                    <div class="chip">
+                        <img src="{{user.image}}" alt="user image"> {{user.firstName}} {{user.lastName}}
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <a class="btn grey" href="#">Read More</a>
+                    {{!-- <a class="btn grey" href="/stories/show/{{id}}">Read More</a> --}}
+                </div>
+
+
+            </div>
+        </div>
+
+        {{else}}
+        <p>No Content Found!</p>
+        {{/each}}
+
+
+    </div>
+</div>

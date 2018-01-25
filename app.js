@@ -13,6 +13,7 @@ const keys  = require('./config/key');
 require('./models/Users');
 require('./models/Stories');
 require('./models/Tours');
+require('./models/Contents');
 
 //Load config
 require('./config/passport')(passport);
@@ -34,7 +35,7 @@ const auth = require('./routes/auth');
 const stories = require('./routes/stories');
 const tours = require('./routes/tours');
 const mail = require('./routes/mail');
-// const stories = require('./routes/transfers');
+const contents = require('./routes/content');
 const index = require('./routes/index');
 
 const app = express();
@@ -82,7 +83,8 @@ app.use((req, res, next) => {
 //set static folder public
 app.use(express.static(path.join(__dirname, 'public')));
 
-//use auth route
+//use route
+app.use('/contents', contents);
 app.use('/reservations', reservations);
 app.use('/mail', mail);
 app.use('/tours', tours);

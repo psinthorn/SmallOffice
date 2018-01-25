@@ -51,26 +51,61 @@ router.get('/show/:id', (req, res) => {
 router.post('/', (req, res) => {
 
     let allowComments;
+    let errors = [];
+    let successMsg = [];
 
-    if (req.body.allowComments) {
-        allowComments = true;
-    } else {
-        allowComments = false;
+    let user = req.user.id;
+    if(user == undefined || user == '' || user == null){
+        res.render('auth/google');
     }
 
-    const newStory = {
-        title: req.body.title,
-        body: req.body.body,
-        status: req.body.status,
-        allowComments: allowComments,
-        user: req.user.id
+    if (!req.body.title) {
+        errors.push({ error: '* Story title is require' })
     }
 
-    new Story(newStory)
-        .save()
-        .then(story => {
-            res.redirect('/dashboard');
+    if (!req.body.body) {
+        errors.push({ error: '* Story content is require' })
+    }
+
+    if (!req.body.status) {
+        errors.push({ error: '* Status is require' })
+    }
+
+    if (errors.length > 0) {
+        res.render('stories/add', {
+            errors: errors,
+            title: req.body.title,
+            body: req.body.body,
+            status: req.body.status,
+            allowComments: allowComments,
         });
+
+    } else {
+
+        successMsg.push({ success: `Your new story is addded, Click dashboard to view your stories ` });
+
+        if (req.body.allowComments) {
+            allowComments = true;
+        } else {
+            allowComments = false;
+        }
+
+        const newStory = {
+            title: req.body.title,
+            body: req.body.body,
+            status: req.body.status,
+            allowComments: allowComments,
+            user: req.user.id
+        }
+
+        new Story(newStory)
+            .save()
+            .then(story => {
+
+                res.render('stories/add', {successMsg: successMsg});
+
+            });
+    }
 });
 
 //edit story form
@@ -84,36 +119,37 @@ router.get('/edit/:id', (req, res) => {
 
 });
 
+
 //edit stories process
 router.put('/:id', ensureAuthenticated, (req, res) => {
 
     Story.findOne({
         _id: req.params.id
     })
-    .then(story => {
+        .then(story => {
 
-        let allowComments;
+            let allowComments;
 
-        if (req.body.allowComments) {
-            allowComments = true;
-        } else {
-            allowComments = false;
-        }
+            if (req.body.allowComments) {
+                allowComments = true;
+            } else {
+                allowComments = false;
+            }
 
-        //new value 
+            //new value 
 
-        story.title = req.body.title,
-            story.status = req.body.status,
-            story.allowComments = allowComments,
-            story.body = req.body.body
+            story.title = req.body.title,
+                story.status = req.body.status,
+                story.allowComments = allowComments,
+                story.body = req.body.body
 
-        //update story
-        story.save()
-            .then(story => {
-                res.redirect('/dashboard');
-            });
+            //update story
+            story.save()
+                .then(story => {
+                    res.redirect('/dashboard');
+                });
 
-    });
+        });
 
 });
 
@@ -141,20 +177,23 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
     Story.findOne({
         _id: req.params.id
     })
-    .then(story => {
-        const newComment = {
-            commentBody: req.body.commentBody,
-            commentUser: req.user.id
-        }
-        story.comments.unshift(newComment);
+        .then(story => {
+            const newComment = {
+                commentBody: req.body.commentBody,
+                commentUser: req.user.id
+            }
+            story.comments.unshift(newComment);
 
-        story.save()
-            .then(story => {
-                res.redirect(`/stories/show/${story.id}`);
-            })
+            story.save()
+                .then(story => {
+                    res.redirect(`/stories/show/${story.id}`);
+                })
 
-    });
+        });
+
+ 
 
 });
+
 
 module.exports = router;

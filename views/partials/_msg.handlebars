@@ -1,0 +1,15 @@
+  <div class="row">
+                <div class="input-field col s12">
+                    {{#if errors}}
+                    <div class="card-panel red lighten-4">
+                        {{#each errors}} {{error}}
+                        <br> {{/each}}
+                    </div>
+                    {{/if}} {{#each successMsg}}
+
+                    <div class="card-panel green lighten-4">
+                         {{success}}
+                    </div>
+                    {{/each}}
+                </div>
+    </div>

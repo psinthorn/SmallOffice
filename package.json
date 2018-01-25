@@ -1,7 +1,7 @@
 {
-  "name": "codestory",
+  "name": "Samui Ocean Tour",
   "version": "1.0.0",
-  "description": "How you start to coding",
+  "description": "Samui Ocean Tour Web Portal",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,6 +23,7 @@
     "mongoose": "4.11.12",
     "nodemailer": "^4.4.2",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "request": "^2.83.0"
   }
 }

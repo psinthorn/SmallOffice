@@ -45,8 +45,59 @@
                 </li>
                 <li>
                     <a href="/dashboard">
-                        <i class="fa fa-cogs"></i>My Dashboard</a>
+                        <i class="material-icons">tune</i>My Dashboard</a>
                 </li>
+
+                 <li>
+                    <a href="/stories">
+                        <i class="material-icons medium">forum</i>Stories</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/tours">
+                        <i class="material-icons">explore</i>Tour Package List</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">local_taxi</i>Transfers Service</a>
+                </li>
+
+                {{!-- <li>
+                    <a href="#">
+                        <i class="material-icons">loyalty</i>One Day Trip</a>
+                </li> --}}
+
+                <li class="divider"></li>
+
+                {{!-- <li>
+                    <a href="#">
+                        <i class="material-icons">brightness_1</i></i>Fullmoon Party</a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="material-icons">brightness_2</i>Haftmoon Festival</a>
+                </li> --}}
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/contents">
+                        <i class="material-icons">view_list</i>Content List</a>
+                </li>
+
+                <li>
+                    <a href="/contents/add">
+                        <i class="material-icons">plus</i>Add Content</a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/contact-us">
+                        <i class="material-icons">favorite</i>Get in Touch</a>
+                </li>
+
                 {{else}}
 
                 <li>
@@ -54,10 +105,7 @@
                         <i class="fa fa-google"></i> Login with Google</a>
                 </li>
 
-
-                {{/if}}
-
-                <li>
+                 <li>
                     <a href="/stories">
                         <i class="material-icons medium">forum</i> Public Adventure Stories</a>
                 </li>
@@ -96,6 +144,11 @@
                 </li>
 
 
+
+                {{/if}}
+
+               
+
                 {{#if user}} {{!--
                 <li>
                     <a href="/dashboard">
@@ -107,7 +160,7 @@
                 </li> --}}
                 <li>
                     <a href="/auth/logout">
-                        <i class="fa fa-sign-out"></i>Logout</a>
+                        <i class="material-icons">exit_to_app</i>Logout</a>
                 </li>
 
                 {{/if}}
