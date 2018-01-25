@@ -65,7 +65,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
     
         } else {
     
-            successMsg.push({ success: `Your new content is addded, Click dashboard to view your stories ` });
+            successMsg.push({ success: `Your new content is addded, Click dashboard to view your contents ` });
     
             if (req.body.allowComments) {
                 allowComments = true;
