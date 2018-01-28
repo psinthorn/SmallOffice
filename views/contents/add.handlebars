@@ -1,5 +1,5 @@
 <div class="container">
-    <h4>Add new adventure stories</h4>
+    <h4>Add new content</h4>
     <hr>
     
     <div class="container">
@@ -23,7 +23,7 @@
         <form action="/contents" method="post">
             <div class="row">
                 <div class="input-field">
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="{{title}}">
                     <label for="title">Title</label>
                 </div>
 
@@ -40,17 +40,17 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{!-- <div class="row">
                 <p>
                     <input type="checkbox" class="filled-in" id="filled-in-box" name="allowComments" checked="checked">
                     <label for="filled-in-box">Allow Comments</label>
                 </p>
-            </div>
+            </div> --}}
 
             <div class="row">
                 <div class="input-field">
                     <h5>Content Body</h5>
-                    <textarea type="text" name="body"></textarea>
+                    <textarea type="text" name="body">{{body}}</textarea>
 
                 </div>
 

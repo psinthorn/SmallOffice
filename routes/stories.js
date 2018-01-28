@@ -138,7 +138,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 
             //new value 
 
-            story.title = req.body.title,
+                story.title = req.body.title,
                 story.status = req.body.status,
                 story.allowComments = allowComments,
                 story.body = req.body.body

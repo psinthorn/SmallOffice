@@ -36,6 +36,12 @@ router.post('/', ensureAuthenticated, (req, res) => {
         let allowComments;
         let errors = [];
         let successMsg = [];
+
+        if (req.body.allowComments) {
+            allowComments = true;
+        } else {
+            allowComments = false;
+        }
     
         let user = req.user.id;
         if(user == undefined || user == '' || user == null){
@@ -43,11 +49,11 @@ router.post('/', ensureAuthenticated, (req, res) => {
         }
     
         if (!req.body.title) {
-            errors.push({ error: '* Story title is require' })
+            errors.push({ error: '* Content title is require' })
         }
     
         if (!req.body.body) {
-            errors.push({ error: '* Story content is require' })
+            errors.push({ error: '* Content body is require' })
         }
     
         if (!req.body.status) {
@@ -55,7 +61,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
         }
     
         if (errors.length > 0) {
-            res.render('stories/add', {
+            res.render('contents/add', {
                 errors: errors,
                 title: req.body.title,
                 body: req.body.body,
@@ -101,6 +107,71 @@ router.post('/', ensureAuthenticated, (req, res) => {
             })
     
     });
+
+    //edit content form
+// router.get('/edit/:id', (req, res) => {
+//     Story.findOne({
+//         _id: req.params.id
+//     })
+//         .then(story => {
+//             res.render('contents/edit', { story: story });
+//         })
+
+// });
+
+
+//edit contents process
+router.put('/:id', ensureAuthenticated, (req, res) => {
+
+    let successMsg = [];
+    
+
+    Content.findOne({
+        _id: req.params.id
+    })
+        .then(content => {
+
+            let allowComments;
+
+            if (req.body.allowComments) {
+                allowComments = true;
+            } else {
+                allowComments = false;
+            }
+
+            //new value 
+
+                content.title = req.body.title,
+                content.status = req.body.status,
+                content.allowComments = allowComments,
+                content.body = req.body.body
+
+            //update content
+            content.save()
+                .then(content => {
+                    successMsg.push({success: 'Update success'});
+                    res.render('contents', {successMsg: successMsg});
+                });
+
+        });
+
+});
+
+
+//delete content
+router.delete('/:id', ensureAuthenticated, (req, res) => {
+
+    //console.log(req.params.id);
+
+    let successMsg = [];
+    successMsg.push({success: 'Content deleted'});
+
+    Content.remove({ _id: req.params.id })
+        .then(() => {
+            res.render('contents/index', {successMsg: successMsg});
+        });
+
+});
     
 
 

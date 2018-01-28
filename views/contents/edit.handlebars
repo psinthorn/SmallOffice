@@ -1,0 +1,55 @@
+<div class="container">
+    <h4>Edit Content</h4>
+    <br>
+    <div class="row">
+
+        {{>_msg }}
+
+    </div>
+
+    <form action="/contents/{{content.id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title" value="{{content.title}}">
+                <label for="title">Title</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    {{#select content.status}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        {{!-- <div class="row">
+            <p>
+                <input type="checkbox" class="filled-in" id="filled-in-box" name="allowComments" {{#if content.allowComments}} checked="checked"
+                    {{/if}}>
+                <label for="filled-in-box">Allow Comments</label>
+            </p>
+        </div> --}}
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Code your content here</h5>
+                <textarea type="text" name="body">{{content.body}}</textarea>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <input type="submit" value="Update" class="btn right">
+        </div>
+
+    </form>
+
+</div>
