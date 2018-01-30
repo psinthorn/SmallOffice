@@ -44,5 +44,5 @@ const Schema = mongoose.Schema;
 
     });
 
-    //Create collection and schema
+    //Create collection and schema (modelName, schemaName, collectionName)
     mongoose.model('stories', StorySchema, 'stories');

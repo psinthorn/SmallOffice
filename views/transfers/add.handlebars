@@ -1,0 +1,110 @@
+<div class="container">
+
+
+    <div class="row">
+
+         {{> _msg}}
+        <div class="col s12 m6 l6">
+            <h4>Add new routes</h4>
+            <div class="hr-1px"></div>
+
+            <form action="/transfers" method="post">
+                <div class="row">
+                    <div class="input-field col s12 m6 l6">
+
+
+                        <input type="text" name="from">
+                        <label for="from">From</label>
+
+                    </div>
+
+
+
+                    <div class="input-field col s12 m6 l6">
+
+                        <input type="text" name="to">
+                        <label for="to">To</label>
+
+                    </div>
+
+                </div>
+
+                <h5>Price Section</h5>
+                <div class="hr-1px"></div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+
+                        <input type="text" name="net">
+                        <label for="net">Net Price</label>
+
+                    </div>
+
+                    <div class="input-field col s12 m4 l4">
+
+                        <input type="text" name="sale">
+                        <label for="sale">Sale Price</label>
+
+                    </div>
+
+                    <div class="input-field col s12 m4 l4">
+
+                        <input type="text" name="discount">
+                        <label for="discount">Dicount Price</label>
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+
+                        <input type="text" name="member">
+                        <label for="member">Member</label>
+
+                    </div>
+
+                    <div class="input-field col s12 m4 l4">
+
+                        <input type="text" name="promotion">
+                        <label for="promotion">Promotion</label>
+
+                    </div>
+
+                    <div class="input-field col s12 m4 l4">
+
+                        {{!-- <input type="text" name="discount">
+                        <label for="discount">Dicount Price</label> --}}
+
+                    </div>
+
+
+                </div>
+
+                 <div class="row">
+                <div class="input-field">
+                    <select name="status" id="status">
+                        <option value="public" selected>Public</option>
+                        <option value="private">Private</option>
+                        <option value="unpublished">Unpublished</option>
+                    </select>
+                    <label for="status">Status</label>
+                </div>
+            </div>
+
+                <div class="row">
+                    <input type="submit" value="Save" class="btn right">
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col s12 m6 l6">
+            <h4>Current Routes</h4>
+            <div class="hr-1px"></div>
+        </div>
+
+
+    </div>
+</div>
