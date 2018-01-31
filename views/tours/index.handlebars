@@ -1,133 +1,96 @@
 <div class="container">
     <h3>Tour Packages</h3>
     <div class="hr-1px"></div>
-    
-        <div class="row">
 
-            <div class="col s12 m6 l6">
+    {{> _msg}}
 
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/tours/koh-nangyuan-koh-tao.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Koh Nangyuan & Koh Tao
-                            <i class="material-icons medium right">info</i>
-                        </span>
-                        <p>
-                            <a class="btn green darken-1" href="/reservations">
-                            Price 2300.00 Baht</a>
-                        </p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Time: 8:30am - 4:30pm
-                            <i class="material-icons right">close</i>
-                        </span>
-                        <p>Visit one of the most beautiful places on earth, Koh Nangyuan & Koh Tao Island. This place is a perfect paradise for those who love diving and want to relax in natural surroundings. This place includes three islands of amazing beauty that will surely calm your senses and mesmerize your eyes. Give wings to your postcards dreams with the blindingly white sand beaches, unique topography, and shores teeming with fish and coral.
+    {{#if user}}
 
-It will take 50 minutes to reach the Koh Nang Yuan from Koh Samui. Enjoy the tasty Thai buffet food and drink at Koh Tao Island. Take pleasure in unlimited beach activities and enjoy snorkeling adventure.</p>
+    <div class="row">
 
-                       
+        {{#if tours}}
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Tours Title</th>
+                    {{!-- <th>Date</th> --}}
+                    <th>Sale Price</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each tours}}
+                <tr>
+                    <td>
+                        <a href="/tours/show/{{id}}">{{title}}</a>
+                    </td>
+                    <td>{{#each price}}{{sale}}{{/each}}</td>
+                    {{!-- <td>{{ formatDate date 'Do MMMM YYYY'}}</td> --}}
+                    <td>
+                        <span class="text-capitalize">{{status}}</span>
+                    </td>
+                    <td>
+                        <a href="/tours/edit/{{id}}" class="btn">
+                            <i class="fa fa-pencil"></i>
+                        </a>
 
-                    </div>
+                        <form action="/tours/{{id}}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </form>
+
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+            </table>
+        {{else}}
+        <p>No Tour Package</p>
+        {{/if}}
+    {{else }} <!-- if not login --> 
+
+    <div class="row">
+        {{#each tours}}
+        <div class="col s12 m6 l6">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/{{imgUrl}}">
                 </div>
-
-            </div>
-
-            <div class="col s12 m6 l6">
-
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/tours/angthong-nation-park.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Angthong Nation Park
-                            <i class="material-icons medium right">info</i>
-                        </span>
-                        <p>
-                            <a class="btn green darken-1" href="/reservations">
-                            Price 2100.00 Baht</a>
-                        </p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Time: 8:30am - 4:30pm
-                            <i class="material-icons right">close</i>
-                        </span>
-                        <p>Angthong tour let your discover the Ang Thong National Marine Park also known as 'golden bowl’ covered the area of 250 sq. km in which 50 sq. Km includes 40 islands that nature protected area. Here you can explore the caves and unspoiled beaches, hidden lagoons and much. You can enjoy your day while kayaking, snorkeling, and swimming. Discover the hidden beauty of nature and lost in it.
-
-Explore the emerald lagoon lake and white sandy beaches. The trip becomes fascinating when you do snorkeling between the shallow coral gardens. Your tour is including hotel pickup and drop off.</p>
-                    </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{title}}
+                        <i class="material-icons medium right">info</i>
+                    </span>
+                    <p>
+                        <a class="btn green darken-1" href="/reservations">
+                          {{#each price}} 
+                            Price {{sale}}.00 Baht</a>
+                        {{/each}}
+                         </a>
+                    </p>
                 </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{title}}
+                        <i class="material-icons right">close</i>
+                    </span>
+                    <p>{{{body}}}</p>
 
 
 
+                </div>
             </div>
-
 
         </div>
 
-                <div class="row">
+    {{/each}} 
 
-            <div class="col s12 m6 l6">
+      </div>
 
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/tours/fullmoon-party.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Fullmoon Party
-                            <i class="material-icons medium right">info</i>
-                        </span>
-                        <p>
-                            <a class="btn green darken-1" href="/reservations">
-                            Price 900.00 Baht</a>
-                        </p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Fullmon Party - Koh Phangan
-                            <i class="material-icons right">close</i>
-                        </span>
-                        <p>Lost your mind and feel free in the full moon party. Get along with your friends and enjoy the nonstop dance, music and fun till sunrise. Meet new people from different parts of the world and make some good new friends. Party hard under the moonlight on the beachside. Partying in a heaven of relaxation on the sandy beaches without feeling congested will let your feel free like a wild animal.
+    {{/if}} 
+        
 
-Book your ticket with us to ensure a safe and comfortable party night with full service picking up from your hotel and returning to your hotel.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col s12 m6 l6">
-
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="images/tours/haftmoon-party.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Haftmoon Festival
-                            <i class="material-icons medium right">info</i>
-                        </span>
-                        <p>
-                            <a class="btn green darken-1" href="/reservations">
-                            Price 1400.00 Baht</a>
-                        </p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Haftmoon Festival - Koh Phangan
-                            <i class="material-icons right">close</i>
-                        </span>
-                        <p>Organized in a tropical forest on a paradise island, Half Moon Festival attracts several thousands participants each time. Guests come from all over the World to experience this legendary event.
-
-Began over 15 years ago, on the island of Koh Phangan a young DJ from the island decided he would move his events away from the beach, where the Full Moon parties were taking place; and into the mysteries of the rain-forest. He found a beautiful area in the wild tropical forest and began growing his vision.
-
-Book with us for this amazing Tropical Wonderland that would come alive during every half moon night. The admission is inclusive 1 glasses of absolute vodka or any drinks of your choice with exclusive music download on Halfmoon website and souvenirs for every purchased ticket.</p>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
-        </div>
-
-
-</div>
+    </div>

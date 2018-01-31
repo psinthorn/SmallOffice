@@ -165,15 +165,8 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
 });
 
 //add story comment
-
 router.post('/comment/:id', ensureAuthenticated, (req, res) => {
-    // const commentBody = req.body.commentBody;
-    // const commentUser = req.user.id;
-
-    // console.log(commentUser);
-    // console.log(commentBody);
-
-    //console.log('test comment');
+    
     Story.findOne({
         _id: req.params.id
     })

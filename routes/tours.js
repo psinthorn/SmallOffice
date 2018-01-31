@@ -8,16 +8,19 @@ const router = express.Router();
 
 //public stories
 router.get('/', (req,res) => {
-    // Tour.find({status: 'public'}).sort({"date": -1})
-    // .populate('user')
-    // .then(tours => {
-    //     res.render('tours/index', {
-    //         tours: tours
-    //     });
-    // });
-    res.render('tours/index');
+   
+    Tour.find()
+    .then(tours => {
+        res.render('tours/index', {tours: tours});
+    })
    
 });
+
+
+router.get('/add', ensureAuthenticated, (req, res) => {
+        res.render('tours/add');
+});
+
 
 //user stories
 router.get('/:id', (req,res) => {
@@ -47,44 +50,83 @@ router.get('/show/:id', (req, res) => {
 });
 
 //add story form post
-router.post('/', (req, res) => {
+router.post('/', ensureAuthenticated,  (req, res) => {
     
+    let errors = [];
+    let successMsg = [];
     let allowComments;
 
-    if(req.body.allowComments){
-        allowComments = true;
+
+    if(!req.body.title){
+        errors.push({error: '* Tour title is require'});
+    }
+    if(!req.body.body){
+        errors.push({error: '* Tour body is require'});
+    }
+
+    if(errors.length > 0 ) {
+        res.render('tours/add', {
+            errors: errors,
+            title: req.body.title,
+            body: req.body.body,
+            status: req.body.status
+        });
     }else{
-        allowComments = false;
+        successMsg.push({success: 'Add new tour package completed'});
+
+        if(req.body.allowComments){
+            allowComments = true;
+        }else{
+            allowComments = false;
+        }
+    
+        const newTour = {
+            title: req.body.title,
+            body: req.body.body,
+            status: req.body.status,
+            allowComments: allowComments,
+            user: req.user.id
+        }
+    
+        new Tour(newTour)
+        .save()
+        .then(tour => {
+            res.render('tours/add', {successMsg: successMsg});
+        });
+        
     }
 
-    const newTour = {
-        title: req.body.title,
-        body: req.body.body,
-        status: req.body.status,
-        allowComments: allowComments,
-        user: req.user.id
-    }
-
-    new Tour(newTour)
-    .save()
-    .then(tour => {
-        res.redirect('/dashboard');
-    });
 });
 
 //edit story form
-router.get('/edit/:id', (req, res) => {
-    tour.findOne({
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+
+    let successMsg = [];
+    let tourRate;
+
+    Tour.findOne({
         _id: req.params.id
     })
     .then(tour => {
-        res.render('tours/edit', {tour: tour});
+
+        if(tour.price.length > 0){
+            tourRate = 1;
+        }else{
+            tourRate = 0;
+        }
+        res.render('tours/edit', {
+            tour: tour,
+            tourRate: tourRate
+        });
     })
     
 });
 
-//edit stories process
+//edit tour process
 router.put('/:id', ensureAuthenticated, (req, res) => {
+
+    let successMsg = [];
+    let errors = [];
 
     Tour.findOne({
         _id: req.params.id
@@ -108,8 +150,12 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
         //update tour
         tour.save()
         .then(tour => {
-            res.redirect('/dashboard');
-        });
+            successMsg.push({success: 'Update completed'}); 
+
+            res.render(`tours/index`, {
+                successMsg: successMsg,
+            });
+        })
         
     });
     
@@ -125,5 +171,65 @@ router.delete('/:id',ensureAuthenticated, (req, res) => {
     });
 
 });
+
+//Tour rate add price
+router.post('/price-rate/:id', ensureAuthenticated, (req, res) => {
+    
+    Tour.findOne({
+
+        _id: req.params.id
+    })
+   .then(tour => {
+            const newPrice = {
+                sale: req.body.sale,
+                member: req.body.member,
+                promotion: req.body.promotion,
+                discount: req.body.discount,
+                net: req.body.net
+                
+            }
+            tour.price.unshift(newPrice);
+
+            tour.save()
+                .then(tour => {
+                    res.redirect(`/tours/show/${tour.id}`);
+                })
+
+        });
+    });
+
+    //Edit price
+
+    //edit tour process
+router.put('/price-rate/:id', ensureAuthenticated, (req, res) => {
+    
+        let successMsg = [];
+        let errors = [];
+        let tourId = req.params.id
+
+        Tour.findOne({
+            _id: req.params.id
+        }).then(tour => {
+            
+
+            //new value 
+                tour.price[0].sale = req.body.sale,
+                tour.price[0].member = req.body.member,
+                tour.price[0].promotion = req.body.promotion,
+                tour.price[0].discount = req.body.discount,
+                tour.price[0].net = req.body.net           
+            
+            //update tour
+            tour.save()
+            .then(tour => {
+                successMsg.push({success: 'Price update completed'}); 
+    
+                res.redirect(`/tours/show/${tour.id}`);
+            })
+            
+        });
+        
+    }); 
+    
 
 module.exports = router;

@@ -1,15 +1,15 @@
 <div class="container">
-    <h1>Code Story</h1>
+    <h1>Tour Package</h1>
     {{!-- <div class="divider"></div> --}}
     <div class="row">
         <div class="col s12 m8 l8">
             <div class="card">
                 <div class="card-content text-grey darken-4">
-                    <div class="card-title">{{story.title}}</div>
+                    <div class="card-title">{{tour.title}}</div>
                    
-                    <p>{{{story.body}}}</p>
+                    <p>{{{tour.body}}}</p>
                     <br>
-                    <p>Story created date: <small>{{formatDate story.date 'Do MMMM YYYY'}}</small></p>
+                    <p>tour created date: <small>{{formatDate tour.date 'Do MMMM YYYY'}}</small></p>
                 </div>
                 
                 <div class="card-action"></a></div>
@@ -18,12 +18,12 @@
         <div class="col s12 m4 l4">
             <div class="card">
                 <div class="card-content center-align">
-                    <img src="{{story.user.image}}" class="circle responsive-img" alt="Story Author">
+                    <img src="{{tour.user.image}}" class="circle responsive-img" alt="tour Author">
                     <br>
-                    {{story.user.firstName}} {{story.user.lastName}}
+                    {{tour.user.firstName}} {{tour.user.lastName}}
                     
                 </div>
-                <div class="card-action"><a href="/stories/{{story.user.id}}">More story from {{story.user.firstName}}</a></div>
+                <div class="card-action"><a href="/stories/{{tour.user.id}}">More tour from {{tour.user.firstName}}</a></div>
             </div>
 
         </div>

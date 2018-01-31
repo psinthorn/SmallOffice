@@ -15,27 +15,31 @@ const Schema = mongoose.Schema;
             type: String,
             default: '0.00'
         },
+        imgUrl:{
+            type: String,
+            default: 'tours/koh-nangyuan-koh-tao.jpg'
+        },
         price:[{
-            salePrice: {
+            sale: {
             type: String,
             default: '0.00'
             },
-            netPrice: {
+            member: {
                 type: String,
                 default: '0.00'
             },
-            memberPrice: {
+            promotion: {
                 type: String,
                 default: '0.00'
             },
-            promotionPrice: {
+            discount: {
                 type: String,
                 default: '0.00'
             },
-            discountPrice: {
+            net: {
                 type: String,
                 default: '0.00'
-            }
+            },
 
         }],
         allowComments:{

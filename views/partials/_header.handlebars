@@ -22,6 +22,40 @@
 
         </ul>
 
+        <!-- Tours Package Managment Menu Dropdown Structure -->
+        <ul id="tours_dropdown" class="dropdown-content">
+             <li>
+                  
+                    <a href="/tours">
+                        <i class="material-icons">view_list</i>Tours List</a>
+                </li>
+
+                <li>
+                    <a href="/tours/add">
+                        <i class="material-icons">playlist_add</i>Add Tour Package</a>
+                </li>
+
+        </ul>
+
+        <!-- End Tour dropdown -->
+
+        <!-- Transfers Routes Managment Menu Dropdown Structure -->
+        <ul id="transfers_dropdown" class="dropdown-content">
+             <li>
+                  
+                    <a href="/transfers">
+                        <i class="material-icons">view_list</i>Transfers Routes</a>
+                </li>
+
+                <li>
+                    <a href="/transfers/add">
+                        <i class="material-icons">playlist_add</i>Add Routes</a>
+                </li>
+
+        </ul>
+
+        <!-- End Transfers dropdown -->
+
         <div class="nav-wrapper">
             <a href="/" class="brand-logo center">OceanTour</a>
             <a href="#" data-activates="main-menu" class="button-collapse show-on-large">
@@ -72,7 +106,7 @@
 
                 <li>
                     <a href="/stories">
-                        <i class="material-icons medium">forum</i>Stories</a>
+                        <i class="material-icons medium">forum</i>My Stories</a>
                 </li>
                 
                
@@ -103,20 +137,22 @@
 
                 <li class="divider"></li>
 
-                 <li> 
-                  <a href="/tours">
-                        <i class="material-icons">explore</i>Tour Package List</a>
-                </li>
-
                 <li>
-                    <a href="#">
-                        <i class="material-icons">local_taxi</i>Transfers Service List</a>
+                  <a class="dropdown-button" href="#!" data-activates="tours_dropdown">Tours Management
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
                 </li>
 
-                
+                 <li class="divider"></li>
 
+                 <li>
+                  <a class="dropdown-button" href="#!" data-activates="transfers_dropdown">Transfers Management
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+
+                 <li class="divider"></li>
                 
-                <li class="divider"></li>
 
                 <li>
                     <a href="/contact-us">
