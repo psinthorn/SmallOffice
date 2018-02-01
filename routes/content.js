@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .then(contents => {
             res.render('contents/index', {
                 contents: contents
-            });
+            });  
         });
         
         

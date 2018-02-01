@@ -109,7 +109,8 @@ router.post('/', (req, res) => {
 });
 
 //edit story form
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
+
     Story.findOne({
         _id: req.params.id
     })

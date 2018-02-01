@@ -33,4 +33,18 @@ body {
     text-transform: capitalize;
   }
 
+  .services-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+   
+  }
+
+  .about-section{
+    background-color: #ccc;
+    padding-top: 120px;
+    padding-bottom: 120px;
+   color: #fff;
+   
+  }
+
   
