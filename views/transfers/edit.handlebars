@@ -1,0 +1,181 @@
+<div class="container">
+
+
+    <div class="row">
+
+        {{> _msg}}
+        <div class="col s12 m6 l6">
+            <h4>Update Route</h4>
+            <div class="hr-1px"></div>
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/transfers/?_method=PUT" method="post">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <div class="row">
+                                <div class="input-field col s12 m6 l6">
+                                    <input type="text" name="from" value="{{route.from}}">
+                                    <label for="from">From</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="to" value="{{route.to}}">
+                                    <label for="to">To</label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field">
+                                    <select name="status" id="status">
+                                        {{#select route.status}}
+                                        <option value="public" selected>Public</option>
+                                        <option value="private">Private</option>
+                                        <option value="unpublished">Unpublished</option>
+                                        {{/select}}
+                                        <lect></lect>
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Update" class="btn right">
+                            </div>
+
+                        </form>
+
+
+                        <h5>Update Rate</h5>
+                        <div class="hr-1px"></div>
+                        <form action="/transfers/rate" method="post">
+
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="net">
+                                    <label for="net">Net Price</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="sale">
+                                    <label for="sale">Sale Price</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="discount">
+                                    <label for="discount">Dicount Price</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="member">
+                                    <label for="member">Member</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="promotion">
+                                    <label for="promotion">Promotion</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    {{!--
+                                    <input type="text" name="discount">
+                                    <label for="discount">Dicount Price</label> --}}
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="Update" class="btn right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col s12 m6 l6">
+            <h4>Add vehicle type and rate</h4>
+            <div class="hr-1px"></div>
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/transfers/rate" method="post">
+
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="net">
+                                    <label for="net">Net Price</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="sale">
+                                    <label for="sale">Sale Price</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="discount">
+                                    <label for="discount">Dicount Price</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="member">
+                                    <label for="member">Member</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    <input type="text" name="promotion">
+                                    <label for="promotion">Promotion</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+
+                                    {{!--
+                                    <input type="text" name="discount">
+                                    <label for="discount">Dicount Price</label> --}}
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="Add" class="btn right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

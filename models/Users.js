@@ -18,6 +18,14 @@ const userSchema = new Schema({
     },
     image: {
         type: String
+    },
+    role: {
+        type: String,
+        default: 'Member'
+    },
+    status: {
+        type: String,
+        default: 'offine'
     }
 });
 

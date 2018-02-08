@@ -19,6 +19,10 @@ const Schema = mongoose.Schema;
             type: Boolean,
             default: true
         },
+        category:{
+            type: String,
+            default: 'Normal'
+        },
         comments:[{
             commentBody:{
                 type: String,

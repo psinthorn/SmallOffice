@@ -2,9 +2,7 @@
     <h3>Tour Packages</h3>
     <div class="hr-1px"></div>
 
-    {{> _msg}}
-
-    {{#if user}}
+    {{> _msg}} {{#if user}}
 
     <div class="row">
 
@@ -13,7 +11,8 @@
             <thead>
                 <tr>
                     <th>Tours Title</th>
-                    {{!-- <th>Date</th> --}}
+                    {{!--
+                    <th>Date</th> --}}
                     <th>Sale Price</th>
                     <th>Status</th>
                     <th></th>
@@ -27,7 +26,8 @@
                         <a href="/tours/show/{{id}}">{{title}}</a>
                     </td>
                     <td>{{#each price}}{{sale}}{{/each}}</td>
-                    {{!-- <td>{{ formatDate date 'Do MMMM YYYY'}}</td> --}}
+                    {{!--
+                    <td>{{ formatDate date 'Do MMMM YYYY'}}</td> --}}
                     <td>
                         <span class="text-capitalize">{{status}}</span>
                     </td>
@@ -48,49 +48,56 @@
                 </tr>
                 {{/each}}
             </tbody>
-            </table>
+        </table>
         {{else}}
         <p>No Tour Package</p>
-        {{/if}}
-    {{else }} <!-- if not login --> 
+        {{/if}} {{else }}
+        <!-- if not login -->
 
-    <div class="row">
-        {{#each tours}}
-        <div class="col s12 m6 l6">
-            <div class="card hoverable">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/{{imgUrl}}">
+        <div class="row">
+            {{#each tours}}
+            <div class="col s12 m6 l6">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="images/{{imgUrl}}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{title}}
+                            <i class="material-icons medium right">info</i>
+                        </span>
+                        <p>
+                            {{#if price}}
+                            <a class="btn green darken-1" href="/reservations">
+                                {{#each price}} Price {{sale}}.00 Baht</a>
+                            {{/each}}
+                            </a>
+                            {{else}}
+                            <a class="btn green darken-1" href="/reservations">
+
+                                Enquiry</a>
+
+
+                            {{/if}}
+                        </p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{title}}
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>{{{body}}}</p>
+
+
+
+                    </div>
                 </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{title}}
-                        <i class="material-icons medium right">info</i>
-                    </span>
-                    <p>
-                        <a class="btn green darken-1" href="/reservations">
-                          {{#each price}} 
-                            Price {{sale}}.00 Baht</a>
-                        {{/each}}
-                         </a>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{title}}
-                        <i class="material-icons right">close</i>
-                    </span>
-                    <p>{{{body}}}</p>
 
-
-
-                </div>
             </div>
+
+            {{/each}}
 
         </div>
 
-    {{/each}} 
+        {{/if}}
 
-      </div>
-
-    {{/if}} 
-        
 
     </div>

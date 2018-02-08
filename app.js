@@ -10,6 +10,7 @@ const session = require('express-session');
 const keys  = require('./config/key');
 
 //load user model
+require('./models/Category');
 require('./models/Transfers');
 require('./models/Users');
 require('./models/Stories');
@@ -31,6 +32,7 @@ mongoose.connect(keys.mongoURI, {
 .catch(err => console.log(err) );
 
 //load router
+const admin = require('./routes/admin');
 const transfers = require('./routes/transfers');
 const reservations = require('./routes/reservations')
 const auth = require('./routes/auth'); 
@@ -86,6 +88,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use route
+app.use('/admin', admin);
 app.use('/transfers', transfers);
 app.use('/contents', contents);
 app.use('/reservations', reservations);

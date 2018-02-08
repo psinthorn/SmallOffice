@@ -5,60 +5,7 @@
 
         {{> _msg}}
 
-        <div class="col s12 m6 l6">
-            <h4>Add new routes</h4>
-            <div class="hr-1px"></div>
-
-            <div class="col s12 m12 l12">
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-
-                        <form action="/transfers" method="post">
-                            <div class="row">
-                                <div class="input-field col s12 m6 l6">
-
-
-                                    <input type="text" name="from">
-                                    <label for="from">From</label>
-
-                                </div>
-
-
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="to">
-                                    <label for="to">To</label>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="input-field">
-                                    <select name="status" id="status">
-                                        <option value="public" selected>Public</option>
-                                        <option value="private">Private</option>
-                                        <option value="unpublished">Unpublished</option>
-                                    </select>
-                                    <label for="status">Status</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <input type="submit" value="Save" class="btn right">
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col s12 m6 l6" style="padding-left: 20px; padding-right: 20px">
+        <div class="col s12 m12 l12" style="padding-left: 20px; padding-right: 20px">
             <h4>Current Routes</h4>
             <div class="hr-1px"></div>
 

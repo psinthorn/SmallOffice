@@ -11,28 +11,37 @@ const TransferSchema = new Schema ({
         type: String,
         required: true
       },
-
-      prices: [{
-        net: {
+      category:{
+        type: String,
+        default: 'Transfers'
+    },
+      rateType: [{
+        vehicleType: {
             type: String,
-            required: true
-        }, 
+            default: '0.00'
+        },  
+       
         sale: {
             type: String,
-            required: true
+             default: '0.00'
         },
         member: {
             type: String,
-            required: true
+             default: '0.00'
         },
         discount: {
             type: String,
-            required: true
+             default: '0.00'
         },
         promo: {
             type: String,
-            required: true
+             default: '0.00'
+        },
+        net: {
+            type: String,
+             default: '0.00'
         }
+
       }],
       status: {
             type: String,

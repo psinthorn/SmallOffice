@@ -1,0 +1,41 @@
+<div class="container">
+    <h4>Add new category</h4>
+    
+    
+        {{> _msg}}
+
+        <form action="/admin" method="post">
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" name="name" value="{{name}}">
+                    <label for="name">Category Name</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" name="description" value="{{description}}">
+                    <label for="description">Category Description</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <select name="status" id="status">
+                        <option value="public" selected>Public</option>
+                        <option value="private">Private</option>
+                        <option value="unpublished">Unpublished</option>
+                    </select>
+                    <label for="status">Status</label>
+                </div>
+            </div>
+  
+            <div class="row">
+                <input type="submit" value="Save" class="btn right">
+            </div>
+
+        </form>
+    
+</div>

@@ -19,6 +19,10 @@ const Schema = mongoose.Schema;
             type: String,
             default: 'tours/koh-nangyuan-koh-tao.jpg'
         },
+        category:{
+            type: String,
+            default: 'One Day Trip'
+        },
         price:[{
             sale: {
             type: String,
