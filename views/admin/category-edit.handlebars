@@ -4,11 +4,11 @@
     
         {{> _msg}}
 
-        <form action="/admin/{{category.id}}?_method=PUT" method="post">
+        <form action="/admin/category/{{category.id}}?_method=PUT" method="post">
         <input type="hidden" name="_method" value="PUT">
             <div class="row">
                 <div class="input-field">
-                    <input type="text" name="name" value="{{name}}">
+                    <input type="text" name="name" value="{{category.name}}">
                     <label for="name">Category Name</label>
                 </div>
 
@@ -16,8 +16,18 @@
 
             <div class="row">
                 <div class="input-field">
-                    <input type="text" name="description" value="{{description}}">
-                    <label for="description">Category Description</label>
+                    <h5>Category Description</h5>
+                    <textarea name="desc" id="desc" cols="30" rows="10">{{category.desc}}</textarea>
+                    {{!-- <input type="text" name="description" value="{{category.desc}}">
+                    <label for="description">Category Description</label> --}}
+                </div>
+
+            </div>
+
+              <div class="row">
+                <div class="input-field">
+                    <input type="text" name="imgUrl" value="{{category.imgUrl}}">
+                    <label for="imgUrl">Category image</label>
                 </div>
 
             </div>
@@ -25,16 +35,18 @@
             <div class="row">
                 <div class="input-field">
                     <select name="status" id="status">
+                        {{#select category.status}}
                         <option value="public" selected>Public</option>
                         <option value="private">Private</option>
                         <option value="unpublished">Unpublished</option>
+                        {{/select}}
                     </select>
                     <label for="status">Status</label>
                 </div>
             </div>
   
             <div class="row">
-                <input type="submit" value="Save" class="btn right">
+                <input type="submit" value="Update" class="btn right">
             </div>
 
         </form>

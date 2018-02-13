@@ -3,37 +3,37 @@
 
         <!-- Content Managment Menu Dropdown Structure -->
         <ul id="content_dropdown" class="dropdown-content">
-             <li>
-                  
-                    <a href="/contents">
-                        <i class="material-icons">view_list</i>Content List</a>
-                </li>
+            <li>
 
-                <li>
-                    <a href="/contents/add">
-                        <i class="material-icons">playlist_add</i>Add Content</a>
-                </li>
+                <a href="/contents">
+                    <i class="material-icons">view_list</i>Content List</a>
+            </li>
+
+            <li>
+                <a href="/contents/add">
+                    <i class="material-icons">playlist_add</i>Add Content</a>
+            </li>
 
 
-                <li>
-                    <a href="#">
-                        <i class="material-icons">add_location</i>Company Info</a>
-                </li>
+            <li>
+                <a href="#">
+                    <i class="material-icons">add_location</i>Company Info</a>
+            </li>
 
         </ul>
 
         <!-- Tours Package Managment Menu Dropdown Structure -->
         <ul id="tours_dropdown" class="dropdown-content">
-             <li>
-                  
-                    <a href="/tours">
-                        <i class="material-icons">view_list</i>Tours List</a>
-                </li>
+            <li>
 
-                <li>
-                    <a href="/tours/add">
-                        <i class="material-icons">playlist_add</i>Add Tour Package</a>
-                </li>
+                <a href="/tours">
+                    <i class="material-icons">view_list</i>Tours List</a>
+            </li>
+
+            <li>
+                <a href="/tours/add">
+                    <i class="material-icons">playlist_add</i>Add Tour Package</a>
+            </li>
 
         </ul>
 
@@ -41,48 +41,52 @@
 
         <!-- Transfers Routes Managment Menu Dropdown Structure -->
         <ul id="transfers_dropdown" class="dropdown-content">
-             <li>             
-                    <a href="/transfers">
-                        <i class="material-icons">view_list</i>Transfers Routes</a>
+            <li>
+                <a href="/transfers">
+                    <i class="material-icons">view_list</i>Transfers Routes</a>
             </li>
 
-                <li>
-                    <a href="/transfers/add">
-                        <i class="material-icons">playlist_add</i>Add Routes</a>
-                </li>
+            <li>
+                <a href="/transfers/add">
+                    <i class="material-icons">playlist_add</i>Add Routes</a>
+            </li>
 
         </ul>
 
         <!-- End Transfers dropdown -->
 
 
-        <!-- Transfers Routes Managment Menu Dropdown Structure -->
+        <!-- Vehicle Managment Menu Dropdown Structure -->
         <ul id="vehicle_dropdown" class="dropdown-content">
-             <li>             
-                    <a href="/admin/vehicle-list">
-                        <i class="material-icons">view_list</i>Current Vehicle</a>
+            <li>
+                <a href="/admin/vehicle-list">
+                    <i class="material-icons">view_list</i>Vehicle List</a>
             </li>
 
-                <li>
-                    <a href="/admin/vehicle-add">
-                        <i class="material-icons">playlist_add</i>Add Vehicle</a>
-                </li>
+            <li>
+                <a href="/admin/vehicle-add">
+                    <i class="material-icons">playlist_add</i>Add Vehicle</a>
+            </li>
 
         </ul>
 
-        <!-- End Transfers dropdown -->
+        <!-- End Vehicle dropdown -->
 
+         <!-- Category Managment Menu Dropdown Structure -->
+        <ul id="category_dropdown" class="dropdown-content">
+            <li>
+                <a href="/admin/category-list">
+                    <i class="material-icons">view_list</i>Category List</a>
+            </li>
 
+            <li>
+                <a href="/admin/category-add">
+                    <i class="material-icons">playlist_add</i>Add Category</a>
+            </li>
 
+        </ul>
 
-
-
-
-
-
-
-
-
+        <!-- End Category dropdown -->
 
 
         <div class="nav-wrapper">
@@ -137,11 +141,21 @@
                     <a href="/stories">
                         <i class="material-icons medium">forum</i>My Stories</a>
                 </li>
+
+                 <li class="divider"></li>
+
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="category_dropdown">Category Management
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+
                 
+
                 <li class="divider"></li>
-               
-                    <li>
-                  <a class="dropdown-button" href="#!" data-activates="vehicle_dropdown">Vehicle Management
+
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="content_dropdown">Content Management
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
@@ -149,7 +163,7 @@
                 <li class="divider"></li>
 
                 <li>
-                  <a class="dropdown-button" href="#!" data-activates="content_dropdown">Content Management
+                    <a class="dropdown-button" href="#!" data-activates="tours_dropdown">Tours Management
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
@@ -157,21 +171,22 @@
                 <li class="divider"></li>
 
                 <li>
-                  <a class="dropdown-button" href="#!" data-activates="tours_dropdown">Tours Management
+                    <a class="dropdown-button" href="#!" data-activates="vehicle_dropdown">Vehicle Management
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
 
-                 <li class="divider"></li>
+                <li class="divider"></li>
 
-                 <li>
-                  <a class="dropdown-button" href="#!" data-activates="transfers_dropdown">Transfers Management
+
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="transfers_dropdown">Transfers Management
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
 
-                 <li class="divider"></li>
-                
+                <li class="divider"></li>
+
 
                 <li>
                     <a href="/contact-us">

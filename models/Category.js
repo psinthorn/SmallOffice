@@ -6,9 +6,14 @@ const CategorySchema = new Schema ({
         type: String,
         required: true
     },
-    description: {
+    desc: {
         type: String,
         default: 'Category Desc'
+    },
+
+    imgUrl: {
+        type: String,
+        default: 'default'
     },
     status: {
         type: String,
