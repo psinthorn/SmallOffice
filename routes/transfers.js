@@ -15,9 +15,7 @@ router.get('/', (req, res) => {
 });
 
 // Get one package
-router.get('/edit/:id', (req, res) => {
-
-   // res.send('Edit');
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 
     Transfer.findOne({
         _id: req.params.id

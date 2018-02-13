@@ -10,12 +10,14 @@ const session = require('express-session');
 const keys  = require('./config/key');
 
 //load user model
+require('./models/vehicleTypes');
 require('./models/Category');
 require('./models/Transfers');
 require('./models/Users');
 require('./models/Stories');
 require('./models/Tours');
 require('./models/Contents');
+
 
 //Load config
 require('./config/passport')(passport);

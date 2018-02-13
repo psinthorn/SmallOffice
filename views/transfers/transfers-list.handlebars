@@ -25,7 +25,8 @@
                                     <th>Sedan</th>
                                     <th>SUV</th>
                                     <th>Minibus</th> --}}
-                                     {{#if user}}
+
+                                    {{#if user}}
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     {{else}}
@@ -45,14 +46,8 @@
                                     <td>Sedan</td>
                                     <td>SUV</td>
                                     <td>Minibus</td> --}}
-                                    {{#if user}}
                                     <td><a href="/transfers/edit/{{id}}">Edit</a> </td>
                                     <td>Delete</td>
-                                    {{else}}
-                                    <td>Sedan Rate</td>
-                                    <td>SUV Rate</td>
-                                    <td>Minibus Rate</td>
-                                    {{/if}}
                                 </tr>
                                 {{/each}}
 

@@ -1,0 +1,65 @@
+<div class="container">
+    <h3>Current Vehicle List</h3>
+    <div class="hr-1px"></div>
+    <div class="row">
+                <div class="input-field col s12">
+                    {{#if errors}}
+                    <div class="card-panel red lighten-4">
+                        {{#each errors}} {{error}}
+                        <br> {{/each}}
+                    </div>
+                    {{/if}} {{#each successMsg}}
+
+                    <div class="card-panel green lighten-4">
+                         {{success}}
+                    </div>
+                    {{/each}}
+                </div>
+    </div>
+
+    <div class="row">
+       
+        {{#if vehicles}}
+        <table class="striped">
+        <thead>
+          <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          
+            {{#each vehicles }}
+
+            
+          <tr>
+            <td>{{vehicleType}}</td>
+            <td>{{stripTags (truncate desc 100)}}</td>
+            <td>{{status}}</td>
+            <td> <a href="/admin/vehicle-edit/{{id}}" class="btn">Edit</a> 
+            
+             <form action="/admin/vehicle/{{id}}?_method=DELETE" method="post" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red"> <i class="fa fa-remove"></i></button>
+              </form>
+
+            </td>
+
+
+          </tr>
+           {{/each}}
+            
+        </tbody>
+      </table>
+
+        {{else}}
+        <p>No Vehicle Found!</p>
+       {{/if}}
+     
+
+    </div>
+</div>

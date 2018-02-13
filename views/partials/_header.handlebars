@@ -41,11 +41,10 @@
 
         <!-- Transfers Routes Managment Menu Dropdown Structure -->
         <ul id="transfers_dropdown" class="dropdown-content">
-             <li>
-                  
+             <li>             
                     <a href="/transfers">
                         <i class="material-icons">view_list</i>Transfers Routes</a>
-                </li>
+            </li>
 
                 <li>
                     <a href="/transfers/add">
@@ -55,6 +54,36 @@
         </ul>
 
         <!-- End Transfers dropdown -->
+
+
+        <!-- Transfers Routes Managment Menu Dropdown Structure -->
+        <ul id="vehicle_dropdown" class="dropdown-content">
+             <li>             
+                    <a href="/admin/vehicle-list">
+                        <i class="material-icons">view_list</i>Current Vehicle</a>
+            </li>
+
+                <li>
+                    <a href="/admin/vehicle-add">
+                        <i class="material-icons">playlist_add</i>Add Vehicle</a>
+                </li>
+
+        </ul>
+
+        <!-- End Transfers dropdown -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="nav-wrapper">
             <a href="/" class="brand-logo center">OceanTour</a>
@@ -109,23 +138,13 @@
                         <i class="material-icons medium">forum</i>My Stories</a>
                 </li>
                 
+                <li class="divider"></li>
                
-                {{!--
-                <li>
-                    <a href="#">
-                        <i class="material-icons">loyalty</i>One Day Trip</a>
-                </li> --}} {{!--
-                <li class="divider"></li> --}} {{!--
-                <li>
-                    <a href="#">
-                        <i class="material-icons">brightness_1</i>
-                        </i>Fullmoon Party</a>
+                    <li>
+                  <a class="dropdown-button" href="#!" data-activates="vehicle_dropdown">Vehicle Management
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
                 </li>
-
-                <li>
-                    <a href="#">
-                        <i class="material-icons">brightness_2</i>Haftmoon Festival</a>
-                </li> --}}
 
                 <li class="divider"></li>
 
@@ -176,7 +195,7 @@
                         <i class="material-icons">explore</i>Tour Package</a>
                 </li>
                 <li>
-                    <a href="/tours">
+                    <a href="/transfers">
                         <i class="material-icons">local_taxi</i>Transfers Service</a>
                 </li>
 

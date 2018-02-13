@@ -1,0 +1,69 @@
+<div class="container">
+
+
+    <div class="row">
+
+        {{> _msg}}
+
+        <div class="col s12 m6 l6">
+            <h4>Add vehicle type and rate</h4>
+            <div class="hr-1px"></div>
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/admin/vehicle" method="post">
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="vehicleType" value="{{vehicleType}}">
+                                    <label for="vehicleType">Vehicle Type</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <h5>Descriptions</h5> 
+                                    <textarea id="desc" name="desc" class="materialize-textarea">{{desc}}</textarea>
+                                    {{!-- <label for="desc">Descriptions</label> --}}
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="imgUrl" value="{{imgUrl}}">
+                                    <label for="imgUrl">Image URL</label>
+
+                                </div>
+                            </div>    
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+
+                                        <option value="public" selected>Public</option>
+                                        <option value="private">Private</option>
+                                        <option value="unpublished">Unpublished</option>
+
+                                        <ect></ect>
+                                        <ect></ect>
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Add" class="btn right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
