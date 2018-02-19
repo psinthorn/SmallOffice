@@ -185,8 +185,6 @@ router.post('/comment/:id', ensureAuthenticated, (req, res) => {
 
         });
 
- 
-
 });
 
 

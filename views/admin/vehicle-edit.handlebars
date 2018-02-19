@@ -6,7 +6,7 @@
         {{> _msg}}
 
         <div class="col s12 m6 l6">
-            <h4>Add vehicle type and rate</h4>
+            <h4>Edit vehicle type and rate</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
@@ -62,6 +62,61 @@
                     </div>
                 </div>
             </div>
+
+
+
+                  <form action="/tours/price-rate/{{tour.id}}" method="post">
+
+
+                    <div class="row">
+
+                        <div class="input-field col s12 m4 l4">
+                            <input type="text" name="sale">
+                            <label for="net">Sale Price</label>
+                        </div>
+
+                        <div class="input-field col s12 m4 l4">
+                            <input type="text" name="member" value="{{member}}">
+                            <label for="member">Member Price</label>
+                        </div>
+
+                        <div class="input-field col s12 m4 l4">
+                            <input type="text" name="promotion" value="{{promotion}}">
+                            <label for="promotion">Promotion Price</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m4 l4">
+                            <input type="text" name="discount" value="{{discount}}">
+                            <label for="discount">Discount Price</label>
+                        </div>
+                        <div class="input-field col s12 m4 l4">
+                            <input type="text" name="net" value="{{net}}">
+                            <label for="net">Net Price</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value="Add Price" class="btn right">
+                    </div>
+
+                </form>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 </div>

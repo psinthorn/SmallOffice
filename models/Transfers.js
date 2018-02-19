@@ -19,20 +19,9 @@ const TransferSchema = new Schema ({
 
       rateType: [{
         vehicleType: {
-            type: String,
-            default: '0.00'
-        },
-        
-        vehicleDesc: {
-            type: String,
-            default: 'Seat, Luggage'
-        },  
-
-        imgURL: {
-            type: String,
-            default: 'image URL'
-        },  
-       
+            type: Schema.Types.ObjectId,
+            ref: 'vehicle'      
+        },        
         sale: {
             type: String,
              default: '0.00'
@@ -52,8 +41,23 @@ const TransferSchema = new Schema ({
         net: {
             type: String,
              default: '0.00'
+        },
+        status: {
+            type: String,
+            default: 'public'
         }
 
+      }],
+
+      routeStop: [{
+            locationId: {
+                type: Schema.Types.ObjectId,
+                ref: 'location'
+            },
+            arriveTime: {
+                type: String,
+                default: 'N/A'
+            }
       }],
 
       status: {

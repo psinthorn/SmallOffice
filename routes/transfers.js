@@ -142,6 +142,35 @@ router.post('/:id', (req, res) => {
 });
 
 
+//Transfer rate add vihicle type
+router.post('/rate/:id', ensureAuthenticated, (req, res) => {
+    
+    Transfer.findOne({
+        _id: req.params.id
+    })
+   .then(Transfer => {
+            const newRate = {
+                vihicle: req.body.vehicle,
+                sale: req.body.sale,
+                member: req.body.member,
+                promotion: req.body.promotion,
+                discount: req.body.discount,
+                net: req.body.net,
+                status: req.body.status
+                
+            }
+            tour.price.unshift(newPrice);
+
+            tour.save()
+                .then(tour => {
+                    res.redirect(`/tours/show/${tour.id}`);
+                })
+
+        });
+    });
+
+    //Edit price
+
 
 
 
