@@ -13,14 +13,12 @@
         crossorigin="anonymous">
 
     <link rel="stylesheet" href="/css/welcome.css">
-    <link rel="stylesheet" href="/css/tours.css">
-    <link rel="stylesheet" href="/css/transfers.css">
     <link rel="stylesheet" href="/css/tools.css">
     <link rel="stylesheet" href="/css/style.css">
 
 
 
-    <title>Ocean Tour | Your Adventure Gateway</title>
+    <title>APDL.CA| Apartments rental in Montreal, Qc, Canada</title>
 </head>
 
 <body>
@@ -53,7 +51,7 @@
 
     </script>
 
-     <script>
+    <script>
         $(document).ready(() => {
             $('.button-collapse').sideNav();
             $('select').material_select();
@@ -62,15 +60,22 @@
 
         CKEDITOR.replace('desc', { plugins: 'wysiwygarea,toolbar,link,basicstyles' });
 
-    </script>
-
-    {{!-- <script>
+    </script> {{!--
+    <script>
         ClassicEditor
             .create(document.querySelector('#desc'))
             .catch(error => {
                 console.error(error);
             });
     </script> --}}
+
+    {{!-- for banner slider --}}
+    <script>
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+    </script>
+
 
     <script>
 
@@ -80,6 +85,7 @@
 
     </script>
 
+    
 
 </body>
 

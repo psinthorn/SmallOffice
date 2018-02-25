@@ -1,9 +1,11 @@
 <div class="container">
-    <h1>Get in Touch</h1>
+    <h1>
+        <p class="header-text-01">Get in Touch</p>
+    </h1>
     <div class="hr-1px"></div>
     <div class="row">
         <div class="col s12 m8 l8">
-            <p>
+            <p class="header-text-01">
                 You can contact us any way that is convenient for you. We are available 24/7 via email, Phone or Our Social. You can also
                 use a quick contact form below or visit our office personally. We would be happy to answer your questions.
             </p>
@@ -92,13 +94,9 @@
         <div class="col s12 m1 l1"></div>
 
         <div class="col s12 m3 l3">
-            
-            {{#each contents}}
 
-                {{content[0].title}}
-
-            {{/each}}
-            <div class="row">
+            {{#each contents}} {{!-- {{content[0].title}} --}} {{/each}}
+            <div class="row header-text-01">
                 <h5>Socials</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m12 l12">
@@ -109,7 +107,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row header-text-01">
                 <h5>Email</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
@@ -118,12 +116,12 @@
                     </p>
                 </div>
                 <div class="col s12 m10 l10">
-                    <p> seaflyers@hotmail.com
+                    <p> toffalo@apdl.ca
                     </p>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row header-text-01">
                 <h5>Phone</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
@@ -132,12 +130,13 @@
                     </p>
                 </div>
                 <div class="col s12 m10 l10">
-                    <p> +669 7579 4878
+                    <p> + 1 514 995-0037
                     </p>
                 </div>
+
             </div>
 
-            <div class="row">
+            <div class="row header-text-01">
                 <h5>Address</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
@@ -146,38 +145,14 @@
                     </p>
                 </div>
                 <div class="col s12 m10 l10">
-                    <p>Ocean Tour
+                    <p>APDL
                         <br>
-                        <span>9/38 M.6 Bophut </span>
+                        <span>QC, Montreal </span>
                         <br>
-                        <span>Koh Samui Suratthani</span>
-                        <br>
-                        <span>Thailand 48320</span>
+                        <span>Canada 00000</span>
                     </p>
                 </div>
             </div>
-
-
-            <div class="row">
-                <h5>Openning Hours</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">access_time</i>
-                    </p>
-                </div>
-                <div class="col s12 m10 l10">
-                    <p>MONDAY-FRIDAY
-                        <br>
-                        <span>10:00am - 8:00pm</span>
-                    </p>
-                    <p>SATTURDAY-SUNDAY
-                        <br>
-                        <span>10:00am - 10:00pm</span>
-                    </p>
-                </div>
-            </div>
-
 
         </div>
     </div>

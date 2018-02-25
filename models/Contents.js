@@ -26,7 +26,7 @@ const Schema = mongoose.Schema;
 
         user:{
             type: Schema.Types.ObjectId,
-            ref: 'users'
+            ref: 'user'
         },
         date:{
             type: Date,
@@ -36,4 +36,4 @@ const Schema = mongoose.Schema;
     });
 
     //Create collection and schema
-    mongoose.model('contents', ContentSchema, 'contents');
+    mongoose.model('content', ContentSchema, 'contents');

@@ -1,70 +1,8 @@
 <div class="container-fluid" style="padding-bottom: 50px">
     <div class="center-align">
-
-        <div class="parallax-container">
-            <div class="parallax">
-                <img src="images/natours/nat-5.jpg">
-
-            </div>
-
-            <div class="row">
-
-                <div class="col s12 m6 l6">
-                    <div class="parallax-container-textbox-left">
-                        <p>
-                            <h1>Welcome </h1>
-                            <h2>to Ocean Tour</h2>
-                        </p>
-                        <p>Adventure is your journey start new journey with us.</p>
-                    </div>
-                </div>
-
-                <div class="col s12 m6 l6">
-
-                    <div class="parallax-container-textbox-right hide-on-small-only">
-                        <p>
-                            <h4>Get 20% Discount</h4>
-                        </p>
-                        <p>When write and Share Your Story with us.</p>
-                        <p class="lead"> Sign in and START NOW</p>
-
-                        {{#if user}} {{else}}
-                        <a class="btn red darken-1" href="/auth/google">
-                            <i class="fa fa-google left"></i> Login with Google</a>
-                        {{/if}}
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
+        <div class="parallax-container">           
+          {{> _full_slide}}          
         </div>
-
-        {{!--
-        <div class="banner-index">
-
-
-        </div> --}} {{!--
-        <section class="tours-section">
-            <div class="row">
-                {{#each tourLists}}
-                <div class="col s12 m3 l3">
-                    {{title}}
-                </div>
-                {{/each}}
-            </div>
-        </section> --}}
-
-
-        
-
-    {{> _services}}
-    {{> _why-us}}
-    {{> _about}}
-
-
-</div>
+       {{> _services}} {{> _why-us}} {{> _social_connect }}
+    </div>
 </div>

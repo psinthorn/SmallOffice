@@ -10,13 +10,9 @@ const session = require('express-session');
 const keys  = require('./config/key');
 
 //load user model
-require('./models/vehicleTypes');
 require('./models/Category');
-require('./models/Transfers');
-require('./models/Users');
-require('./models/Stories');
-require('./models/Tours');
 require('./models/Contents');
+require('./models/Users');
 
 
 //Load config
@@ -35,11 +31,8 @@ mongoose.connect(keys.mongoURI, {
 
 //load router
 const admin = require('./routes/admin');
-const transfers = require('./routes/transfers');
 const reservations = require('./routes/reservations')
 const auth = require('./routes/auth'); 
-const stories = require('./routes/stories');
-const tours = require('./routes/tours');
 const mail = require('./routes/mail');
 const contents = require('./routes/content');
 const index = require('./routes/index');
@@ -91,16 +84,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //use route
 app.use('/admin', admin);
-app.use('/transfers', transfers);
 app.use('/contents', contents);
 app.use('/reservations', reservations);
 app.use('/mail', mail);
-app.use('/tours', tours);
-app.use('/stories', stories);
 app.use('/auth', auth);
 app.use('/', index);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8888;
 
 app.listen(port, () => {
     console.log(`Server started on ${port}`);

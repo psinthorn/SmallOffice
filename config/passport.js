@@ -4,7 +4,7 @@ const keys = require('./key');
 
 //load User model
 // require('../models/Users');
-const User = mongoose.model('users');
+const User = mongoose.model('user');
 
 module.exports = function(passport){
     passport.use(

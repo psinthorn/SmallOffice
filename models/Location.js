@@ -42,7 +42,7 @@ const locationSchema = new Schema ({
         
         user: {
             type: Schema.Types.ObjectId,
-            ref: 'users'
+            ref: 'user'
         },
         date: {
             type: Date,
@@ -80,7 +80,7 @@ const locationSchema = new Schema ({
         
         user: {
             type: Schema.Types.ObjectId,
-            ref: 'users'
+            ref: 'user'
         },
         date: {
             type: Date,
@@ -99,7 +99,7 @@ const locationSchema = new Schema ({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     },
     date: {
         type: Date,
@@ -110,4 +110,4 @@ const locationSchema = new Schema ({
 
 
 
-mongoose.model('location', locationSchema, 'location' ):
+mongoose.model('location', locationSchema, 'locations' ):

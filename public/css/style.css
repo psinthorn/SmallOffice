@@ -40,11 +40,51 @@ body {
   }
 
   .about-section{
-    background-color: #ccc;
+    background-color: #eceff1;
     padding-top: 120px;
     padding-bottom: 120px;
    color: #fff;
    
   }
 
+  .banner-index {
+    height: 95vh;
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    background-size: cover;
+    background-color: #777;
+    background-position: top;
+    
+  }
+
+  .slider {
+    height: 95vh;
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    background-size: cover;
+    background-color: #777;
+    background-position: top;
+    
+  }
+
+  .header-text-01 {
+    color: #455a64;
+  }
+
+  .why-section{
+    
+    background-color: #eceff1;
+    padding-top: 120px;
+    padding-bottom: 120px;
+   color: #fff;
+   
+  }
+
+  .social-section {
+    background-color: #ffffff;
+    margin-top: 120px;
+    padding-top: 180px;
+    padding-bottom: 120px;
+    color: #455a64;
+  }
+
+  
   

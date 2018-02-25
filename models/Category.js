@@ -21,7 +21,7 @@ const CategorySchema = new Schema ({
     },
     user:{
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     },
     date:{
         type: Date,
@@ -29,4 +29,4 @@ const CategorySchema = new Schema ({
     }
 })
 
-mongoose.model('category', CategorySchema, 'category');
+mongoose.model('category', CategorySchema, 'categories');

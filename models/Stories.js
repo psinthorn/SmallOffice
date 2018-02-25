@@ -34,12 +34,12 @@ const Schema = mongoose.Schema;
             },
             commentUser:{
                 type: Schema.Types.ObjectId,
-                ref: 'users'
+                ref: 'user'
             }
         }],
         user:{
             type: Schema.Types.ObjectId,
-            ref: 'users'
+            ref: 'user'
         },
         date:{
             type: Date,

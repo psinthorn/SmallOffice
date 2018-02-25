@@ -1,14 +1,14 @@
 {
-  "name": "SamuiOceanTour",
+  "name": "APDLCA",
   "version": "1.0.0",
-  "description": "Samui Ocean Tour Web Portal",
+  "description": "APDL.CA - Apartment for Rent in Montreal",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon --exec 'mocha -R min'",
     "start": "node app.js"
   },
   "keywords": [
-    "codestory"
+    "apdl"
   ],
   "author": "ecoSyn",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
+    "mocha": "^5.0.1",
     "moment": "^2.20.1",
     "mongoose": "4.11.12",
     "nodemailer": "^4.4.2",

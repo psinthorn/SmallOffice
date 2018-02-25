@@ -30,4 +30,5 @@ const userSchema = new Schema({
 });
 
 //สร้าง users collection ที่ mlab (mongdDB) และเพิ่ม userSchema เข้าไป
-mongoose.model('users', userSchema);
+const User = mongoose.model('user', userSchema, 'users');
+module.exports = User;
