@@ -1,6 +1,14 @@
-<div class="container">
+<div class="container-fluid">
+    {{> _banner_sub}} 
+    <div class="container">
+
+    </div>
+     
+
+
+<div class="container" style="margin-top: 250px">
     <h1>
-        <p class="header-text-01">Get in Touch</p>
+        <p class="header-text-01">Nous Joindre</p>
     </h1>
     <div class="hr-1px"></div>
     <div class="row">
@@ -27,67 +35,13 @@
                     </div>
                     {{/each}}
                 </div>
-            </div>
+            </div>   
 
-            <div class="row">
+            <div class="google-maps">
+                <a href="https://www.google.ca/maps/place/5547+4e+Avenue,+Montr%C3%A9al,+QC+H1Y+2V5/@45.5476309,-73.5795791,17z/data=%213m1%214b1%214m5%213m4%211s0x4cc91bfd125194bd:0x250a76a74a4a37b6%218m2%213d45.5476272%214d-73.5773904" target="_blank">Google Maps go here</a>
+                
 
-                <form action="/mail/contact" method="post">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="firstName" name="firstName" type="text" class="validate" value={{firstName}}>
-                            <label for="firstName" data-error="First Name Require">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="lastName" name="lastName" type="text" class="validate" value={{lastName}}>
-                            <label for="lastName">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">email</i>
-                            <input id="toEmail" name="toEmail" type="email" class="validate" value={{toEmail}}>
-                            <label for="toEmail" data-error="Invalid Email Address" data-success="Valid Email Address">Email</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">edit</i>
-                            <input id="subject" name="subject" type="text" class="validate" value={{subject}}>
-                            <label for="subject">Subject</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">drafts</i>
-                            <textarea value="You message here" id="emailBody" name="emailBody" class="materialize-textarea">{{emailBody}}</textarea>
-                            <label for="emailBody">Message</label>
-                        </div>
-                    </div>
-                    {{!--
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div> --}} {{!--
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                        </div>
-                    </div> --}}
-
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="submit" value="Send" class="btn right">
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
+            </div>  
 
         </div>
 
@@ -96,19 +50,26 @@
         <div class="col s12 m3 l3">
 
             {{#each contents}} {{!-- {{content[0].title}} --}} {{/each}}
-            <div class="row header-text-01">
-                <h5>Socials</h5>
+
+             <div class="row header-text-01">
+                <h5>Téléphone</h5>
                 <div class="hr-1px-p10"></div>
-                <div class="col s12 m12 l12">
-                    <i class="fa fa-facebook-official small" aria-hidden="true"></i>
-                    <i class="fa fa-google-plus-square small" aria-hidden="true"></i>
-                    <i class="fa fa-youtube-square small" aria-hidden="true"></i>
-                    <i class="fa fa-instagram small" aria-hidden="true"></i>
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">call</i>
+                    </p>
                 </div>
+                <div class="col s12 m10 l10">
+                    <p> + 1 514 995-0037
+                    </p>
+                </div>
+
             </div>
 
+           
+
             <div class="row header-text-01">
-                <h5>Email</h5>
+                <h5>Courriel</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
                     <p>
@@ -116,13 +77,13 @@
                     </p>
                 </div>
                 <div class="col s12 m10 l10">
-                    <p> toffalo@apdl.ca
+                    <p> LecoursToffalo@mail.com
                     </p>
                 </div>
             </div>
 
             <div class="row header-text-01">
-                <h5>Phone</h5>
+                <h5>WhatsApp</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
                     <p>
@@ -137,7 +98,22 @@
             </div>
 
             <div class="row header-text-01">
-                <h5>Address</h5>
+                <h5>Skype</h5>
+                <div class="hr-1px-p10"></div>
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">call</i>
+                    </p>
+                </div>
+                <div class="col s12 m10 l10">
+                    <p> cristina.toffalo
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row header-text-01">
+                <h5>Adresse</h5>
                 <div class="hr-1px-p10"></div>
                 <div class="col s12 m2 l2">
                     <p>
@@ -156,4 +132,5 @@
 
         </div>
     </div>
+</div>
 </div>
