@@ -43,7 +43,7 @@ body {
     background-color: #eceff1;
     padding-top: 120px;
     padding-bottom: 120px;
-   color: #fff;
+    color: #fff;
    
   }
 
@@ -80,11 +80,29 @@ body {
 
   .social-section {
     background-color: #ffffff;
-    margin-top: 120px;
-    padding-top: 180px;
+    margin-top: 70px;
+    /* padding-top: 180px; */
     padding-bottom: 120px;
     color: #455a64;
   }
 
+  .banner-sub {
+   
+      height: 30vh;
+      /* background-image: url(../imags/natours/nat-5.jpg); */
+      background-size: cover;
+      background-color: #777;
+      background-position: top;
+    
+  }
+
+  .about-us{
+    background-color: #ffffff;
+    padding-top: 150px;
+    margin-top: 120px;
+    padding-bottom: 120px;
+    color: #455a64;
+   
+  }
   
   

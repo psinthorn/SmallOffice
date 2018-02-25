@@ -22,6 +22,11 @@ router.get('/about', (req, res) => {
     res.render('index/about');
 });
 
+//apartments page
+router.get('/apartments', (req, res) => {
+    res.render('index/apartments');
+});
+
 //Contact Us
 router.get('/contact-us', (req,res) => {
         res.render('index/contact-us');
