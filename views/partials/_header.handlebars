@@ -1,53 +1,54 @@
 <nav class="blue darken-3">
     <div class="container">
 
-         <!-- Category Managment Menu Dropdown Structure -->
-        <ul id="category_dropdown" class="dropdown-content">
-            <li>
-                <a href="/admin/category-list">
-                    <i class="material-icons">view_list</i>Category List</a>
-            </li>
-
-            <li>
-                <a href="/admin/category-add">
-                    <i class="material-icons">playlist_add</i>Add Category</a>
-            </li>
-
-        </ul>
-
-        <!-- End Category dropdown -->
-
 
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo center">APDL.CA</a>
-            <a href="#" data-activates="main-menu" class="button-collapse show-on-large">
-                <i class="material-icons medium">menu</i>
+            {{!--
+            <a href="/" class="brand-logo center">APDL.CA</a> --}}
+            <a href="/" data-activates="main-menu" class="button-collapse show-on-large">
+                <i class="material-icons Medium">menu</i>
             </a>
 
+
             <!-- Right Navbar -->
+            <ul class="left">
+                 
+
+                <li class="font-120">
+                    <a href="/">
+                        {{!--
+                        <i class="fa fa-user-o"></i> --}} APDL.CA
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/about">À Propos</a>
+                </li>
+
+                <li>
+                    <a href="/contact-us">Nous Joindre</a>
+                </li>
+
+
+                <li>
+                    <a href="/apartments">Appartements</a>
+                </li>
+
+
+            </ul>
+
+
             <ul class="right hide-on-small-only">
-                {{#if user}}
-                <li>
-                    <a href="/dashboard">
-                        <i class="fa fa-user-o"></i> {{user.firstName}}</a>
-                </li>
-                <li>
-                    <a href="/auth/logout">
-                        <i class="fa fa-sign-out"></i>Logout</a>
-                </li>
-                {{else}}
+
                 <li>
 
                     <a href="/contact-us">
-                        <i class="material-icons">call</i>
-                        {{!-- put ph no. --}}
+                        <i class="material-icons">call</i> +1113333344444
+
                     </a>
                 </li>
-                {{!--
-                <li>
-                    <a href="/auth/google">
-                        <i class="fa fa-sign-in"></i> Login</a>
-                </li> --}} {{/if}}
+
             </ul>
 
             <!-- Side-Nav Menu -->
@@ -62,25 +63,8 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <a href="/dashboard">
-                        <i class="material-icons">tune</i>My Dashboard</a>
-                </li>
 
-                <li>
-                    <a href="/stories">
-                        <i class="material-icons medium">forum</i>My Stories</a>
-                </li>
 
-                 <li class="divider"></li>
-
-                <li>
-                    <a class="dropdown-button" href="#!" data-activates="category_dropdown">Category Management
-                        <i class="material-icons right">arrow_drop_down</i>
-                    </a>
-                </li>
-
-                
 
                 <li class="divider"></li>
 
@@ -131,14 +115,15 @@
                         </i>APDL.CA</a>
                 </li>
 
-                {{!-- <li>
+                {{!--
+                <li>
                     <a href="/stories">
                         <i class="material-icons medium">forum</i> Public Adventure Stories</a>
                 </li> --}}
                 <li class="divider"></li>
-                
 
-               
+
+
 
                 <li>
                     <a href="/about">
