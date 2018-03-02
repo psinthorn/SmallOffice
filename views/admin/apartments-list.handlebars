@@ -1,5 +1,5 @@
 <div class="container">
-    <h3>Current Vehicle List</h3>
+    <h3>Current Apartments List</h3>
     <div class="hr-1px"></div>
     <div class="row">
                 <div class="input-field col s12">
@@ -19,11 +19,11 @@
 
     <div class="row">
        
-        {{#if vehicles}}
+        {{#if apartments}}
         <table class="striped">
         <thead>
           <tr>
-              <th>Type</th>
+              <th>Name</th>
               <th>Description</th>
               <th>Status</th>
               <th>Manage</th>
@@ -33,16 +33,16 @@
         <tbody>
 
           
-            {{#each vehicles }}
+            {{#each apartments }}
 
             
           <tr>
-            <td>{{vehicleType}}</td>
-            <td>{{stripTags (truncate desc 100)}}</td>
-            <td>{{status}}</td>
-            <td> <a href="/admin/vehicle-edit/{{id}}" class="btn">Edit</a> 
+            <td>{{ name }}</td>
+            <td>{{ stripTags (truncate desc 100) }}</td>
+            <td>{{ status }}</td>
+            <td> <a href="/admin/apartment-edit/{{ id }}" class="btn">Edit</a> 
             
-             <form action="/admin/vehicle/{{id}}?_method=DELETE" method="post" id="delete-form">
+             <form action="/admin/apartment/{{id}}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red"> <i class="fa fa-remove"></i></button>
               </form>
@@ -57,7 +57,7 @@
       </table>
 
         {{else}}
-        <p>No Vehicle Found!</p>
+        <p>Currently is no apartment available!</p>
        {{/if}}
      
 

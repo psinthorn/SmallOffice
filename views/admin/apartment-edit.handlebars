@@ -6,27 +6,27 @@
         {{> _msg}}
 
         <div class="col s12 m6 l6">
-            <h4>Edit vehicle type and rate</h4>
+            <h4>Edit Apartment</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/vehicle/{{vehicle.id}}?_method=PUT" method="post">
+                        <form action="/admin/apartment/{{apartment.id}}?_method=PUT" method="post">
                             <input type="hidden" name="_method" value="PUT" >
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="vehicleType" value="{{vehicle.vehicleType}}">
-                                    <label for="vehicleType">Vehicle Type</label>
+                                    <input type="text" name="name" value="{{vehicle.vehicleType}}">
+                                    <label for="name">Apartment Name</label>
 
                                 </div>
 
                                 <div class="input-field col s12 m12 l12">
                                     <h5>Descriptions</h5>
-                                    <textarea id="desc" name="desc" class="materialize-textarea">{{vehicle.desc}}</textarea>
+                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ apartment.desc }}</textarea>
                                     {{!-- <label for="desc">Descriptions</label> --}}
 
                                 </div>

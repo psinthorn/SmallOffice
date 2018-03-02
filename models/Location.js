@@ -4,91 +4,33 @@ const Schema = mongoose.Schema;
 //Koh Samui 
 //lat: 9.532012
 //lng: 100.043674
-const locationSchema = new Schema ({
+
+const LocationSchema = new Schema ({
     name: {
         type: String,
         required: true
     },
-    body: {
-        type: String,
-        required: true
+    addr1: {
+        type: String
     },
-    imgUrl: {
-        name: {
-            type: String,
-            default: 'location/Chaweng-Beach.jpg'
-        },
-        body: {
-            type: String,
-            default: 'default'
-        },
-       
-        lat: {
-            type: String,
-            default: '9.532012'
-        },
-        lng: {
-            type: String,
-            default: '100.043674'
-        },
-        opt1: {
-            type: String,
-            default: 'Default'
-        },
-        status: {
-            type: String,
-            default: 'public' 
-        },
-        
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'user'
-        },
-        date: {
-            type: Date,
-            default: Date.now
-        }
-        
+    addr2: {
+        type: String
     },
-
-    gallery: [{
-        name: {
-            type: String,
-            default: 'location/Chaweng-Beach.jpg'
-        },
-        body: {
-            type: String,
-            default: 'default'
-        },
-       
-        lat: {
-            type: String,
-            default: '9.532012'
-        },
-        lng: {
-            type: String,
-            default: '100.043674'
-        },
-        opt1: {
-            type: String,
-            default: 'Default'
-        },
-        status: {
-            type: String,
-            default: 'public' 
-        },
-        
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'user'
-        },
-        date: {
-            type: Date,
-            default: Date.now
-        }
-        
-    }],
-
+    distric: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    province: {
+        type: String
+    },
+    country: {
+        type: String
+    },
+    postCode: {
+        type: String
+    },
     lat: {
         type: String,
         default: '9.532012'
@@ -96,6 +38,10 @@ const locationSchema = new Schema ({
     lng: {
         type: String,
         default: '100.043674'
+    },
+    status: {
+        type: Boolean,
+        default: false
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -109,5 +55,5 @@ const locationSchema = new Schema ({
 });
 
 
-
-mongoose.model('location', locationSchema, 'locations' ):
+const Location = mongoose.model('location', LocationSchema, 'locations' );
+module.exports = Location;

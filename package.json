@@ -2,10 +2,10 @@
   "name": "APDLCA",
   "version": "1.0.0",
   "description": "APDL.CA - Apartment for Rent in Montreal",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "nodemon --exec 'mocha -R min'",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "keywords": [
     "apdl"

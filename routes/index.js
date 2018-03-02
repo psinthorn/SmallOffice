@@ -1,35 +1,18 @@
-const express =  require('express')
-const router = express.Router();
-const mongoose = require('mongoose');
-const Content = mongoose.model('content');
-const User = mongoose.model('user');
+const IndexController = require('../controllers/IndexController');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
+module.exports = (app) => {
 
-//1st route 
-router.get('/', ensureGuest, (req, res) => {
+   //Welcome landing page
+    app.get('/', IndexController.index);
 
-        res.render('index/welcome');
-    
-});
+  //about page
+  app.get('/about', IndexController.about);  
 
-router.get('/add', ensureAuthenticated, (req, res) => {  
-    res.render('stories/add');
-});
+  //Apartment List
+  app.get('/apartments', IndexController.apartments);
 
-//about page
-router.get('/about', (req, res) => {
-    res.render('index/about');
-});
+  //Contact page
+  app.get('/contact-us', IndexController.contact);
 
-//apartments page
-router.get('/apartments', (req, res) => {
-    res.render('index/apartments');
-});
-
-//Contact Us
-router.get('/contact-us', (req,res) => {
-        res.render('index/contact-us');
-});
-
-module.exports = router;
+}

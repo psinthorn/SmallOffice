@@ -6,19 +6,19 @@
         {{> _msg}}
 
         <div class="col s12 m6 l6">
-            <h4>Add vehicle type and rate</h4>
+            <h4>Add new apartment</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/vehicle" method="post">
+                        <form action="/admin/apartment" method="post">
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="vehicleType" value="{{vehicleType}}">
+                                    <input type="text" name="name" value="{{ vehicleType }}">
                                     <label for="vehicleType">Vehicle Type</label>
 
                                 </div>
@@ -26,7 +26,7 @@
                                 <div class="input-field col s12 m12 l12">
 
                                     <h5>Descriptions</h5> 
-                                    <textarea id="desc" name="desc" class="materialize-textarea">{{desc}}</textarea>
+                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ desc }}</textarea>
                                     {{!-- <label for="desc">Descriptions</label> --}}
 
                                 </div>
@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="imgUrl" value="{{imgUrl}}">
+                                    <input type="text" name="imgUrl" value="{{ imgUrl }}">
                                     <label for="imgUrl">Image URL</label>
 
                                 </div>

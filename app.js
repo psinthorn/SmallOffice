@@ -13,6 +13,19 @@ const keys  = require('./config/key');
 require('./models/Category');
 require('./models/Contents');
 require('./models/Users');
+require('./models/Apartment');
+
+//load router
+const admin = require('./routes/admin');
+const reservations = require('./routes/reservations')
+const auth = require('./routes/auth'); 
+const mail = require('./routes/mail');
+const contents = require('./routes/content');
+const index = require('./routes/index');
+
+const app = express();
+
+
 
 
 //Load config
@@ -29,15 +42,16 @@ mongoose.connect(keys.mongoURI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err) );
 
-//load router
-const admin = require('./routes/admin');
-const reservations = require('./routes/reservations')
-const auth = require('./routes/auth'); 
-const mail = require('./routes/mail');
-const contents = require('./routes/content');
-const index = require('./routes/index');
 
-const app = express();
+//connect to mongoDB by Mongoose
+// mongoose.Promise = global.Promise;
+
+// if( process.env.NODE_ENV !== 'test'){
+//     mongoose.connect('mongodb://localhost/apdlca');
+// }
+
+
+
 
 //method-override middle-ware
 app.use(methodOverride('_method'));
@@ -83,16 +97,20 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use route
-app.use('/admin', admin);
-app.use('/contents', contents);
-app.use('/reservations', reservations);
-app.use('/mail', mail);
-app.use('/auth', auth);
-app.use('/', index);
+//app.use('/admin', admin);
+admin(app);
+index(app);
+//app.use('/contents', contents);
+//app.use('/reservations', reservations);
+// app.use('/mail', mail);
+// app.use('/auth', auth);
+// app.use('/', index);
 
-const port = process.env.PORT || 8888;
+// const port = process.env.PORT || 8888;
 
-app.listen(port, () => {
-    console.log(`Server started on ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server started on ${port}`);
+// });
+
+module.exports = app;
 

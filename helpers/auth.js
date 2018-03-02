@@ -4,11 +4,11 @@ module.exports = {
         if (req.isAuthenticated()) {
             return next();
         }
-        res.redirect('/');
+        res.redirect('/contact-us');
     },
     ensureGuest: (req, res, next) => {
         if(req.isAuthenticated()){
-            res.redirect('/dashboard');
+            res.redirect('/about');
         }else{
             return next();
         }
