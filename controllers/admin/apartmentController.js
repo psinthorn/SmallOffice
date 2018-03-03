@@ -1,10 +1,16 @@
 
-
 const Apartment = require('../../models/Apartment.js');
 const mongoose = require('mongoose');
 //const Apartment = mongoose.model('apartment');
 
 module.exports = {
+
+    //Login Page
+    login(req, res){
+
+        res.render('index/login');
+
+    },
 
     //Get all available list of apartments
     getAll(req, res){

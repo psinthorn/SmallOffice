@@ -3,6 +3,9 @@ const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 module.exports = (app) => {
 
-    app.get('/admin/grt', ensureAuthenticated, ApartmentController.getAll);
+    //Admin Login page
+    app.get('/admin/login', ApartmentController.login);
+
+
 
 }

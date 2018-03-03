@@ -113,7 +113,23 @@ body {
 
   .blue-grey-text {
     color: #455a64;
+    
   }
 
+  a:hover {
+    color: white;
+    font-size: 110%;
+    transition-timing-function: ease-out;
+}
+
+.menu-icon:hover {
+  font-size: 130%;
+  color: white;
+  transition-timing-function: ease-out;
+}
+
+.font-logo {
+  font-family: herculanum;
+}
   
   

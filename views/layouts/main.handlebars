@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+        </script> --}}
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -87,6 +90,26 @@
         });
 
     </script>
+
+     <script>
+
+          $("div.menu-icon").on({
+
+            mouseenter: function(){
+              $(this).css('color', 'red');
+              $(this).css('font-size', 150%);
+              $()this.html('test over');
+            },
+
+            mouseleave: function(){
+                $(this).css('color', 'white');
+              $(this).css('font-size', 100%);
+            }
+
+          });
+
+        </script>
+            
 
     
 
