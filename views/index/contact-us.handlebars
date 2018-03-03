@@ -1,136 +1,150 @@
 <div class="container-fluid">
-    {{> _banner_sub}} 
+    {{> _banner_sub}}
     <div class="container">
 
     </div>
-     
 
 
-<div class="container" style="margin-top: 250px">
-    <h1>
-        <p class="header-text-01">Nous Joindre</p>
-    </h1>
-    <div class="hr-1px"></div>
-    <div class="row">
-        <div class="col s12 m8 l8">
-            <p class="header-text-01">
-                You can contact us any way that is convenient for you. We are available 24/7 via email, Phone or Our Social. You can also
-                use a quick contact form below or visit our office personally. We would be happy to answer your questions.
-            </p>
 
-            <div class="row">
-                <div class="input-field col s12">
-                    {{#if errors}}
-                    <div class="card-panel red lighten-4">
-                        {{#each errors}} {{error}}
-                        <br> {{/each}}
+    <div class="container" style="margin-top: 250px">
+        <h1>
+            <p class="header-text-01">Nous Joindre</p>
+        </h1>
+        <div class="hr-1px"></div>
+        <div class="row">
+            <div class="col s12 m8 l8">
+                <p class="header-text-01">
+                    You can contact us any way that is convenient for you. We are available 24/7 via email, Phone or Our Social. You can also
+                    use a quick contact form below or visit our office personally. We would be happy to answer your questions.
+                </p>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{#if errors}}
+                        <div class="card-panel red lighten-4">
+                            {{#each errors}} {{error}}
+                            <br> {{/each}}
+                        </div>
+                        {{/if}} {{#each successMsg}}
+
+                        <div class="card-panel green lighten-4">
+                            <h3>
+                                <p style="text-align: center"> {{thankYou}} </p>
+                            </h3>
+                            <p style="text-align: center">{{success}}</p>
+                        </div>
+                        {{/each}}
                     </div>
-                    {{/if}} {{#each successMsg}}
+                </div>
 
-                    <div class="card-panel green lighten-4">
-                        <h3>
-                            <p style="text-align: center"> {{thankYou}} </p>
-                        </h3>
-                        <p style="text-align: center">{{success}}</p>
+                <div class="google-maps">
+                    <a href="https://www.google.ca/maps/place/5547+4e+Avenue,+Montr%C3%A9al,+QC+H1Y+2V5/@45.5476309,-73.5795791,17z/data=%213m1%214b1%214m5%213m4%211s0x4cc91bfd125194bd:0x250a76a74a4a37b6%218m2%213d45.5476272%214d-73.5773904"
+                        target="_blank">Google Maps go here</a>
+
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m1 l1"></div>
+
+            <div class="col s12 m3 l3">
+
+                {{#each contents}} {{!-- {{content[0].title}} --}} {{/each}}
+
+                <div class="row header-text-01">
+                    <h5>Téléphone</h5>
+                    <div class="hr-1px-p10"></div>
+                    <div class="col s12 m2 l2">
+                        <p>
+                            <i class="material-icons">call</i>
+                        </p>
                     </div>
-                    {{/each}}
+                    <div class="col s12 m10 l10">
+                        <p>
+                            <a class="blue-grey-text" href="tel:+15149950037">+ 1 514 995-0037</a>
+                        </p>
+                    </div>
+
                 </div>
-            </div>   
 
-            <div class="google-maps">
-                <a href="https://www.google.ca/maps/place/5547+4e+Avenue,+Montr%C3%A9al,+QC+H1Y+2V5/@45.5476309,-73.5795791,17z/data=%213m1%214b1%214m5%213m4%211s0x4cc91bfd125194bd:0x250a76a74a4a37b6%218m2%213d45.5476272%214d-73.5773904" target="_blank">Google Maps go here</a>
-                
 
-            </div>  
 
-        </div>
+                <div class="row header-text-01">
+                    <h5>Courriel</h5>
+                    <div class="hr-1px-p10"></div>
 
-        <div class="col s12 m1 l1"></div>
+                    <div class="col s12 m2 l2">
+                        <p>
+                            <i class="material-icons">drafts</i>
+                        </p>
+                    </div>
+                    <div class="col s12 m10 l10">
+                        <p>
+                            <a class="blue-grey-text" href="mailto:LecoursToffalo@gmail.com?Subject=Enquiry from APDL.CA">LecoursToffalo@mail.com</a>
+                        </p>
+                    </div>
 
-        <div class="col s12 m3 l3">
-
-            {{#each contents}} {{!-- {{content[0].title}} --}} {{/each}}
-
-             <div class="row header-text-01">
-                <h5>Téléphone</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">call</i>
-                    </p>
                 </div>
-                <div class="col s12 m10 l10">
-                    <p> <a class="blue-grey-text" href="tel:+15149950037">+ 1 514 995-0037</a>
-                    </p>
+
+                <div class="row header-text-01">
+                    <h5>WhatsApp</h5>
+                    <div class="hr-1px-p10"></div>
+
+                    <div class="col s12 m2 l2">
+                        <p>
+
+                            <i class="material-icons">call</i>
+
+                        </p>
+                    </div>
+                    <div class="col s12 m10 l10">
+                        <p>
+                            <a class="blue-grey-text" href="#">+ 1 514 995-0037</a>
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+                <div class="row header-text-01">
+                    <h5>Skype</h5>
+                    <div class="hr-1px-p10"></div>
+                    <div class="col s12 m2 l2">
+                        <p>
+                            <i class="material-icons">call</i>
+                        </p>
+                    </div>
+                    <div class="col s12 m10 l10">
+                        <p> <a class="blue-grey-text" href="#">cristina.toffalo</a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row header-text-01">
+                    <h5>Adresse</h5>
+                    <div class="hr-1px-p10"></div>
+                    <div class="col s12 m2 l2">
+                        <p>
+                            <i class="material-icons">location_on</i>
+                        </p>
+                    </div>
+                    <div class="col s12 m10 l10">
+                        <p>
+                            <a class="blue-grey-text" href="#">
+                            APDL
+                            <br>
+                            <span>QC, Montreal </span>
+                            <br>
+                            <span>Canada 00000</span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
 
             </div>
-
-           
-
-            <div class="row header-text-01">
-                <h5>Courriel</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">drafts</i>
-                    </p>
-                </div>
-                <div class="col s12 m10 l10">
-                    <p> <a class="blue-grey-text" href="mailto:LecoursToffalo@gmail.com?Subject=Enquiry from APDL.CA">LecoursToffalo@mail.com</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="row header-text-01">
-                <h5>WhatsApp</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">call</i>
-                    </p>
-                </div>
-                <div class="col s12 m10 l10">
-                    <p> + 1 514 995-0037
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="row header-text-01">
-                <h5>Skype</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">call</i>
-                    </p>
-                </div>
-                <div class="col s12 m10 l10">
-                    <p> cristina.toffalo
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="row header-text-01">
-                <h5>Adresse</h5>
-                <div class="hr-1px-p10"></div>
-                <div class="col s12 m2 l2">
-                    <p>
-                        <i class="material-icons">location_on</i>
-                    </p>
-                </div>
-                <div class="col s12 m10 l10">
-                    <p>APDL
-                        <br>
-                        <span>QC, Montreal </span>
-                        <br>
-                        <span>Canada 00000</span>
-                    </p>
-                </div>
-            </div>
-
         </div>
     </div>
-</div>
 </div>
