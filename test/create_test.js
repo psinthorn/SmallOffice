@@ -1,17 +1,20 @@
 const assert = require('assert');
-const Itinerary = require('../models/itinerary');
+const Apartment = require('../models/Apartment');
 
-describe('Create itinerary test', (done) => {
+describe('Apartment controller', (done) => {
 
-    it('Itinerary create test done', (done) => {
+    it('Create new apartment', (done) => {
 
-        const newItinerary = new Itinerary({
-            name: 'King Bed'
+        const newApartment = new Apartment({
+            name: 'Sawasdee Krungthep',
+            desc: 'Nongbon Pravet'
         });
     
-        newItinerary.save()
-        .then(() => {
-            assert(!newItinerary.isNew);
+        newApartment.save()
+        .then((apartment) => {
+            //assert(!newApartment.isNew);
+            assert( apartment.name === 'Sawasdee Krungthep');
+            assert( apartment.desc === 'Nongbon Pravet');
             done();
         });
         

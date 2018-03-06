@@ -1,3 +1,6 @@
+const Contact = require('../models/Contact');
+const mongoose = require('mongoose');
+
 module.exports = {
 
 
@@ -15,7 +18,12 @@ apartments(req, res){
 },
 
 contact(req, res){
-    res.render('index/contact-us');
+
+    Contact.findOne({})
+        .then( contact => {
+            res.render('index/contact-us', { contact: contact });
+        });
+    
 }
 
 

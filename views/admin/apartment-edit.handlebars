@@ -5,51 +5,55 @@
 
         {{> _msg}}
 
-        <div class="col s12 m6 l6">
-            <h4>Edit Apartment</h4>
+        <div class="col s12 m8 l8">
+            <h4>Add new apartment</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/apartment/{{apartment.id}}?_method=PUT" method="post">
-                            <input type="hidden" name="_method" value="PUT" >
-
+                        <form action="/admin/apartments/{{ apartment.id }}?_method=PUT"" method="post">
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="name" value="{{vehicle.vehicleType}}">
-                                    <label for="name">Apartment Name</label>
+                                    <input type="text" name="name" value="{{ apartment.name }}">
+                                    <label for="vehicleType">Apartment Name</label>
 
                                 </div>
+                            </div>
+                            <div class="row">
 
                                 <div class="input-field col s12 m12 l12">
+
                                     <h5>Descriptions</h5>
                                     <textarea id="desc" name="desc" class="materialize-textarea">{{ apartment.desc }}</textarea>
-                                    {{!-- <label for="desc">Descriptions</label> --}}
 
                                 </div>
 
                             </div>
 
+
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="imgUrl" value="{{vehicle.imgUrl}}">
+                                    <input type="text" name="imgUrl" value="{{ apartment.imgUrl }}">
                                     <label for="imgUrl">Image URL</label>
 
                                 </div>
-                            </div>    
+                            </div>
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
                                     <select name="status" id="status">
-                                        {{#select vehicle.status}}
-                                        <option value="public" selected>Public</option>
+                                      {{#select apartment.status }}
+                                      
+                                        <option value="public" selected>Available</option>
                                         <option value="private">Private</option>
-                                        <option value="unpublished">Unpublished</option>
-                                        {{/select}}
+                                        <option value="unavailable">Unavailable</option>
+
+                                       {{/select }}
                                     </select>
                                     <label for="status">Status</label>
                                 </div>
@@ -62,60 +66,47 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 
+<div class="col s12 m4 l4">
+            <h4>Current List</h4>
+            <div class="hr-1px"></div>
 
-                  <form action="/tours/price-rate/{{tour.id}}" method="post">
+        {{#if apartments }}                  
+        <table class="highlight">
+        <thead>
+          <tr>
+              <th>Apartment</th>
+              <th>Status</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
 
+        <tbody>
 
-                    <div class="row">
+        {{#each apartments }} 
 
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="sale">
-                            <label for="net">Sale Price</label>
-                        </div>
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ status }}</td>
+            <td>
+               <a href="/admin/apartments/show/{{ id }}">Viewe</a>   | 
+                <a href="/admin/apartments/{{ id }}">Edit</a>  | 
+                 <a href="/admin/apartments/delete/{{ id }}">Delete</a>
+            </td>
+          </tr>
 
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="member" value="{{member}}">
-                            <label for="member">Member Price</label>
-                        </div>
+        {{/each }}
 
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="promotion" value="{{promotion}}">
-                            <label for="promotion">Promotion Price</label>
-                        </div>
-                    </div>
+        </tbody>
+      </table>
 
-                    <div class="row">
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="discount" value="{{discount}}">
-                            <label for="discount">Discount Price</label>
-                        </div>
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="net" value="{{net}}">
-                            <label for="net">Net Price</label>
-                        </div>
-                    </div>
+      {{ else }}
 
-                    <div class="row">
-                        <input type="submit" value="Add Price" class="btn right">
-                    </div>
+        No apartments available
 
-                </form>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {{/if}}
 
         </div>
     </div>

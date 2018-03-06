@@ -5,7 +5,7 @@
 
         {{> _msg}}
 
-        <div class="col s12 m6 l6">
+        <div class="col s12 m8 l8">
             <h4>Add new apartment</h4>
             <div class="hr-1px"></div>
 
@@ -13,42 +13,44 @@
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/apartment" method="post">
+                        <form action="/admin/apartments" method="post">
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="name" value="{{ vehicleType }}">
-                                    <label for="vehicleType">Vehicle Type</label>
+                                    <input type="text" name="name">
+                                    <label for="vehicleType">Apartment Name</label>
 
                                 </div>
+                            </div>
+                            <div class="row">
 
                                 <div class="input-field col s12 m12 l12">
 
-                                    <h5>Descriptions</h5> 
-                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ desc }}</textarea>
-                                    {{!-- <label for="desc">Descriptions</label> --}}
+                                    <h5>Descriptions</h5>
+                                    <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
 
                                 </div>
 
                             </div>
 
+
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="imgUrl" value="{{ imgUrl }}">
+                                    <input type="text" name="imgUrl">
                                     <label for="imgUrl">Image URL</label>
 
                                 </div>
-                            </div>    
+                            </div>
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
                                     <select name="status" id="status">
 
-                                        <option value="public" selected>Public</option>
+                                        <option value="public" selected>Available</option>
                                         <option value="private">Private</option>
-                                        <option value="unpublished">Unpublished</option>
+                                        <option value="unpublished">Unavailable</option>
 
                                         <ect></ect>
                                         <ect></ect>
@@ -64,6 +66,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+
+<div class="col s12 m4 l4">
+            <h4>Current List</h4>
+            <div class="hr-1px"></div>
+
+        {{#if apartments }}                  
+        <table class="highlight">
+        <thead>
+          <tr>
+              <th>Apartment</th>
+              <th>Status</th>
+              <th>Manage</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        {{#each apartments }} 
+
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ status }}</td>
+            <td>
+               <a href="/admin/apartments/show/{{ id }}">Viewe</a>   | 
+                <a href="/admin/apartments/{{ id }}">Edit</a>  | 
+                 <a href="/admin/apartments/delete/{{ id }}">Delete</a>
+            </td>
+          </tr>
+
+        {{/each }}
+
+        </tbody>
+      </table>
+
+      {{ else }}
+
+        No apartments available
+
+      {{/if}}
+
         </div>
     </div>
 </div>

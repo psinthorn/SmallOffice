@@ -1,6 +1,5 @@
 <div class="container">
-    <h3>Current Apartments List</h3>
-    <div class="hr-1px"></div>
+    
     <div class="row">
                 <div class="input-field col s12">
                     {{#if errors}}
@@ -17,6 +16,10 @@
                 </div>
     </div>
 
+
+    <h3>Current Apartments List</h3>
+    <div class="hr-1px"></div>
+
     <div class="row">
        
         {{#if apartments}}
@@ -24,9 +27,10 @@
         <thead>
           <tr>
               <th>Name</th>
-              <th>Description</th>
+              <th class="hide-on-small-only">Description</th>
               <th>Status</th>
-              <th>Manage</th>
+              <th colspan="2" class="center-align">Manage</th>
+              
           </tr>
         </thead>
 
@@ -38,14 +42,17 @@
             
           <tr>
             <td>{{ name }}</td>
-            <td>{{ stripTags (truncate desc 100) }}</td>
+            <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td>
             <td>{{ status }}</td>
-            <td> <a href="/admin/apartment-edit/{{ id }}" class="btn">Edit</a> 
+            <td class="right-align"> <a href="/admin/apartments/{{ id }}" class="btn">Edit</a> </td>
             
-             <form action="/admin/apartment/{{id}}?_method=DELETE" method="post" id="delete-form">
+            <td class="left-align">
+                 <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red"> <i class="fa fa-remove"></i></button>
-              </form>
+                            <button type="submit" class="btn red">Delete</button>
+            </form>
+            
+            
 
             </td>
 

@@ -14,6 +14,9 @@ require('./models/Category');
 require('./models/Contents');
 require('./models/Users');
 require('./models/Apartment');
+require('./models/Contact');
+require('./models/About');
+require('./models/Facility');
 
 //load router
 const admin = require('./routes/admin');
@@ -22,6 +25,9 @@ const auth = require('./routes/auth');
 const mail = require('./routes/mail');
 const contents = require('./routes/content');
 const index = require('./routes/index');
+const contact = require('./routes/contact');
+const about = require('./routes/about');
+const facility = require('./routes/facility');
 
 const app = express();
 
@@ -100,6 +106,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/admin', admin);
 admin(app);
 index(app);
+contact(app);
+about(app);
+facility(app);
+//facility(app);
 //app.use('/contents', contents);
 //app.use('/reservations', reservations);
 // app.use('/mail', mail);

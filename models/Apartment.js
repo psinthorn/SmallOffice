@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ApartmentSchema = new Schema({
 
-    name: {
+    title: {
         type: String,
         required: true
     },

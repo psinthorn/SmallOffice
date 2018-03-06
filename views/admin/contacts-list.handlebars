@@ -1,0 +1,179 @@
+<div class="container">
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{#if errors}}
+            <div class="card-panel red lighten-4">
+                {{#each errors}} {{error}}
+                <br> {{/each}}
+            </div>
+            {{/if}} {{#each successMsg}}
+
+            <div class="card-panel green lighten-4">
+                {{success}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <h3>Current Contacts </h3>
+    <div class="hr-1px"></div>
+
+    <div class="row">
+
+
+
+        <div class="col s12 m4 l4"></div>
+
+
+        <div class="col s12 m12 l13">
+            <div class="card white darken-1">
+                <div class="card-content gray-text">
+
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="title" value="{{ contact.title}}" readonly>
+                            <label for="title">Title</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <textarea name="desc" id="desc" cols="30" rows="10" readonly>{{ contact.desc }}</textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="row header-text-01">
+                        <h5>Téléphone</h5>
+                        <div class="hr-1px-p10"></div>
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">call</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="tel:+15149950037">{{ contact.phone }}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row header-text-01">
+                        <h5>Courriel</h5>
+                        <div class="hr-1px-p10"></div>
+
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">drafts</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="mailto:LecoursToffalo@gmail.com?Subject=Enquiry from APDL.CA">{{ contact.email }}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row header-text-01">
+                        <h5>WhatsApp</h5>
+                        <div class="hr-1px-p10"></div>
+
+                        <div class="col s12 m2 l2">
+                            <p>
+
+                                <i class="material-icons">call</i>
+
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="#">{{ contact.whatsapp }}</a>
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="row header-text-01">
+                        <h5>Skype</h5>
+                        <div class="hr-1px-p10"></div>
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">call</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="#">{{ contact.skype }}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row header-text-01">
+                        <h5>Website</h5>
+                        <div class="hr-1px-p10"></div>
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">cloud</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="#">{{ contact.website }}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row header-text-01">
+                        <h5>Adresse</h5>
+                        <div class="hr-1px-p10"></div>
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">location_on</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <p class="blue-grey-text" href="#">
+                                    {{ contact.addr1 }}
+                                    <br>
+                                    <span>{{ contact.addr2 }}</span>
+                                    <br>
+                                </p>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="right-align">
+                <a href="/admin/contact/{{ contact.id }}" class="btn">Edit</a>
+            </div>
+
+        </div>
+
+
+        </form>
+
+    </div>
+
+
+
+</div>
+</div>

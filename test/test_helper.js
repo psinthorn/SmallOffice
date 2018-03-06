@@ -16,7 +16,7 @@ before((done) => {
 beforeEach((done) => {
 
     //Drop data before next test
-    mongoose.connection.collections.itineraries.drop(() => {
+    mongoose.connection.collections.apartments.drop(() => {
         done();
     });
 
