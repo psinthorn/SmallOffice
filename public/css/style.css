@@ -151,4 +151,12 @@ a:hover {
   transition-timing-function: ease-out;
 }
 
+.logo {
+  display: inline-block;
+  height: 90%;
+}
+
+.logo>img {
+  vertical-align: middle
+}
   

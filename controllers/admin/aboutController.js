@@ -10,6 +10,7 @@ module.exports = {
                 About.findOne({})
                 .then(about => {
                     res.render('admin/about-list', { about: about });
+                   
                 });
         
         },

@@ -10,18 +10,18 @@
                 <div class="card-panel white" style="padding-left: 50px; padding-right: 50px">
 
 
-                    <span class="white-text">
+                    
                         <form action="/admin/category" method="post">
 
                             <div class="row">
 
 
                                 <div class="input-field">
-                                    <input type="text" name="login">
+                                    <input type="text" name="login" value="{{ admin.email }}">
                                     <label for="login">Login Name</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="password" name="password">
+                                    <input type="password" name="password" value="{{ admin.password}}">
                                     <label for="name">Password</label>
                                 </div>
 
@@ -34,7 +34,7 @@
                             </div>
 
                         </form>
-                    </span>
+                   
                 </div>
 
 

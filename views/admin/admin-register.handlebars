@@ -1,0 +1,70 @@
+<div class="container">
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                
+                {{> _msg}}
+
+                    <h3>Login</h3>
+
+                <div class="card-panel white" style="padding-left: 50px; padding-right: 50px">
+
+
+                   
+                        <form action="/admin/admin" method="post">
+
+                            <div class="row">
+
+                                <div class="input-field">
+                                    <input type="text" name="email">
+                                    <label for="email">Email</label>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                              <div class="input-field">
+                                    <input type="text" name="username">
+                                    <label for="username">User Name</label>
+                                </div>
+                            </div>
+
+                                
+                            <div class="row">
+
+                                 <div class="input-field">
+                                    <input type="password" name="password">
+                                    <label for="name">Password</label>
+                                </div>
+
+                            </div>
+
+                             <div class="row">
+
+                                 <div class="input-field">
+                                    <input type="password" name="passwordConf">
+                                    <label for="passwordConf">Confirm Password</label>
+                                </div>
+
+                            </div>
+                              
+                            <div class="row">
+                                <input type="submit" value="Register" class="btn right">
+                            </div>
+
+                        </form>
+                   
+                </div>
+
+
+
+
+            </div>
+
+           
+        </div>
+
+
+    
+
+</div>

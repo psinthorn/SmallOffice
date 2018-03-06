@@ -14,6 +14,10 @@ const FacilitySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'category'
     },
+    apartmentId: {
+        type: Schema.Types.ObjectId,
+        ref: 'apartment'
+    },
     status: {
         type: String,
         default: 'Public'
