@@ -115,13 +115,11 @@
     <table>
 
         <th>Title</th>
-        <th>Details</th>
         <th>manage</th>
 
          {{#each apartment.facilities }} 
         <tr>
             <td>{{ title }}</td>
-            <td>{{ value }}</td>
             <td>
                 <form action="/admin/facility/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">

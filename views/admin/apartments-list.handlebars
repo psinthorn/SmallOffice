@@ -19,7 +19,9 @@
 
     <h3>Current Apartments List</h3>
     <div class="hr-1px"></div>
-
+    <div class="row">
+        <a href="/admin/apartments/add"><div class="btn right">Add New Apartment</div></a>
+    </div>
     <div class="row">
        
         {{#if apartments}}
@@ -52,7 +54,7 @@
                  <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red">X</button>
-            </form>
+                </form>
             
             
 
