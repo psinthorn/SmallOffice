@@ -154,16 +154,11 @@ module.exports = {
     },
 
 
-    //Delete Facility 
+    //Edit Facility 
     facilityEdit(req, res){
         const id = req.params.id;
         const newFac = req.body;
-
-        // console.log(id);
-        // console.log(facId);
-
         Apartment.findOneAndUpdate({ 'facilities._id' : id }, newFac)
-            //.populate('facilities')
                     .then(apartment => {
                         res.render('admin/apartment-edit', { apartment: apartment });
                     });
