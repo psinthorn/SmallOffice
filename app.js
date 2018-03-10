@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
+const multer = require('multer');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -18,6 +19,7 @@ require('./models/Contact');
 require('./models/About');
 require('./models/Facility');
 require('./models/UserAdmin');
+require('./models/ApartmentIntro');
 
 //load router
 const admin = require('./routes/admin');
@@ -33,8 +35,12 @@ const apartment = require('./routes/apartment');
 
 const app = express();
 
-
-
+//use sessions for tracking logins
+app.use(session({
+    secret: 'apdl.ca',
+    resave: true,
+    saveUninitialized: false
+  }));
 
 //Load config
 require('./config/passport')(passport);
@@ -58,7 +64,18 @@ mongoose.connect(keys.mongoURI, {
 //     mongoose.connect('mongodb://localhost/apdlca');
 // }
 
+//Set multer image uploads
+const storage = multer.diskStorage({
+    destination: './public/images/',
+    filename: function(req, file, res){
+        res(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
 
+//Init upload
+const upload = multer({
+    storage: storage
+}).single('imgUrl');
 
 
 //method-override middle-ware

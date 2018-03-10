@@ -12,19 +12,7 @@ module.exports = {
             req.body.password &&
             req.body.passwordConf) {
 
-                const adminProps = req.body;
-
-
-
-
-
-            // var adminProps = {
-            //     email: req.body.email,
-            //     username: req.body.username,
-            //     password: req.body.password,
-            //     passwordConf: req.body.passwordConf,
-            // }
-
+            const adminProps = req.body;
 
             //use schema.create to insert data into the db
             User.create(adminProps)
@@ -37,11 +25,16 @@ module.exports = {
 
     //end admin register
 
-    //Login Page
-    login(req, res) {
+    loginForm(req, res){
 
         res.render('admin/admin-login');
 
+    },
+
+    //Login Page
+    login(req, res) {
+
+       
     },
 
     //Get all available list of admins
@@ -65,16 +58,43 @@ module.exports = {
            
     },
 
+
     //Create new admin
     create(req, res) {
 
-        const adminProps = req.body;
+        let errors = [];
+        let successMsg = [];
 
-        Admin.create(adminProps)
-            .then(() => Admin.findOne({}))
-            .then(admin => {
-                res.render('admin/admin-login', { admin: admin });
-            });
+        // if( req.body.password.length < 4 ){
+        //     errors.push({ error: '*Passowrd mush more then 4 characters'});
+        // }
+
+        // if( req.body.password != req.body.passwordConf){
+        //     errors.push({ error: '*Password not match'});
+
+        // }
+
+        // Admin.findOne({ email: req.body.email })
+        //     .then( email => {
+        //         if( email === req.body.email ){
+        //             successMsg.push({ success: '*Email Already Registered please login'});
+        //             res.render('admin/admin-login', { 
+        //                 successMsg: successMsg,
+        //                 email: req.body.email
+        //             });
+        //         }
+        //     });
+    
+
+            const adminProps = req.body;
+            
+                    Admin.create(adminProps)
+                        .then(() => Admin.findOne({}))
+                        .then(admin => {
+                            res.render('admin/admin-login', { admin: admin });
+                    });
+    
+       
     },
 
     //Edit form admin

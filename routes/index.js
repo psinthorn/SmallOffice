@@ -12,6 +12,8 @@ module.exports = (app) => {
   //Apartment List
   app.get('/apartments', IndexController.apartments);
 
+  app.get('/apartment-show/:id', IndexController.apartmentsShow);
+
   //Contact page
   app.get('/contact-us', IndexController.contact);
 

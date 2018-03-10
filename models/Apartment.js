@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const ApartmentIntro = require('../models/ApartmentIntro');
+const Facility = require('../models/Facility');
 const Schema = mongoose.Schema;
 
 const ApartmentSchema = new Schema({
@@ -16,13 +18,20 @@ const ApartmentSchema = new Schema({
         default: 'images/location/montreal-ap-01.jpg'
     },
     address: {
-        type: Schema.Types.ObjectId,
-        ref: 'localtion'
+        type: String,
     },
-    facilties: [{
-        type: Schema.Types.ObjectId,
-        ref: 'facility'
+    facilities: [{
+        title: {
+            type: String   
+        }, 
+        value: {
+            type: String
+        }
     }],
+    intro: {
+        type: Schema.Types.ObjectId,
+        ref: 'apartmentintro'
+    },
     status: {
         type: String,
         default: 'Unavailable'
@@ -37,6 +46,11 @@ const ApartmentSchema = new Schema({
     }
 
 });
+
+// ApartmentSchema.virtual('apartmentCount').get(function() {
+//     return this.title.length;
+// });
+
 
 const Apartment = mongoose.model('apartment', ApartmentSchema, 'apartments');
 module.exports = Apartment;

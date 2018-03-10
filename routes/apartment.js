@@ -8,8 +8,10 @@ module.exports = (app) => {
     //888888888888888888888888888
 
 
-    //Admin Login page
-    app.get('/admin/login', ApartmentController.login);
+    //get image form   
+    app.get('/admin/apartments/image', ApartmentController.image); 
+
+    app.post('/admin/apartments/image', ApartmentController.imageUplaod);
 
     //Get all Apartment List
     app.get('/admin/apartments', ApartmentController.getAll);
@@ -29,4 +31,21 @@ module.exports = (app) => {
     //Delete apartment
     app.delete('/admin/apartments/:id', ApartmentController.delete);
 
+    //Facility 
+    app.post('/admin/facility/:id', ApartmentController.facility);
+
+    app.delete('/admin/facility/:id', ApartmentController.facilityDelete);
+
+
+
+    //intro section
+    app.get('/admin/apartment-intro', ApartmentController.getIntro);
+
+    app.get('/admin/apartment-intro/add', ApartmentController.introForm);
+
+    app.post('/admin/apartment-intro', ApartmentController.addIntro);
+
+    app.get('/admin/apartment-intro/:id', ApartmentController.editIntroForm);
+
+    app.put('/admin/apartment-intro/:id', ApartmentController.editIntro);
 }

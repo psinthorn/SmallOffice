@@ -6,23 +6,33 @@
         {{> _msg}}
 
         <div class="col s12 m8 l8">
-            <h4>Add new apartment</h4>
+            <h4>Edit >  {{ apartment.title}}</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/apartments/{{ apartment.id }}?_method=PUT"" method="post">
+                        <form action="/admin/apartments/{{ apartment.id }}?_method=PUT" method="post">
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="name" value="{{ apartment.name }}">
+                                    <input type="text" name="name" value="{{ apartment.title }}">
                                     <label for="vehicleType">Apartment Name</label>
 
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="address" value="{{ apartment.address }}">
+                                    <label for="address">Address</label>
+
+                                </div>
+                            </div>
+
                             <div class="row">
 
                                 <div class="input-field col s12 m12 l12">
@@ -49,9 +59,9 @@
                                     <select name="status" id="status">
                                       {{#select apartment.status }}
                                       
-                                        <option value="public" selected>Available</option>
-                                        <option value="private">Private</option>
-                                        <option value="unavailable">Unavailable</option>
+                                        <option value="Available" selected>Available</option>
+                                        <option value="Private">Private</option>
+                                        <option value="Unavailable">Unavailable</option>
 
                                        {{/select }}
                                     </select>
@@ -70,44 +80,63 @@
 
 
 <div class="col s12 m4 l4">
-            <h4>Current List</h4>
+            <h4>Add Facility</h4>
             <div class="hr-1px"></div>
 
-        {{#if apartments }}                  
-        <table class="highlight">
-        <thead>
-          <tr>
-              <th>Apartment</th>
-              <th>Status</th>
-              <th>Manage</th>
-          </tr>
-        </thead>
+      <form action="/admin/facility/{{ apartment.id }}" method="post">
+              <div class="row">
+                                <div class="input-field col s12 m12 l12">
 
-        <tbody>
+                                    <input type="text" name="title">
+                                    <label for="title">Facility</label>
 
-        {{#each apartments }} 
+                                </div>
+            </div>
 
-          <tr>
-            <td>{{ name }}</td>
-            <td>{{ status }}</td>
+             <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="value">
+                                    <label for="value">Value</label>
+
+                                </div>
+            </div>
+
+            <div class="row">
+                                <input type="submit" value="+" class="btn right">
+            </div>
+      
+      </form>
+
+    {{#if apartment.facilities }}
+      <h5>Facility Lists</h5>
+      <div class="divider"></div>
+
+    <table>
+
+        <th>Title</th>
+        <th>Details</th>
+        <th>manage</th>
+
+         {{#each apartment.facilities }} 
+        <tr>
+            <td>{{ title }}</td>
+            <td>{{ value }}</td>
             <td>
-               <a href="/admin/apartments/show/{{ id }}">Viewe</a>   | 
-                <a href="/admin/apartments/{{ id }}">Edit</a>  | 
-                 <a href="/admin/apartments/delete/{{ id }}">Delete</a>
+                <form action="/admin/facility/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">X</button>
+                </form>
             </td>
-          </tr>
+        </tr>
+         {{/each}}
 
-        {{/each }}
+        
+    </table>
 
-        </tbody>
-      </table>
+     
+    {{/if }}  
+     
 
-      {{ else }}
-
-        No apartments available
-
-      {{/if}}
-
-        </div>
-    </div>
+       
 </div>

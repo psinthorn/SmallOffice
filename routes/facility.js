@@ -20,10 +20,10 @@ module.exports = (app) => {
         app.get('/admin/facility/:id', FacilityController.editForm);
     
         // //Edit process
-        app.put('/admin/facility/:id', FacilityController.editUpdate);
+        //app.put('/admin/facility/:id', FacilityController.editUpdate);
     
         // //Delete facility
-        app.delete('/admin/facility/:id', FacilityController.delete);
+       // app.delete('/admin/facility/:id', FacilityController.delete);
 
 
 }

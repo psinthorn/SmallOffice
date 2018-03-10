@@ -1,7 +1,7 @@
 <div class="container">
 
         <div class="row">
-            <div class="col s12 m12 l12">
+            <div class="col s12 m6 l6">
                 
                 {{> _msg}}
 
@@ -11,17 +11,17 @@
 
 
                     
-                        <form action="/admin/category" method="post">
+                        <form action="/admin/login" method="post">
 
                             <div class="row">
 
 
                                 <div class="input-field">
-                                    <input type="text" name="login" value="{{ admin.email }}">
-                                    <label for="login">Login Name</label>
+                                    <input type="text" name="email" value="{{ email }}">
+                                    <label for="email">Email</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="password" name="password" value="{{ admin.password}}">
+                                    <input type="password" name="password">
                                     <label for="name">Password</label>
                                 </div>
 

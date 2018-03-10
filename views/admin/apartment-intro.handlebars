@@ -17,18 +17,18 @@
     </div>
 
 
-    <h3>Current Apartments List</h3>
+    <h3>Current Apartments Intro</h3>
     <div class="hr-1px"></div>
 
     <div class="row">
        
-        {{#if apartments}}
+        {{#if intro }}
         <table class="striped">
         <thead>
           <tr>
-              <th>Apartment Title</th>
+              <th>Intro Title</th>
               {{!-- <th class="hide-on-small-only">Description</th> --}}
-              <th>Address</th>
+              <th>Author</th>
               <th>Status</th>
               <th colspan="2" class="center-align">Manage</th>
               
@@ -36,37 +36,33 @@
         </thead>
 
         <tbody>
-
-          
-            {{#each apartments }}
-
             
           <tr>
-            <td>{{ title }}</td>
-            <td>{{ address }}</td>
+            <td>{{ intro.title }}</td>
+            <td>{{ intro.owner }}</td>
             {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
-            <td>{{ status }}</td>
-            <td class="right-align"> <a href="/admin/apartments/{{ id }}" class="btn">Edit</a> </td>
+            <td>{{ intro.status }}</td>
+            <td class="right-align"> <a href="/admin/apartment-intro/{{ intro.id }}" class="btn">Edit</a> </td>
             
-            <td class="left-align">
+            {{!-- <td class="left-align">
                  <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">X</button>
+                            <button type="submit" class="btn red">Delete</button>
             </form>
             
             
 
-            </td>
+            </td> --}}
 
 
           </tr>
-           {{/each}}
+           
             
         </tbody>
       </table>
 
         {{else}}
-        <p>Currently is no apartment available!</p>
+        <p>Currently is no apartment intro available!</p>
        {{/if}}
      
 

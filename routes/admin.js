@@ -9,7 +9,7 @@ module.exports = (app) => {
 
 
     //Admin Login page
-    app.get('/admin/login', adminController.login);
+    app.get('/admin/login', adminController.loginForm);
 
     //Get all admin List
     app.get('/admin/admins', adminController.getAll);
