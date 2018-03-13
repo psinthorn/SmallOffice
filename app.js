@@ -51,7 +51,7 @@ mongoose.Promise = global.Promise;
 
 //MongoDB connect
 mongoose.connect(keys.mongoURI, {
-    useMongoClient: true
+   useMongoClient: true
 })
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err) );

@@ -28,17 +28,26 @@ const ApartmentSchema = new Schema({
             type: String
         }
     }],
-    intro: {
+    locations: [{
         type: Schema.Types.ObjectId,
-        ref: 'apartmentintro'
-    },
+        ref: 'location'
+        
+    }],
+    subcontact: [{
+        type: Schema.Types.ObjectId,
+        ref: 'subcontact'
+    }],
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comment'
+    }],
     status: {
         type: String,
         default: 'Unavailable'
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'admin'
     },
     date: {
         type: Date,
@@ -47,13 +56,13 @@ const ApartmentSchema = new Schema({
 
 });
 
-// ApartmentSchema.virtual('apartmentCount').get(function() {
-//     return this.title.length;
-// });
+ApartmentSchema.virtual('apartmentCount').get(function() {
+    return this.title.length;
+});
 
 
 const Apartment = mongoose.model('apartment', ApartmentSchema, 'apartments');
 module.exports = Apartment;
 
-
+//mongoose.model('apartment', ApartmentSchema, 'apartments');
 

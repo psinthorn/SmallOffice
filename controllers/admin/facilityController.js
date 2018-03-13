@@ -1,6 +1,7 @@
 
-const Facility = require('../../models/Facility');
 const mongoose = require('mongoose');
+const Facility = require('../../models/Facility');
+
 
 
 module.exports = {

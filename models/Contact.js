@@ -42,6 +42,14 @@ const ContactSchema = new Schema ({
     status: {
         type: String,
         default: 'public'
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'admin'
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 })
 

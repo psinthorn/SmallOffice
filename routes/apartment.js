@@ -36,6 +36,11 @@ module.exports = (app) => {
 
     app.delete('/admin/facility/:id', ApartmentController.facilityDelete);
 
+    //Contact
+    app.post('/admin/apartment/contact/:id', ApartmentController.contactAdd);
+    app.put('/admin/apartment/contact/:id', ApartmentController.contactEdit);
+    app.delete('/admin/apartment/contact/:id', ApartmentController.contactDelete);
+
 
 
     //intro section

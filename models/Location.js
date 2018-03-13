@@ -6,9 +6,12 @@ const Schema = mongoose.Schema;
 //lng: 100.043674
 
 const LocationSchema = new Schema ({
-    name: {
+    title: {
         type: String,
-        required: true
+        
+    },
+    content: {
+        type: String,
     },
     addr1: {
         type: String
@@ -39,6 +42,9 @@ const LocationSchema = new Schema ({
         type: String,
         default: '100.043674'
     },
+    img: {
+        type: String
+    },
     status: {
         type: Boolean,
         default: false
@@ -57,3 +63,5 @@ const LocationSchema = new Schema ({
 
 const Location = mongoose.model('location', LocationSchema, 'locations' );
 module.exports = Location;
+
+//mongoose.model('location', LocationSchema, 'locations' );

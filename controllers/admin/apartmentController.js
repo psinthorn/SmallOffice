@@ -1,9 +1,10 @@
 
+const mongoose = require('mongoose');
 const Apartment = require('../../models/Apartment');
 const ApartmentIntro =require('../../models/ApartmentIntro');
-const mongoose = require('mongoose');
 const Facility = require('../../models/Facility');
-//const Apartment = mongoose.model('apartment');
+const SubContact = require('../../models/SubContact');
+
 
 module.exports = {
 
@@ -13,6 +14,7 @@ module.exports = {
 
         Apartment.find({}).sort({ date: -1})
         .populate('user')
+        .populate('subcontact')
         .then(apartments => {
             res.render('admin/apartments-list', { apartments: apartments });
         });
@@ -46,6 +48,7 @@ module.exports = {
         const id = req.params.id;
         //console.log(id);
         Apartment.findById({ _id: id })
+            .populate('subcontact')
             .then( (apartment) => {
                 //res.send(apartment);
                 res.render('admin/apartment-edit', { apartment: apartment });
@@ -181,9 +184,52 @@ module.exports = {
                         res.render('admin/apartment-edit', { apartment: apartment });
                     });
             })
-         }
+         },
 
+      //Contact each apartment
+      contactAdd(req, res){
 
+            const id = req.params.id;
+            const newContact = new SubContact({
+                title: req.body.title,
+                email: req.body.email,
+                person: req.body.person 
+            });
+
+            const apartment = Apartment.findById({ _id: id })
+                .then( apartment => {
+                    apartment.subcontact.push(newContact);
+                    Promise.all([newContact.save(),apartment.save() ]) 
+                        .then( apartment => {
+                            res.render('admin/apartment-edit', { apartment: apartment } );
+                        } )
+                })
+                    
+        },  
+
+      //Contact each apartment edit
+      contactEdit(req, res){
+        
+                    const id = req.params.id;
+                    const newContact = req.body;
+        
+                    Apartment.findOneAndUpdate({ 'contact._id': id }, newContact)      
+                            .then(apartment => {
+                                res.render('admin/apartment-edit', { apartment: apartment });
+                            });      
+              }, 
+
+    //Contact Delete
+     contactDelete(req, res){
+
+            const id = req.params.id;
+
+            Apartment.findByIdAndRemove({ 'subcontact._id': id })
+                .then( apartment => {
+                    res.render('admin/apartment-edit', { apartment: apartment });
+                })
+
+     },
 
 
 }

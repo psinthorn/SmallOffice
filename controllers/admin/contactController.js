@@ -1,6 +1,6 @@
-
-const Contact = require('../../models/Contact');
 const mongoose = require('mongoose');
+const Contact = require('../../models/Contact');
+
 //const Apartment = mongoose.model('apartment');
 
 module.exports = {
