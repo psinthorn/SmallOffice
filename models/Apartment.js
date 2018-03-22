@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const ApartmentIntro = require('../models/ApartmentIntro');
 const Facility = require('../models/Facility');
 const Schema = mongoose.Schema;
+const LocationSchema = require('../models/LocationSchema');
 
 const ApartmentSchema = new Schema({
 
@@ -28,11 +29,7 @@ const ApartmentSchema = new Schema({
             type: String
         }
     }],
-    locations: [{
-        type: Schema.Types.ObjectId,
-        ref: 'location'
-        
-    }],
+    locations: [LocationSchema],
     subcontact: [{
         type: Schema.Types.ObjectId,
         ref: 'subcontact'

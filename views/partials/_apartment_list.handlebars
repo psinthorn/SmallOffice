@@ -47,67 +47,20 @@
             <a href="/apartment-show/{{ id }}">
             <h4 class="header-text-01">{{ title }}</h4>
              <a href="/apartment-show/{{ id }}">
-            <p class="font-grey">{{ address }}</p>
-            <p class="font-grey">{{stripTags (truncate desc 300)}}</p>
-            {{!--
-            <p>{{{ desc }}}</p> --}}
+            {{!-- <p class="font-grey">{{ address }}</p> --}}
+             
+                 {{#each locations }}
 
+                <p class="font-grey">{{ title }} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
+
+                 {{/each}}
+
+            <p class="font-grey">{{stripTags (truncate desc 300)}}</p>
+           
 
 
             <br>
            <div class="btn blue right">More Infomation</div></a>
-            
-
-            {{!--
-            <div class="divider"></div> --}} {{!--
-            <br>
-            <h5>Facilities</h5>
-            <div class="col s12 m12 l12">
-                <div class="col s12 m6 l6">
-                    <div class="row">
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>Grand 3 1/2. Charmant. 2e étage d'un cinqplex;
-                        </p>
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>1 chambre fermé.
-                        </p>
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>lancher en bois franc et céramique.
-                            <p class="inline-block">
-                                <i class="material-icons">done</i>Douche récement renovée.
-                            </p>
-                            <p class="inline-block">
-                                <i class="material-icons">done</i>Disponible juillet 2017.
-                            </p>
-                    </div>
-
-
-
-                </div>
-
-                <div class="col s12 m6 l6">
-                    <div class="row">
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>Entrées laveuse-secheuse.
-                        </p>
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>Balcon en arrière.
-                        </p>
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>Éléctricité/chauffage: 80 $/mois.
-                        </p>
-                        <p class="inline-block">
-                            <i class="material-icons">done</i>Loyer mensuel: 725 $
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-            <br>
-            <div class="divider"></div>
-            <br> --}} {{!--
-            <div class="divider"></div> --}}
             <br>
         </div>
 

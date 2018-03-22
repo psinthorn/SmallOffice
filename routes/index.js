@@ -4,7 +4,7 @@ const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 module.exports = (app) => {
 
    //Welcome landing page
-    app.get('/', IndexController.index);
+  app.get('/', IndexController.index);
 
   //about page
   app.get('/about', IndexController.about);  

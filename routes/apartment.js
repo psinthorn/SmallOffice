@@ -38,8 +38,13 @@ module.exports = (app) => {
 
     //Contact
     app.post('/admin/apartment/contact/:id', ApartmentController.contactAdd);
+    app.get('/admin/apartment/contact/edit/:id', ApartmentController.contactEditForm);
     app.put('/admin/apartment/contact/:id', ApartmentController.contactEdit);
     app.delete('/admin/apartment/contact/:id', ApartmentController.contactDelete);
+
+    //Location
+    app.delete('/admin/apartment/location/:id', ApartmentController.locationDelete);
+    app.post('/admin/apartment/location/:id', ApartmentController.locationAdd);
 
 
 

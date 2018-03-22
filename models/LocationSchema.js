@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Koh Samui 
-//lat: 9.532012
-//lng: 100.043674
+const LocationSchema = new Schema({
 
-const LocationSchema = new Schema ({
-    
     title: {
         type: String,
         
@@ -20,7 +16,7 @@ const LocationSchema = new Schema ({
     addr2: {
         type: String
     },
-    distric: {
+    district: {
         type: String
     },
     city: {
@@ -61,8 +57,4 @@ const LocationSchema = new Schema ({
 
 });
 
-
-const Location = mongoose.model('location', LocationSchema, 'locations' );
-module.exports = Location;
-
-//mongoose.model('location', LocationSchema, 'locations' );
+module.exports = LocationSchema;

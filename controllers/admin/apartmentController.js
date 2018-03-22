@@ -200,23 +200,39 @@ module.exports = {
                 .then( apartment => {
                     apartment.subcontact.push(newContact);
                     Promise.all([newContact.save(),apartment.save() ]) 
-                        .then( apartment => {
-                            res.render('admin/apartment-edit', { apartment: apartment } );
-                        } )
+                        .then( () => Apartment.findById({ _id: id }))
+                            //.populate('subcontact')
+                            .then( apartment => {
+                              res.render('admin/apartment-edit', { apartment: apartment }); 
+                             //res.send(apartment);
+                        })
+                                
                 })
                     
         },  
 
+      //Contact Edit Form 
+      contactEditForm(req, res){
+
+                    const id = req.params.id;
+                    const newContact = req.body;
+
+                    SubContact.findById({ _id: id })
+                        .then( subcontact => {
+                            res.send(subcontact)
+                        });
+      },  
+
       //Contact each apartment edit
       contactEdit(req, res){
         
-                    const id = req.params.id;
-                    const newContact = req.body;
+                    // const id = req.params.id;
+                    // const newContact = req.body;
         
-                    Apartment.findOneAndUpdate({ 'contact._id': id }, newContact)      
-                            .then(apartment => {
-                                res.render('admin/apartment-edit', { apartment: apartment });
-                            });      
+                    // SubContact.findOneAndUpdate({ 'contact._id': id }, newContact)      
+                    //         .then( subcontct => {
+                    //             res.send(subcontct);
+                    //         });      
               }, 
 
     //Contact Delete
@@ -224,12 +240,65 @@ module.exports = {
 
             const id = req.params.id;
 
-            Apartment.findByIdAndRemove({ 'subcontact._id': id })
-                .then( apartment => {
-                    res.render('admin/apartment-edit', { apartment: apartment });
+            SubContact.findByIdAndRemove({ _id: id })
+                .then( () => { 
+                    res.redirect('/admin/apartments');
                 })
+     },
+
+
+
+     //Location Edit Form
+     locationEditForm(){
+
 
      },
 
+     //Add location 
+     locationAdd(req, res){
+
+        const id = req.params.id;
+        const newLocation = req.body;
+
+        Apartment.findById({ _id: id})
+            .then( apartment => {
+                apartment.locations.push(newLocation)
+                return apartment.save();
+                
+            })
+                .then( () => Apartment.findById({ _id: id}))
+                    .then( apartment => {
+                        res.render('admin/apartment-edit', { apartment: apartment });
+                    } )
+     },
+
+     //Update location 
+     locationUpdate(req, res){
+        
+                const id = req.params.id;
+                const newLocation = req.body;
+        
+                Apartment.findByIdAndUpdate({ 'locations._id': id}, newLocation)
+                            .then( apartment => {
+                                res.render('admin/apartment-edit', { apartment: apartment });
+                            } )
+             },
+
+     //Delete Location
+     locationDelete(req, res){
+        
+        const id =  req.params.id;
+
+        Apartment.findOne({ 'locations._id' : id })
+        //.populate('facilities')
+        .then(apartment => {
+                apartment.locations.pull({ _id : id });
+                apartment.save()
+                .then(apartment => {
+                    res.render('admin/apartment-edit', { apartment: apartment });
+                });
+        })
+
+     },
 
 }
