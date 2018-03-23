@@ -34,7 +34,22 @@ module.exports = {
 
     //Create new apartment
     create(req, res){
-        const apartmentProps = req.body;
+
+        const imgUrl = req.files.imgUrl;
+        const imgUrlName = Date.now() + '-' + imgUrl.name;
+        const imagesUploads = './public/images/';
+        imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+            if(err) throw err;
+        });
+
+        const apartmentProps = new Apartment({
+            title: req.body.title,
+            desc: req.body.desc,
+            imgUrl: imgUrlName,
+            address: req.body.address,
+            status: req.body.status
+        });
+
         Apartment.create(apartmentProps)
             .then( () => Apartment.find({}).sort({date: -1 }))
                 .then( apartments => {                
@@ -42,6 +57,7 @@ module.exports = {
             });
     },
 
+    
     //Edit form apartment
     editForm(req, res){
 
@@ -86,56 +102,52 @@ module.exports = {
     },
     //image upload process
     imageUplaod(req, res){
-        res.send('test');
-    },
 
-
-    //Intro Route
-    getIntro(req, res){
-        ApartmentIntro.findOne({})
-            .then( intro => {
-                res.render('admin/apartment-intro', { intro: intro });
-                //res.send('inro');
-            });
-    },
-
-    introForm(req, res){
-        res.render('admin/apartment-intro-add');
-    },
-
-    addIntro(req, res){
-        const introProps = req.body;
-        
-        ApartmentIntro.create(introProps)
-            .then(() => ApartmentIntro.findOne({}))
-                .then( intro => { 
-                    res.render('admin/apartment-intro', { intro: intro });
-                });
-    },
-
-    editIntroForm(req, res){
-        
         const id = req.params.id;
 
-        ApartmentIntro.findById({ _id: id })
-            .then( intro => {
-                res.render('admin/apartment-intro-edit', { intro: intro });
+        const imgUrl = req.files.imgUrl;
+        const imgUrlName = Date.now() + '-' + imgUrl.name;
+        const imagesUploads = './public/images/';
+        imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+            if(err) throw err;
+
+            res.send('Upload completed');
+        });
+
+        Apartment.findById({ _id: id })
+            .then( apartment => {
+                apartment.imgUrl.push(imag);
             });
+
     },
 
-    editIntro(req, res){
+    //Image Update
 
-        const introProps = req.body;
+    imageUpdate(req, res){
+
         const id = req.params.id;
-        
-        ApartmentIntro.findByIdAndUpdate({_id: id }, introProps)
-            .then(() => ApartmentIntro.findOne({}))
-                .then( intro => { 
-                    res.render('admin/apartment-intro', { intro: intro });
-                });
+
+        const imgUrl = req.files.imgUrl;
+        const imgUrlName = Date.now() + '-' + imgUrl.name;
+        const imagesUploads = './public/images/';
+        imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+            if(err) throw err;
+        });
+
+        const newImg = ({
+            imgUrl: imgUrlName
+        })
     
+        Apartment.findByIdAndUpdate({ _id: id},newImg)
+            .then(() => Apartment.findById({ _id: id }))
+            .then( apartment => {
+                res.render('admin/apartment-edit', { apartment: apartment });
+            });
 
     },
+
+
+   
 
     //Add facility form 
     facility(req, res){

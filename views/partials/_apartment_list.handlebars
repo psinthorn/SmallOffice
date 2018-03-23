@@ -15,7 +15,7 @@
     </h3>
     <div class="divider"></div>
     <br>
-    <br> {{#each apartments }} {{ intro.title }} {{ intro.desc }}
+    <br> {{#each apartments }} 
     <div class="row">
         <div class="col s12 m4 l4">
 
@@ -23,8 +23,12 @@
             <div class="card">
                 <div class="card-image">
 
+                    <img class="responsive-img" src="/images/{{ imgUrl }}">
 
-                    <img class="responsive-img" src="images/le-quatier/le-quartier-01.jpg"> {{!--
+
+                    {{!-- <img class="responsive-img" src="/images/le-quatier/le-quartier-01.jpg">  --}}
+                    
+                    {{!--
                     <span class="card-title">5779 Av. De Lorimier</span> --}} {{!--
                     <a class="btn-floating halfway-fab waves-effect waves-light red">
                         <i class="material-icons">add</i>

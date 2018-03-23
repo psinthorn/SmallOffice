@@ -30,6 +30,7 @@
         <thead>
           <tr>
               <th>Apartment Title</th>
+              <th>Image</th>
               {{!-- <th class="hide-on-small-only">Description</th> --}}
               <th>Address</th>
               <th>Status</th>
@@ -46,6 +47,7 @@
             
           <tr>
             <td>{{ title }}</td>
+            <td><img src="/images/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px"></td>
             <td>{{ address }}</td>
             {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
             <td>{{ status }}</td>

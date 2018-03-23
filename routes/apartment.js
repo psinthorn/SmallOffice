@@ -47,15 +47,20 @@ module.exports = (app) => {
     app.post('/admin/apartment/location/:id', ApartmentController.locationAdd);
 
 
+    //Image Section
+    app.put('/admin/image/:id', ApartmentController.imageUpdate);
 
-    //intro section
-    app.get('/admin/apartment-intro', ApartmentController.getIntro);
 
-    app.get('/admin/apartment-intro/add', ApartmentController.introForm);
 
-    app.post('/admin/apartment-intro', ApartmentController.addIntro);
 
-    app.get('/admin/apartment-intro/:id', ApartmentController.editIntroForm);
+    // //intro section
+    // app.get('/admin/apartment-intro', ApartmentController.getIntro);
 
-    app.put('/admin/apartment-intro/:id', ApartmentController.editIntro);
+    // app.get('/admin/apartment-intro/add', ApartmentController.introForm);
+
+    // app.post('/admin/apartment-intro', ApartmentController.addIntro);
+
+    // app.get('/admin/apartment-intro/:id', ApartmentController.editIntroForm);
+
+    // app.put('/admin/apartment-intro/:id', ApartmentController.editIntro);
 }

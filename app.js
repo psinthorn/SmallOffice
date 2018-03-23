@@ -3,12 +3,13 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
-const multer = require('multer');
+//const multer = require('multer');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const keys  = require('./config/key');
+const upload = require('express-fileupload');
 
 //load user model
 require('./models/Category');
@@ -34,6 +35,8 @@ const facility = require('./routes/facility');
 const apartment = require('./routes/apartment');
 
 const app = express();
+
+
 
 //use sessions for tracking logins
 app.use(session({
@@ -64,18 +67,18 @@ mongoose.connect(keys.mongoURI, {
 //     mongoose.connect('mongodb://localhost/apdlca');
 // }
 
-//Set multer image uploads
-const storage = multer.diskStorage({
-    destination: './public/images/',
-    filename: function(req, file, res){
-        res(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
+// //Set multer image uploads
+// const storage = multer.diskStorage({
+//     destination: './public/images/',
+//     filename: function(req, file, res){
+//         res(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//     }
+// });
 
-//Init upload
-const upload = multer({
-    storage: storage
-}).single('imgUrl');
+// //Init multer upload
+// const upload = multer({
+//     storage: storage
+// }).single('imgUrl');
 
 
 //method-override middle-ware
@@ -117,6 +120,10 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 });
+
+
+//express-fileupload
+app.use(upload());
 
 //set static folder public
 app.use(express.static(path.join(__dirname, 'public')));

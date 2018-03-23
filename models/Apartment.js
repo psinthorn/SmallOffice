@@ -18,6 +18,9 @@ const ApartmentSchema = new Schema({
         type: String,
         default: 'images/location/montreal-ap-01.jpg'
     },
+    gallery: [{
+        type: String,
+    }],
     address: {
         type: String,
     },
