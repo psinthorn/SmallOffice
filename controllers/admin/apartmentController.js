@@ -13,10 +13,9 @@ module.exports = {
     getAll(req, res){
 
         Apartment.find({}).sort({ date: -1})
-        .populate('user')
-        .populate('subcontact')
         .then(apartments => {
             res.render('admin/apartments-list', { apartments: apartments });
+            //res.send('Hello list');
         });
 
     },
@@ -235,31 +234,7 @@ module.exports = {
                         });
       },  
 
-      //Contact each apartment edit
-      contactEdit(req, res){
-        
-                    // const id = req.params.id;
-                    // const newContact = req.body;
-        
-                    // SubContact.findOneAndUpdate({ 'contact._id': id }, newContact)      
-                    //         .then( subcontct => {
-                    //             res.send(subcontct);
-                    //         });      
-              }, 
-
-    //Contact Delete
-     contactDelete(req, res){
-
-            const id = req.params.id;
-
-            SubContact.findByIdAndRemove({ _id: id })
-                .then( () => { 
-                    res.redirect('/admin/apartments');
-                })
-     },
-
-
-
+    
      //Location Edit Form
      locationEditForm(){
 

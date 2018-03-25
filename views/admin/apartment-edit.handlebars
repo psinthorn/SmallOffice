@@ -6,7 +6,7 @@
         {{> _msg}}
         <h4>Apartment Management</h4>
         <div class="hr-1px"></div>
-        <div class="col s12 m8 l8">
+        <div class="col s12 m12 l12">
 
 
             <div class="col s12 m12 l12">
@@ -27,14 +27,14 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            {{!-- <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
                                     <input type="text" name="address" value="{{ apartment.address }}">
                                     <label for="address">Address</label>
 
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row">
 
@@ -82,6 +82,9 @@
                         <div class="card-content gray-text">
 
                             <div class="row">
+
+                                 <h4>Image</h4>
+                                 <div class="hr-1px"></div>
                                 <div class="file-field input-field">
                                     <div class="btn">
                                         <span>Image</span>
@@ -116,6 +119,83 @@
 
             </div>
 
+            {{!-- Facilities --}}
+
+              <div class="row">
+
+                <div class="col s12 m12 l12">
+
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <h4>Facility</h4>
+                        <div class="hr-1px"></div>
+
+                        <form action="/admin/facility/{{ apartment.id }}" method="post">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title">
+                                    <label for="title">Facility</label>
+
+                                </div>
+                            </div>
+
+                            {{!--
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="value">
+                                    <label for="value">Value</label>
+
+                                </div>
+                            </div> --}}
+
+                            <div class="row">
+                                <input type="submit" value="+" class="btn right">
+                            </div>
+
+                        </form>
+
+                        {{#if apartment.facilities }}
+                        <h5>Current Facility Lists</h5>
+                        <div class="divider"></div>
+
+                        <table>
+
+                            <th>Title</th>
+                            <th>Manage</th>
+
+                            {{#each apartment.facilities }}
+                            <tr>
+                                <td>{{ title }}</td>
+                                <td>
+                                    <form action="/admin/facility/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn red">X</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+
+                        </table>
+
+
+                        {{/if }}
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            </div>
+
+        </div>
+
+
 
 
 
@@ -125,7 +205,7 @@
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <h4>Add Contact</h4>
+                        <h4>Contact</h4>
                         <div class="hr-1px"></div>
 
                         <form action="/admin/apartment/contact/{{ apartment.id }}" method="post">
@@ -205,7 +285,7 @@
                         </form>
 
                         {{#if apartment.subcontact }}
-                        <h5>Contact Lists</h5>
+                        <h5>Current Contact Lists</h5>
                         <div class="divider"></div>
 
                         <div class="row">
@@ -225,9 +305,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="/admin/apartment/contact/edit/:id">
+                                            {{!-- <a href="/admin/apartment/contact/edit/{{ id }}">
                                                 <div class="btn">Edit</div>
-                                            </a>
+                                            </a> --}}
                                             <form action="/admin/apartment/contact/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn red">X</button>
@@ -263,7 +343,7 @@
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <h4>Add Locations for Maps </h4>
+                        <h4>Address & Locations</h4>
                         <div class="hr-1px"></div>
 
                         <form action="/admin/apartment/location/{{ apartment.id }}" method="post">
@@ -357,7 +437,7 @@
                         </form>
 
                         {{#if apartment.locations }}
-                        <h5>Address & Geo-Location</h5>
+                        <h5>Current Address & Location</h5>
                         <div class="divider"></div>
 
                         <table>
@@ -369,9 +449,9 @@
                             {{#each apartment.locations }}
                             <tr>
                                 <td>{{ title }}
-                                    <br>{{ addr1 }} {{ district }}
-                                    <br>{{ city }} {{ province }}
-                                    <br>{{ country }} {{ postcode }}</td>
+                                    <br>{{ addr1 }} {{ addr2 }} {{ district }}
+                                    {{ city }} {{ province }}
+                                    {{ country }} {{ postcode }}</td>
                                 <td>{{ lat }} - {{ lng }}</td>
                                 <td>
                                     <form action="/admin/apartment/location/{{ id }}?_method=DELETE" method="post" id="delete-form">
@@ -396,79 +476,10 @@
             </div>
 
 
+          
 
 
-        </div>
 
+        {{!-- <div class="col s12 m4 l4"> 
 
-        <div class="col s12 m4 l4">
-
-            <div class="col s12 m12 l12">
-
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-                        <h4>Add Facility</h4>
-                        <div class="hr-1px"></div>
-
-                        <form action="/admin/facility/{{ apartment.id }}" method="post">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="title">
-                                    <label for="title">Facility</label>
-
-                                </div>
-                            </div>
-
-                            {{!--
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="value">
-                                    <label for="value">Value</label>
-
-                                </div>
-                            </div> --}}
-
-                            <div class="row">
-                                <input type="submit" value="+" class="btn right">
-                            </div>
-
-                        </form>
-
-                        {{#if apartment.facilities }}
-                        <h5>Facility Lists</h5>
-                        <div class="divider"></div>
-
-                        <table>
-
-                            <th>Title</th>
-                            <th>manage</th>
-
-                            {{#each apartment.facilities }}
-                            <tr>
-                                <td>{{ title }}</td>
-                                <td>
-                                    <form action="/admin/facility/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn red">X</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {{/each}}
-
-
-                        </table>
-
-
-                        {{/if }}
-
-
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
+        </div> --}}

@@ -1,4 +1,5 @@
 const ApartmentController = require('../controllers/admin/apartmentController');
+const SubContactController = require('./../controllers/admin/subContactController');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 module.exports = (app) => {
@@ -37,10 +38,10 @@ module.exports = (app) => {
     app.delete('/admin/facility/:id', ApartmentController.facilityDelete);
 
     //Contact
-    app.post('/admin/apartment/contact/:id', ApartmentController.contactAdd);
+    app.post('/admin/apartment/contact/:id', SubContactController.add);
     app.get('/admin/apartment/contact/edit/:id', ApartmentController.contactEditForm);
-    app.put('/admin/apartment/contact/:id', ApartmentController.contactEdit);
-    app.delete('/admin/apartment/contact/:id', ApartmentController.contactDelete);
+    //app.put('/admin/apartment/contact/:id', SubContactController.edit);
+    app.delete('/admin/apartment/contact/:id', SubContactController.delete);
 
     //Location
     app.delete('/admin/apartment/location/:id', ApartmentController.locationDelete);

@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const ApartmentIntro = require('../models/ApartmentIntro');
-const Facility = require('../models/Facility');
+const ApartmentIntro = require('./../models/ApartmentIntro');
+const Facility = require('./../models/Facility');
 const Schema = mongoose.Schema;
-const LocationSchema = require('../models/LocationSchema');
+const LocationSchema = require('./../models/LocationSchema');
+const SubContactSchema = require('./../models/SubContactSchema');
 
 const ApartmentSchema = new Schema({
 
@@ -33,14 +34,7 @@ const ApartmentSchema = new Schema({
         }
     }],
     locations: [LocationSchema],
-    subcontact: [{
-        type: Schema.Types.ObjectId,
-        ref: 'subcontact'
-    }],
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'comment'
-    }],
+    subcontact: [SubContactSchema],
     status: {
         type: String,
         default: 'Unavailable'

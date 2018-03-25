@@ -1,19 +1,7 @@
 <div class="container">
-    
-    <div class="row">
-                <div class="input-field col s12">
-                    {{#if errors}}
-                    <div class="card-panel red lighten-4">
-                        {{#each errors}} {{error}}
-                        <br> {{/each}}
-                    </div>
-                    {{/if}} {{#each successMsg}}
 
-                    <div class="card-panel green lighten-4">
-                         {{success}}
-                    </div>
-                    {{/each}}
-                </div>
+    <div class="row">
+       {{!-- {{> _msg }} --}}
     </div>
 
 
@@ -21,59 +9,79 @@
     <div class="hr-1px"></div>
     <div class="row">
         <div class="left"></div>
-        <a href="/admin/apartments/add"><div class="btn right">Add New Apartment</div></a>
+        <a href="/admin/apartments/add">
+            <div class="btn right">Add New Apartment</div>
+        </a>
     </div>
     <div class="row">
-       
+
         {{#if apartments}}
+
         <table class="striped">
-        <thead>
-          <tr>
-              <th>Apartment Title</th>
-              <th>Image</th>
-              {{!-- <th class="hide-on-small-only">Description</th> --}}
-              <th>Address</th>
-              <th>Status</th>
-              <th colspan="2" class="center-align">Manage</th>
-              
-          </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Apartment Title</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th colspan="2" class="center-align">Manage</th>
 
-        <tbody>
+                </tr>
+            </thead>
 
-          
-            {{#each apartments }}
+            <tbody>
 
-            
-          <tr>
-            <td>{{ title }}</td>
-            <td><img src="/images/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px"></td>
-            <td>{{ address }}</td>
-            {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
-            <td>{{ status }}</td>
-            <td class="right-align"> <a href="/admin/apartments/{{ id }}" class="btn">Edit</a> </td>
-            
-            <td class="left-align">
-                 <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                        <input type="hidden" name="_method" value="DELETE">
+
+                {{#each apartments }}
+
+
+                <tr>
+                    <td>
+                        <img src="/images/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                    </td>
+                    <td>{{ title }}</td>
+
+                    <td>
+                        {{#if locations }}
+                        {{#each locations }}
+                        
+                        {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ state }} {{ country }} {{ postCode }}
+
+                        {{/each}}
+
+                        {{else}}
+
+                            No Location found, Please add
+
+                        {{/if}}
+                    </td>
+
+                    <td>{{ status}}</td>
+
+                    <td class="right-align">
+                        <a href="/admin/apartments/{{ id }}" class="btn">Edit</a>
+                    </td>
+                    <td class="left-align">
+                        <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red">X</button>
-                </form>
-            
-            
-
-            </td>
+                        </form>
 
 
-          </tr>
-           {{/each}}
-            
-        </tbody>
-      </table>
+
+                    </td>
+
+
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
 
         {{else}}
         <p>Currently is no apartment available!</p>
-       {{/if}}
-     
+        {{/if}}
+
 
     </div>
 </div>
