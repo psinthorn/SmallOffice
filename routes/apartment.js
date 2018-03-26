@@ -40,7 +40,7 @@ module.exports = (app) => {
     //Contact
     app.post('/admin/apartment/contact/:id', SubContactController.add);
     app.get('/admin/apartment/contact/edit/:id', ApartmentController.contactEditForm);
-    //app.put('/admin/apartment/contact/:id', SubContactController.edit);
+    app.put('/admin/apartment/contact/:id', SubContactController.edit);
     app.delete('/admin/apartment/contact/:id', SubContactController.delete);
 
     //Location

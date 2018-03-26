@@ -226,12 +226,12 @@ module.exports = {
       contactEditForm(req, res){
 
                     const id = req.params.id;
-                    const newContact = req.body;
+                    // const newContact = req.body;
 
-                    SubContact.findById({ _id: id })
-                        .then( subcontact => {
-                            res.send(subcontact)
-                        });
+                    Apartment.findOne({'subcontact._id': id })
+                        .then( apartment => {
+                            res.render('admin/apartment-edit-contact', { apartment: apartment }); 
+                    });
       },  
 
     

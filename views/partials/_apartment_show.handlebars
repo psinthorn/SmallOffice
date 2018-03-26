@@ -158,11 +158,12 @@
                     <p class="header-text-01">
                      <h5>{{ title }}</h5>   
                      <div class="divider"></div>
-                    <p>Contact: {{ person }}</p>                       
-                    <p>Tel: {{ phone }}</p> 
-                    <p>whatsApp: {{ whatsapp}}</p>
-                    <p>Skype: {{ skype }}</p>
-                    <p> Courriel: {{ email }}</p>
+                    <p class="blue-grey-text"><b>Contact: </b> {{ person }}</p>                       
+                    <p><a class="blue-grey-text" href="tel:{{ phone }}"><b>Phone: </b> {{ phone }}</a></p> 
+                    <p class="blue-grey-text"><b>WhatsApp:</b> {{ whatsapp}}</p>
+                    <p class="blue-grey-text"><b>Skype: </b> {{ skype }}</p>
+                    <p> <a class="blue-grey-text" href="mailto: {{email}} ?Subject=Enquiry from APDL.CA"><b>Courriel: </b> {{ email }}</a></p>
+                    <p class="blue-grey-text"><b>Working Hours: </b><br>{{ workingHour }}  </p>
 
                     </p>
                     </div>

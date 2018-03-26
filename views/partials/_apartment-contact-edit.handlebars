@@ -1,0 +1,146 @@
+<div class="container">
+
+
+    <div class="row">
+
+        {{> _msg}}
+       
+            <div class="col s12 m12 l12">
+
+
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <h4>Contact</h4>
+                        <div class="hr-1px"></div>
+
+                        <form action="/admin/apartment/contact/{{ apartment.id }}" method="post">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title">
+                                    <label for="title">Title</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="person">
+                                    <label for="person">Contact Person</label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="email">
+                                    <label for="email">Email</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="phone">
+                                    <label for="phone">Phone</label>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="row">
+
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="whatsapp">
+                                    <label for="whatsapp">WhatsApp</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="skype">
+                                    <label for="skype">skype</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="workingHour">
+                                    <label for="workingHour">Working Hour</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Add Contact" class="btn right">
+                            </div>
+
+                        </form>
+
+                        {{#if apartment.subcontact }}
+                        <h5>Current Contact Lists</h5>
+                        <div class="divider"></div>
+
+                        <div class="row">
+
+                            {{#each apartment.subcontact }}
+                            <div class="col s6 m6 l6">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <P>{{ person }} </P>
+                                            <P> {{ phone }} </P>
+                                            <P> {{ whatsapp }} </P>
+                                            <P> {{ skype }} </P>
+                                            <p>{{ email }}</p>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{!-- <a href="/admin/apartment/contact/edit/{{ id }}">
+                                                <div class="btn">Edit</div>
+                                            </a> --}}
+                                            <form action="/admin/apartment/contact/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn red">X</button>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+
+                            {{/each}}
+
+                        </div>
+
+
+
+                        {{/if }}
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+      
+
+            
