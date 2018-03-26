@@ -109,6 +109,8 @@ module.exports = {
         const imagesUploads = './public/images/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
             if(err) throw err;
+
+            res.send('Upload completed');
         });
 
         Apartment.findById({ _id: id })
