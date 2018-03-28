@@ -1,0 +1,62 @@
+ {{!-- Image Upload --}}
+<div class="container">
+
+    <div class="col s12 m12 l12">
+
+
+        <h4>{{ apartment.title }} > Gallery > Add</h4>
+        <div class="hr-1px"></div>
+
+        <form action="/admin/apartment/gallery/{{ apartment.id }}" method="post" enctype="multipart/form-data">
+
+            <div class="card white darken-1">
+                <div class="card-content gray-text">
+
+                    <h4>Image</h4>
+                    <div class="hr-1px"></div>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Image</span>
+                            <input type="file" name="name">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+
+
+                    {{!--
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="img" value="{{ apartment.imgUrl }}">
+                            <label for="img">Current Image</label>
+
+                        </div>
+                    </div> --}}
+
+
+
+                    <div class="row">
+                        <input type="submit" value="Add" class="btn right">
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+
+
+
+        <div class="row">
+            {{#each apartment.gallery }}
+            <div class="col s12 m3 l3">
+                 <img src="/gallery/{{ name }}" alt="{{ name }}" class="responsive-img">
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+
+</div>

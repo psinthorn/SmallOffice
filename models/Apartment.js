@@ -4,8 +4,12 @@ const Facility = require('./../models/Facility');
 const Schema = mongoose.Schema;
 const LocationSchema = require('./../models/LocationSchema');
 const SubContactSchema = require('./../models/SubContactSchema');
+const GallerySchema = require('./../models/GallerySchema');
 
 const ApartmentSchema = new Schema({
+    name: {
+        type: String,
+    },
 
     title: {
         type: String,
@@ -19,9 +23,7 @@ const ApartmentSchema = new Schema({
         type: String,
         default: 'images/location/montreal-ap-01.jpg'
     },
-    gallery: [{
-        type: String,
-    }],
+    gallery: [GallerySchema],
     address: {
         type: String,
     },

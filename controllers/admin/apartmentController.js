@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const Apartment = require('../../models/Apartment');
-const ApartmentIntro =require('../../models/ApartmentIntro');
+//const ApartmentIntro =require('../../models/ApartmentIntro');
 const Facility = require('../../models/Facility');
 const SubContact = require('../../models/SubContact');
 
@@ -125,6 +125,9 @@ module.exports = {
         const id = req.params.id;
 
         const imgUrl = req.files.imgUrl;
+
+        //res.send(imgUrl.name);
+
         const imgUrlName = Date.now() + '-' + imgUrl.name;
         const imagesUploads = './public/images/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {

@@ -1,5 +1,6 @@
 const ApartmentController = require('../controllers/admin/apartmentController');
 const SubContactController = require('./../controllers/admin/subContactController');
+const GalleryController = require('./../controllers/admin/galleryController');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 module.exports = (app) => {
@@ -9,10 +10,7 @@ module.exports = (app) => {
     //888888888888888888888888888
 
 
-    //get image form   
-    app.get('/admin/apartments/image', ApartmentController.image); 
-
-    app.post('/admin/apartments/image', ApartmentController.imageUplaod);
+    
 
     //Get all Apartment List
     app.get('/admin/apartments', ApartmentController.getAll);
@@ -34,7 +32,6 @@ module.exports = (app) => {
 
     //Facility 
     app.post('/admin/facility/:id', ApartmentController.facility);
-
     app.delete('/admin/facility/:id', ApartmentController.facilityDelete);
 
     //Contact
@@ -48,11 +45,17 @@ module.exports = (app) => {
     app.post('/admin/apartment/location/:id', ApartmentController.locationAdd);
 
 
-    //Image Section
+
+    
+    //get image form   
+    app.get('/admin/apartments/image', ApartmentController.image); 
+    app.post('/admin/apartments/image', ApartmentController.imageUplaod);
+    //Image Edit Section
     app.put('/admin/image/:id', ApartmentController.imageUpdate);
 
-
-
+    //Gallery section
+    app.get('/admin/apartment/gallery/:id',GalleryController.gallery );
+    app.post('/admin/apartment/gallery/:id', GalleryController.galleryUpload);
 
     // //intro section
     // app.get('/admin/apartment-intro', ApartmentController.getIntro);
