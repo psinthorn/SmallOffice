@@ -8,21 +8,21 @@ module.exports = (app) => {
     //888888888888888888888888888
 
     //Get all Contact List
-    app.get('/admin/contact', ContactController.getAll);
+    app.get('/admin/contact', ensureAuthenticated, ContactController.getAll);
 
      //Get all Contact List
-     app.get('/admin/contact/add', ContactController.addForm);
+     app.get('/admin/contact/add', ensureAuthenticated, ContactController.addForm);
      
     //Create new Contact 
-    app.post('/admin/contact', ContactController.create);
+    app.post('/admin/contact', ensureAuthenticated, ContactController.create);
 
     //Edit form
-    app.get('/admin/contact/:id', ContactController.editForm);
+    app.get('/admin/contact/:id', ensureAuthenticated, ContactController.editForm);
 
     //Edit process
-    app.put('/admin/contact/:id', ContactController.editUpdate);
+    app.put('/admin/contact/:id', ensureAuthenticated, ContactController.editUpdate);
 
     //Delete Contact
-    app.delete('/admin/contact/:id', ContactController.delete);
+    app.delete('/admin/contact/:id', ensureAuthenticated, ContactController.delete);
 
 }

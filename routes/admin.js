@@ -1,5 +1,5 @@
-const adminController = require('../controllers/adminController');
-const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
+const adminController = require('./../controllers/adminController');
+const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
 module.exports = (app) => {
 
@@ -11,22 +11,28 @@ module.exports = (app) => {
     //Admin Login page
     app.get('/admin/login', adminController.loginForm);
 
+    //Login POST
+    app.post('/admin/login', adminController.login);
+
+    //Logout 
+    app.get('/admin/logout', adminController.logout);
+
     //Get all admin List
-    app.get('/admin/admins', adminController.getAll);
+    app.get('/admin/admins', ensureAuthenticated, adminController.getAll);
 
      //Get all admin List
-     app.get('/admin/register', adminController.registerForm);
+     app.get('/admin/register', ensureAuthenticated, adminController.registerForm);
      
     //Create new admin 
-    app.post('/admin/admin', adminController.create);
+    app.post('/admin/admin', ensureAuthenticated, adminController.create);
 
     //Edit form
-    app.get('/admin/admins/:id', adminController.editForm);
+    app.get('/admin/admins/:id', ensureAuthenticated, adminController.editForm);
 
     //Edit process
-    app.put('/admin/admins/:id', adminController.editUpdate);
+    app.put('/admin/admins/:id', ensureAuthenticated, adminController.editUpdate);
 
     //Delete admin
-    app.delete('/admin/admins/:id', adminController.delete);
+    app.delete('/admin/admins/:id', ensureAuthenticated, adminController.delete);
 
 }

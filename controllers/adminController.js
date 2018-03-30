@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passport = require('passport');
 const Admin = require('../models/UserAdmin');
 
 
@@ -32,9 +33,12 @@ module.exports = {
     },
 
     //Login Page
-    login(req, res) {
-
-       
+    login(req, res, next) {
+        passport.authenticate('local', {
+            successRedirect: '/admin/apartments',
+            failureRedirect: '/admin/login',
+            failureFlash: true
+        })(req, res, next); 
     },
 
     //Get all available list of admins
@@ -53,9 +57,7 @@ module.exports = {
 
     registerForm(req, res) {
 
-
-        res.render('admin/admin-register');
-           
+        res.render('admin/admin-register');          
     },
 
 
@@ -65,27 +67,6 @@ module.exports = {
         let errors = [];
         let successMsg = [];
 
-        // if( req.body.password.length < 4 ){
-        //     errors.push({ error: '*Passowrd mush more then 4 characters'});
-        // }
-
-        // if( req.body.password != req.body.passwordConf){
-        //     errors.push({ error: '*Password not match'});
-
-        // }
-
-        // Admin.findOne({ email: req.body.email })
-        //     .then( email => {
-        //         if( email === req.body.email ){
-        //             successMsg.push({ success: '*Email Already Registered please login'});
-        //             res.render('admin/admin-login', { 
-        //                 successMsg: successMsg,
-        //                 email: req.body.email
-        //             });
-        //         }
-        //     });
-    
-
             const adminProps = req.body;
             
                     Admin.create(adminProps)
@@ -93,8 +74,7 @@ module.exports = {
                         .then(admin => {
                             res.render('admin/admin-login', { admin: admin });
                     });
-    
-       
+         
     },
 
     //Edit form admin
@@ -130,6 +110,14 @@ module.exports = {
             .then((admins) => {
                 res.render('admin/admins-list', { admins: admins });
             })
+    },
+
+    //User logout
+    logout(req, res){
+        req.logout();
+        req.flash('success_msg', 'Logout success');
+        res.redirect('/admin/login');
     }
+
 
 }

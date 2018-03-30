@@ -1,0 +1,42 @@
+{{#if error }}
+
+
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card red lighten-3">
+                <div class="card-content white-text">
+                    {{!-- <span class="card-title">Card Title</span> --}}
+                    <p>{{ error }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{{/if}} {{#if success_msg }}
+
+ <div class="row">
+        <div class="col s12 m6">
+            <div class="card red lighten-3">
+                <div class="card-content white-text">
+                   
+                    <p>{{success_msg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}} {{#if error_msg }}
+
+<div class="row">
+        <div class="col s12 m6">
+            <div class="card red lighten-3">
+                <div class="card-content white-text">
+                   
+                    <p>{{error_msg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/if}}

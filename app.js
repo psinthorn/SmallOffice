@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
+const fs = require('fs');
 //const multer = require('multer');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -10,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const keys  = require('./config/key');
 const upload = require('express-fileupload');
+const flash = require('connect-flash');
 
 //load user model
 require('./models/Category');
@@ -38,12 +40,25 @@ const app = express();
 
 
 
+
 //use sessions for tracking logins
 app.use(session({
     secret: 'apdl.ca',
     resave: true,
     saveUninitialized: false
   }));
+
+//connect-flash middleware
+app.use(flash());
+
+//global variable
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+});
 
 //Load config
 require('./config/passport')(passport);
@@ -84,6 +99,21 @@ mongoose.connect(keys.mongoURI, {
 //method-override middle-ware
 app.use(methodOverride('_method'));
 
+//express session middleware
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+    
+}));
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
 //body-parser middleware
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -103,17 +133,14 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-//express-session and cookie-parser
-app.use(cookieParser());
-app.use(session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: false
-}));
+// //express-session and cookie-parser
+// app.use(cookieParser());
+// app.use(session({
+//     secret: 'secret',
+//     resave: false,
+//     saveUninitialized: false
+// }));
 
-//Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
 
 //set user to global use
 app.use((req, res, next) => {
@@ -129,25 +156,13 @@ app.use(upload());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //use route
-//app.use('/admin', admin);
 admin(app);
 index(app);
 contact(app);
 about(app);
 facility(app);
 apartment(app);
-//facility(app);
-//app.use('/contents', contents);
-//app.use('/reservations', reservations);
-// app.use('/mail', mail);
-// app.use('/auth', auth);
-// app.use('/', index);
 
-// const port = process.env.PORT || 8888;
-
-// app.listen(port, () => {
-//     console.log(`Server started on ${port}`);
-// });
 
 module.exports = app;
 

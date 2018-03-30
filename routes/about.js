@@ -1,5 +1,5 @@
-const AboutController = require('../controllers/admin/aboutController');
-const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
+const AboutController = require('./../controllers/admin/aboutController');
+const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
 module.exports = (app) => {
 
@@ -8,21 +8,21 @@ module.exports = (app) => {
     //888888888888888888888888888
 
     //Get all Contact List
-    app.get('/admin/about',AboutController.getAll);
+    app.get('/admin/about', ensureAuthenticated, AboutController.getAll);
 
      //Get all about List
-     app.get('/admin/about/add', AboutController.addForm);
+     app.get('/admin/about/add', ensureAuthenticated, AboutController.addForm);
      
     //Create new about 
-    app.post('/admin/about', AboutController.create);
+    app.post('/admin/about',ensureAuthenticated, AboutController.create);
 
     //Edit form
-    app.get('/admin/about/:id', AboutController.editForm);
+    app.get('/admin/about/:id', ensureAuthenticated, AboutController.editForm);
 
     //Edit process
-    app.put('/admin/about/:id', AboutController.editUpdate);
+    app.put('/admin/about/:id', ensureAuthenticated, AboutController.editUpdate);
 
     //Delete about
-    app.delete('/admin/about/:id', AboutController.delete);
+    app.delete('/admin/about/:id', ensureAuthenticated, AboutController.delete);
 
 }

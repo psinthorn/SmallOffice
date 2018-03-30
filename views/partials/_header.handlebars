@@ -82,36 +82,59 @@
             <ul class="side-nav" id="main-menu">
 
                 {{#if user}}
-                <li>
-                    {{!-- padding property padding: top right bottom left --}}
-                    <div style="text-align:center; padding: 30px 0 30px 0">
-                        <div class="chip" style="display: inline-block; text-align: center">
-                            <img src="{{user.image}}" alt="user image"> {{user.firstName}} {{user.lastName}}
+                
+                 <li>
+                    <a href="/">
+                        <i class="material-icons">apps</i>
+                        <div class="logo">
+                                 <img src="/images/logo-btp.png" alt="apdl.ca">
                         </div>
-                    </div>
+                               
+                       
+                    </a>  
                 </li>
-
 
 
                 <li class="divider"></li>
 
                 <li>
-                    <a class="dropdown-button" href="#!" data-activates="content_dropdown">Content Management
-                        <i class="material-icons right">arrow_drop_down</i>
+                    
+                    <a class="dropdown-button" href="#!" data-activates="content_dropdown"><i class="material-icons">edit</i>Content Management
+                        
                     </a>
                 </li>
 
+                  <li class="divider"></li>
+
+                 <li>
+                    <a href="/admin/about">
+                        <i class="material-icons">person_pin</i>About</a>
+                </li>
+
+                <li class="divider"></li>
+                 <li>
+                    <a href="/admin/contact">
+                        <i class="material-icons">perm_phone_msg</i>Contact</a>
+                </li>
+
+                <li class="divider"></li>
+                 <li>
+                    <a href="/admin/apartments">
+                        <i class="material-icons">favorite</i>Appartements</a>
+                </li>
+
              
 
              
 
                 <li class="divider"></li>
 
-
-                <li>
-                    <a href="/contact-us">
-                        <i class="material-icons">favorite</i>Get in Touch</a>
+                 <li>
+                    <a href="/admin/logout">
+                        <i class="material-icons">exit_to_app</i>Logout</a>
                 </li>
+
+               
 
                 {{else}}
 
@@ -131,6 +154,7 @@
                     <a href="/stories">
                         <i class="material-icons medium">forum</i> Public Adventure Stories</a>
                 </li> --}}
+
                 <li class="divider"></li>
 
 
@@ -161,53 +185,24 @@
                 </li>
 
                  <li class="divider"></li>
+                
+                    <li>
+                    <a href="/admin/login">
+                        <i class="material-icons">exit_to_app</i>Admin Login</a>
+                    </li>
 
                 <li class="divider"></li>
-
-                <li>
-                    <a href="#">
-                        <i class="material-icons">edit</i>Admin Panel</a>
-                </li>
-
-                 <li class="divider"></li>
-
-                 <li>
-                    <a href="/admin/about">
-                        <i class="material-icons">person_pin</i>About</a>
-                </li>
-
-                <li class="divider"></li>
-                 <li>
-                    <a href="/admin/contact">
-                        <i class="material-icons">perm_phone_msg</i>Contact</a>
-                </li>
-
-                <li class="divider"></li>
-                 <li>
-                    <a href="/admin/apartments">
-                        <i class="material-icons">favorite</i>Appartements</a>
-                </li>
-
 
                
 
 
 
-                {{/if}} {{#if user}} {{!--
-                <li>
-                    <a href="/dashboard">
-                        <i class="fa fa-cogs"></i>Dashboard</a>
-                </li> --}} {{!--
-                <li>
-                    <a href="/stories/my-stories">
-                        <i class="fa fa-comments-o"></i> My Stories</a>
-                </li> --}}
-                <li>
-                    <a href="/auth/logout">
-                        <i class="material-icons">exit_to_app</i>Logout</a>
-                </li>
-
                 {{/if}}
+               
+
+
+
+             
             </ul>
 
         </div>

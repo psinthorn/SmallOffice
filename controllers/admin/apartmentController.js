@@ -46,13 +46,16 @@ module.exports = {
             desc: req.body.desc,
             imgUrl: imgUrlName,
             address: req.body.address,
-            status: req.body.status
+            status: req.body.status,
+            user: req.user.id
         });
 
         Apartment.create(apartmentProps)
             .then( () => Apartment.find({}).sort({date: -1 }))
-                .then( apartments => {                
+                .then( apartments => {     
+                    let success_msg =          
                     res.render('admin/apartments-list', { apartments: apartments });
+                    //res.redirect('/admin/apartments');
             });
     },
 
@@ -65,7 +68,6 @@ module.exports = {
         Apartment.findById({ _id: id })
             .populate('subcontact')
             .then( (apartment) => {
-                //res.send(apartment);
                 res.render('admin/apartment-edit', { apartment: apartment });
             })
     },

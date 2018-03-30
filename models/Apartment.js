@@ -42,8 +42,7 @@ const ApartmentSchema = new Schema({
         default: 'Unavailable'
     },
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'admin'
+        type: String
     },
     date: {
         type: Date,
