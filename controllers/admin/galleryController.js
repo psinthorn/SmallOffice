@@ -1,14 +1,9 @@
 
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 const Apartment = require('./../../models/Apartment');
 
-
-
 module.exports = {
-
-
-   
-
 
     //upload image form
     gallery(req, res){
@@ -21,6 +16,7 @@ module.exports = {
         
         
     },
+
     //image upload process
 
     galleryUpload(req, res){
@@ -29,34 +25,43 @@ module.exports = {
         //res.send(id);
         const imgUrl = req.files.name;
 
-        //res.send(imgUrl);
-
-        const imgUrlName = Date.now() + '-' + imgUrl.name;
-        const imagesUploads = './public/gallery/';
-        imgUrl.mv(imagesUploads + imgUrlName, (err) => {
-            if(err) throw err;
-
-        });
-
-        Apartment.findById({ _id: id })
-            .then( apartment => {
-
-                const imgName = ({
-                    name: imgUrlName
+        if( !imgUrl ){
+            req.flash('error_msg', 'Image is empty please select an image');
+            Apartment.findById({ _id: id })
+                .then( apartment => {
+                    res.redirect(`/admin/apartment/gallery/${apartment.id}`);   
                 });
-                //res.send(imgName);
-                //apartment.gallery.name = imgUrlName;
+        } else {
 
-                apartment.gallery.push(imgName);
-
-                apartment.save()
-                .then( () => Apartment.findById({ _id: id }))
-                    .then( apartment => {
-
-                        res.render('admin/gallery-upload-form', { apartment: apartment });
-
-                    })
+            const imgUrlName = Date.now() + '-' + imgUrl.name;
+            const imagesUploads = './public/gallery/';
+            imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+                if(err) throw err;
+    
             });
+    
+            Apartment.findById({ _id: id })
+                .then( apartment => {
+    
+                    const imgName = ({
+                        name: imgUrlName
+                    });
+                   
+                    apartment.gallery.push(imgName);
+    
+                    apartment.save()
+                    .then( () => Apartment.findById({ _id: id }))
+                        .then( apartment => {
+                            
+                            req.flash('success_msg', 'Gallery is added');
+                            res.redirect(`/admin/apartment/gallery/${apartment.id}`);
+                            //res.render('admin/gallery-upload-form', { apartment: apartment });
+    
+                        })
+                });
+        }
+
+       
 
     },
 
@@ -68,7 +73,7 @@ module.exports = {
 
         const imgUrl = req.files.imgUrl;
         const imgUrlName = Date.now() + '-' + imgUrl.name;
-        const imagesUploads = './public/images/';
+        const imagesUploads = './public/gallery/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
             if(err) throw err;
         });
@@ -85,23 +90,18 @@ module.exports = {
 
     },
 
-
-
     //Delete Facility 
-    galleryDelete(req, res){
+    delete(req, res){
         const id = req.params.id;
-        //const facId = req.parame.facID;
-
-        // console.log(id);
-        // console.log(facId);
-
-        Apartment.findOne({ 'facilities._id' : id })
+        Apartment.findOne({ 'gallery._id' : id })
             //.populate('facilities')
-            .then(fac => {
-                    fac.facilities.pull({ _id : id });
-                    fac.save()
+            .then( apartment => {
+
+                apartment.gallery.pull({ _id : id });
+                apartment.save()
                     .then(apartment => {
-                        res.render('admin/apartment-edit', { apartment: apartment });
+                        req.flash('error_msg', 'Image is deleted');
+                        res.redirect(`/admin/apartment/gallery/${apartment.id}`);
                     });
             })
          },

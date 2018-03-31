@@ -56,6 +56,7 @@ module.exports = (app) => {
     //Gallery section
     app.get('/admin/apartment/gallery/:id', ensureAuthenticated, GalleryController.gallery );
     app.post('/admin/apartment/gallery/:id', ensureAuthenticated, GalleryController.galleryUpload);
+    app.delete('/admin/apartment/gallery/:id', ensureAuthenticated, GalleryController.delete );
 
     // //intro section
     // app.get('/admin/apartment-intro', ApartmentController.getIntro);

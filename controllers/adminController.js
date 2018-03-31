@@ -25,7 +25,6 @@ module.exports = {
     },
 
     //end admin register
-
     loginForm(req, res){
 
         res.render('admin/admin-login');

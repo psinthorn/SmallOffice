@@ -3,18 +3,21 @@ const Schema = mongoose.Schema;
 
 const GallerySchema = new Schema ({
     name: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     title: {
         type: String,
         default: 'apdl.ca',
+        trim: true
         
         
     }, 
     desc: {
         type: String,
         default: 'apdl.ca',
-        
+        trim: true
     },
    
     status: {
@@ -23,9 +26,8 @@ const GallerySchema = new Schema ({
         
     },
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'admin',
-        
+        type: String,
+        trim: true
     },
     date: {
         type: Date,
