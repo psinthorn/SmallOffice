@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const Apartment = require('./../../models/Apartment');
+const fs = require('fs');
 
 module.exports = {
 
@@ -54,7 +55,7 @@ module.exports = {
                         .then( apartment => {
                             
                             req.flash('success_msg', 'Gallery is added');
-                            res.redirect(`/admin/apartment/gallery/${apartment.id}`);
+                            res.redirect(`/admin/apartments/${apartment.id}`);
                             //res.render('admin/gallery-upload-form', { apartment: apartment });
     
                         })
@@ -101,7 +102,7 @@ module.exports = {
                 apartment.save()
                     .then(apartment => {
                         req.flash('error_msg', 'Image is deleted');
-                        res.redirect(`/admin/apartment/gallery/${apartment.id}`);
+                        res.redirect(`/admin/apartments/${apartment.id}`);
                     });
             })
          },

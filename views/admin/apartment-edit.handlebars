@@ -3,485 +3,182 @@
 
     <div class="row">
 
-        {{> _msg}}
         <h4>Apartment Management</h4>
         <div class="hr-1px"></div>
         <div class="col s12 m12 l12">
 
-
-            <div class="col s12 m12 l12">
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-                        <h5>{{ apartment.title}}</h5>
-                        <div class="hr-1px"></div>
-
-                        <form action="/admin/apartments/{{ apartment.id }}?_method=PUT" method="post">
-                            <input type="hidden" name="_method" value="PUT">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="title" value="{{ apartment.title }}">
-                                    <label for="title">Apartment Name</label>
-
-                                </div>
-                            </div>
-
-                            {{!-- <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="address" value="{{ apartment.address }}">
-                                    <label for="address">Address</label>
-
-                                </div>
-                            </div> --}}
-
-                            <div class="row">
-
-                                <div class="input-field col s12 m12 l12">
-
-                                    <h5>Descriptions</h5>
-                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ apartment.desc }}</textarea>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-                                    <select name="status" id="status">
-                                        {{#select apartment.status }}
-
-                                        <option value="Available" selected>Available</option>
-                                        <option value="Private">Private</option>
-                                        <option value="Unavailable">Unavailable</option>
-
-                                        {{/select }}
-                                    </select>
-                                    <label for="status">Status</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <input type="submit" value="Update" class="btn right">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-            {{!-- Image Update --}}
-
-            <div class="col s12 m12 l12">
-
-                <form action="/admin/image/{{ apartment.id }}?_method=PUT" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="_method" value="PUT">
-
+            <div class="row">
+                <div class="col s12 m7 l7">
                     <div class="card white darken-1">
                         <div class="card-content gray-text">
 
-                            <div class="row">
+                            <h5>{{ apartment.title}}</h5>
+                            <div class="hr-1px"></div>
 
-                                 <h4>Image</h4>
-                                 <div class="hr-1px"></div>
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>Image</span>
-                                        <input type="file" name="imgUrl">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
+                            <form action="/admin/apartments/{{ apartment.id }}?_method=PUT" method="post">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <input type="text" name="title" value="{{ apartment.title }}">
+                                        <label for="title">Apartment Name</label>
+
                                     </div>
                                 </div>
-                            </div>
 
-                            {{!-- <div class="row">
-                                <div class="input-field col s12 m12 l12">
+                                {{!--
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="img" value="{{ apartment.imgUrl }}">
-                                    <label for="img">Current Image</label>
+                                        <input type="text" name="address" value="{{ apartment.address }}">
+                                        <label for="address">Address</label>
+
+                                    </div>
+                                </div> --}}
+
+                                <div class="row">
+
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <h5>Descriptions</h5>
+                                        <textarea id="desc" name="desc" class="materialize-textarea">{{ apartment.desc }}</textarea>
+
+                                    </div>
 
                                 </div>
-                            </div> --}}
 
-                            <div class="row">
-                                <img src="/images/{{ apartment.imgUrl }}" alt="{{ apartment.imgUrl }}" class="responsive-img">
-                            </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <select name="status" id="status">
+                                            {{#select apartment.status }}
 
-                            <div class="row">
-                                <input type="submit" value="Update" class="btn right">
-                            </div>
+                                            <option value="Available" selected>Available</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Unavailable">Unavailable</option>
 
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <input type="submit" value="Update" class="btn right">
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </form>
-                            <a href="/admin/apartment/gallery/{{ apartment.id }}">Add Gallery</a>
+                </div>
+
+
+                <div class="col s12 m5 l5">
+
+                    {{!-- Image Update --}}
+
+                    <div class="col s12 m12 l12">
+
+                        <form action="/admin/image/{{ apartment.id }}?_method=PUT" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <div class="card white darken-1">
+                                <div class="card-content gray-text">
+
+                                    <div class="row">
+
+                                        <h5>Main image</h5>
+                                        <div class="hr-1px"></div>
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Choose image</span>
+                                                <input type="file" name="imgUrl">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{!--
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l12">
+
+                                            <input type="text" name="img" value="{{ apartment.imgUrl }}">
+                                            <label for="img">Current Image</label>
+
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="row">
+                                        <img src="/images/{{ apartment.imgUrl }}" alt="{{ apartment.imgUrl }}" class="responsive-img">
+                                    </div>
+
+                                    <div class="row">
+                                        <input type="submit" value="Update" class="btn right">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <p>*Image size recommendation is 480x640 Pixels</p>
+                        <br>
+                        {{!-- <a class="btn" href="/admin/apartment/gallery/{{ apartment.id }}">Gallery Manage</a> --}}
+                    </div>
+
+
+                </div>
+
+
+                {{!-- Gallery manage  --}}
+
+                {{> _gallery-manage }}
+
+
+                {{!-- Facilities --}}
+
+
+              
+
             </div>
 
-            {{!-- Facilities --}}
 
-              <div class="row">
-
+            {{!-- Facilitfies Manage --}}
+            <div class="row">
                 <div class="col s12 m12 l12">
 
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-                        <h4>Facility</h4>
-                        <div class="hr-1px"></div>
-
-                        <form action="/admin/facility/{{ apartment.id }}" method="post">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="title">
-                                    <label for="title">Facility</label>
-
-                                </div>
-                            </div>
-
-                            {{!--
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="value">
-                                    <label for="value">Value</label>
-
-                                </div>
-                            </div> --}}
-
-                            <div class="row">
-                                <input type="submit" value="+" class="btn right">
-                            </div>
-
-                        </form>
-
-                        {{#if apartment.facilities }}
-                        <h5>Current Facility Lists</h5>
-                        <div class="divider"></div>
-
-                        <table>
-
-                            <th>Title</th>
-                            <th>Manage</th>
-
-                            {{#each apartment.facilities }}
-                            <tr>
-                                <td>{{ title }}</td>
-                                <td>
-                                    <form action="/admin/facility/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn red">X</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {{/each}}
-
-
-                        </table>
-
-
-                        {{/if }}
-
-
-                    </div>
+                     {{> _facilities }}
 
                 </div>
+               
             </div>
 
 
-            </div>
+        {{!-- Contact Manage --}}
 
-        </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
 
-
-
-
-
-            <div class="col s12 m12 l12">
-
-
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-                        <h4>Contact</h4>
-                        <div class="hr-1px"></div>
-
-                        <form action="/admin/apartment/contact/{{ apartment.id }}" method="post">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="title">
-                                    <label for="title">Title</label>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="person">
-                                    <label for="person">Contact Person</label>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="email">
-                                    <label for="email">Email</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="phone">
-                                    <label for="phone">Phone</label>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <div class="row">
-
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="whatsapp">
-                                    <label for="whatsapp">WhatsApp</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="skype">
-                                    <label for="skype">skype</label>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="workingHour">
-                                    <label for="workingHour">Working Hour</label>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <input type="submit" value="Add Contact" class="btn right">
-                            </div>
-
-                        </form>
-
-                        {{#if apartment.subcontact }}
-                        <h5>Current Contact Lists</h5>
-                        <div class="divider"></div>
-
-                        <div class="row">
-
-                            {{#each apartment.subcontact }}
-                            <div class="col s6 m6 l6">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <p><b>Title: </b>{{ title }}</p>
-                                            <P><b>Person: </b> {{ person }} </P>
-                                            <P> <b>Phone: </b> {{ phone }} </P>
-                                            <P> <b>WhatsApp: </b> {{ whatsapp }} </P>
-                                            <P> <b>Skype: </b> {{ skype }} </P>
-                                            <p><b>Email: </b> {{ email }}</p>
-                                            <p><b>Working Hour: </b> {{ workingHour }}</p>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="/admin/apartment/contact/edit/{{ id }}">
-                                                <div class="btn">Edit</div>
-                                            </a>
-                                            <form action="/admin/apartment/contact/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn red">X</button>
-                                            </form>
-                                        </td>
-
-                                    </tr>
-                                </table>
-                            </div>
-
-                            {{/each}}
-
-                        </div>
-
-
-
-                        {{/if }}
-
-
-                    </div>
-
+                     {{> _contact }}
 
                 </div>
+               
             </div>
+
 
 
 
             {{!-- Address --}}
 
-            <div class="col s12 m12 l12">
+            <div class="row">
+                <div class="col s12 m12 l12">
 
-
-                <div class="card white darken-1">
-                    <div class="card-content gray-text">
-
-                        <h4>Address & Locations</h4>
-                        <div class="hr-1px"></div>
-
-                        <form action="/admin/apartment/location/{{ apartment.id }}" method="post">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="title">
-                                    <label for="title">Title</label>
-
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="lat">
-                                    <label for="lat">Lattitude</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="lng">
-                                    <label for="lng">Longtitude</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="addr1">
-                                    <label for="addr1">Address1</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="district">
-                                    <label for="district">District</label>
-
-                                </div>
-
-                            </div>
-
-
-
-
-
-
-
-                            <div class="row">
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="city">
-                                    <label for="city">City</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="province">
-                                    <label for="province">State</label>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="country">
-                                    <label for="country">Country</label>
-
-                                </div>
-
-                                <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="postCode">
-                                    <label for="postCode">Post Code</label>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <input type="submit" value="Add" class="btn right">
-                            </div>
-
-                        </form>
-
-                        {{#if apartment.locations }}
-                        <h5>Current Address & Location</h5>
-                        <div class="divider"></div>
-
-                        <table>
-
-                            <th>Address</th>
-                            <th>Lat - Lng</th>
-                            <th>manage</th>
-
-                            {{#each apartment.locations }}
-                            <tr>
-                                <td>{{ title }}
-                                    <br>{{ addr1 }} {{ addr2 }} {{ district }}
-                                    {{ city }} {{ province }}
-                                    {{ country }} {{ postcode }}</td>
-                                <td>{{ lat }} - {{ lng }}</td>
-                                <td>
-                                    <form action="/admin/apartment/location/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn red">X</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {{/each}}
-
-
-                        </table>
-
-
-                        {{/if }}
-
-
-                    </div>
-
+                     {{> _contact-address }}
 
                 </div>
+               
             </div>
 
 
-          
 
+</div>
 
-
-        {{!-- <div class="col s12 m4 l4"> 
-
-        </div> --}}
