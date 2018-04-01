@@ -34,14 +34,6 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="imgUrl" value="{{ about.imgUrl }}">
-                                    <label for="imgUrl">Image</label>
-
-                                </div>
-                                </div>
 
                             
                             <div class="row">
@@ -61,6 +53,10 @@
                                 <input type="submit" value="Update" class="btn right">
                             </div>
                         </form>
+
+                        <div class="row">
+                                {{> _about-image-upload }}
+                        </div>
 
 
 

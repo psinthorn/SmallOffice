@@ -22,6 +22,9 @@ module.exports = (app) => {
     //Edit process
     app.put('/admin/about/:id', ensureAuthenticated, AboutController.editUpdate);
 
+    //Edit image
+    app.put('/admin/about/image/:id', ensureAuthenticated, AboutController.imageUpdate);
+
     //Delete about
     app.delete('/admin/about/:id', ensureAuthenticated, AboutController.delete);
 

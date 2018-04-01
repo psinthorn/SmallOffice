@@ -71,60 +71,10 @@
                 </div>
 
 
+                {{!-- Single image upload --}}
                 <div class="col s12 m5 l5">
 
-                    {{!-- Image Update --}}
-
-                    <div class="col s12 m12 l12">
-
-                        <form action="/admin/image/{{ apartment.id }}?_method=PUT" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="_method" value="PUT">
-
-                            <div class="card white darken-1">
-                                <div class="card-content gray-text">
-
-                                    <div class="row">
-
-                                        <h5>Main image</h5>
-                                        <div class="hr-1px"></div>
-                                        <div class="file-field input-field">
-                                            <div class="btn">
-                                                <span>Choose image</span>
-                                                <input type="file" name="imgUrl">
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{!--
-                                    <div class="row">
-                                        <div class="input-field col s12 m12 l12">
-
-                                            <input type="text" name="img" value="{{ apartment.imgUrl }}">
-                                            <label for="img">Current Image</label>
-
-                                        </div>
-                                    </div> --}}
-
-                                    <div class="row">
-                                        <img src="/images/{{ apartment.imgUrl }}" alt="{{ apartment.imgUrl }}" class="responsive-img">
-                                    </div>
-
-                                    <div class="row">
-                                        <input type="submit" value="Update" class="btn right">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-
-                        <p>*Image size recommendation is 480x640 Pixels</p>
-                        <br>
-                        {{!-- <a class="btn" href="/admin/apartment/gallery/{{ apartment.id }}">Gallery Manage</a> --}}
-                    </div>
-
+                    {{> _image-upload }}
 
                 </div>
 
