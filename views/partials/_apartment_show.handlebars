@@ -1,5 +1,5 @@
 <h4>
-    {{ apartment.title}}
+    {{ apartment.title }}
 </h4>
 
 <p class="font-grey">Address: {{#each apartment.locations }} {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
@@ -18,7 +18,7 @@
 
                 <img class="materialboxed" src="../gallery/{{ name }}">
 
-            <div class="card-footer blue-grey-text center-align">
+                <div class="card-footer blue-grey-text center-align">
 
                 </div>
             </div>
@@ -73,6 +73,7 @@
     <div class="col s12 m1 l1"></div> --}}
 
     <div class="col s12 m4 l4">
+
         {{#each apartment.subcontact }}
 
         <div class="row" style="background-color: #eee ">
@@ -102,27 +103,17 @@
             </div>
 
         </div>
+    
 
         {{/each}}
 
-
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <h5>Maps</h5>
-                <div class="divider"></div>
-                <a href="https://www.google.ca/maps/place/5547+4e+Avenue,+Montr%C3%A9al,+QC+H1Y+2V5/@45.5476309,-73.5795791,17z/data=%213m1%214b1%214m5%213m4%211s0x4cc91bfd125194bd:0x250a76a74a4a37b6%218m2%213d45.5476272%214d-73.5773904"
-                    target="_blank">
-                    <img class="responsive-img" src="../images/maps.png" alt="maps">
-                </a>
-
-
-            </div>
-
-        </div>
-
+       {{> _maps-apartment }}
 
     </div>
 </div>
+
+
+
 
 <div class="row">
 

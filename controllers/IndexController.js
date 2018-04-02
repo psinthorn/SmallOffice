@@ -49,6 +49,12 @@ contact(req, res){
             res.render('index/contact-us', { contact: contact });
         });
     
+},
+
+maps(req, res){
+
+    res.render('index/maps');
+    
 }
 
 

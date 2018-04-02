@@ -17,4 +17,7 @@ module.exports = (app) => {
   //Contact page
   app.get('/contact-us', IndexController.contact);
 
+  //Maps
+  app.get('/maps', IndexController.maps);
+
 }
