@@ -54,7 +54,11 @@ contact(req, res){
 maps(req, res){
 
     res.render('index/maps');
-    
+
+},
+
+geocode(req, res){
+    res.render('index/geocode');
 }
 
 

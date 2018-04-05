@@ -19,5 +19,7 @@ module.exports = (app) => {
 
   //Maps
   app.get('/maps', IndexController.maps);
+  app.get('/geocode/:id', IndexController.geocode);
+  app.get('/geocode', IndexController.geocode);
 
 }

@@ -1,61 +1,85 @@
- {{!-- Maps Start Here --}}
+ {{!-- Maps Start Here --}} 
+ 
+ 
+ {{#each apartment.locations }}
 
-         {{#each apartment.locations }}
+<input type="hidden" id="addr1" value="{{ addr1 }}">
+<input type="hidden" id="district" value="{{ district }}">
+<input type="hidden" id="city" value="{{ city }}">
+<input type="hidden" id="province" value="{{ province }}">
+<input type="hidden" id="country" value="{{ country }}">
+<input type="hidden" id="postCode" value="{{ postCode }}">
 
-        <input type="hidden" id="latData" value="{{ lat }}">
-        <input type="hidden" id="lngData" value="{{ lng }}">
-         
-        {{/each}}
-        <div class="row">
-            
-            <div class="col s12 m12 l12">
-                <h5>Maps</h5>
-                <div class="divider"></div>
-            
+<input type="hidden" id="latData" value="{{ lat }}">
+<input type="hidden" id="lngData" value="{{ lng }}"> 
+
+{{/each}}
+
+<div class="row">
+
+    <div class="col s12 m12 l12">
+        <h5>Maps</h5>
+        <div class="divider"></div>
+
         <div id="map" class="map"></div>
 
-                
-             <script>
 
-                    function initMap() {
-
-                        var latData = Number(document.getElementById("latData").value);
-                        var lngData = Number(document.getElementById("lngData").value) ;
-
-                        var kohSamui = { "lat": latData, "lng" : lngData};
-                       
-                        var options = {
-                            zoom: 12,
-                            center: { "lat": latData, "lng" : lngData }
-                        }
-                    
-                        var map = new google.maps.Map(document.getElementById('map'), options );
-
-                        var marker = new google.maps.Marker({
-                            position: { "lat": latData, "lng" : lngData },
-                            map: map
-                        });
-
-                        var infoWindow = new google.maps.InfoWindow({
-                            content: '{{ apartment.title }}'
-                        });
-
-                        marker.addListener('click', function(){
-                            infoWindow.open(map, marker);
-                        });
-
-                    }
-                </script>
-
-               
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
-                </script>
+        <script>
 
 
+                {{!-- var addr1 = document.getElementById("addr1").value;
+                var district = document.getElementById("district").value;
+                var city = document.getElementById("city").value;
+                var province = document.getElementById("province").value;
+                var country = document.getElementById("country").value;
+                var postCode = document.getElementById("postCode").value;
 
-            </div>
+                var location = addr1 + ' ' + district + ' ' + city + ' ' + province + ' ' + country + ' ' + postCode;
+               --}}
+            
+            
+            function initMap() {
 
 
-        </div>
+                //Show On Maps
 
-        {{!-- end of maps function --}}
+                var latData = Number(document.getElementById("latData").value);
+                var lngData = Number(document.getElementById("lngData").value);
+
+                var kohSamui = { "lat": latData, "lng": lngData };
+
+                var options = {
+                    zoom: 12,
+                    center: { "lat": latData, "lng": lngData }
+                }
+
+                var map = new google.maps.Map(document.getElementById('map'), options);
+
+                var marker = new google.maps.Marker({
+                    position: { "lat": latData, "lng": lngData },
+                    map: map
+                });
+
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '{{ apartment.title }}'
+                });
+
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+
+            }
+        </script>
+
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
+        </script>
+
+
+
+    </div>
+
+
+</div>
+
+{{!-- end of maps function --}}

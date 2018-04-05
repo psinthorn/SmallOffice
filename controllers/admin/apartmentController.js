@@ -253,13 +253,12 @@ module.exports = {
         Apartment.findById({ _id: id})
             .then( apartment => {
                 apartment.locations.push(newLocation)
-                return apartment.save();
-                
+                return apartment.save();              
             })
                 .then( () => Apartment.findById({ _id: id}))
                     .then( apartment => {
                         res.render('admin/apartment-edit', { apartment: apartment });
-                    } )
+                } )
      },
 
      //Update location 
@@ -290,5 +289,13 @@ module.exports = {
         })
 
      },
+
+    //  Update maps by address
+    // mapsUpdate(req, res){
+
+    //     const id =  req.params.id;
+    //     Apartment.findById
+
+    // } 
 
 }

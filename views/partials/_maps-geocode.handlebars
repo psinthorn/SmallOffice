@@ -1,0 +1,107 @@
+ {{!-- Maps Start Here --}}
+
+ <div class="container">
+
+     <div id="map"></div>
+
+    
+        {{#each apartment.locations }}
+            <input type="text" id="location-input" class="form-control form-control-lg" value="{{ addr1 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }}">
+         {{/each}}
+   
+  </div>
+
+  <script>
+    // Call Geocode
+    
+    geocode();
+
+    // Get location form
+
+    //var locationForm = document.getElementById('location-form');
+
+    // Listen for submiot
+    //locationForm.addEventListener('submit', geocode);
+
+
+    function geocode(){
+      // Prevent actual submit
+      //e.preventDefault();
+
+      var location = document.getElementById('location-input').value;
+      console.log(location);
+
+      axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+        params:{
+          address:'${location}',
+          key:'AIzaSyC4CAkNk4_lhvYHw_5t91EhjCNQb9D6hII'
+        }
+      })
+      .then(function(response){
+       
+                    function initMap() {
+
+                       // var latData = Number(document.getElementById("latData").value);
+                       // var lngData = Number(document.getElementById("lngData").value) ;
+
+                        var lat = response.data.results[0].geometry.location.lat;
+                        var lng = response.data.results[0].geometry.location.lng;
+
+                        //var kohSamui = { "lat": latData, "lng" : lngData};
+                       
+                        var options = {
+                            zoom: 12,
+                            center: { "lat": lat, "lng" : lng }
+                        }
+                    
+                        var map = new google.maps.Map(document.getElementById('map'), options );
+
+                        var marker = new google.maps.Marker({
+                            position: { "lat": lat, "lng" : lng },
+                            map: map
+                        });
+
+                        var infoWindow = new google.maps.InfoWindow({
+                            content: '{{ apartment.title }}'
+                        });
+
+                        marker.addListener('click', function(){
+                            infoWindow.open(map, marker);
+                        });
+
+                       
+
+                    }
+
+                    
+
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+    }
+
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
+                    </script>    
+  </script>
+
+
+
+    
+
+
+
+ {{!-- End Here --}}
+
+        
+                
+
+
+
+
+            </div>
+
+
+        </div>
+
+        {{!-- end of maps function --}}
