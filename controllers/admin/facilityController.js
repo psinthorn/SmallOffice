@@ -43,7 +43,7 @@ module.exports = {
     editForm(req, res){
         const id = req.params.id;
         
-        Facility.findById({ _id: id })
+        Facility.findById({ 'facilities._id': id })
             .then( facility => {
                 res.render('admin/facility-edit', { facility: facility });
             });

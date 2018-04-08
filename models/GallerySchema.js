@@ -11,9 +11,11 @@ const GallerySchema = new Schema ({
         type: String,
         default: 'apdl.ca',
         trim: true
-        
-        
+          
     }, 
+    order: {
+        type: String
+    },
     desc: {
         type: String,
         default: 'apdl.ca',

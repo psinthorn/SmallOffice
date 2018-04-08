@@ -4,6 +4,7 @@ const Apartment = require('../../models/Apartment');
 //const ApartmentIntro =require('../../models/ApartmentIntro');
 const Facility = require('../../models/Facility');
 const SubContact = require('../../models/SubContact');
+const fs = require('fs');
 
 
 module.exports = {
@@ -125,13 +126,13 @@ module.exports = {
     imageUpdate(req, res){
 
         const id = req.params.id;
-
+        const oldImgUrl = req.body.oldImgUrl;
         const imgUrl = req.files.imgUrl;
-
+        //console.log(oldImgUrl);
         //res.send(imgUrl.name);
 
         const imgUrlName = Date.now() + '-' + imgUrl.name;
-        const imagesUploads = './public/images/';
+        const imagesUploads = './public/images/apartment/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
             if(err) throw err;
         });
@@ -139,12 +140,16 @@ module.exports = {
         const newImg = ({
             imgUrl: imgUrlName
         })
-    
-        Apartment.findByIdAndUpdate({ _id: id},newImg)
+
+        fs.unlink(imagesUploads + oldImgUrl, (err) => {  
+            Apartment.findByIdAndUpdate({ _id: id},newImg)
             .then(() => Apartment.findById({ _id: id }))
             .then( apartment => {
                 res.render('admin/apartment-edit', { apartment: apartment });
             });
+        });
+    
+        
 
     },
 
@@ -170,27 +175,49 @@ module.exports = {
         
     },
 
+     //Get edit Form
+     facilityEditForm(req, res){
+        const id = req.params.id;
+        
+        Apartment.find({facilities: { $elemMatch: { _id: id } }}).project({ "facilities": { _id: id } })
+            .then( facSelect => {
+                //res.render('admin/facility-edit', { apartment: apartment });
+                res.send(facSelect);
+            });
+    },
+
 
     //Edit Facility 
     facilityEdit(req, res){
+        //const id = req.params.id;
         const id = req.params.id;
-        const newFac = req.body;
-        Apartment.findOneAndUpdate({ 'facilities._id' : id }, newFac)
-                    .then(apartment => {
-                        res.render('admin/apartment-edit', { apartment: apartment });
-                    });
+        const facTitle = req.body.title;
+       
+        Apartment.update(
+            { 
+                'facilities._id' : id 
+            },
+            { 
+                "$set": { "facilities.$.title" : facTitle }
+            } ,
+            { 
+                "new": true, 
+            }
+          
+        )
+        .then( apartment => {
+
+            //res.render('admin/apartment-edit', { apartment: apartment });
+            res.send(apartment);
+        })
+                       
+                  
          },
 
     //Delete Facility 
     facilityDelete(req, res){
         const id = req.params.id;
-        //const facId = req.parame.facID;
-
-        // console.log(id);
-        // console.log(facId);
-
         Apartment.findOne({ 'facilities._id' : id })
-            //.populate('facilities')
             .then(fac => {
                     fac.facilities.pull({ _id : id });
                     fac.save()
@@ -199,6 +226,10 @@ module.exports = {
                     });
             })
          },
+
+
+
+
 
       //Contact each apartment
       contactAdd(req, res){
@@ -267,9 +298,12 @@ module.exports = {
                 const id = req.params.id;
                 const newLocation = req.body;
         
-                Apartment.findByIdAndUpdate({ 'locations._id': id}, newLocation)
+                Apartment.findByIdAndUpdate({ 'locations._id': id})
                             .then( apartment => {
-                                res.render('admin/apartment-edit', { apartment: apartment });
+                                
+                                res.send(apartment);
+                                //res.render('admin/apartment-edit', { apartment: apartment });
+
                             } )
              },
 

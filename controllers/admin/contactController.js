@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Contact = require('../../models/Contact');
+const fs   = require('fs');
 
 //const Apartment = mongoose.model('apartment');
 
@@ -73,6 +74,58 @@ module.exports = {
                 .then( (contacts) => {
                 res.render('admin/contacts-list', { contacts: contacts });
             })
-    }
+    },
+
+     //image upload process
+     imageUplaod(req, res){
+        
+                const id = req.params.id;
+        
+                const imgUrl = req.files.imgUrl;
+                const imgUrlName = Date.now() + '-' + imgUrl.name;
+                const imagesUploads = './public/images/';
+                imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+                    if(err) throw err;
+                });
+        
+                Contact.findById({ _id: id })
+                    .then( apartment => {
+                        apartment.imgUrl.push(imag);
+                    });
+        
+            },
+        
+            //Image Update
+        
+            imageUpdate(req, res){
+        
+                const id = req.params.id;
+        
+                const imgUrl = req.files.imgUrl;
+                const oldImgUrl = req.body.oldImgUrl;
+                //console.log(oldImgUrl);
+                //res.send(imgUrl.name);
+                
+                const imgUrlName = Date.now() + '-' + imgUrl.name;
+                const imagesUploads = './public/images/';
+                imgUrl.mv(imagesUploads + imgUrlName, (err) => {
+                    if(err) throw err;
+                });
+        
+                const newImg = ({
+                    imgUrl: imgUrlName
+                });
+            
+                        fs.unlink('./public/images/'+ oldImgUrl, (err) => {  
+                            Contact.findByIdAndUpdate({ _id: id},newImg)
+                            .then(() => Contact.findById({ _id: id }))
+                                .then( contact => {
+                                res.render('admin/contacts-list', { contact: contact });
+                            });
+
+                 });
+        
+            },
+        
 
 }

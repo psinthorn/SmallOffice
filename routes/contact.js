@@ -22,6 +22,9 @@ module.exports = (app) => {
     //Edit process
     app.put('/admin/contact/:id', ensureAuthenticated, ContactController.editUpdate);
 
+     //Image Edit process
+     app.put('/admin/contact/image/:id', ensureAuthenticated, ContactController.imageUpdate);
+
     //Delete Contact
     app.delete('/admin/contact/:id', ensureAuthenticated, ContactController.delete);
 

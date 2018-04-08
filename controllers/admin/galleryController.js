@@ -93,8 +93,15 @@ module.exports = {
 
     //Delete Facility 
     delete(req, res){
+
         const id = req.params.id;
-        Apartment.findOne({ 'gallery._id' : id })
+       // const oldImgUrl = req.body.oldImgUrl; 
+        const imagesUploads = './public/gallery/';
+        const delImage = imagesUploads + req.body.oldImgUrl;
+       
+
+        fs.unlink(delImage, (err) => { 
+            Apartment.findOne({ 'gallery._id' : id })
             //.populate('facilities')
             .then( apartment => {
 
@@ -105,6 +112,9 @@ module.exports = {
                         res.redirect(`/admin/apartments/${apartment.id}`);
                     });
             })
-         },
-
+        });
+        
+        
+    },
+        
 }

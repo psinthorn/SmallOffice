@@ -6,35 +6,35 @@
         {{!-- {{> _msg}} --}}
 
         <div class="col s12 m12 l12">
-            <h4>Add Facility</h4>
+            <h4>Edit Facility</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text" >
 
-                        <form action="/admin/facility/{{ facility.id }}?_method=PUT" method="post">
+                        <form action="/admin/facility/{{ apartment.id }}?_method=PUT" method="post">
                         <input type="hidden" name="_method" value="PUT" >
 
                             <div class="row">
                                 <div class="input-field col s12 m6 l6">
-
-                                    <input type="text" name="title" value="{{ facility.title }}">
+                                    
+                                    <input type="text" name="title" value="{{ apartment.facilities.title }}">
                                     <label for="title">Title</label>
 
                                 </div>
                            
 
                              
-                                <div class="input-field col s12 m6 l6">
+                                {{!-- <div class="input-field col s12 m6 l6">
 
                                     <input type="text" name="value" value="{{ facility.value }}">
                                     <label for="value">Descriptions or Value </label>
 
-                                </div>
+                                </div> --}}
                             </div>
 
-                            <div class="row">
+                            {{!-- <div class="row">
                                 <div class="input-field col s12 m12 l12">
                                     <select name="status" id="status">
                                         {{#select facility.status }}
@@ -47,7 +47,7 @@
                                     </select>
                                     <label for="status">Status</label>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row">
                                 <input type="submit" value="Update" class="btn right">

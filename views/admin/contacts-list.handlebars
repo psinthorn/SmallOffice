@@ -27,17 +27,18 @@
         <div class="col s12 m4 l4"></div>
 
 
-        <div class="col s12 m12 l13">
+        <div class="col s12 m12 l12">
             <div class="card white darken-1">
                 <div class="card-content gray-text">
 
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
+                        <div class="input-field col s12 m6 l6">
 
                             <input type="text" name="title" value="{{ contact.title}}" readonly>
                             <label for="title">Title</label>
 
-                        </div>
+                        </div>   
+                   
                     </div>
 
                     <div class="row">
@@ -47,6 +48,15 @@
 
                         </div>
                     </div>
+                    
+                    <div class="row">
+
+                            <div class="input-field col s12 m12 l12">
+                            {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img" style="padding: 20px"> --}}
+                            {{> _image-upload-contact }}
+                        </div>
+
+                        </div>
 
                     <div class="row header-text-01">
                         <h5>Téléphone</h5>

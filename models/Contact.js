@@ -10,7 +10,9 @@ const ContactSchema = new Schema ({
         type: String,
         default: 'Content Here'
     },
-
+    imgUrl: {
+        type: String
+    },
     phone: {
         type: String,
         default: '+ 1 514 995-0037'

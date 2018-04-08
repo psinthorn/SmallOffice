@@ -33,6 +33,9 @@ module.exports = (app) => {
     //Facility 
     app.post('/admin/facility/:id', ensureAuthenticated, ApartmentController.facility);
     app.delete('/admin/facility/:id', ensureAuthenticated, ApartmentController.facilityDelete);
+    app.get('/admin/facility/:id', ApartmentController.facilityEditForm);
+    app.put('/admin/facility/:id',ApartmentController.facilityEdit);
+    
 
     //Contact
     app.post('/admin/apartment/contact/:id', ensureAuthenticated, SubContactController.add);

@@ -160,7 +160,7 @@ admin(app);
 index(app);
 contact(app);
 about(app);
-facility(app);
+//facility(app);
 apartment(app);
 
 

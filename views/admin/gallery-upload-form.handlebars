@@ -63,8 +63,9 @@
                                 <img src="/gallery/{{ name }}" alt="{{ name }}" class="responsive-img">
                                
 
-                                 <form action="/admin/apartment/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                 <form action="/admin/apartment/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">         
                                         <input type="hidden" name="_method" value="DELETE">
+                                        <input type="text" name="oldImgUrl" value="{{ name }}">
                                         <button type="submit" class="btn red right" >X</button>
                                 </form>
                                    
