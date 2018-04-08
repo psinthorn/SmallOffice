@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const About = require('../../models/About');
+const fs = require('fs');
 
 
 module.exports = {
@@ -113,9 +114,9 @@ module.exports = {
 
         const id = req.params.id;
         const imgUrl = req.files.imgUrl;
+        
 
         //res.send(imgUrl.name);
-
         const imgUrlName = 'about-' + Date.now() + '-' + imgUrl.name;
         const imagesUploads = './public/images/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
@@ -123,17 +124,22 @@ module.exports = {
         });
 
         //res.send(imgUrlName);
-
+        const delImage = imagesUploads + req.body.oldImgUrl;
         const newImg = ({
             imgUrl: imgUrlName
         })
 
+        fs.unlink(delImage, (err) => {
 
-        About.findByIdAndUpdate({ _id: id}, newImg)
+            About.findByIdAndUpdate({ _id: id}, newImg)
             .then(() => About.findById({ _id: id }))
             .then( about => {
                 res.render('admin/about-edit', { about: about });
             });
+
+        })
+
+       
 
     },
 
