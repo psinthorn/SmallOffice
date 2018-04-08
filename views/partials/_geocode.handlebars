@@ -1,17 +1,23 @@
- <div class="container">
+  <div class="card white darken-1">
+    <div class="card-content"> 
 
-    <h2 id="text-center">Enter Location: </h2>
+    <h4 id="text-center">Get your geo-location by address : </h4>
+    *Include Latitude & Longitude
     <form id="location-form">
-        {{!-- {{#each apartment.locations }} --}}
+       
             <input type="text" id="location-input" class="form-control form-control-lg" value="{{ addr1 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }}">
-         {{!-- {{/each}} --}}
+      
       <br>
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </form>
+    
     <div class="card-block" id="formatted-address"></div>
     <div class="card-block" id="address-components"></div>
     <div class="card-block" id="geometry"></div>
+
+    </div>
   </div>
+
 
   <script>
     // Call Geocode
@@ -78,3 +84,4 @@
       });
     }
   </script>
+
