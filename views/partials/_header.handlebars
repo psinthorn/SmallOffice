@@ -1,6 +1,32 @@
 <nav class="blue darken-3">
     <div class="container-fluid">
 
+         <!-- Content Managment Menu Dropdown Structure -->
+        <ul id="apartment_dropdown" class="dropdown-content">
+           
+
+             <li>
+                    <a href="/admin/apartments">
+                        <i class="material-icons">favorite</i>Appartements Lists</a>
+            </li>
+
+            <li>
+                    <a href="/admin/intro">
+                        <i class="material-icons">subject</i>Appartement Intro</a>
+            </li>
+
+            <li>
+                    <a href="/geocode">
+                        <i class="material-icons">edit_location</i>Geo-Location Finder</a>
+            </li>
+
+
+            
+
+           
+
+        </ul>
+
 
         <div class="nav-wrapper">
             {{!--
@@ -104,31 +130,29 @@
                     </a>
                 </li>
 
+                 <li class="divider"></li>
+
+                 <li>
+                    <a class="dropdown-button" href="#!" data-activates="apartment_dropdown">Apartment Management
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+
                   <li class="divider"></li>
 
                  <li>
                     <a href="/admin/about">
                         <i class="material-icons">person_pin</i>About</a>
-                </li>
+            </li>
 
-                <li class="divider"></li>
-                 <li>
+             <li class="divider"></li>
+
+            <li>
                     <a href="/admin/contact">
                         <i class="material-icons">perm_phone_msg</i>Contact</a>
-                </li>
+            </li>
 
-                <li class="divider"></li>
-                 <li>
-                    <a href="/admin/apartments">
-                        <i class="material-icons">favorite</i>Appartements</a>
-                </li>
-
-             
-
-             
-
-                <li class="divider"></li>
-
+            <li class="divider"></li>
                  <li>
                     <a href="/admin/logout">
                         <i class="material-icons">exit_to_app</i>Logout</a>

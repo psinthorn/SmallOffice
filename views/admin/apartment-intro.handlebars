@@ -1,19 +1,7 @@
 <div class="container">
     
     <div class="row">
-                <div class="input-field col s12">
-                    {{#if errors}}
-                    <div class="card-panel red lighten-4">
-                        {{#each errors}} {{error}}
-                        <br> {{/each}}
-                    </div>
-                    {{/if}} {{#each successMsg}}
-
-                    <div class="card-panel green lighten-4">
-                         {{success}}
-                    </div>
-                    {{/each}}
-                </div>
+                {{> _msg}}
     </div>
 
 
@@ -36,27 +24,27 @@
         </thead>
 
         <tbody>
-            
+            {{#each intro }}
           <tr>
-            <td>{{ intro.title }}</td>
-            <td>{{ intro.owner }}</td>
+            <td>{{ title }}</td>
+            <td>{{ owner }}</td>
             {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
-            <td>{{ intro.status }}</td>
-            <td class="right-align"> <a href="/admin/apartment-intro/{{ intro.id }}" class="btn">Edit</a> </td>
+            <td>{{ status }}</td>
+            <td class="right-align"> <a href="/admin/apartment-intro/{{ id }}" class="btn">Edit</a> </td>
             
-            {{!-- <td class="left-align">
-                 <form action="/admin/apartments/{{ id }}?_method=DELETE" method="post" id="delete-form">
+            <td class="left-align">
+                 <form action="/admin/apartment-intro/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red">Delete</button>
             </form>
             
             
 
-            </td> --}}
+            </td>
 
 
           </tr>
-           
+           {{/each}}
             
         </tbody>
       </table>

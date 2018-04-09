@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const fs = require('fs');
+
 //const multer = require('multer');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -23,6 +24,7 @@ require('./models/About');
 require('./models/Facility');
 require('./models/UserAdmin');
 require('./models/ApartmentIntro');
+require('./models/ApartmentIntro');
 
 //load router
 const admin = require('./routes/admin');
@@ -35,6 +37,7 @@ const contact = require('./routes/contact');
 const about = require('./routes/about');
 const facility = require('./routes/facility');
 const apartment = require('./routes/apartment');
+const intro      = require('./routes/Intro');
 
 const app = express();
 
@@ -162,6 +165,7 @@ contact(app);
 about(app);
 //facility(app);
 apartment(app);
+intro(app);
 
 
 module.exports = app;

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Apartment = require('../../models/Apartment');
 const ApartmentIntro =require('../../models/ApartmentIntro');
 
 
@@ -8,10 +7,9 @@ module.exports = {
  
  //Intro Route
  getIntro(req, res){
-    ApartmentIntro.findOne({})
+    ApartmentIntro.find({ })
         .then( intro => {
             res.render('admin/apartment-intro', { intro: intro });
-            //res.send('inro');
         });
 },
 
@@ -23,7 +21,7 @@ addIntro(req, res){
     const introProps = req.body;
     
     ApartmentIntro.create(introProps)
-        .then(() => ApartmentIntro.findOne({}))
+        .then(() => ApartmentIntro.find({}))
             .then( intro => { 
                 res.render('admin/apartment-intro', { intro: intro });
             });
@@ -44,12 +42,24 @@ editIntro(req, res){
     const introProps = req.body;
     const id = req.params.id;
     
-    ApartmentIntro.findByIdAndUpdate({_id: id }, introProps)
-        .then(() => ApartmentIntro.findOne({}))
+     ApartmentIntro.findByIdAndUpdate({_id: id }, introProps)
+        .then(() => ApartmentIntro.findById({ _id: id }))
             .then( intro => { 
-                res.render('admin/apartment-intro', { intro: intro });
+                res.render('admin/apartment-intro-edit', { intro: intro });
             });
 
+
+}, 
+
+delete(req, res){
+
+    const id = req.params.id;
+
+    ApartmentIntro.findByIdAndRemove({ _id: id })
+    .then(() => ApartmentIntro.find({}))
+        .then( intro => {
+            res.render('admin/apartment-intro', { intro: intro });
+        });
 
 }
 

@@ -21,13 +21,17 @@ about(req, res){
 
 apartments(req, res){
 
-    Apartment.find({status: 'Available'}).sort({ date: -1})
-        // .populate('subcontact')
-        .then( (apartments) => {
-            res.render('index/apartments', { apartments: apartments });
-            //res.send(apartments.intro[0].title);
-            //console.log(apartments.facilities);
-        });
+    let promisesAll = [
+
+        Apartment.find({status: 'Available'}).sort({ date: -1}).exec(),
+        ApartmentIntro.find({ status: 'Public'}).exec()
+
+    ];
+
+    Promise.all(promisesAll)
+    .then( ([apartments, intro]) => {
+            res.render('index/apartments', { apartments: apartments, intro: intro });          
+    });
    
 },
 

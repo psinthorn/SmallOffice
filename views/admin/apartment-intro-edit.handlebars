@@ -5,7 +5,7 @@
 
         {{> _msg}}
 
-        <div class="col s12 m8 l8">
+        <div class="col s12 m12 l12">
             <h4>Edit apartment intro</h4>
             <div class="hr-1px"></div>
 
@@ -67,45 +67,5 @@
             </div>
         </div>
 
-
-<div class="col s12 m4 l4">
-            <h4>Current List</h4>
-            <div class="hr-1px"></div>
-
-        {{#if intro }}                  
-        <table class="highlight">
-        <thead>
-          <tr>
-              <th>Intro</th>
-              <th>Status</th>
-              <th>Manage</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-       
-          <tr>
-            <td>{{ intro.title }}</td>
-            <td>{{ status }}</td>
-            <td>
-               <a href="/admin/apartment-intro/show/{{ id }}">Viewe</a>   | 
-                <a href="/admin/apartment-intro/{{ id }}">Edit</a>  | 
-                 <a href="/admin/apartment-intro/delete/{{ id }}">Delete</a>
-            </td>
-          </tr>
-
-      
-
-        </tbody>
-      </table>
-
-      {{ else }}
-
-        No apartments available
-
-      {{/if}}
-
-        </div>
     </div>
 </div>
