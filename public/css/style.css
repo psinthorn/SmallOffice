@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
 body {
     display: flex;
     min-height: 100vh;
@@ -173,4 +178,23 @@ a:hover {
   height: 100%;
   width: 100%;
  }
-  
+
+ .total-images {
+   display: block;
+  text-align: right;
+  padding-right: 30px;
+  font-size: 1.5rem;
+
+   
+ }
+
+ .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.gallery {
+  padding: 0px;
+}
+

@@ -1,0 +1,66 @@
+{{#if apartment.gallery }}
+
+<div class="row " style="background-color: #cfd8dc; padding: 20px">
+
+
+
+    {{!-- <div class="card"> --}}
+        <div class="clearfix"> 
+        
+            {{#each apartment.gallery }}
+
+            <div class="col s12 m3 l3">
+                    <div class="gallery">
+                        <a href="/gallery/{{ name }}" data-lightbox="APDL Gallery">
+                            <img src="/gallery/{{ name }}" class="responsive-img">
+                        </a>
+                    </div>                                   
+            </div>
+            
+
+            {{/each}}
+
+        </div>
+        {{!-- <div class="card-footer blue-grey-text right-align" style="padding: 20px">
+                        
+        </div> --}}
+
+    {{!-- </div> --}}
+
+<div class="row">
+     <div class="total-images"></div>
+</div>
+   
+</div>
+
+
+{{/if}}
+
+
+
+<script>
+
+    let sliderImages = document.querySelectorAll(".gallery");
+    
+
+
+    // Clear all images
+    function reset() {
+        for (let i = 0; i < sliderImages.length; i++) {
+            sliderImages[i].style.display = "none";
+        }
+    }
+
+    // Init slider
+    function startSlide() {
+        reset();
+        sliderImages[0].style.display = "block";
+        sliderImages[1].style.display = "block";
+        sliderImages[2].style.display = "block";
+        sliderImages[3].style.display = "block";
+        document.querySelector(".total-images").innerHTML= `+${sliderImages.length - 4} more images`;
+    }
+
+    startSlide();
+
+</script>
