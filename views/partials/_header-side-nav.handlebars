@@ -1,0 +1,138 @@
+ <!-- Content Managment Menu Dropdown Structure -->
+        <ul id="apartment_dropdown" class="dropdown-content">
+           
+
+             <li>
+                    <a href="/admin/apartments">
+                        <i class="material-icons">favorite</i>Appartements Lists</a>
+            </li>
+
+            <li>
+                    <a href="/admin/intro">
+                        <i class="material-icons">subject</i>Appartement Intro</a>
+            </li>
+
+            <li>
+                    <a href="/geocode">
+                        <i class="material-icons">edit_location</i>Geo-Location Finder</a>
+            </li>
+
+        </ul>
+
+
+ <!-- Side-Nav Menu -->
+            <ul class="side-nav" id="main-menu">
+
+                {{#if user}}
+                
+                 <li>
+                    <a href="/">
+                        <i class="material-icons">apps</i>
+                        <div class="logo">
+                                 <img src="/images/logo-btp.png" alt="apdl.ca">
+                        </div>
+                               
+                       
+                    </a>  
+                </li>
+
+
+                <li class="divider"></li>
+
+                <li>
+                    
+                    <a class="dropdown-button left-align" href="#!" data-activates="content_dropdown">Content Management
+                        
+                    </a>
+                </li>
+
+                 <li class="divider"></li>
+
+                 <li>
+                    
+                    <a class="dropdown-button left-align" href="#!" data-activates="apartment_dropdown"> <i class="material-icons right">arrow_drop_down</i>Apartment Management
+                        
+                    </a>
+                </li>
+
+                  <li class="divider"></li>
+
+                 <li>
+                    <a href="/admin/about">
+                        <i class="material-icons">person_pin</i>About</a>
+            </li>
+
+             <li class="divider"></li>
+
+            <li>
+                    <a href="/admin/contact">
+                        <i class="material-icons">perm_phone_msg</i>Contact</a>
+            </li>
+
+            <li class="divider"></li>
+                 <li>
+                    <a href="/admin/logout">
+                        <i class="material-icons">exit_to_app</i>Logout</a>
+                </li>
+
+               
+
+                {{else}}
+
+                <li>
+                    <a href="/">
+                        <i class="material-icons">apps</i>
+                        <div class="logo">
+                                 <img src="/images/logo-btp.png" alt="apdl.ca">
+                        </div>
+                               
+                       
+                    </a>  
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/about">
+                        <i class="material-icons">fingerprint</i>
+                        </i>À Propos</a>
+                </li>
+
+                 <li class="divider"></li>
+
+               
+
+                <li>
+                    <a href="/apartments">
+                        <i class="material-icons">domain</i>Appartements à Louer</a>
+                </li>
+
+                
+
+                <li class="divider"></li>
+
+                 <li>
+                    <a href="/contact-us">
+                        <i class="material-icons">favorite</i>Nous Joindre</a>
+                </li>
+
+                 <li class="divider"></li>
+                
+                    <li>
+                    <a href="/admin/login">
+                        <i class="material-icons">exit_to_app</i>Admin Login</a>
+                    </li>
+
+                <li class="divider"></li>
+
+               
+
+
+
+                {{/if}}
+               
+
+
+
+             
+            </ul>

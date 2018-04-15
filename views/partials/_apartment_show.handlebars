@@ -2,7 +2,7 @@
     {{ apartment.title }}
 </h4>
 
-<p class="font-grey">Address: {{#each apartment.locations }} {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
+<p class="font-grey"><i class="material-icons small">place</i> {{#each apartment.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
     }} {{ postCode }} {{/each }}
 
 </p>

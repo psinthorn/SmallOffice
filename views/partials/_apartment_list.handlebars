@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <div class="row">
 
     {{> _msg}}
@@ -53,10 +56,10 @@
                     {{!--
                     <p class="font-grey">{{ address }}</p> --}} {{#each locations }}
 
-                    <p class="font-grey">{{ title }} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
+                    <p class="font-grey"><i class="material-icons meduim">place</i> {{!-- {{ title }} --}} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
 
                     {{/each}}
-
+                    <br>
                     <p class="font-grey">{{stripTags (truncate desc 300)}}</p>
 
 
@@ -78,12 +81,6 @@
     <br>
     <br> {{/each}}
 
-
-
-
-
-
-
-
+</div>
 
 </div>

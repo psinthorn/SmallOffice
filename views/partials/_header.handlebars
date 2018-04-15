@@ -1,60 +1,26 @@
+ {{!-- <div class="container-fluid blue darken-4 right" style="padding-right: 10px">  <ul id="nav-main-right" class="right">
+
+                    <li><a href="mailto:lecourstoffalo@gmail.com"><i class="material-icons left">email</i>LecoursToffalo@gmail.com</a></li>
+                </ul>  
+                <ul id="nav-main-right" class="right">
+                    <li><a href="tel:+15149950037"> <i class="material-icons left">local_telephone</i>+ 1 514 995-0037</a></li>
+                </ul>   
+</div> --}}
 <nav class="blue darken-3 center">
-    <div class="container-fluid">
-
-         <!-- Content Managment Menu Dropdown Structure -->
-        <ul id="apartment_dropdown" class="dropdown-content">
-           
-
-             <li>
-                    <a href="/admin/apartments">
-                        <i class="material-icons">favorite</i>Appartements Lists</a>
-            </li>
-
-            <li>
-                    <a href="/admin/intro">
-                        <i class="material-icons">subject</i>Appartement Intro</a>
-            </li>
-
-            <li>
-                    <a href="/geocode">
-                        <i class="material-icons">edit_location</i>Geo-Location Finder</a>
-            </li>
-
-
-            
-
-           
-
-        </ul>
-
-
+    
+        <div class="container-fluid">
+  
         <div class="nav-wrapper">
             {{!--
             <a href="/" class="brand-logo center">APDL.CA</a> --}}
             <a href="/" data-activates="main-menu" class="button-collapse show-on-large">
-            <div class="menu-icon"><i class="material-icons Large menu-icon">menu</i></div> 
+            <div class="menu-icon active"><i class="material-icons Large menu-icon">menu</i></div> 
                 
         </a>
 
-
-            <!-- center Navbar and Show on MED-UP  -->
-            {{!-- <ul class="center-align show-on-small ">
-                 
-
-                <li class="font-120">
-                    <a href="/" >
-                    <div class="font-logo">
-                        APDL.CA
-                    </div>
-                        
-                    </a>
-                </li>
-
-            </ul> --}}
-
-
+           
             <!-- Right Navbar and Show on MED-UP  -->
-            <ul class="center hide-on-small-only">
+            <ul id="nav-main-left" class="hide-on-small-only">
                  
 
                 <li class="font-120">
@@ -66,8 +32,15 @@
                     </a>
                 </li>
 
+            </ul>
 
-                <li>
+
+           
+            <div class="main-menu right">
+
+                <ul id="nav-main" class="hide-on-small-only center">
+
+                 <li>
                     <a href="/about">À Propos</a>
                 </li>
 
@@ -81,154 +54,39 @@
                     <a href="/contact-us">Nous Joindre</a>
                 </li>
 
-
-
             </ul>
 
 
-            <ul class="right">
+            
+            
+           
 
-                <li>
-                    <a href="tel:+15149950037">
-                     Tel: + 1 514 995-0037
-                    </a>
-                 </li>
+            {{!--Hidden on Small--}}
 
-                 <li>
-                    <a href="mailto:lecourstoffalo@gmail.com">
-                     Email: LecoursToffalo@gmail.com
-                    </a>
-                 </li>
-
-
-
-            </ul>
-
-            <!-- Side-Nav Menu -->
-            <ul class="side-nav" id="main-menu">
-
-                {{#if user}}
-                
-                 <li>
-                    <a href="/">
-                        <i class="material-icons">apps</i>
-                        <div class="logo">
-                                 <img src="/images/logo-btp.png" alt="apdl.ca">
-                        </div>
-                               
-                       
-                    </a>  
-                </li>
-
-
-                <li class="divider"></li>
-
-                <li>
+               <div class="menu-stack hide-on-small-only right">
+                  
+                  <div class="email-icon"><a href="mailto:lecourstoffalo@gmail.com"><i class="material-icons small">email</i></a></div>
+                   <div class="email-stack"><a href="mailto:lecourstoffalo@gmail.com">LecoursToffalo@gmail.com </a> </div>
+                 
                     
-                    <a class="dropdown-button" href="#!" data-activates="content_dropdown"><i class="material-icons">edit</i>Content Management
-                        
-                    </a>
-                </li>
-
-                 <li class="divider"></li>
-
-                 <li>
-                    <a class="dropdown-button" href="#!" data-activates="apartment_dropdown">Apartment Management
-                        <i class="material-icons right">arrow_drop_down</i>
-                    </a>
-                </li>
-
-                  <li class="divider"></li>
-
-                 <li>
-                    <a href="/admin/about">
-                        <i class="material-icons">person_pin</i>About</a>
-            </li>
-
-             <li class="divider"></li>
-
-            <li>
-                    <a href="/admin/contact">
-                        <i class="material-icons">perm_phone_msg</i>Contact</a>
-            </li>
-
-            <li class="divider"></li>
-                 <li>
-                    <a href="/admin/logout">
-                        <i class="material-icons">exit_to_app</i>Logout</a>
-                </li>
-
-               
-
-                {{else}}
-
-                <li>
-                    <a href="/">
-                        <i class="material-icons">apps</i>
-                        <div class="logo">
-                                 <img src="/images/logo-btp.png" alt="apdl.ca">
-                        </div>
-                               
-                       
-                    </a>  
-                </li>
-
-                {{!--
-                <li>
-                    <a href="/stories">
-                        <i class="material-icons medium">forum</i> Public Adventure Stories</a>
-                </li> --}}
-
-                <li class="divider"></li>
+                  <div class="tel-icon"><a href="tel:+15149950037"><i class="material-icons small">local_telephone</i></a></div>
+                   <div class="tel-stack"><a href="tel:+15149950037">+ 1 514 995-0037</a></div>
+                   
+                    
+               </div> 
 
 
+               {{!--Show only on small--}}
+               <div class="menu-stack-small hide-on-med-and-up right">
+                  <div class="email-icon-small"><a href="mailto:lecourstoffalo@gmail.com"><i class="material-icons">email</i></a></div>
+                  <div class="tel-icon-small"><a href="tel:+15149950037"><i class="material-icons">local_telephone</i></a></div>    
+               </div> 
 
-
-                <li>
-                    <a href="/about">
-                        <i class="material-icons">fingerprint</i>
-                        </i>À Propos</a>
-                </li>
-
-                 <li class="divider"></li>
-
-               
-
-                <li>
-                    <a href="/apartments">
-                        <i class="material-icons">domain</i>Appartements à Louer</a>
-                </li>
-
-                
-
-                <li class="divider"></li>
-
-                 <li>
-                    <a href="/contact-us">
-                        <i class="material-icons">favorite</i>Nous Joindre</a>
-                </li>
-
-                 <li class="divider"></li>
-                
-                    <li>
-                    <a href="/admin/login">
-                        <i class="material-icons">exit_to_app</i>Admin Login</a>
-                    </li>
-
-                <li class="divider"></li>
-
-               
-
-
-
-                {{/if}}
-               
-
-
-
-             
-            </ul>
-
+               </div>
+          
         </div>
     </div>
 </nav>
+
+
+{{> _header-side-nav}}
