@@ -76,8 +76,10 @@
         });
 
 
-        {{!-- CKEDITOR.replace('body', { plugins: 'wysiwygarea,toolbar,link,basicstyles' }); --}}
+         CKEDITOR.replace('body', { }); 
          CKEDITOR.replace('body');
+
+         {{!--plugins: 'wysiwygarea,toolbar,link,basicstyles'--}}
 
     </script>
 
@@ -88,7 +90,8 @@
         });
 
 
-        CKEDITOR.replace('desc', { plugins: 'wysiwygarea,toolbar,link,basicstyles' });
+        CKEDITOR.replace('desc', { });
+        {{!--plugins: 'wysiwygarea,toolbar,link,basicstyles'--}}
 
     </script> {{!--
     <script>

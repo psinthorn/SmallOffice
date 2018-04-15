@@ -130,6 +130,21 @@ body {
   .blue-grey-text {
     color: #455a64;
     
+    
+  }
+
+  .blue-grey-text:hover {
+    color: #455a64;
+    font-size: 105%;
+  
+    
+  }
+
+  .btn:hover {
+   
+    font-size: 105%;
+   
+    transition: all 500ms ease; 
   }
 
  
@@ -163,7 +178,7 @@ a:active {
 
 a:hover {
   color: white;
-   font-size: 110%; 
+   /*font-size: 110%; */
    transition-timing-function: ease-out;
 }
 
