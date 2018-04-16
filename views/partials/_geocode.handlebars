@@ -8,7 +8,12 @@
             <input type="text" id="location-input" class="form-control form-control-lg" value="{{ addr1 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }}" placeholder="Put your address here">
       
       <br>
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      <div class="row">
+        <button type="submit" class="btn btn-primary btn-block right">Submit</button>
+       
+
+      </div>
+      
     </form>
     
     <div class="card-block" id="formatted-address"></div>
@@ -16,6 +21,9 @@
     <div class="card-block" id="geometry"></div>
 
     </div>
+    
+    <span class="new badge" data-badge-caption="*Remark: If Geocode not working, May cuase of some 3rd party service not response. please take time and then try again."></span>
+    
   </div>
 
 
