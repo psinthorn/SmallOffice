@@ -9,7 +9,19 @@ module.exports = {
 
 
 index(req, res){
-    res.render('index/welcome');
+
+    let promisesAll = [
+
+        Apartment.find({status: 'Available'}).sort({ date: -1}).exec(),
+        ApartmentIntro.find({ status: 'Public'}).exec()
+
+    ];
+
+    Promise.all(promisesAll)
+    .then( ([apartments, intro]) => {
+            res.render('index/welcome', { apartments: apartments, intro: intro });          
+    });
+    
 }, 
 
 about(req, res){
