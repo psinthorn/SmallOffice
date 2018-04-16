@@ -37,7 +37,7 @@ module.exports = {
 
         const imgUrl = req.files.imgUrl;
         const imgUrlName = Date.now() + '-' + imgUrl.name;
-        const imagesUploads = './public/images/';
+        const imagesUploads = './public/images/apartment/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
             if(err) throw err;
         });
@@ -109,7 +109,7 @@ module.exports = {
 
         const imgUrl = req.files.imgUrl;
         const imgUrlName = Date.now() + '-' + imgUrl.name;
-        const imagesUploads = './public/images/';
+        const imagesUploads = './public/images/apartment/';
         imgUrl.mv(imagesUploads + imgUrlName, (err) => {
             if(err) throw err;
         });
