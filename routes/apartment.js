@@ -10,8 +10,6 @@ module.exports = (app) => {
     //888888888888888888888888888
 
 
-    
-
     //Get all Apartment List
     app.get('/admin/apartments', ensureAuthenticated, ApartmentController.getAll);
 
@@ -47,8 +45,6 @@ module.exports = (app) => {
     app.delete('/admin/apartment/location/:id', ensureAuthenticated, ApartmentController.locationDelete);
     app.post('/admin/apartment/location/:id', ensureAuthenticated, ApartmentController.locationAdd);
 
-
-
     
     //get image form   
     app.get('/admin/apartments/image', ensureAuthenticated, ApartmentController.image); 
@@ -61,14 +57,4 @@ module.exports = (app) => {
     app.post('/admin/apartment/gallery/:id', ensureAuthenticated, GalleryController.galleryUpload);
     app.delete('/admin/apartment/gallery/:id', ensureAuthenticated, GalleryController.delete );
 
-    // //intro section
-    // app.get('/admin/apartment-intro', ApartmentController.getIntro);
-
-    // app.get('/admin/apartment-intro/add', ApartmentController.introForm);
-
-    // app.post('/admin/apartment-intro', ApartmentController.addIntro);
-
-    // app.get('/admin/apartment-intro/:id', ApartmentController.editIntroForm);
-
-    // app.put('/admin/apartment-intro/:id', ApartmentController.editIntro);
 }

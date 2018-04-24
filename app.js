@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
+const aws = require('aws-sdk');
+
 
 
 //const multer = require('multer');
@@ -101,6 +103,19 @@ mongoose.connect(keys.mongoURI, {
 // }).single('imgUrl');
 
 
+/*
+ * Configure the AWS region of the target bucket.
+ * Remember to change this to the relevant region.
+ */
+aws.config.region = 'eu-west-1';
+
+/*
+ * Load the S3 information from the environment variables.
+ */
+const S3_BUCKET = process.env.S3_BUCKET;
+
+
+
 //method-override middle-ware
 app.use(methodOverride('_method'));
 
@@ -115,9 +130,6 @@ app.use(session({
 //Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
 
 //body-parser middleware
 app.use(bodyParser.urlencoded({extended:false}));
