@@ -24,6 +24,8 @@ const ApartmentSchema = new Schema({
         default: 'images/location/montreal-ap-01.jpg'
     },
     gallery: [GallerySchema],
+    locations: [LocationSchema],
+    subcontact: [SubContactSchema],
     address: {
         type: String,
     },
@@ -35,8 +37,7 @@ const ApartmentSchema = new Schema({
             type: String
         }
     }],
-    locations: [LocationSchema],
-    subcontact: [SubContactSchema],
+    
     status: {
         type: String,
         default: 'Unavailable'

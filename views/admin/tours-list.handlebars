@@ -1,0 +1,87 @@
+<div class="container">
+
+    <div class="row">
+       {{!-- {{> _msg }} --}}
+    </div>
+
+
+    <h3>Current Tours Package</h3>
+    <div class="hr-1px"></div>
+    <div class="row">
+        <div class="left"></div>
+        <a href="/admin/tour/add">
+            <div class="btn right">Add New Package</div>
+        </a>
+    </div>
+    <div class="row">
+
+        {{#if tours }}
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th colspan="2" class="center-align">Manage</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                {{#each tours }}
+
+
+                <tr>
+                    <td>
+                        <img src="/images/tour/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                    </td>
+                    <td>{{ title }}</td>
+
+                    <td>
+                        {{#if locations }}
+                        {{#each locations }}
+                        
+                        {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ state }} {{ country }} {{ postCode }}
+
+                        {{/each}}
+
+                        {{else}}
+
+                            No Location found, Please add
+
+                        {{/if}}
+                    </td>
+
+                    <td>{{ status}}</td>
+
+                    <td class="right-align">
+                        <a href="/admin/tour/{{ id }}" class="btn">Edit</a>
+                    </td>
+                    <td class="left-align">
+                        <form action="/admin/tours/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">X</button>
+                        </form>
+
+
+
+                    </td>
+
+
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+
+        {{else}}
+        <p>Currently is no apartment available!</p>
+        {{/if}}
+
+
+    </div>
+</div>

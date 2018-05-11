@@ -14,18 +14,18 @@ module.exports = (app) => {
      app.get('/admin/intro/add', ensureAuthenticated, IntroController.introForm);
      
     //Create new about 
-    app.post('/admin/apartment-intro',ensureAuthenticated, IntroController.addIntro);
+    app.post('/admin/tour-intro',ensureAuthenticated, IntroController.addIntro);
 
     //Edit form
-    app.get('/admin/apartment-intro/:id', ensureAuthenticated, IntroController.editIntroForm);
+    app.get('/admin/tour-intro/:id', ensureAuthenticated, IntroController.editIntroForm);
 
     //Edit process
-    app.put('/admin/apartment-intro/:id', ensureAuthenticated, IntroController.editIntro);
+    app.put('/admin/tour-intro/:id', ensureAuthenticated, IntroController.editIntro);
 
     //Edit image
     //app.put('/admin/intro/image/:id', ensureAuthenticated, IntroController.addIntro;
 
     //Delete about
-    app.delete('/admin/apartment-intro/:id', ensureAuthenticated, IntroController.delete);
+    app.delete('/admin/tour-intro/:id', ensureAuthenticated, IntroController.delete);
 
 }

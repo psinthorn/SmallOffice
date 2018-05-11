@@ -7,7 +7,7 @@
                         <h4>Contact</h4>
                         <div class="hr-1px"></div>
 
-                        <form action="/admin/apartment/contact/{{ apartment.id }}" method="post">
+                        <form action="/admin/tour/contact/{{ tour.id }}" method="post">
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
@@ -83,13 +83,13 @@
 
                         </form>
 
-                        {{#if apartment.subcontact }}
+                        {{#if tour.subcontact }}
                         <h5>Current Contact Lists</h5>
                         <div class="divider"></div>
 
                         <div class="row">
 
-                            {{#each apartment.subcontact }}
+                            {{#each tour.subcontact }}
                             <div class="col s6 m6 l6">
                                 <table>
                                     <tr>
@@ -116,7 +116,7 @@
                                             {{!--<a href="/admin/apartment/contact/edit/{{ id }}">
                                                 <div class="btn">Edit</div>
                                             </a>--}}
-                                            <form action="/admin/apartment/contact/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                            <form action="/admin/tour/contact/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn red">X</button>
                                             </form>

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Contact = require('../models/Contact');
 const About = require('../models/About');
 const Apartment = require('../models/Apartment');
-const ApartmentIntro = require('../models/ApartmentIntro');
+const Tour = require('../models/Tour');
+const Intro = require('../models/Intro');
 
 
 module.exports = {
@@ -12,14 +13,15 @@ index(req, res){
 
     let promisesAll = [
 
-        Apartment.find({status: 'Available'}).sort({ date: -1}).exec(),
-        ApartmentIntro.find({ status: 'Public'}).exec()
+        Tour.find({status: 'Public'}).sort({ date: -1}).exec(),
+        Intro.find({ status: 'Public'}).exec(),
+        Contact.find({}).exec()
 
     ];
 
     Promise.all(promisesAll)
-    .then( ([apartments, intro]) => {
-            res.render('index/welcome', { apartments: apartments, intro: intro });          
+    .then( ([tours, intro, contact]) => {
+            res.render('index/welcome', { tours: tours, intro: intro, contact });          
     });
     
 }, 
@@ -31,30 +33,23 @@ about(req, res){
         })  
 },
 
-apartments(req, res){
+tours(req, res){
 
-    let promisesAll = [
-
-        Apartment.find({status: 'Available'}).sort({ date: -1}).exec(),
-        ApartmentIntro.find({ status: 'Public'}).exec()
-
-    ];
-
-    Promise.all(promisesAll)
-    .then( ([apartments, intro]) => {
-            res.render('index/apartments', { apartments: apartments, intro: intro });          
+    Tour.find({status: 'Public'}).sort({ date: -1})
+    .then( (tours) => {
+            res.render('index/tours', { tours: tours });          
     });
    
 },
 
-apartmentsShow(req, res){
+tourShow(req, res){
 
     const id = req.params.id;
     
-        Apartment.findById({ _id: id })
+        Tour.findById({ _id: id })
             .populate('subcontact')
-            .then( apartment => {
-                res.render('index/apartment-show', { apartment: apartment });   
+            .then( tour => {
+                res.render('index/tour-show', { tour: tour });   
             }); 
     },
 

@@ -40,8 +40,9 @@ const index = require('./routes/index');
 const contact = require('./routes/contact');
 const about = require('./routes/about');
 const facility = require('./routes/facility');
-const apartment = require('./routes/apartment');
+//const apartment = require('./routes/apartment');
 const intro      = require('./routes/Intro');
+const tour = require('./routes/tour');
 
 const app = express();
 
@@ -177,8 +178,8 @@ admin(app);
 index(app);
 contact(app);
 about(app);
-//facility(app);
-apartment(app);
+tour(app);
+//apartment(app);
 intro(app);
 
 

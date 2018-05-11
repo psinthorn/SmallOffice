@@ -1,0 +1,73 @@
+<div style="padding: 10px">
+
+<div class="row">
+
+    {{> _msg}}
+
+    
+    
+    <div class="divider"></div>
+    <br>
+    <br> {{#each tours }}
+    <div class="row">
+        <div class="col s12 m4 l4">
+
+            <a href="/tour-show/{{ id }}">
+                <div class="card">
+                    <div class="card-image">
+
+                        <img class="responsive-img" src="/images/tour/{{ imgUrl }}"> {{!--
+                        <img class="responsive-img" src="/images/le-quatier/le-quartier-01.jpg"> --}} {{!--
+                        <span class="card-title">5779 Av. De Lorimier</span> --}} {{!--
+                        <a class="btn-floating halfway-fab waves-effect waves-light red">
+                            <i class="material-icons">add</i>
+                        </a> --}}
+
+                        <div class="card-footer blue-grey-text center-align">
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+
+
+
+        <div class="col s12 m8 l8 ml-3">
+            <a href="/tour-show/{{ id }}">
+                <h4 class="header-text-01">{{ title }}</h4>
+                <a href="/tour-show/{{ id }}">
+                    {{!--
+                    <p class="font-grey">{{ address }}</p> --}} {{#each locations }}
+
+                    <p class="font-grey"><i class="material-icons meduim">place</i> {{!-- {{ title }} --}} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
+
+                    {{/each}}
+                    <br>
+                    <p class="font-grey">{{{stripTags (truncate desc 300)}}}</p>
+
+
+
+                    <br>
+                    <div class="btn blue btn-hor-effect right">More Informations</div>
+                </a>
+                <br>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="divider"></div>
+    <br>
+    <br> {{/each}}
+
+</div>
+
+</div>

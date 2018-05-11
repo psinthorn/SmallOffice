@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Apartment = require('./../../models/Apartment');
+const Tour = require('./../../models/Tour');
 
 module.exports = ({
 
@@ -7,13 +7,13 @@ module.exports = ({
         const id = req.params.id;
         const newSubContact = req.body;
 
-        Apartment.findById({ _id: id })
-            .then(apartment => {
-                apartment.subcontact.push(newSubContact);
+        Tour.findById({ _id: id })
+            .then(tour => {
+                tour.subcontact.push(newSubContact);
 
-                apartment.save()
-                    .then(apartment => {
-                        res.render('admin/apartment-edit', { apartment: apartment });
+                tour.save()
+                    .then(tour => {
+                        res.render('admin/tour-edit', { tour: tour });
                     });
 
             })
@@ -29,7 +29,7 @@ module.exports = ({
         //res.send(id);
 
 
-        Apartment.findById({ 'subcontact._id' : id }, function(err, doc){
+        Tour.findById({ 'subcontact._id' : id }, function(err, doc){
 
             
 
@@ -43,27 +43,7 @@ module.exports = ({
             
             }
         })
-            // Apartment.update({id: 1}, {$set : {"doc.array": doc.array}}, function(err,doc){
-            //       console.log(err);
-            // }
-        
-
-        // Apartment.findOne({ 'subcontact._id' : id })
-        //     .then( apartment => {
-        //         apartment.subcontact[0].title = req.body.title;
-        //         apartment.subcontact[0].person = req.body.person;
-        //         apartment.subcontact[0].phone = req.body.phone;
-        //         apartment.subcontact[0].email = req.body.email;
-        //         apartment.subcontact[0].title = req.body.title;
-        //         apartment.subcontact[0].whatsapp = req.body.whatsapp;
-        //         apartment.subcontact[0].skype = req.body.skype;
-        //         apartment.subcontact[0].workingHour = req.body.workingHour;
-
-        //         apartment.save()
-        //         .then( apartment => {
-        //             res.render('admin/apartment-edit-contact', { apartment: apartment });
-        //         })
-        // });
+            
     },
 
     //Contact Delete
@@ -71,12 +51,12 @@ module.exports = ({
 
         const id = req.params.id;
 
-        Apartment.findOne({ 'subcontact._id': id })
-            .then(apartment => {
-                apartment.subcontact.pull({ _id: id });
-                apartment.save()
-                    .then(apartment => {
-                        res.render('admin/apartment-edit', { apartment: apartment });
+        Tour.findOne({ 'subcontact._id': id })
+            .then(tour => {
+                tour.subcontact.pull({ _id: id });
+                tour.save()
+                    .then(tour => {
+                        res.render('admin/tour-edit', { tour: tour });
                     });
 
             })

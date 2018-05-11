@@ -366,8 +366,11 @@ a:hover {
 
 }
 
-.top-contact {
-
+.intro {
+  color: whitesmoke;
+  background-color: #0288d1;
+  padding-top: 50px; 
+  padding-bottom: 80px; 
 }
 
 

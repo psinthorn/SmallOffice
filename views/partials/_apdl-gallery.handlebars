@@ -59,12 +59,19 @@
 
     // Init slider
     function startSlide() {
+  
         reset();
         sliderImages[0].style.display = "block";
         sliderImages[1].style.display = "block";
         sliderImages[2].style.display = "block";
         sliderImages[3].style.display = "block";
-        document.querySelector(".total-images").innerHTML= `+${sliderImages.length - 4} images`;
+       
+
+        if(sliderImages.length > 4 ){
+            //sliderImages[4].style.display = "block";
+            document.querySelector(".total-images").innerHTML= `<a href='' > +${sliderImages.length - 4} images</a>`;
+        }
+        
     }
 
     startSlide();

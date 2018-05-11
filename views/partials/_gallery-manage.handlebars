@@ -6,7 +6,7 @@
 
 
 
-    <form action="/admin/apartment/gallery/{{ apartment.id }}" method="post" enctype="multipart/form-data">
+    <form action="/admin/tour/gallery/{{ tour.id }}" method="post" enctype="multipart/form-data">
 
         <div class="card white darken-1">
             <div class="card-content gray-text">
@@ -37,7 +37,7 @@
 
 
                 <div class="row">
-                    <p class="left">*Recommend: 480x640 Pixel as minimum. </p>
+                    <p class="left">*Recommend: 640x480 Pixel as minimum. </p>
                     <input type="submit" value="Add" class="btn right">
                 </div>
 
@@ -45,7 +45,7 @@
 
     <div class="row">
 
-        {{#each apartment.gallery }}
+        {{#each tour.gallery }}
         <div class="col s12 m3">
 
             <div class="row">
@@ -55,7 +55,7 @@
                             <img src="/gallery/{{ name }}" alt="{{ name }}" class="responsive-img">
 
 
-                            <form action="/admin/apartment/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                            <form action="/admin/tour/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="oldImgUrl" value="{{ name }}">
                                 <button type="submit" class="btn red right">X</button>

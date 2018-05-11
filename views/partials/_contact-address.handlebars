@@ -7,7 +7,7 @@
                         <h4>Address & Locations</h4>
                         <div class="hr-1px"></div>
 
-                        <form action="/admin/apartment/location/{{ apartment.id }}" method="post">
+                        <form action="/admin/tour/location/{{ tour.id }}" method="post">
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
@@ -97,7 +97,7 @@
 
                         </form>
 
-                        {{#if apartment.locations }}
+                        {{#if tour.locations }}
                         <h5>Current Address & Location</h5>
                         <div class="divider"></div>
 
@@ -107,14 +107,14 @@
                             <th>Lat - Lng</th>
                             <th>manage</th>
 
-                            {{#each apartment.locations }}
+                            {{#each tour.locations }}
                             <tr>
                                 <td>{{ title }}
                                     <br>{{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postcode
                                     }}</td>
                                 <td>{{ lat }} - {{ lng }}</td>
                                 <td>
-                                    <form action="/admin/apartment/location/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                    <form action="/admin/tour/location/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn red">X</button>
                                     </form>

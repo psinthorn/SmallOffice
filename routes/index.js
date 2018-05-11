@@ -9,10 +9,10 @@ module.exports = (app) => {
   //about page
   app.get('/about', IndexController.about);  
 
-  //Apartment List
-  app.get('/apartments', IndexController.apartments);
+  //tour List
+  app.get('/tours', IndexController.tours);
 
-  app.get('/apartment-show/:id', IndexController.apartmentsShow);
+  app.get('/tour-show/:id', IndexController.tourShow);
 
   //Contact page
   app.get('/contact-us', IndexController.contact);

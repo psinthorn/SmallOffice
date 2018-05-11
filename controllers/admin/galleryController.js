@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
-const Apartment = require('./../../models/Apartment');
+const Tour = require('./../../models/Tour');
 const fs = require('fs');
 
 module.exports = {
@@ -10,9 +10,9 @@ module.exports = {
     gallery(req, res){
         const id = req.params.id;
 
-        Apartment.findById({ _id: id})
-            .then( apartment => {
-                res.render('admin/gallery-upload-form', { apartment: apartment });
+        Tour.findById({ _id: id})
+            .then( tour => {
+                res.render('admin/gallery-upload-form', { tour: tour });
             })
         
         
@@ -28,9 +28,9 @@ module.exports = {
 
         if( !imgUrl ){
             req.flash('error_msg', 'Image is empty please select an image');
-            Apartment.findById({ _id: id })
-                .then( apartment => {
-                    res.redirect(`/admin/apartment/gallery/${apartment.id}`);   
+            Tour.findById({ _id: id })
+                .then( tour => {
+                    res.redirect(`/admin/tour/gallery/${tour.id}`);   
                 });
         } else {
 
@@ -41,21 +41,21 @@ module.exports = {
     
             });
     
-            Apartment.findById({ _id: id })
-                .then( apartment => {
+            Tour.findById({ _id: id })
+                .then( tour => {
     
                     const imgName = ({
                         name: imgUrlName
                     });
                    
-                    apartment.gallery.push(imgName);
+                    tour.gallery.push(imgName);
     
-                    apartment.save()
-                    .then( () => Apartment.findById({ _id: id }))
-                        .then( apartment => {
+                    tour.save()
+                    .then( () => Tour.findById({ _id: id }))
+                        .then( tour => {
                             
                             req.flash('success_msg', 'Gallery is added');
-                            res.redirect(`/admin/apartments/${apartment.id}`);
+                            res.redirect(`/admin/tour/${tour.id}`);
                             //res.render('admin/gallery-upload-form', { apartment: apartment });
     
                         })
@@ -83,10 +83,10 @@ module.exports = {
             imgUrl: imgUrlName
         })
     
-        Apartment.findByIdAndUpdate({ _id: id},newImg)
-            .then(() => Apartment.findById({ _id: id }))
-            .then( apartment => {
-                res.render('admin/apartment-edit', { apartment: apartment });
+        Tour.findByIdAndUpdate({ _id: id},newImg)
+            .then(() => Tour.findById({ _id: id }))
+            .then( tour => {
+                res.render('admin/tour-edit', { tour: tour });
             });
 
     },
@@ -101,15 +101,15 @@ module.exports = {
        
 
         fs.unlink(delImage, (err) => { 
-            Apartment.findOne({ 'gallery._id' : id })
+            Tour.findOne({ 'gallery._id' : id })
             //.populate('facilities')
-            .then( apartment => {
+            .then( tour => {
 
-                apartment.gallery.pull({ _id : id });
-                apartment.save()
-                    .then(apartment => {
+                tour.gallery.pull({ _id : id });
+                tour.save()
+                    .then(tour => {
                         req.flash('error_msg', 'Image is deleted');
-                        res.redirect(`/admin/apartments/${apartment.id}`);
+                        res.redirect(`/admin/tour/${tour.id}`);
                     });
             })
         });
