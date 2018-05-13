@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ContactSchema = new Schema ({
     title: {
         type: String,
-        default: 'Nous Joindre'
+        default: 'Contact'
     }, 
     desc: {
         type: String,
@@ -15,22 +15,31 @@ const ContactSchema = new Schema ({
     },
     phone: {
         type: String,
-        default: '+ 1 514 995-0037'
+        default: '+ 662 999 9999'
     },
     email: {
         type: String,
     },
     whatsapp: {
         type: String,
-        default: '+ 1 514 995-0037'
+        default: '+ 668 999 9999'
     },
     skype: {
         type: String,
-        default: 'cristina.toffalo'
+        default: 'f2.coltd'
     },
     website: {
         type: String,
-        default: 'apdl.ca'
+        default: 'www.f2.co.th'
+    },
+
+    lat: {
+        type: String,
+        default: '9.532012'
+    },
+    lng: {
+        type: String,
+        default: '100.043674'
     },
     addr1: {
         type: String
