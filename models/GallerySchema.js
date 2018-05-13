@@ -9,7 +9,7 @@ const GallerySchema = new Schema ({
     },
     title: {
         type: String,
-        default: 'apdl.ca',
+        default: 'Image',
         trim: true
           
     }, 
@@ -18,7 +18,7 @@ const GallerySchema = new Schema ({
     },
     desc: {
         type: String,
-        default: 'apdl.ca',
+        default: 'Image',
         trim: true
     },
    

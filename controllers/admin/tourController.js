@@ -327,12 +327,40 @@ module.exports = {
 
      },
 
-    //  Update maps by address
-    // mapsUpdate(req, res){
+    
+    //Include Function start 
 
-    //     const id =  req.params.id;
-    //     Apartment.findById
-
-    // } 
+    //Add include form 
+    include(req, res){
+        
+                const id = req.params.id;
+                Tour.findById({ _id: id })
+                .then( tour => {
+                    const newInclude = { 
+                        title: req.body.title, 
+                        value: req.body.value
+                    }
+                    tour.included.push(newInclude);
+                    tour.save()
+                    .then(tour => {
+                        res.render('admin/tour-edit', { tour: tour });
+                    });
+                })     
+                
+            },
+        
+            //Delete Included
+            includeDelete(req, res){
+                const id = req.params.id;
+                Tour.findOne({ 'included._id' : id })
+                    .then(include => {
+                            include.included.pull({ _id : id });
+                            include.save()
+                            .then(tour => {
+                                res.render('admin/tour-edit', { tour: tour });
+                            });
+                    })
+                 },
+        
 
 }

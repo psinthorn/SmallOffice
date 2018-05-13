@@ -26,6 +26,7 @@ const TourSchema = new Schema({
     gallery: [GallerySchema],
     locations: [LocationSchema],
     subcontact: [SubContactSchema],
+    
     address: {
         type: String,
     },
@@ -37,6 +38,22 @@ const TourSchema = new Schema({
             type: String
         }
     }],
+
+    included: [{
+        title: {
+            type: String   
+        }, 
+        value: {
+            type: String
+        }
+    }],
+
+    priceSale: {
+
+    },
+    priceNet: {
+
+    },
     
     status: {
         type: String,

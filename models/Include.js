@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const BringSchema = new Schema({
+const IncludeSchema = new Schema({
     title: {
         type: String,
-        default: 'Name'
+        default: 'Ex. Transfers'
     },
     value: {
         type: String,
@@ -24,5 +24,5 @@ const BringSchema = new Schema({
     }
 });
 
-const Bring= mongoose.model('bring', BringSchema, 'brings');
-module.exports = Bring;
+const Include = mongoose.model('include', IncludeSchema, 'included');
+module.exports = Include;

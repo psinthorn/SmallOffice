@@ -29,11 +29,15 @@ module.exports = (app) => {
     //Delete tour
     app.delete('/admin/tour/:id', ensureAuthenticated, TourController.delete);
 
+    //Included
+    app.post('/admin/include/:id', ensureAuthenticated, TourController.include);
+    app.delete('/admin/include/:id', ensureAuthenticated, TourController.includeDelete);
+
     //Bring 
     app.post('/admin/bring/:id', ensureAuthenticated, TourController.bring);
     app.delete('/admin/bring/:id', ensureAuthenticated, TourController.bringDelete);
-    app.get('/admin/bring/:id', TourController.bringEditForm);
-    app.put('/admin/bring/:id',TourController.bringEdit);
+    //app.get('/admin/bring/:id', TourController.bringEditForm);
+    //app.put('/admin/bring/:id',TourController.bringEdit);
     
 
     //Contact

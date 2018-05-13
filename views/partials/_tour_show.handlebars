@@ -16,11 +16,49 @@
             {{{ tour.body }}}
         </p>
 
+        {{#if tour.included}}
+
+        <br>  
+        <h5>Package Included</h5>
+        {{!--
+        <div class="divider"></div> --}}
+        <br>
+        <div class="row">
+            {{#each tour.included}}
+            <div class="col s12 m6 l6">
+
+                <div class="col s12 m12 l12">
+
+                    <div class="col s2 m2 l2">
+
+                        <i class="material-icons">check</i>
+
+                    </div>
+                    <div class="col s10 m10 l10">
+
+                        {{ title }}
+
+                    </div>
+
+                </div>
+
+                
+
+
+            </div>
+            {{/each}}
+            <br>
+            <br>
+
+        </div>
+
+        {{/if}}
+
+
+        {{#if tour.brings}}
         <br>
         
-        
-        
-        <h5>What to Brings</h5>
+        <h5>What's to Brings</h5>
         {{!--
         <div class="divider"></div> --}}
         <br>
@@ -53,6 +91,7 @@
 
         </div>
 
+    {{/if}}
 
     </div>
 
