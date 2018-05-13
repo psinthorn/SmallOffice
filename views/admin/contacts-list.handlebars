@@ -167,14 +167,36 @@
                                 </p>
                             </p>
                         </div>
+
                     </div>
 
-                </div>
-            </div>
+                     <div class="row header-text-01">
+                        <h5>Maps</h5>
+                        <div class="hr-1px-p10"></div>
+                       
+                        <div class="col s12 m12 l12">
+                          <div class="row">
+                                <div class="input-field col s12 m5 l5">
+                                    <input type="text" name="lat" value="{{ contact.lat }}" disabled>
+                                    <label for="lat">Latitude</label>
+                                </div>
+                                <div class="input-field col s12 m5 l5">
+                                    <input type="text" name="lng" value="{{ contact.lng }}" disabled>
+                                    <label for="lng">Longitude</label>
+                                </div>
+                        </div>
 
-            <div class="right-align">
+                        </div>
+
+                </div>
+
+                <div class="right-align">
                 <a href="/admin/contact/{{ contact.id }}" class="btn">Edit</a>
             </div>
+            
+            </div>
+
+            
 
         </div>
 
