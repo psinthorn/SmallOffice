@@ -10,21 +10,16 @@
     <br>
     <br> {{#each tours }}
     <div class="row">
+        
+        {{#if imgUrl }}
         <div class="col s12 m4 l4">
 
             <a href="/tour-show/{{ id }}">
                 <div class="card">
                     <div class="card-image">
 
-                        <img class="responsive-img" src="/images/tour/{{ imgUrl }}"> {{!--
-                        <img class="responsive-img" src="/images/le-quatier/le-quartier-01.jpg"> --}} {{!--
-                        <span class="card-title">5779 Av. De Lorimier</span> --}} {{!--
-                        <a class="btn-floating halfway-fab waves-effect waves-light red">
-                            <i class="material-icons">add</i>
-                        </a> --}}
-
+                        <img class="responsive-img" src="/images/tour/{{ imgUrl }}"> 
                         <div class="card-footer blue-grey-text center-align">
-
 
                         </div>
                     </div>
@@ -33,7 +28,7 @@
             </a>
         </div>
 
-
+        {{/if}}
 
 
         <div class="col s12 m8 l8 ml-3">

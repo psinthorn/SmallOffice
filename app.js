@@ -29,6 +29,7 @@ require('./models/Facility');
 require('./models/UserAdmin');
 require('./models/ApartmentIntro');
 require('./models/ApartmentIntro');
+require('./models/Slide');
 
 //load router
 const admin = require('./routes/admin');
@@ -43,6 +44,7 @@ const facility = require('./routes/facility');
 //const apartment = require('./routes/apartment');
 const intro      = require('./routes/Intro');
 const tour = require('./routes/tour');
+const slide = require('./routes/slide');
 
 const app = express();
 
@@ -179,7 +181,7 @@ index(app);
 contact(app);
 about(app);
 tour(app);
-//apartment(app);
+slide(app);
 intro(app);
 
 
