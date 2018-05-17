@@ -36,12 +36,16 @@
                 <h4 class="header-text-01">{{ title }}</h4>
                 <a href="/tour-show/{{ id }}">
                     {{!--
-                    <p class="font-grey">{{ address }}</p> --}} {{#each locations }}
+                    <p class="font-grey">{{ address }}</p> --}} 
+
+                    {{#if locations }}
+                    {{#each locations }}
 
                     <p class="font-grey"><i class="material-icons meduim">place</i> {{!-- {{ title }} --}} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
 
                     {{/each}}
                     <br>
+                    {{/if}}
                     <p class="font-grey">{{{stripTags (truncate desc 300)}}}</p>
 
 
