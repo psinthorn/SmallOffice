@@ -228,9 +228,6 @@ module.exports = {
          },
 
 
-
-
-
       //Contact each apartment
       contactAdd(req, res){
 
@@ -361,6 +358,6 @@ module.exports = {
                             });
                     })
                  },
-        
 
+        
 }

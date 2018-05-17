@@ -7,11 +7,15 @@
     {{ tour.title }}
 </h4>
 
+{{#if tour.locations.addr1 }}
 <p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
     }} {{ postCode }} {{/each }}
 
 </p>
 <br>
+
+{{/if}}
+
 {{> _tour-gallery }}
 
 <div class="row">
@@ -21,12 +25,13 @@
         </p>
 
         <br>
+        {{> _itinerary-list }}
         
         {{> _tour-include }}
         
         <h5>What's to Brings</h5>
-        {{!--
-        <div class="divider"></div> --}}
+        
+        <div class="divider"></div>
         <br>
         <div class="row">
             {{#each tour.brings}}
@@ -79,7 +84,7 @@
 
     <div class="col s12 m4 l4">
        
-        
+        {{#if tour.subcontact }}
         {{#each tour.subcontact }}
 
         <div class="row" style="background-color: #eee ">
@@ -112,9 +117,11 @@
     
 
         {{/each}}
+        {{/if}}
 
+    {{#if tour.locations }} 
        {{> _maps-location }}
-
+    {{/if}}
     </div>
 </div>
 

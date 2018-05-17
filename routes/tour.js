@@ -2,6 +2,7 @@
 const TourController = require('./../controllers/admin/tourController');
 const SubContactController = require('./../controllers/admin/subContactController');
 const GalleryController = require('./../controllers/admin/galleryController');
+const ItineraryController = require('./../controllers/admin/itineraryController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
 module.exports = (app) => {
@@ -61,5 +62,12 @@ module.exports = (app) => {
     app.get('/admin/tour/gallery/:id', ensureAuthenticated, GalleryController.gallery );
     app.post('/admin/tour/gallery/:id', ensureAuthenticated, GalleryController.galleryUpload);
     app.delete('/admin/tour/gallery/:id', ensureAuthenticated, GalleryController.delete );
+
+    //Gallery section
+    app.get('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itinerary);
+    app.post('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itinerary);
+    app.delete('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itineraryDelete);
+
+    
 
 }

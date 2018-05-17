@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Intro =require('../../models/Intro');
+const Intro =require('./../../models/Intro');
 
 
 module.exports = {

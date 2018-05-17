@@ -6,7 +6,11 @@ const LocationSchema = require('./../models/LocationSchema');
 const SubContactSchema = require('./../models/SubContactSchema');
 const GallerySchema = require('./../models/GallerySchema');
 
+
 const TourSchema = new Schema({
+    order: {
+        no: String
+    },
     name: {
         type: String,
     },
@@ -26,7 +30,6 @@ const TourSchema = new Schema({
     gallery: [GallerySchema],
     locations: [LocationSchema],
     subcontact: [SubContactSchema],
-    
     address: {
         type: String,
     },
@@ -45,6 +48,32 @@ const TourSchema = new Schema({
         }, 
         value: {
             type: String
+        }
+    }],
+
+    itinerary: [{
+        order: {
+            type: String
+        },
+        title: {
+            type: String,
+            trim: true
+        },
+        timeTable: {
+            type: String,
+            trim: true
+        },
+        description: {
+            type: String,
+    
+        },
+        location: {
+            type: String,
+            trim: true
+        },
+        remark: {
+            type: String,
+            trim: true
         }
     }],
 

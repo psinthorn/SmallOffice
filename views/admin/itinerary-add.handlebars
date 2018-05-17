@@ -3,42 +3,47 @@
 
     <div class="row">
 
-        {{!-- {{> _msg}} --}}
+        {{> _msg}}
 
-        <div class="col s12 m12 l12">
-            <h4>Add Bring</h4>
+        <div class="col s12 m8 l8">
+            <h4>Add New Itinerary</h4>
             <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text" >
 
-                        <form action="/admin/facility" method="post">
+                        <form action="/admin/itinerary" method="post">
 
                             <div class="row">
-                                <div class="input-field col s12 m6 l6">
+                                <div class="input-field col s12 m12 l12">
 
                                     <input type="text" name="title">
                                     <label for="title">Title</label>
 
                                 </div>
-                           
+                            </div>
 
-                             
-                                <div class="input-field col s12 m6 l6">
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
 
-                                    <input type="text" name="value">
-                                    <label for="value">Descriptions or Value </label>
+                                    <input type="text" name="timeTable">
+                                    <label for="title">Time Table</label>
 
                                 </div>
+                                 <div class="input-field col s12 m8 l8">
+                                    <input type="text" name="description">
+                                    <label for="description">Description</label>
+                                </div>
                             </div>
+ 
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
                                     <select name="status" id="status">
                                         <option value="public" selected>Public</option>
                                         <option value="private">Private</option>
-                                        <option value="unpublished">Unpublished</option>
+                                        <option value="unpublished">unpublished</option>
                                     </select>
                                     <label for="status">Status</label>
                                 </div>
@@ -53,17 +58,12 @@
             </div>
         </div>
 
-        <div class="col s12 m12 l12">
-            <h4>Current Facilities</h4>
-            <div class="hr-1px"></div>
 
-        {{#each facilities }}
-        <div class="row">
-            <div class="col s12 m4 l4">{{ title}}</div>
-            <div class="col s12 m4 l4">{{ value }}</div>
-            <div class="col s12 m4 l4"> Edit | Delete </div>
-        </div>
-        {{/each}}
+<div class="col s12 m4 l4">
+    <h4>Current About</h4>
+            <div class="hr-1px"></div           
+
+</div>
 
 
             

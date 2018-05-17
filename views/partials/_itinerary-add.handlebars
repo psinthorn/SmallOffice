@@ -1,0 +1,96 @@
+
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h4>Itinerary</h4>
+                <div class="hr-1px"></div>
+
+                <form action="/admin/tour/itinerary/{{ tour.id }}" method="post">
+                    {{!-- <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="title">
+                            <label for="title">Title</label>
+
+                        </div>
+                    </div> --}}
+
+                    <div class="row">
+                        {{!-- <div class="input-field col s1 m1 l1">
+
+                            <input type="text" name="order">
+                            <label for="order">Order</label>
+
+                        </div> --}}
+                        <div class="input-field col s4 m4 l4">
+
+                            <input type="text" name="timeTable">
+                            <label for="timeTable">Time Table</label>
+
+                        </div>
+                        <div class="input-field col s12 m18 l8">
+
+                            <input type="text" name="description">
+                            <label for="description">Descriptions</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value=Add Itinerary class="btn right">
+                    </div>
+
+                </form>
+
+                {{#if tour.itinerary }}
+                <h5>Current Itinerary List</h5>
+                <div class="divider"></div>
+
+                <div class="row">
+                <div class="col s12 m12 l12">
+
+
+
+                    {{#each tour.itinerary }}
+
+                    <div class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s2 m2 l2" style="padding: 3px">
+                                <p>{{ timeTable }}</p> 
+                            </div>
+                            <div class="col s10 m8 l8" style="padding: 3px">
+                                <p>{{ description }}</p> 
+                            </div>
+
+                              <div class="col s2 m2 l2" style="padding: 3px">
+                            <p>
+                               {{!-- <a href="/admin/facility/{{ id }}">edit</a> --}}
+                                <form action="/admin/tour/itinerary/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">X</button>
+                            </form>
+
+                            </p>
+                            
+
+                        </div>
+
+                        </div>
+                        
+                    </div>
+
+                    {{/each}}
+
+                </div>
+                </div>
+
+                {{/if }}
+
+            </div>
+
+        </div>
+
+
+
+
