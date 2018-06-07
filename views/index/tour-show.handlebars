@@ -7,14 +7,14 @@
     {{ tour.title }}
 </h4>
 
-{{#if tour.locations.addr1 }}
+
 <p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
     }} {{ postCode }} {{/each }}
 
 </p>
 <br>
 
-{{/if}}
+
 
 {{> _tour-gallery }}
 
@@ -28,6 +28,8 @@
         {{> _itinerary-list }}
         
         {{> _tour-include }}
+
+         {{> _tour-exclude }}
         
         <h5>What's to Brings</h5>
         

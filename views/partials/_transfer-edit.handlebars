@@ -1,0 +1,224 @@
+
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h4>Edit route</h4>
+                <div class="hr-1px"></div>
+
+                <form action="/admin/transfer/{{ transfer.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        <div class="input-field col s12 m5 l5">
+
+                            <input type="text" name="from" value="{{ transfer.from }}">
+                            <label for="from">From</label>
+
+                        </div>
+                    
+                        <div class="input-field col s12 m5 l5">
+
+                            <input type="text" name="to" value="{{ transfer.to }}">
+                            <label for="to">To</label>
+
+                        </div>
+                        <div class="input-field col s12 m2 l2">
+                             <select name="status" id="status">
+                                            {{#select transfer.status }}
+                                            <option value="Public" >Public</option>
+                                            <option value="Private" >Private</option>
+                                            <option value="Unpublished" >Unpublished</option>
+                                            {{/select }}
+                            </select>
+                                        <label for="status">Status</label>
+                        </div>
+                    </div>  
+
+                     <div class="row">
+                        <input type="submit" value="Update" class="btn right">
+                    </div>
+
+                </form>
+
+
+                    <h4>Sedan Rate</h4>
+
+                <form action="/admin/transfer/sedan/{{ transfer.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="sale" value="{{ transfer.sedan.sale }}">
+                            <label for="sale">Sale</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="member" value="{{ transfer.sedan.member }}">
+                            <label for="member">Member</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="promo" value="{{ transfer.sedan.promo }}">
+                            <label for="promo">Promotion</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="net" value="{{ transfer.sedan.net }}">
+                            <label for="net">Net</label>
+                        </div>
+
+                          <div class="input-field col s12 m2 l2">
+                             <select name="active" id="active">
+                                            {{#select transfer.sedan.active }}
+                                            <option value="sale" >sale</option>
+                                            <option value="member" >member</option>
+                                            <option value="promo" >promo</option>
+                                            <option value="net" >net</option>
+                                            {{/select }}
+                                        </select>
+                             <label for="active">Active</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                             <select name="status" id="status">
+                                            {{#select transfer.sedan.status }}
+                                            <option value="Public" >Public</option>
+                                            <option value="Private" >Private</option>
+                                            <option value="Unpublished" >Unpublished</option>
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+                        <input type="submit" value="Update" class="btn right">
+                    </div>
+
+                </form>
+
+                 <h4>SUV Rate</h4>
+
+                <form action="/admin/transfer/suv/{{ transfer.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="sale" value="{{ transfer.suv.sale }}">
+                            <label for="sale">Sale</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="member" value="{{ transfer.suv.member }}">
+                            <label for="member">Member</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="promo" value="{{ transfer.suv.promo }}">
+                            <label for="promo">Promotion</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="net" value="{{ transfer.suv.net }}">
+                            <label for="net">Net</label>
+                        </div>
+
+                          <div class="input-field col s12 m2 l2">
+                             <select name="active" id="active">
+                                            {{#select transfer.suv.active }}
+                                            <option value="sale" >sale</option>
+                                            <option value="member" >member</option>
+                                            <option value="promo" >promo</option>
+                                            <option value="net" >net</option>
+                                            {{/select }}
+                                        </select>
+                             <label for="active">Active</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                             <select name="status" id="status">
+                                            {{#select transfer.suv.status }}
+                                            <option value="Public" >Public</option>
+                                            <option value="Private" >Private</option>
+                                            <option value="Unpublished" >Unpublished</option>
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+                        <input type="submit" value="Update" class="btn right">
+                    </div>
+
+                </form>
+
+
+                 <h4>Minibus Rate</h4>
+                
+                <form action="/admin/transfer/minibus/{{ transfer.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="sale" value="{{ transfer.minibus.sale }}">
+                            <label for="sale">Sale</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="member" value="{{ transfer.minibus.member }}">
+                            <label for="member">Member</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="promo" value="{{ transfer.minibus.promo }}">
+                            <label for="promo">Promotion</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                            <input type="text" name="net" value="{{ transfer.minibus.net }}">
+                            <label for="net">Net</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                             <select name="active" id="active">
+                                            {{#select transfer.minibus.active }}
+                                            <option value="sale" >sale</option>
+                                            <option value="member" >member</option>
+                                            <option value="promo" >promo</option>
+                                            <option value="net" >net</option>
+                                            {{/select }}
+                                        </select>
+                             <label for="active">Active</label>
+                        </div>
+
+                         <div class="input-field col s12 m2 l2">
+                             <select name="status" id="status">
+                                            {{#select transfer.minibus.status }}
+                                            <option value="Public">Public</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Unpublished">Unpublished</option>
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+                        <input type="submit" value="Update" class="btn right">
+                    </div>
+
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+
+
+

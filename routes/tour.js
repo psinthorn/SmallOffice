@@ -34,6 +34,10 @@ module.exports = (app) => {
     app.post('/admin/include/:id', ensureAuthenticated, TourController.include);
     app.delete('/admin/include/:id', ensureAuthenticated, TourController.includeDelete);
 
+     //Excluded
+     app.post('/admin/exclude/:id', ensureAuthenticated, TourController.exclude);
+     app.delete('/admin/exclude/:id', ensureAuthenticated, TourController.excludeDelete);
+
     //Bring 
     app.post('/admin/bring/:id', ensureAuthenticated, TourController.bring);
     app.delete('/admin/bring/:id', ensureAuthenticated, TourController.bringDelete);

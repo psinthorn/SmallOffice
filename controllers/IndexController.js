@@ -4,6 +4,7 @@ const About = require('../models/About');
 const Apartment = require('../models/Apartment');
 const Tour = require('../models/Tour');
 const Intro = require('../models/Intro');
+const Transfer = require('./../models/Transfer');
 
 
 module.exports = {
@@ -52,6 +53,14 @@ tourShow(req, res){
                 res.render('index/tour-show', { tour: tour });   
             }); 
     },
+
+ transfer(req, res) {
+     Transfer.find({}).sort({from: 1})
+     .then(transfers => {
+         res.render('index/transfers', {transfers: transfers });
+         //res.send(transfers);
+     });
+ },   
 
 contact(req, res){
 

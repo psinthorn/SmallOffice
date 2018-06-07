@@ -359,5 +359,41 @@ module.exports = {
                     })
                  },
 
+
+     //Exclude Function start 
+
+    //Add Exclude form 
+    exclude(req, res){
+        
+                const id = req.params.id;
+                Tour.findById({ _id: id })
+                .then( tour => {
+                    const newExclude = { 
+                        title: req.body.title, 
+                        value: req.body.value
+                    }
+                    tour.excluded.push(newExclude);
+                    tour.save()
+                    .then(tour => {
+                        res.render('admin/tour-edit', { tour: tour });
+                    });
+                })     
+                
+            },
+        
+            //Delete Excluded
+            excludeDelete(req, res){
+                const id = req.params.id;
+                Tour.findOne({ 'excluded._id' : id })
+                    .then(exclude => {
+                            excluded.excluded.pull({ _id : id });
+                            excluded.save()
+                            .then(tour => {
+                                res.render('admin/tour-edit', { tour: tour });
+                            });
+                    })
+                 },
+             
+
         
 }
