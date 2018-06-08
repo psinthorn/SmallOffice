@@ -8,23 +8,23 @@ module.exports = (app) => {
     //88   tour Routes    88
     //888888888888888888888888888
 
-    app.get('/admin/transfers', TransferController.getAll) 
+    app.get('/admin/transfers', ensureAuthenticated, TransferController.getAll) 
 
-    app.get('/admin/transfer/add', TransferController.addForm);
+    app.get('/admin/transfer/add', ensureAuthenticated, TransferController.addForm);
 
-    app.get('/admin/transfer/edit/:id', TransferController.editForm)
+    app.get('/admin/transfer/edit/:id', ensureAuthenticated, TransferController.editForm)
 
-    app.post('/admin/transfer', TransferController.create);
+    app.post('/admin/transfer', ensureAuthenticated, TransferController.create);
 
-    app.put('/admin/transfer/:id', TransferController.editUpdate);
+    app.put('/admin/transfer/:id', ensureAuthenticated, TransferController.editUpdate);
 
-    app.put('/admin/transfer/sedan/:id', TransferController.updateSedan );
+    app.put('/admin/transfer/sedan/:id', ensureAuthenticated, TransferController.updateSedan );
 
-    app.put('/admin/transfer/suv/:id', TransferController.updateSuv );
+    app.put('/admin/transfer/suv/:id', ensureAuthenticated, TransferController.updateSuv );
 
-    app.put('/admin/transfer/minibus/:id', TransferController.updateMinibus );
+    app.put('/admin/transfer/minibus/:id', ensureAuthenticated, TransferController.updateMinibus );
 
-    app.delete('/admin/transfer/:id', TransferController.delete);
+    app.delete('/admin/transfer/:id', ensureAuthenticated, TransferController.delete);
 
 
 };
