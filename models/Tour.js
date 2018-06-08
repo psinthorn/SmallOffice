@@ -94,7 +94,6 @@ const TourSchema = new Schema({
     priceNet: {
 
     },
-    
     status: {
         type: String,
         default: 'Unavailable'

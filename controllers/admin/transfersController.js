@@ -72,6 +72,42 @@ module.exports = {
                     
     },
 
+     //Edit form sedan
+     updateRate(req, res){
+        const transferProps = {
+            'sedan.sale': req.body.sedansale,
+            'sedan.member': req.body.sedanmember,
+            'sedan.promo': req.body.sedanpromo,
+            'sedan.net': req.body.sedannet,
+            'sedan.active': req.body.sedanactive,
+            'sedan.status': req.body.sedanstatus,
+
+            'suv.sale': req.body.suvsale,
+            'suv.member': req.body.suvmember,
+            'suv.promo': req.body.suvpromo,
+            'suv.net': req.body.suvnet,
+            'suv.active': req.body.suvactive,
+            'suv.status': req.body.suvstatus,
+
+            'minibus.sale': req.body.minibussale,
+            'minibus.member': req.body.minibusmember,
+            'minibus.promo': req.body.minibuspromo,
+            'minibus.net': req.body.minibusnet,
+            'minibus.active': req.body.minibusactive,
+            'minibus.status': req.body.minibusstatus
+        };
+        //res.send(transferProps);
+        const id = req.params.id;
+
+        Transfers.findByIdAndUpdate({ _id: id }, transferProps)
+            .then( () => Transfers.find({ _id: id }).sort({date: -1})
+                .then( transfer => {
+                    res.redirect(`/admin/transfer/edit/${ id }`);
+                })
+        )
+                    
+    },
+
     //Edit form sedan
     updateSedan(req, res){
         const transferProps = {
@@ -80,7 +116,9 @@ module.exports = {
             'sedan.promo': req.body.promo,
             'sedan.net': req.body.net,
             'sedan.active': req.body.active,
-            'sedan.status': req.body.status
+            'sedan.status': req.body.status,
+
+           
         };
         //res.send(transferProps);
         const id = req.params.id;

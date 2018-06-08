@@ -373,6 +373,9 @@ a:hover {
   padding-bottom: 80px; 
 }
 
+.to-uppercase {
+  text-transform: uppercase;
+}
 
 
 

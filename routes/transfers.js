@@ -5,7 +5,7 @@ const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 module.exports = (app) => {
 
     //888888888888888888888888888
-    //88   tour Routes    88
+    //88   transfers Routes        88
     //888888888888888888888888888
 
     app.get('/admin/transfers', ensureAuthenticated, TransferController.getAll) 
@@ -17,6 +17,8 @@ module.exports = (app) => {
     app.post('/admin/transfer', ensureAuthenticated, TransferController.create);
 
     app.put('/admin/transfer/:id', ensureAuthenticated, TransferController.editUpdate);
+
+    app.put('/admin/transfer/rate/:id', ensureAuthenticated, TransferController.updateRate );
 
     app.put('/admin/transfer/sedan/:id', ensureAuthenticated, TransferController.updateSedan );
 

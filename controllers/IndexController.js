@@ -55,7 +55,7 @@ tourShow(req, res){
     },
 
  transfer(req, res) {
-     Transfer.find({}).sort({from: 1})
+     Transfer.find({status: 'public'}).sort({from: 1})
      .then(transfers => {
          res.render('index/transfers', {transfers: transfers });
          //res.send(transfers);
