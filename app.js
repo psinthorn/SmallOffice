@@ -31,6 +31,7 @@ require('./models/ApartmentIntro');
 require('./models/ApartmentIntro');
 require('./models/Slide');
 require('./models/Transfer')
+require('./models/TourCategory');
 
 
 //load router
@@ -46,6 +47,7 @@ const intro      = require('./routes/Intro');
 const tour = require('./routes/tour');
 const slide = require('./routes/slide');
 const transfer = require('./routes/transfers');
+const tourcategory = require('./routes/tourCategory');
 
 const app = express();
 
@@ -185,6 +187,7 @@ tour(app);
 slide(app);
 intro(app);
 transfer(app);
+tourcategory(app);
 
 
 module.exports = app;

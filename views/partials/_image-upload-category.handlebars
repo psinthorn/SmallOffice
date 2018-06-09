@@ -2,7 +2,7 @@
 
                     <div class="col s12 m12 l12">
 
-                        <form action="/admin/image/{{ tour.id }}?_method=PUT" method="post" enctype="multipart/form-data">
+                        <form action="/admin/tour-category/image/{{ category.id }}?_method=PUT" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_method" value="PUT">
 
                             <div class="card white darken-1">
@@ -23,8 +23,8 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <input type="hidden" name="oldImgUrl" value="{{ tour.imgUrl }}">
-                                        <img src="/images/tour/{{ tour.imgUrl }}" alt="{{ tour.imgUrl }}" class="responsive-img">
+                                        <input type="hidden" name="oldImgUrl" value="{{ category.imgUrl }}">
+                                        <img src="/images/tour-category/{{ category.imgUrl }}" alt="{{ category.imgUrl }}" class="responsive-img">
                                     </div>
 
                                     <div class="row">

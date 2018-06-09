@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TourCategorySchema = new Schema ({
-    name: {
+    title: {
         type: String,
         required: true
     },
@@ -14,6 +14,9 @@ const TourCategorySchema = new Schema ({
     imgUrl: {
         type: String,
         default: 'default'
+    },
+    linkUrl: {
+        type: String
     },
     status: {
         type: String,

@@ -1,7 +1,6 @@
 
 const mongoose = require('mongoose');
 const Tour = require('../../models/Tour');
-//const ApartmentIntro =require('../../models/ApartmentIntro');
 const Facility = require('../../models/Bring');
 const SubContact = require('../../models/SubContact');
 const fs = require('fs');

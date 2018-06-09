@@ -5,6 +5,7 @@ const Apartment = require('../models/Apartment');
 const Tour = require('../models/Tour');
 const Intro = require('../models/Intro');
 const Transfer = require('./../models/Transfer');
+const TourCategory = require('./../models/TourCategory');
 
 
 module.exports = {
@@ -55,12 +56,21 @@ tourShow(req, res){
     },
 
  transfer(req, res) {
-     Transfer.find({status: 'public'}).sort({from: 1})
-     .then(transfers => {
-         res.render('index/transfers', {transfers: transfers });
-         //res.send(transfers);
-     });
+
+    let promisesAll = [
+        
+                Transfer.find({status: 'public'}).sort({from: 1}).exec(),
+                TourCategory.find({status: 'Public'}).sort({ date: 1}).exec(),  
+            ];
+        
+            Promise.all(promisesAll)
+            .then(([transfers, tourCategories]) => {
+                //res.send(tourCategories);
+                res.render('index/transfers', {transfers: transfers, tourCategories: tourCategories });
+                
+            });    
  },   
+
 
 contact(req, res){
 
@@ -71,11 +81,13 @@ contact(req, res){
     
 },
 
+
 maps(req, res){
 
     res.render('index/maps');
 
 },
+
 
 geocode(req, res){
     res.render('index/geocode');
