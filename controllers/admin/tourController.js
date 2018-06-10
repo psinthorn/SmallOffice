@@ -52,10 +52,10 @@ module.exports = {
 
         Tour.create(tourProps)
             .then( () => Tour.find({}).sort({date: -1 }))
-                .then( tours => {     
-                    let success_msg =          
+                .then( (tours) => {     
+                           
                     res.render('admin/tours-list', { tours: tours });
-                    //res.redirect('/admin/apartments');
+                    
             });
     },
 
