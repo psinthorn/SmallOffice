@@ -55,7 +55,7 @@ module.exports = {
             .then( () => TourCategory.find({}).sort({date: -1 }))
                 .then( categories => {     
                     let success_msg = "Category added";         
-                    res.redirect('/admin/tour-category', { categories: categories, success_msg: success_msg });
+                    res.render('admin/tours-category', { categories: categories, success_msg: success_msg });
                    
             });
     },
@@ -67,30 +67,19 @@ module.exports = {
         const id = req.params.id;
         //console.log(id);
         TourCategory.findById({ _id: id })
-            .populate('subcontact')
             .then( (category) => {
                 res.render('admin/tour-category-edit', { category: category });
             })
     },
 
-    //Edit form tour
+    //Edit form tour category
     editUpdate(req, res){
         
         const id = req.params.id;
         const categoryProps = req.body;
-
-        // const categoryProps = new TourCategory({
-        //     title: req.body.title,
-        //     desc: req.body.desc,
-        //     linkUrl: req.body.linkUrl,
-        //     status: req.body.status,
-        //     //user: req.user.id
-        // });
-
         
             TourCategory.findByIdAndUpdate({ _id: id }, categoryProps)
             .then( category  => {
-                //res.send(category);
                 res.redirect(`/admin/tour-category/edit/${ category.id }`);
             })   
                     
@@ -103,9 +92,7 @@ module.exports = {
                 const id = req.params.id;
                 const oldImgUrl = req.body.oldImgUrl;
                 const imgUrl = req.files.imgUrl;
-                //console.log(oldImgUrl);
-                //res.send(imgUrl.name);
-        
+               
                 const imgUrlName = Date.now() + '-' + imgUrl.name;
                 const imagesUploads = './public/images/tour-category/';
                 imgUrl.mv(imagesUploads + imgUrlName, (err) => {
