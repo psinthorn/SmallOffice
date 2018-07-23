@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
 const aws = require('aws-sdk');
+const paypal = require('paypal-rest-sdk');
 
 
 
@@ -48,10 +49,9 @@ const tour = require('./routes/tour');
 const slide = require('./routes/slide');
 const transfer = require('./routes/transfers');
 const tourcategory = require('./routes/tourCategory');
+const payment = require('./routes/payment');
 
 const app = express();
-
-
 
 
 //use sessions for tracking logins
@@ -120,7 +120,12 @@ aws.config.region = 'eu-west-1';
  */
 const S3_BUCKET = process.env.S3_BUCKET;
 
-
+//Paypal Config
+paypal.configure({
+    'mode': 'sandbox', //sandbox or live
+    'client_id': 'ASC0NhAfWTugVPtTWSUe7P_nCMM9DH4OxDlb45ynKjdJSWgJJskpWIoIqglcpkpuPc2Y_wZjWnl-4V5O',
+    'client_secret': 'ELlQjCB0utTsM08EWJjFY9WmIahUK3a62CaPCiQQF0LU7DGHjdJ3Bbm2urMJLgf9s5d7tW4nrYX4MJBV'
+});
 
 //method-override middle-ware
 app.use(methodOverride('_method'));
@@ -188,6 +193,7 @@ slide(app);
 intro(app);
 transfer(app);
 tourcategory(app);
+payment(app);
 
 
 module.exports = app;

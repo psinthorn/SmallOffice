@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking List</title>
+</head>
+<body>
+
+    
+    <div class="container">
+        <h1>Booking Lists</h1>
+
+          <table class="strips">
+        <thead>
+          <tr>
+              <th>Booking ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Amount</th>
+              <th>State</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {{#each bookings }}
+          <tr>
+            <td> {{ id }}</td>
+            <td>{{ payer.payer_info.first_name }} {{ payer.payer_info.last_name }}</td>
+            <td> {{ payer.payer_info.email }}</td>
+            <td> {{ create_time }}</td>
+            <td>{{ state }}</td>
+          </tr>
+         {{/each }}
+        </tbody>
+      </table>
+        
+         
+
+       
+        
+       
+       
+        <br>
+       
+    </div>
+   
+</body>
+</html>

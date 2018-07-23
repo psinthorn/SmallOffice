@@ -1,0 +1,39 @@
+
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h4>Price</h4>
+                <div class="hr-1px"></div>
+
+                <form action="/admin/tour/pricesale/{{ tour.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="pricesale" value="{{tour.price.sale}}">
+                            <label for="pricesale">Sale Price</label>
+
+                        </div>
+
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="pricenet" value="{{tour.price.net}}">
+                            <label for="pricenet">Net Price</label>
+
+                        </div>
+                    </div>             
+                    <div class="row">
+                        <input type="submit" value=Update Price class="btn right">
+                    </div>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+
+
+

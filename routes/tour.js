@@ -3,6 +3,7 @@ const TourController = require('./../controllers/admin/tourController');
 const SubContactController = require('./../controllers/admin/subContactController');
 const GalleryController = require('./../controllers/admin/galleryController');
 const ItineraryController = require('./../controllers/admin/itineraryController');
+const PriceSaleController = require('./../controllers/admin/priceController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
 module.exports = (app) => {
@@ -71,6 +72,10 @@ module.exports = (app) => {
     app.get('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itinerary);
     app.post('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itinerary);
     app.delete('/admin/tour/itinerary/:id', ensureAuthenticated, ItineraryController.itineraryDelete);
+
+    //Price Manage
+    
+    app.put('/admin/tour/pricesale/:id', PriceSaleController.priceSaleUpdate);
 
     
 

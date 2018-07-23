@@ -66,15 +66,15 @@
         <br>
         <br>
          <div>
-             <a href="mailto:seaflyers@hotmail.com?Subject=Enquiry from samuioceantour.com">
+             {{!-- <a href="mailto:seaflyers@hotmail.com?Subject=Enquiry from samuioceantour.com"> --}}
             <button class="btn btn-sucess" style="inline-block">
                 Book Now
-                {{#each tour.price }}
-                {{ sale }}
-                {{/each}} 
+                {{#if tour.price.sale }}
+                {{ tour.price.sale }}.00 Baht
+                {{/if}}
                 
         </button>
-        </a>
+        {{!-- </a> --}}
     </div>
     <br>
 

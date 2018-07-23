@@ -87,17 +87,23 @@ const TourSchema = new Schema({
             trim: true
         }
     }],
-
-    priceSale: {
-
+    price: {
+        sale: {
+            type: String,
+            trim: true,
+            default: 0.00
+        },
+        net: {
+            type: String,
+            trim: true,
+            default: 0.00
+        },
+        status: {
+            type: String,
+            default: 'Unavailable'
+        }
     },
-    priceNet: {
-
-    },
-    status: {
-        type: String,
-        default: 'Unavailable'
-    },
+      
     user: {
         type: String
     },
