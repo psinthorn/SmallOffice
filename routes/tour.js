@@ -75,7 +75,7 @@ module.exports = (app) => {
 
     //Price Manage
     
-    app.put('/admin/tour/pricesale/:id', PriceSaleController.priceSaleUpdate);
+    app.put('/admin/tour/pricesale/:id',ensureAuthenticated,PriceSaleController.priceSaleUpdate);
 
     
 

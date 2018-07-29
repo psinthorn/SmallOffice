@@ -66,15 +66,26 @@
         <br>
         <br>
          <div>
-             {{!-- <a href="mailto:seaflyers@hotmail.com?Subject=Enquiry from samuioceantour.com"> --}}
-            <button class="btn btn-sucess" style="inline-block">
-                Book Now
+
+             <form action="/payment/paypal" method="POST">
+                 {{!-- <a href="mailto:seaflyers@hotmail.com?Subject=Enquiry from samuioceantour.com"> --}}
+                     
+                <input type="hidden" value="{{ tour.title }}" name="title">
+                <input type="hidden" value="Tour" name="skuType">
+                <input type="hidden" value="{{ tour.price.sale}}" name="sale">
+
                 {{#if tour.price.sale }}
-                {{ tour.price.sale }}.00 Baht
-                {{/if}}
-                
-        </button>
+                    <button class="btn btn-sucess" style="inline-block" type="submit">               
+                    Book Now
+                    {{ tour.price.sale }}.00 Baht   
+                </button>
+                 {{/if}}
+               
+
         {{!-- </a> --}}
+             
+        </form>
+            
     </div>
     <br>
 

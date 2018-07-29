@@ -45,9 +45,8 @@ module.exports = {
             "price.sale": req.body.pricesale,
             "price.net": req.body.pricenet
         }
-        // console.log(pricesale);
-        // console.log(newPrice);
-
+       
+        
         Tour.findByIdAndUpdate({_id: id}, newPrice)
             .then(() => Tour.find({_id: id})
                 .then(tour => {

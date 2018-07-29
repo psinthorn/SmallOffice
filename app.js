@@ -122,9 +122,17 @@ const S3_BUCKET = process.env.S3_BUCKET;
 
 //Paypal Config
 paypal.configure({
+
+
     'mode': 'sandbox', //sandbox or live
-    'client_id': 'ASC0NhAfWTugVPtTWSUe7P_nCMM9DH4OxDlb45ynKjdJSWgJJskpWIoIqglcpkpuPc2Y_wZjWnl-4V5O',
-    'client_secret': 'ELlQjCB0utTsM08EWJjFY9WmIahUK3a62CaPCiQQF0LU7DGHjdJ3Bbm2urMJLgf9s5d7tW4nrYX4MJBV'
+
+    // //FTWO for test
+    // 'client_id': 'ASC0NhAfWTugVPtTWSUe7P_nCMM9DH4OxDlb45ynKjdJSWgJJskpWIoIqglcpkpuPc2Y_wZjWnl-4V5O',
+    // 'client_secret': 'ELlQjCB0utTsM08EWJjFY9WmIahUK3a62CaPCiQQF0LU7DGHjdJ3Bbm2urMJLgf9s5d7tW4nrYX4MJBV'
+
+    //Samui Ocean Tour
+    'client_id': 'AdUqLc1_pPrgBEu31AM0RMq90T_gYb5VltWuVV5RcNw-QkkWjUsKDnkoJKnTIhl8BFRK82AKLui3GZ9w', //seaflyers
+    'client_secret': 'EHKixj07wH6gJWnxaWgrPYkHYiExmClcZJu9SmlCUfPlFkp6UEzhYpZ7gg5tg8eD5m8fOTec2DKdXsm_' //seaflyers
 });
 
 //method-override middle-ware

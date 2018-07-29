@@ -11,11 +11,12 @@
   text-decoration: none;
 }
 
-body {
+body, html  {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    color: darkgray;
   }
 
   main {
@@ -83,6 +84,7 @@ body {
 
   .header-text-01 {
     color: #455a64;
+  
   }
 
   .why-section{

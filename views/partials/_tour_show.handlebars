@@ -99,12 +99,19 @@
     <div class="col s12 m1 l1"></div> --}}
 
     <div class="col s12 m4 l4">
+       
         <div>
+             {{#if tour.price.sale > 0 }}
             <button class="btn btn-sucess">
                 Book Now only 
-                {{ tour.price.sale }}
+                <h3>{{ tour.price.sale }}</h3>
                 Baht.
-        </button>
+            </button>
+            {{else}}
+                 <button class="btn btn-sucess">
+                    Enquiry
+                </button>
+            {{/if}}
 
         </div>
         

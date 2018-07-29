@@ -11,7 +11,7 @@ module.exports = {
     },
 
     booking(req, res, next){
-        BookingTour.find({})
+        BookingTour.find({}).sort({'create_time': 1})
         .then( bookings => {
             //res.send(bookings);
             res.render('payments/payment-list',{ bookings: bookings } );
@@ -29,7 +29,13 @@ module.exports = {
     //Creat payment
     pay(req, res, next) {
 
-        const price = req.body.rate;
+        const price = req.body.sale;
+        const packageName = req.body.title;
+        const skuType = req.body.skuType;
+
+        // console.log(price);
+        // console.log(packageName);
+        // console.log(skuType);
 
         const create_payment_json = {
             "intent": "sale",
@@ -43,9 +49,12 @@ module.exports = {
             "transactions": [{
                 "item_list": {
                     "items": [{
-                        "name": "tour1",
-                        "sku": "trip",
+                        "name": packageName,
+                        "sku": skuType,
                         "price": "3.00",
+                        // "name": "Tour Koh Tao",
+                        // "sku": "Tour",
+                        // "price": "1",
                         "currency": "USD",
                         "quantity": 1
                     }]
@@ -64,7 +73,6 @@ module.exports = {
                 throw error;
             } else {
 
-               
                 for (let i = 0; i < payment.links.length; i++) {
                    
                     if (payment.links[i].rel === 'approval_url') {
@@ -103,9 +111,9 @@ module.exports = {
                 const paymentDetail = payment;
 
                 BookingTour.create(paymentDetail)
-                .then(() => {
-                    // res.send(payment);
-                    res.render('payments/paypal-success', { status: 'Thank for your payment'});
+                .then(payment => {
+                    //res.send(payment);
+                    res.render('payments/paypal-success', { payment: payment});
                 })
                 
                 

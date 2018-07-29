@@ -9,7 +9,7 @@ module.exports = (app) => {
     
     app.get('/payment/json', PaymentController.json);
 
-    app.post('/payment/pay', PaymentController.pay);
+    app.post('/payment/paypal', PaymentController.pay);
     
     app.get('/payment/success', PaymentController.success);
     
