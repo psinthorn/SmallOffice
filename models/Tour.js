@@ -28,6 +28,7 @@ const TourSchema = new Schema({
         default: 'images/locations/koh-nangyuan-koh-tao.jpg'
     },
     category: {
+        
         type: String
     },
     gallery: [GallerySchema],

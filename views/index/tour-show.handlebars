@@ -2,17 +2,23 @@
  <br>
  {{> _header-intro }} --}}
 <div class="container">
-   
-<h4>
-    {{ tour.title }}
-</h4>
+ <div class="row" style="margin-top: 50px">
+     <div class="col s8 m8 8">
+         <h4 class="header-text-01">
+        {{ tour.title }} 
+    </h4>
+    </div>
+    <div class="col s4 m4 l4 ">
+        <div style="background-color: gray ">
+            <h4 class="btn  light-blue accent-4 right">{{ tour.price.sale }}.00 Baht/Pax  </h4>
+        </div>   
+    </div>
+     
+</div>  
 
 
-<p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
-    }} {{ postCode }} {{/each }}
 
-</p>
-<br>
+
 
 
 
@@ -20,6 +26,11 @@
 
 <div class="row">
     <div class="col s12 m8 l8">
+        <p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
+    }} {{ postCode }} {{/each }}
+
+</p>
+<br>
         <p class="header-text-01">
             {{{ tour.desc }}}
         </p>
@@ -75,7 +86,7 @@
                 <input type="hidden" value="{{ tour.price.sale}}" name="sale">
 
                 {{#if tour.price.sale }}
-                    <button class="btn btn-sucess" style="inline-block" type="submit">               
+                    <button class="btn light-blue accent-4" style="inline-block" type="submit">               
                     Book Now
                     {{ tour.price.sale }}.00 Baht   
                 </button>

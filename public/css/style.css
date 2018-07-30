@@ -16,7 +16,7 @@ body, html  {
     min-height: 100vh;
     flex-direction: column;
     font-family: Roboto,Helvetica Neue,sans-serif;
-    color: darkgray;
+    color: #455a64;
   }
 
   main {
@@ -83,7 +83,8 @@ body, html  {
   }
 
   .header-text-01 {
-    color: #455a64;
+    /* color: #455a64; */
+    color: #084672;
   
   }
 

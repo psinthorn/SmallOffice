@@ -40,6 +40,10 @@ module.exports = {
     //Edit Facility 
     priceSaleUpdate(req, res) {
         //const id = req.params.id;
+        if( !req.params.id || req.params.id == undefined ){
+            return 
+        }
+
         const id = req.params.id;
         const newPrice = {
             "price.sale": req.body.pricesale,
