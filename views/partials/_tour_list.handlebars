@@ -4,8 +4,6 @@
 
     {{> _msg}}
 
-    
-    
     <div class="divider"></div>
     <br>
     <br> {{#each tours }}
@@ -47,26 +45,31 @@
                     <br>
                     {{/if}}
                     <p class="font-grey">{{{stripTags (truncate desc 300)}}}</p>
-
+                    </a>
 
 
                     <br>
-                    <div class="btn blue btn-hor-effect right">More Informations</div>
-                </a>
-                <br>
-        </div>
+                    {{!-- <div class="row">
+                        <div class="right"><h4>Only {{ price.sale }} .00 Bath/Pax</h4></div>
+                    </div>  --}}
+                    <div class="row">
+                        <a href="/tour-show/{{ id }}">
+                        <div class="btn blue btn-hor-effect right">More Informations</div>
+                        </a>
+                    </div>   
+                        
+            </div>
+                
+                
+            </div>
 
-
-
-
-
-
-    </div>
-
-    <div class="divider"></div>
+             <div class="divider"></div>
     <br>
     <br> {{/each}}
 
 </div>
 
+   
+
 </div>
+

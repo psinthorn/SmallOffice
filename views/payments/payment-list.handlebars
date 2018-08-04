@@ -8,30 +8,35 @@
 </head>
 <body>
 
-    
     <div class="container">
         <h1>Booking Lists</h1>
 
-          <table class="strips">
-        <thead>
+          <table class="highlight">
+          <thead>
           <tr>
+             
               <th>Booking ID</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Amount</th>
+              <th>Date</th>
               <th>State</th>
           </tr>
         </thead>
 
         <tbody>
         {{#each bookings }}
+         
           <tr>
-            <td> {{ id }}</td>
+            
+            
+            <td> <a href="/booking/{{ _id }}" target="_blank">{{ id }}</a></td>
             <td>{{ payer.payer_info.first_name }} {{ payer.payer_info.last_name }}</td>
             <td> {{ payer.payer_info.email }}</td>
             <td> {{ create_time }}</td>
+            {{!--<td>{{ transaction[0].amount.total}}</td>--}}
             <td>{{ state }}</td>
           </tr>
+       
          {{/each }}
         </tbody>
       </table>

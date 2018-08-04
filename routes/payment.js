@@ -5,7 +5,7 @@ module.exports = (app) => {
 
     app.get('/payment/index', PaymentController.getAll);
 
-    app.get('/payment/booking', PaymentController.booking);
+    app.get('/payment/booking',ensureAuthenticated, PaymentController.booking);
     
     app.get('/payment/json', PaymentController.json);
 

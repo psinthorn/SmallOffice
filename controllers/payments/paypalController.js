@@ -1,34 +1,50 @@
 const mongoose = require('mongoose');
 const paypal = require('paypal-rest-sdk');
 const BookingTour = require('./../../models/BookingTours');
+const nodeMailer = require('nodemailer');
+const request = require('request');
 
 
 module.exports = {
 
-    getAll(req, res, next ){
+    getAll(req, res, next) {
         //res.send('Paypal payments');
         res.render('payments/index');
     },
 
-    booking(req, res, next){
-        BookingTour.find({}).sort({'create_time': 1})
-        .then( bookings => {
-            //res.send(bookings);
-            res.render('payments/payment-list',{ bookings: bookings } );
-        });
+    //ALl booking list
+    booking(req, res, next) {
+        BookingTour.find({}).sort({ 'create_time': -1 })
+            .then(bookings => {
+                //res.send(bookings);
+                res.render('payments/payment-list', { bookings: bookings });
+            });
     },
 
-    json(req, res, next){
+    //Booking Detail
+    booking(req, res, next) {
+        BookingTour.find({ _id: id })
+            .then(booking => {
+                //res.send(bookings);
+                res.render('booking-show', { booking: booking });
+            });
+    },
+
+    json(req, res, next) {
         BookingTour.find({})
-        .then( bookings => {
-            res.send(bookings);
-            //res.render('payments/payment-list',{ bookings: bookings } );
-        });
+            .then(bookings => {
+                res.send(bookings);
+                //res.render('payments/payment-list',{ bookings: bookings } );
+            });
     },
 
     //Creat payment
     pay(req, res, next) {
 
+        const tourDate = req.body.tourdate;
+        const fName = req.body.fname;
+        const lName = req.body.lname;
+        const email = req.body.email;
         const price = req.body.sale;
         const packageName = req.body.title;
         const skuType = req.body.skuType;
@@ -38,12 +54,13 @@ module.exports = {
         // console.log(skuType);
 
         const create_payment_json = {
+            //"tourdate": tourDate,
             "intent": "sale",
             "payer": {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://localhost:8081/payment/success",
+                "return_url": "http://localhost:8081/payment/success?total=" + price + "&tourdate=" + tourDate,
                 "cancel_url": "http://localhost:8081/payment/cancel"
             },
             "transactions": [{
@@ -51,22 +68,24 @@ module.exports = {
                     "items": [{
                         "name": packageName,
                         "sku": skuType,
-                        "price": "3.00",
+                        "price": price,
                         // "name": "Tour Koh Tao",
                         // "sku": "Tour",
                         // "price": "1",
-                        "currency": "USD",
+                        "currency": "THB",
                         "quantity": 1
                     }]
                 },
                 "amount": {
-                    "currency": "USD",
-                    "total": "3.00",
+                    "currency": "THB",
+                    "total": price,
                     //"details": "Details of amount"
                 },
-                "description": "This is the payment description."
+                "description": packageName
             }]
         };
+
+        // console.log(create_payment_json);
 
         paypal.payment.create(create_payment_json, function (error, payment) {
             if (error) {
@@ -74,11 +93,16 @@ module.exports = {
             } else {
 
                 for (let i = 0; i < payment.links.length; i++) {
-                   
+
                     if (payment.links[i].rel === 'approval_url') {
-                       
+
                         res.redirect(payment.links[i].href);
-                    
+                        // console.log(fName);
+                        // console.log(lName);
+                        // console.log(email);
+                        // console.log(tourDate);
+                        // res.send(payment);
+
                     }
                 }
             }
@@ -88,20 +112,24 @@ module.exports = {
 
     //Payment Success
     success(req, res, next) {
-
+        const tourDate = req.query.tourdate;
+        const price = req.query.total;
         const payerId = req.query.PayerID;
         const paymentId = req.query.paymentId;
+        //console.log(price);
 
         const execute_payment_json = {
             'payer_id': payerId,
             'transactions': [{
                 'amount': {
-                    'currency': 'USD',
-                    'total': '3.00',
+                    'currency': 'THB',
+                    'total': price,
                     //'details': "Details of amount"
                 }
             }]
         };
+
+        //execute_payment_json.tourdate = tourDate;
 
         paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
             if (error) {
@@ -109,14 +137,59 @@ module.exports = {
                 throw error;
             } else {
                 const paymentDetail = payment;
-
+                paymentDetail.tourdate = tourDate;
                 BookingTour.create(paymentDetail)
-                .then(payment => {
-                    //res.send(payment);
-                    res.render('payments/paypal-success', { payment: payment});
-                })
+                    .then(payment => {
+
+                        let transporter = nodeMailer.createTransport({
+                            host: 'mail.directbooking.co.th',
+                            port: 25,
+                            secure: false,
+                            auth: {
+                                user: 'sinthorn@directbooking.co.th',
+                                pass: '1978#$Life'
+                            },
+                            tls: {
+                                rejectUnauthorized: false
+                            }
+                        });
+
+                        let mailOptions = {
+                            from: '"Samui Ocean Tour" <seaflyers@hotmail.com>', // sender address
+                            //to: req.body.to, // list of receivers
+                            //to: toEmail,
+                            //to: 'seaflyers@hotmail.com',
+                            to: `${ payment.payer.payer_info.email }`,
+                            bcc: 'seaflyers@hotmail.com',
+                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            text: `Dear ${ payment.payer.payer_info.first_name  } 
+
+                            Thank you for your booking with Samui Ocean Tour.
+                            
+                            Tour Date: ${ payment.tourdate }
+                            Your Booking ID: ${ payment._id }
+                            Your Payment ID: ${ payment.id }
                 
-                
+                           
+                            Have a Good Trip :)
+                            Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com
+
+                            Samui Ocean Tour Team
+                            Thank you have a good trip :) `, // plain text body
+                            //html: '<b>NodeJS Email Tutorial</b>' // html body
+                        };
+
+                        transporter.sendMail(mailOptions, (error, info) => {
+                            if (error) {
+                                return console.log(error);
+                            }
+
+                        });
+                        //res.send(payment);
+                        res.render('payments/paypal-success', { payment: payment });
+                    })
+
+
             }
         });
 

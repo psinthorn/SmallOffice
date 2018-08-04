@@ -1,174 +1,129 @@
  {{!-- <br>
- <br>
- {{> _header-intro }} --}}
+<br> {{> _header-intro }} --}}
 <div class="container">
- <div class="row" style="margin-top: 50px">
-     <div class="col s8 m8 8">
-         <h4 class="header-text-01">
-        {{ tour.title }} 
-    </h4>
+    <div class="row" style="margin-top: 50px">
+        <div class="col s8 m8 8">
+            <h4 class="header-text-01">
+                {{ tour.title }}
+            </h4>
+        </div>
+        <div class="col s4 m4 l4 ">
+            <div style="color: gray ">
+                <h4 class="right">{{ tour.price.sale }}.00 Baht/Pax </h4>
+            </div>
+        </div>
+
     </div>
-    <div class="col s4 m4 l4 ">
-        <div style="background-color: gray ">
-            <h4 class="btn  light-blue accent-4 right">{{ tour.price.sale }}.00 Baht/Pax  </h4>
-        </div>   
-    </div>
-     
-</div>  
 
+    {{> _tour-gallery }}
 
+    <div class="row">
+        <div class="col s12 m8 l8">
+            <p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2
+                }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }} {{/each }}
 
+            </p>
+            <br>
+            <p class="header-text-01">
+                {{{ tour.desc }}}
+            </p>
 
+            <br> {{> _itinerary-list }} {{> _tour-include }} {{> _tour-exclude }}
 
+            <h5>What's to Brings</h5>
 
+            <div class="divider"></div>
+            <br>
+            <div class="row">
+                {{#each tour.brings}}
+                <div class="col s12 m6 l6">
 
-{{> _tour-gallery }}
+                    <div class="col s12 m12 l12">
 
-<div class="row">
-    <div class="col s12 m8 l8">
-        <p class="font-grey"><i class="material-icons small">place</i> {{#each tour.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
-    }} {{ postCode }} {{/each }}
+                        <div class="col s2 m2 l2">
 
-</p>
-<br>
-        <p class="header-text-01">
-            {{{ tour.desc }}}
-        </p>
+                            <i class="material-icons">check</i>
 
-        <br>
-        {{> _itinerary-list }}
-        
-        {{> _tour-include }}
+                        </div>
+                        <div class="col s10 m10 l10">
 
-         {{> _tour-exclude }}
-        
-        <h5>What's to Brings</h5>
-        
-        <div class="divider"></div>
-        <br>
-        <div class="row">
-            {{#each tour.brings}}
-            <div class="col s12 m6 l6">
+                            {{ title }}
 
-                <div class="col s12 m12 l12">
-
-                    <div class="col s2 m2 l2">
-
-                        <i class="material-icons">check</i>
+                        </div>
 
                     </div>
-                    <div class="col s10 m10 l10">
 
-                        {{ title }}
 
-                    </div>
+
 
                 </div>
-
-                
-
+                {{/each}}
+                <br>
+                <br>
 
             </div>
-            {{/each}}
             <br>
             <br>
-
-        </div>
-        <br>
-        <br>
-         <div>
-
-             <form action="/payment/paypal" method="POST">
-                 {{!-- <a href="mailto:seaflyers@hotmail.com?Subject=Enquiry from samuioceantour.com"> --}}
-                     
-                <input type="hidden" value="{{ tour.title }}" name="title">
-                <input type="hidden" value="Tour" name="skuType">
-                <input type="hidden" value="{{ tour.price.sale}}" name="sale">
-
-                {{#if tour.price.sale }}
-                    <button class="btn light-blue accent-4" style="inline-block" type="submit">               
-                    Book Now
-                    {{ tour.price.sale }}.00 Baht   
-                </button>
-                 {{/if}}
-               
-
-        {{!-- </a> --}}
-             
-        </form>
             
-    </div>
-    <br>
 
 
-    </div>
 
-    {{!--
-    <div class="col s12 m1 l1"></div> --}}
+            <br>
 
-    <div class="col s12 m4 l4">
-       
-        {{#if tour.subcontact }}
-        {{#each tour.subcontact }}
-
-        <div class="row" style="background-color: #eee ">
-            <div class="col s12 m12 l12">
-                <p class="header-text-01">
-                    <h5>{{ title }}</h5>
-                    <div class="divider"></div>
-                    <p class="blue-grey-text">
-                        <b>Contact: </b> {{ person }}</p>
-                    <p>
-                        <a class="blue-grey-text" href="tel:{{ phone }}">
-                            <b>Tel: </b> {{ phone }}</a>
-                    </p>
-                    <p class="blue-grey-text">
-                        <b>WhatsApp:</b> {{ whatsapp}}</p>
-                    <p class="blue-grey-text">
-                        <b>Skype: </b> {{ skype }}</p>
-                    <p>
-                        <a class="blue-grey-text" href="mailto: {{email}} ?Subject=Enquiry from APDL.CA">
-                            <b>Email: </b> {{ email }}</a>
-                    </p>
-                    <p class="blue-grey-text">
-                        <b>Working Hour: </b>
-                        <br>{{ workingHour }} </p>
-
-                </p>
-            </div>
 
         </div>
-    
 
-        {{/each}}
-        {{/if}}
+        {{!--
+        <div class="col s12 m1 l1"></div> --}}
 
-    {{#if tour.locations }} 
-       {{> _maps-location }}
-    {{/if}}
-    </div>
-</div>
+        
 
+        <div class="col s12 m4 l4">
 
+            <br> {{#if tour.subcontact }} {{#each tour.subcontact }}
 
+            <div class="row" style="background-color: #eee ">
+                <div class="col s12 m12 l12">
+                    <p class="header-text-01">
+                        <h5>{{ title }}</h5>
+                        <div class="divider"></div>
+                        <p class="blue-grey-text">
+                            <b>Contact: </b> {{ person }}</p>
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ phone }}">
+                                <b>Tel: </b> {{ phone }}</a>
+                        </p>
+                        <p class="blue-grey-text">
+                            <b>WhatsApp:</b> {{ whatsapp}}</p>
+                        <p class="blue-grey-text">
+                            <b>Skype: </b> {{ skype }}</p>
+                        <p>
+                            <a class="blue-grey-text" href="mailto: {{email}} ?Subject=Enquiry from APDL.CA">
+                                <b>Email: </b> {{ email }}</a>
+                        </p>
+                        <p class="blue-grey-text">
+                            <b>Working Hour: </b>
+                            <br>{{ workingHour }} </p>
 
-<div class="row">
+                    </p>
+                </div>
 
-
-
-
-    <div class="col s12 m8 l8">
-        <div class="row">
-
-            <div class="col s12 m6 l6">
-                <img src="" alt="">
             </div>
 
-            <div class="col s12 m6 l6">
 
-            </div>
-
+            {{/each}} {{/if}} {{#if tour.locations }} {{> _maps-location }} {{/if}}
         </div>
+
+
     </div>
-</div>
-</div>
+
+    <div class="row">
+        <div class="col s12 m8 l8">
+            {{> _tour_book_form}}
+        </div>
+        </div>
+
+
+   
+</div> 
+{{!--end container--}}

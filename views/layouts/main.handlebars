@@ -8,8 +8,14 @@
     {{!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
         </script> --}}
+
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
@@ -19,7 +25,10 @@
      <link rel="stylesheet" href="/css/lightbox.min.css">   
      <link rel="stylesheet" href="/css/style.css">
 
-        
+    
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
      {{!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
     <script defer src="/fontawesome506/svg-with-js/js/fontawesome-all.js"></script>    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -136,7 +145,15 @@
           });
 
         </script> --}}
-            
+
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.datepicker');
+                M.Datepicker.init(elems, {
+                    format: 'dd-mm-yyyy'
+            });
+                });
+        </script>    
 
     
 

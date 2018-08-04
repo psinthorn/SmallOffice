@@ -18,7 +18,16 @@
                 <p><b>Dear</b> {{ payment.payer.payer_info.first_name  }}</p>
                 <br>
                 <p>Thank you for your booking with Samui Ocean Tour.</p>
+                <br>
+                <p>Tour Date: {{ payment.tourdate }}</p>
+                <p>Your Booking ID: {{ payment._id }}</p>
+                <p>Your Payment ID: {{ payment.id }}</p>
+                <br>
                 <p>Please check your email {{ payment.payer.payer_info.email  }} for your e-voucher.</p>
+                <br>
+                <br>
+                {{!--<p>Package: {{}} </p>
+                <br>--}}
                 <br>
                 <p><b>Have a Good Trip :)</b></p>
                 <p>Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com</p>
@@ -26,10 +35,10 @@
 
                 
                 </div>
-                <div class="card-action">
+                {{!--<div class="card-action">
                 <a href="#">View you booking</a>
                 <a href="#">Manage you booking</a>
-                </div>
+                </div>--}}
             </div>
             </div>
         </div>
