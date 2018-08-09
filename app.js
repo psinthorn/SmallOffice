@@ -126,13 +126,16 @@ paypal.configure({
 
 
     'mode': 'sandbox', //sandbox or live
-    // //Samui Ocean Tour
-    // 'client_id': 'AdUqLc1_pPrgBEu31AM0RMq90T_gYb5VltWuVV5RcNw-QkkWjUsKDnkoJKnTIhl8BFRK82AKLui3GZ9w', //seaflyers
-    // 'client_secret': 'EHKixj07wH6gJWnxaWgrPYkHYiExmClcZJu9SmlCUfPlFkp6UEzhYpZ7gg5tg8eD5m8fOTec2DKdXsm_' //seaflyers
-
     //Pornchai Transport and Tours
     'client_id': 'AS7Mw57OYtE6DXs1cW-3wfmG1fISjFt7tx_l_HTxUgl_2UPRjNwFoyxQvK2H_LnARWBmHwFlFf5O9_n6', //seaflyers
     'client_secret': 'EF-cGaliGY6pQxHK_GO4kxUAQkvbIOcRdAgKySHgtA6FiUzAAGK7isJFWzKy9gkwbMdL5sBwLFJZEg-D' //seaflyers
+
+    // 'mode': 'live', //sandbox or live
+    // //Pornchai Transport and Tours
+    // 'client_id': 'Ae6-lrXlgPyh82E1FsFYvotXyM52rTS5kP50ZoDtKhJCz5sUMNqUHGBCX5dHpj28kQmJh-8Bc7qgygxw', //seaflyers
+    // 'client_secret': 'ECxQCSBm821lzuJxI7ltjNFfFmnq0QjaVgHQR4U1j_SEdgQyEaSJlq4yZ79b7dZG91ArWCEBIcA90_qn' //seaflyers
+
+
 });
 
 //method-override middle-ware

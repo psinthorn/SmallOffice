@@ -89,21 +89,18 @@ module.exports = {
 
         paypal.payment.create(create_payment_json, function (error, payment) {
             if (error) {
+
+                //res.send(error);
                 throw error;
             } else {
-
+                
                 for (let i = 0; i < payment.links.length; i++) {
 
                     if (payment.links[i].rel === 'approval_url') {
 
                         res.redirect(payment.links[i].href);
-                        // console.log(fName);
-                        // console.log(lName);
-                        // console.log(email);
-                        // console.log(tourDate);
-                        // res.send(payment);
 
-                    }
+                    } 
                 }
             }
         })
