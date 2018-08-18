@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const ApartmentIntro = require('./../models/ApartmentIntro');
 const Facility = require('./../models/Bring');
 const Schema = mongoose.Schema;
 const LocationSchema = require('./../models/LocationSchema');
@@ -111,7 +110,11 @@ const TourSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+     status: {
+         type: String,
+         default: 'public'
+   },
 
 });
 

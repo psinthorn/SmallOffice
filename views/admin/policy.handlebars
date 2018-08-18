@@ -1,0 +1,58 @@
+<div class="container">
+    
+    <div class="row">
+                {{> _msg}}
+    </div>
+
+
+    <h3>Current Term & Policy</h3>
+    <div class="hr-1px"></div>
+
+    <div class="row">
+       
+        {{#if policy }}
+        <table class="striped">
+        <thead>
+          <tr>
+              <th>Policy Title</th>
+              {{!-- <th class="hide-on-small-only">Description</th> --}}
+              
+              <th>Status</th>
+              <th colspan="2" class="center-align">Manage</th>
+              
+          </tr>
+        </thead>
+
+        <tbody>
+            {{#each policy }}
+          <tr>
+            <td>{{ title }}</td>
+           
+            {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
+            <td>{{ status }}</td>
+            <td class="right-align"> <a href="/admin/policy/{{ id }}" class="btn">Edit</a> </td>
+            
+            <td class="left-align">
+                 <form action="/admin/policy/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">Delete</button>
+            </form>
+            
+            
+
+            </td>
+
+
+          </tr>
+           {{/each}}
+            
+        </tbody>
+      </table>
+
+        {{else}}
+        <p>Currently is no apartment intro available!</p>
+       {{/if}}
+     
+
+    </div>
+</div>

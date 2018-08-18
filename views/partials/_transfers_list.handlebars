@@ -10,11 +10,11 @@
                     <table class="highlight">
                         <thead>
                             <tr>
-                                <th>From</th>
-                                <th>To</th>
-                                <th>Sedan</th>
-                                <th>SUV</th>
-                                <th>Mini Bus</th>
+                                <th class="to-uppercase">From</th>
+                                <th class="to-uppercase">To</th>
+                                <th class="to-uppercase" >Sedan</th>
+                                <th class="to-uppercase">SUV</th>
+                                <th class="to-uppercase">Mini Bus</th>
                             </tr>
                         </thead>
 
@@ -26,10 +26,10 @@
                                     <td><p class="to-uppercase">{{ from }}</p> </td>
                                     <td><p class="to-uppercase">{{ to }}</p></td>
                                     <td>
-                                        <a href="/payment/create/">{{ sedan.sale }}</a>   
+                                        <a href="/transfers/book/{{ id }}/?price={{ sedan.sale }}&from={{ from }}&type=Sedan&to={{ to }}" target="_blank" class="tooltipped" data-position="top" data-tooltip="Click for Booking">{{ sedan.sale }}</a>   
                                     </td>
-                                    <td><a href="#">{{ suv.sale }}</a></td>
-                                    <td><a href="#">{{ minibus.sale }}</a></td>
+                                    <td><a href="/transfers/book/{{ id }}/?price={{ suv.sale }}&from={{ from }}&type=SUV&to={{ to }}" target="_blank" class="tooltipped" data-position="top" data-tooltip="Click for Booking">{{ suv.sale }}</a></td>
+                                    <td><a href="/transfers/book/{{ id }}/?price={{ suv.sale }}&from={{ from }}&type=Minibus&to={{ to }}" target="_blank" class="tooltipped" data-position="top" data-tooltip="Click for Booking">{{ minibus.sale }}</a></td>
                                 </a>
                             </tr>
                             {{/each}}

@@ -6,6 +6,7 @@ const Tour = require('../models/Tour');
 const Intro = require('../models/Intro');
 const Transfer = require('./../models/Transfer');
 const TourCategory = require('./../models/TourCategory');
+const Policy = require('./../models/Policy');
 
 
 module.exports = {
@@ -69,7 +70,35 @@ tourShow(req, res){
                 res.render('index/transfers', {transfers: transfers, tourCategories: tourCategories });
                 
             });    
- },   
+ },  
+
+
+ bookTransfer(req, res) {
+
+    const price = req.query.price;
+    const type = req.query.type;
+    const id = req.params.id;
+    const trFrom = req.query.from; 
+    const trTo = req.query.to;
+
+    const transfer = {
+       'from': req.query.from,
+       'to': req.query.to,
+       'price': req.query.price,
+       'type': req.query.type,
+    }
+    //res.send(trDetail);
+    res.render('index/book-transfer', { transfer: transfer });
+
+ }, 
+
+ termPolicy(req, res){
+
+    Policy.find({})
+    .then(policy => {
+        res.render('index/term-policies', {policy: policy });
+    });
+ },
 
 
 contact(req, res){

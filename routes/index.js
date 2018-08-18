@@ -17,6 +17,13 @@ module.exports = (app) => {
   //transfers list
   app.get('/transfers', IndexController.transfer );
 
+  //transfers booking form
+  app.get('/transfers/book/:id', IndexController.bookTransfer );
+
+  //transfers booking form
+  app.get('/term-policies', IndexController.termPolicy );
+
+
   //Contact page
   app.get('/contact-us', IndexController.contact);
 

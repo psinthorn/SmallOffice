@@ -180,7 +180,7 @@ a:active {
 }
 
 a:hover {
-  color: white;
+  /*color: white;*/
    /*font-size: 110%; */
    transition-timing-function: ease-out;
 }

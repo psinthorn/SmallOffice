@@ -155,6 +155,21 @@
                 });
         </script>    
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var timmer = document.querySelectorAll('.timepicker');
+                M.Timepicker.init(timmer, {
+                    showClearBtn: true,
+                    {{!--i18n: {
+                        clear: 'เริ่มใหม่',
+                        done: 'ตกลง',
+                        cancel: 'ยกเลิก'
+                    }--}}
+                });
+            });
+
+        </script>
+
     
 
 </body>

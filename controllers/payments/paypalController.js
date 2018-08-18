@@ -48,6 +48,8 @@ module.exports = {
         const price = req.body.sale;
         const packageName = req.body.title;
         const skuType = req.body.skuType;
+        const readPolicy = req.body.readPolicy;
+        //console.log(readPolicy);
 
         // console.log(price);
         // console.log(packageName);
