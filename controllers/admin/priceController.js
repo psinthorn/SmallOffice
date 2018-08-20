@@ -31,8 +31,8 @@ module.exports = {
 
         Tour.find({ brings: { $elemMatch: { _id: id } } }).project({ "brings": { _id: id } })
             .then(facSelect => {
-                //res.render('admin/facility-edit', { apartment: apartment });
-                res.send(facSelect);
+                res.render('admin/facility-edit', { tour: tour });
+                //res.send(facSelect);
             });
     },
 
@@ -52,12 +52,13 @@ module.exports = {
        
         
         Tour.findByIdAndUpdate({_id: id}, newPrice)
-            .then(() => Tour.find({_id: id})
+            
                 .then(tour => {
                     //console.log(tour.price.sale);
-                    res.send(tour);
+                    //res.send(tour);
+                    res.redirect('/admin/tour/'+ id);
                 })   
-        )
+       
     },
     
 
@@ -72,6 +73,8 @@ module.exports = {
                         res.render('admin/tour-edit', { tour: tour });
                     });
             })
+
+        
     },
 
 }
