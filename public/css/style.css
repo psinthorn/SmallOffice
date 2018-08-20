@@ -380,6 +380,14 @@ a:hover {
   text-transform: uppercase;
 }
 
+i.include-check {
+  color: #0288d1;
+}
+
+i.exclude-check {
+  color: #ff5252;
+}
+
 
 
 
