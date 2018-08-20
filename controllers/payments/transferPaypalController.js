@@ -226,8 +226,9 @@ module.exports = {
                             //to: req.body.to, // list of receivers
                             //to: toEmail,
                             //to: 'seaflyers@hotmail.com',
-                            //to: `seaflyers@hotmail.com`,
-                            to: `psinthorn@gmail.com`,
+                            //to: `psinthorn@gmail.com`,
+                            to: `seaflyers@hotmail.com`,
+                            
                             subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
                             text: `New transfer service confirmed booking
 
