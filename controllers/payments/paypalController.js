@@ -159,7 +159,6 @@ module.exports = {
                             //to: toEmail,
                             //to: 'seaflyers@hotmail.com',
                             to: `${ payment.payer.payer_info.email }`,
-                            bcc: 'seaflyers@hotmail.com',
                             subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
                             text: `Dear ${ payment.payer.payer_info.first_name  } 
 
@@ -178,7 +177,42 @@ module.exports = {
                             //html: '<b>NodeJS Email Tutorial</b>' // html body
                         };
 
+
+
+                        let mailOptionsNotice = {
+                            from: '"Samui Ocean Tour" <seaflyers@hotmail.com>', // sender address
+                            //to: req.body.to, // list of receivers
+                            //to: toEmail,
+                            //to: `psinthorn@gmail.com`,
+                            //to: 'seaflyers@hotmail.com',
+                            to: `seaflyers@hotmail.com`,
+                           
+                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            text: `New tour confirmed booking
+
+                            Booking Tour service from Samui Ocean Tour website.
+                            
+                            Customer Name:  ${ payment.payer.payer_info.first_name  } 
+                            Tour Date: ${ payment.tourdate }
+                            Your Booking ID: ${ payment._id }
+                            Your Payment ID: ${ payment.id }
+                           
+                            Have a Good Day :)
+                            Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com
+
+                        
+                             `, // plain text body
+                            //html: '<b>NodeJS Email Tutorial</b>' // html body
+                        };
+
                         transporter.sendMail(mailOptions, (error, info) => {
+                            if (error) {
+                                return console.log(error);
+                            }
+
+                        });
+
+                        transporter.sendMail(mailOptionsNotice, (error, info) => {
                             if (error) {
                                 return console.log(error);
                             }

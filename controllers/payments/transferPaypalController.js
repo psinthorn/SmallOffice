@@ -200,17 +200,17 @@ module.exports = {
                             //to: toEmail,
                             //to: 'seaflyers@hotmail.com',
                             to: `${ payment.transfer_info.email }`,
-                            bcc: 'seaflyers@hotmail.com',
                             subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
-                            text: `Dear ${ payment.payer.payer_info.fname  } 
+                            text: `Dear ${ payment.transfer_info.fname  } 
 
                             Thank you for your booking with Samui Ocean Tour.
                             
+                            Your Booking Information: 
                             Transfer Date: ${ payment.transfer_info.date }
                             Transfer Time: ${ payment.transfer_info.time }
                             Pickup At: ${ payment.transfer_info.pickup_at}
                             Your Booking ID: ${ payment._id }
-                            Your Payment ID: ${ payment.id }
+                            
                 
                            
                             Have a Good Trip :)
@@ -221,7 +221,45 @@ module.exports = {
                             //html: '<b>NodeJS Email Tutorial</b>' // html body
                         };
 
+                        let mailOptionsNotice = {
+                            from: '"Samui Ocean Tour" <seaflyers@hotmail.com>', // sender address
+                            //to: req.body.to, // list of receivers
+                            //to: toEmail,
+                            //to: 'seaflyers@hotmail.com',
+                            //to: `seaflyers@hotmail.com`,
+                            to: `psinthorn@gmail.com`,
+                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            text: `New transfer service confirmed booking
+
+                            Booking Transfer service from Samui Ocean Tour website.
+                            
+                            Customer Name ${ payment.transfer_info.fname  } ${ payment.transfer_info.lname }
+                            Transfer Date: ${ payment.transfer_info.date }
+                            Pickup Time: ${ payment.transfer_info.time }
+                            Pickup At: ${ payment.transfer_info.pickup_at}
+                            Customer Phone Number: ${ payment.transfer_info.phone }
+                            Customer Email: ${ payment.transfer_info.email }
+
+                            Booking ID: ${ payment._id }
+                            
+                
+                           
+                            Have a Good Day :)
+                            Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com
+
+                        
+                             `, // plain text body
+                            //html: '<b>NodeJS Email Tutorial</b>' // html body
+                        };
+
                         transporter.sendMail(mailOptions, (error, info) => {
+                            if (error) {
+                                return console.log(error);
+                            }
+
+                        });
+
+                        transporter.sendMail(mailOptionsNotice, (error, info) => {
                             if (error) {
                                 return console.log(error);
                             }
