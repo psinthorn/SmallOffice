@@ -89,10 +89,15 @@ module.exports = {
                           "payer": {
                               "payment_method": "paypal"
                           },
-                          "redirect_urls": {
-                              "return_url": "http://localhost:8081/payment/transfer-success?id=" + id + "&total=" + price,
-                              "cancel_url": "http://localhost:8081/payment/cancel"
-                          },
+                        //   "redirect_urls": {
+                        //       "return_url": "http://localhost:8081/payment/transfer-success?id=" + id + "&total=" + price,
+                        //       "cancel_url": "http://localhost:8081/payment/cancel"
+                        //   },
+
+                        "redirect_urls": {
+                            "return_url": "https://www.samuioceantour.com/payment/transfer-success?id=" + id + "&total=" + price,
+                            "cancel_url": "https://www.samuioceantour.com/payment/cancel"
+                        },
                           "transactions": [{
                               "item_list": {
                                   "items": [{
