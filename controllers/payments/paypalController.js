@@ -38,7 +38,7 @@ module.exports = {
             });
     },
 
-    //Creat payment
+    //Tour Create payment
     pay(req, res, next) {
 
         const tourDate = req.body.tourdate;

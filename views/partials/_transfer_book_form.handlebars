@@ -1,49 +1,49 @@
 <div class="card">
     <div class="card-content">
         <span class="card-title">Transfers Service Information</span>
-        <form action="/payment/paypal" method="POST">
+        <form action="/payment/transfer-paypal" method="POST">
 
 
             <div class="row">
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" class="datepicker" name="tranferdate">
-                    <label for="datepicker">Select Date</label>
+                    <input type="text" class="datepicker" name="trdate">
+                    <label for="trdate">Select Date</label>
                 </div>
 
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" class="timepicker" name="transfertime">
-                    <label for="datepicker">Pickup Time</label>
+                    <input type="text" class="timepicker" name="trtime">
+                    <label for="trtime">Pickup Time</label>
                 </div>
             </div>
 
              <div class="row">
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="from" value="{{ transfer.from }}">
-                        <label for="fname">Pickup From</label>
+                        <label for="from">Pickup From</label>
                     </div>
 
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="to" value="{{ transfer.to }}" >
-                        <label for="lname">To</label>
+                        <label for="to">To</label>
                     </div>
 
                 </div>
 
                 <div class="row">
                     <div class="col s12 m12 l12 input-field">
-                        <input type="text" name="locationname" required>
-                        <label for="fname">Pickup Location Name ( Ex. Hotel Name , Hinta Hinyai )</label>
+                        <input type="text" name="pickupat" required>
+                        <label for="pickupat">Pickup Location Name ( Ex. Hotel Name , Hinta Hinyai )</label>
                 </div>
 
                  <div class="row">
                     <div class="col s12 m6 l6 input-field">
-                        <input type="text" name="price" value="{{ transfer.price }}.00 Baht">
-                        <label for="fname">Price</label>
+                        <input type="text" name="price" value="{{ transfer.price }}">
+                        <label for="price">Price (Baht)</label>
                     </div>
 
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="type" value="{{ transfer.type }}" >
-                        <label for="lname">Vehicle Type</label>
+                        <label for="type">Vehicle Type</label>
                     </div>
 
                 </div>
@@ -89,10 +89,9 @@
                     <div class="col s12 m6 l6"></div>
                 </div>
 
-                <input type="hidden" value="{{ transfer.from }}" name="from">
-                <input type="hidden" value="{{ transfer.to }}" name="to">
+                
                 <input type="hidden" value="Transfer" name="skuType">
-                <input type="hidden" value="{{ transfer.price }}" name="price"> 
+               
 
                <div class="row">
                    

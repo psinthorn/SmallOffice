@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Samui Ocean Tour - Payment Success</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Success</h2>
+
+         <div class="row">
+            <div class="col s12 m12 l12">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                <span class="card-title">Thank you</span>
+
+                {{!-- get name from paypal information  --}}
+                <p><b>Dear</b> {{ payment.transfer_info.fname  }}</p>
+                <br>
+                <p>Thank you for your booking with Samui Ocean Tour.</p>
+                <br>
+                <p>Transfer Date: {{ payment.transfer_info.date }}</p>
+                <p>Transfer Time: {{ payment.transfer_info.time }}</p>
+                <p>Pickup At: {{ payment.transfer_info.pickup_at }}</p>
+                <p>Your Booking ID: {{ payment._id }}</p>
+                {{!-- <p>Your Payment ID: {{ payment.id }}</p> --}}
+                <br>
+                <p>Please check your email {{ payment.transfer_info.email  }} for your e-voucher.</p>
+                <br>
+                <br>
+                {{!--<p>Package: {{}} </p>
+                <br>--}}
+                <br>
+                <p><b>Have a Good Trip :)</b></p>
+                <p>Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com</p>
+                <br>
+
+                
+                </div>
+                {{!--<div class="card-action">
+                <a href="#">View you booking</a>
+                <a href="#">Manage you booking</a>
+                </div>--}}
+            </div>
+            </div>
+        </div>
+
+
+        {{!-- <table class="striped">
+            <tr>
+                <td>payment.id</td>
+                <td>{{ payment.id }}</td> 
+            </tr>
+             <tr>
+                <td>payment.state</td>
+                <td>{{ payment.state }}</td> 
+            </tr>
+            <tr>
+                <td>payment.payer.status</td>
+                <td>{{ payment.payer.status }}</td> 
+            </tr>  
+             <tr>
+                <td>payment.payer.status</td>
+                <td>{{ payment.payer.status }}</td> 
+            </tr>  
+
+            
+             <tr>
+                
+                <td>transactions.item_list.items.name  </td>
+
+                <td></td> 
+               
+            </tr>  
+             
+            <tr>
+                <td>payment.payer.payer_info.email </td>
+                <td>{{ payment.payer.payer_info.email  }}</td> 
+            </tr>  
+
+            <tr>
+                <td>payment.payer.payer_info.first_name </td>
+                <td>{{ payment.payer.payer_info.first_name  }}</td> 
+            </tr>  
+
+             <tr>
+                <td>payment.payer.payer_info.last_name </td>
+                <td>{{ payment.payer.payer_info.last_name  }}</td> 
+            </tr> 
+
+            <tr>
+                <td>payment.payer.payer_info.payer_id </td>
+                <td>{{ payment.payer.payer_info.payer_id  }}</td> 
+            </tr>          
+                  
+        </table> --}}
+         
+         {{!-- {{#each payment.transactions[0].item_list.items }} 
+            {{ name }}
+        {{/each }} --}}
+
+    </div>
+   
+</body>
+</html>
