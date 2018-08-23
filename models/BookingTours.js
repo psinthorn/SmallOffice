@@ -21,6 +21,12 @@ const BookingTourSchema = new Schema({
     tourdate:{
         type: String
     },
+    package_name: {
+        type: String
+    },
+    price_total: {
+        type: String
+    },
 
     payer: {
 

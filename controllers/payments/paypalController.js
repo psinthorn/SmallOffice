@@ -67,7 +67,7 @@ module.exports = {
             // },
 
             "redirect_urls": {
-                "return_url": "https://www.samuioceantour.com/payment/success?total=" + price + "&tourdate=" + tourDate,
+                "return_url": "https://www.samuioceantour.com/payment/success?total=" + price + "&tourdate=" + tourDate + "&packagename=" + packageName,
                 "cancel_url": "https://www.samuioceantour.com/payment/cancel"
             },
             "transactions": [{
@@ -118,8 +118,10 @@ module.exports = {
     success(req, res, next) {
         const tourDate = req.query.tourdate;
         const price = req.query.total;
+        const packageName = req.query.packagename;
         const payerId = req.query.PayerID;
         const paymentId = req.query.paymentId;
+        
         //console.log(price);
 
         const execute_payment_json = {
@@ -142,6 +144,8 @@ module.exports = {
             } else {
                 const paymentDetail = payment;
                 paymentDetail.tourdate = tourDate;
+                paymentDetail.package_name = packageName;
+                paymentDetail.price_total = price;
                 BookingTour.create(paymentDetail)
                     .then(payment => {
 
@@ -170,6 +174,8 @@ module.exports = {
                             Thank you for your booking with Samui Ocean Tour.
                             
                             Tour Date: ${ payment.tourdate }
+                            Tour Package: ${payment.package_name}
+                            Package Price: ${payment.price_total}
                             Your Booking ID: ${ payment._id }
                             Your Payment ID: ${ payment.id }
                 
@@ -192,13 +198,15 @@ module.exports = {
                             //to: 'seaflyers@hotmail.com',
                             to: `seaflyers@hotmail.com`,
                            
-                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            subject: 'New Tour Confirmed Booking' , // Subject line
                             text: `New tour confirmed booking
 
                             Booking Tour service from Samui Ocean Tour website.
                             
                             Customer Name:  ${ payment.payer.payer_info.first_name  } 
                             Tour Date: ${ payment.tourdate }
+                            Tour Package: ${payment.package_name}
+                            Package Price: ${payment.price_total}
                             Your Booking ID: ${ payment._id }
                             Your Payment ID: ${ payment.id }
                            
