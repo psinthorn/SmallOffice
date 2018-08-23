@@ -75,9 +75,7 @@ module.exports = {
             "transfer_info.readpolicy": readPolicy,
 
         };
-        
-                       
-        
+         
 
         BookingTransfer.create(paymentDetail)
         .then(newBooking => {
@@ -89,11 +87,13 @@ module.exports = {
                           "payer": {
                               "payment_method": "paypal"
                           },
+                        ////for local testing  
                         //   "redirect_urls": {
                         //       "return_url": "http://localhost:8081/payment/transfer-success?id=" + id + "&total=" + price,
                         //       "cancel_url": "http://localhost:8081/payment/cancel"
                         //   },
 
+                        ////for production 
                         "redirect_urls": {
                             "return_url": "https://www.samuioceantour.com/payment/transfer-success?id=" + id + "&total=" + price,
                             "cancel_url": "https://www.samuioceantour.com/payment/cancel"
@@ -143,7 +143,6 @@ module.exports = {
     //Payment Success
     success(req, res, next) {
         const id = req.query.id; 
-
         const price = req.query.total;
         const payerId = req.query.PayerID;
         const paymentId = req.query.paymentId;
@@ -170,22 +169,9 @@ module.exports = {
                 const paymentDetail = payment;
                 const id = req.query.id;
 
-                // paymentDetail.transfer_info.date = trDate;
-                // paymentDetail.transfer_info.time = trTime;
-                // paymentDetail.transfer_info.from = trFrom;
-                // paymentDetail.transfer_info.to = trTo;
-                // paymentDetail.transfer_info.pickup_at = pickupAt;
-                // paymentDetail.transfer_info.phone = phone;
-                // paymentDetail.transfer_info.email = email;
-                // paymentDetail.transfer_info.fname = fName;
-                // paymentDetail.transfer_info.lname = lName;
-                // paymentDetail.transfer_info.rate = price;
-                // paymentDetail.transfer_info.vehicle_type = vehicleType;
-                // paymentDetail.transfer_info.readpolicy = readPolicy;
-
-
                 BookingTransfer.findByIdAndUpdate({ _id: id }, paymentDetail)
                     .then(payment => {
+
                         let transporter = nodeMailer.createTransport({
                             host: 'mail.directbooking.co.th',
                             port: 25,
@@ -205,15 +191,16 @@ module.exports = {
                             //to: toEmail,
                             //to: 'seaflyers@hotmail.com',
                             to: `${ payment.transfer_info.email }`,
-                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            subject: 'Samui Ocean Tour Transfer Service Confirmed Booking' , // Subject line
                             text: `Dear ${ payment.transfer_info.fname  } 
 
                             Thank you for your booking with Samui Ocean Tour.
                             
-                            Your Booking Information: 
+                            *Your Booking Information* 
                             Transfer Date: ${ payment.transfer_info.date }
                             Transfer Time: ${ payment.transfer_info.time }
                             Pickup At: ${ payment.transfer_info.pickup_at}
+                            
                             Your Booking ID: ${ payment._id }
                             
                 
@@ -234,11 +221,12 @@ module.exports = {
                             //to: `psinthorn@gmail.com`,
                             to: `seaflyers@hotmail.com`,
                             
-                            subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
+                            subject: 'New Transfer Service Confirmed Booking' , // Subject line
                             text: `New transfer service confirmed booking
 
                             Booking Transfer service from Samui Ocean Tour website.
                             
+                            *Booking Information* 
                             Customer Name ${ payment.transfer_info.fname  } ${ payment.transfer_info.lname }
                             Transfer Date: ${ payment.transfer_info.date }
                             Pickup Time: ${ payment.transfer_info.time }

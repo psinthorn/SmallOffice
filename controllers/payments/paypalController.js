@@ -42,83 +42,102 @@ module.exports = {
     pay(req, res, next) {
 
         const tourDate = req.body.tourdate;
+        const packageName = req.body.title;
         const fName = req.body.fname;
         const lName = req.body.lname;
         const email = req.body.email;
+        const phone = req.res.phone;
         const price = req.body.sale;
-        const packageName = req.body.title;
+        const pickupAt = req.body.pickupat;
         const skuType = req.body.skuType;
         const readPolicy = req.body.readPolicy;
-        //console.log(readPolicy);
+        
+        
+        const paymentDetail = {
+            
+                        "tour_info.date": tourDate,
+                        "tour_info.package": packageName,
+                        // "tour_info.from": trFrom,
+                        // "tour_info.to": trTo,
+                        "tour_info.pickup_at": pickupAt,
+                        "tour_info.phone": phone,
+                        "tour_info.email": email,
+                        "tour_info.fname": fName,
+                        "tour_info.lname": lName,
+                        "tour_info.rate": price,
+                        // "tour_info.vehicle_type": vehicleType,
+                        "tour_info.readpolicy": readPolicy,
+            
+         };
 
-        // console.log(price);
-        // console.log(packageName);
-        // console.log(skuType);
+         
+         BookingTour.create(paymentDetail)
+         .then(newBooking => {
+             const id = newBooking._id;
+                    const create_payment_json = {
+                        //"tourdate": tourDate,
+                        "intent": "sale",
+                        "payer": {
+                            "payment_method": "paypal"
+                        },
 
-        const create_payment_json = {
-            //"tourdate": tourDate,
-            "intent": "sale",
-            "payer": {
-                "payment_method": "paypal"
-            },
-            // "redirect_urls": {
-            //     "return_url": "https://www.samuioceantour.comhttp://localhost:8081/payment/success?total=" + price + "&tourdate=" + tourDate,
-            //     "cancel_url": "http://localhost:8081/payment/cancel"
-            // },
+                        // //for local testing
+                        // "redirect_urls": {
+                        //     "return_url": "http://localhost:8081/payment/success?total=" + price + "&id=" + id,
+                        //     "cancel_url": "http://localhost:8081/payment/cancel"
+                        // },
 
-            "redirect_urls": {
-                "return_url": "https://www.samuioceantour.com/payment/success?total=" + price + "&tourdate=" + tourDate + "&packagename=" + packageName,
-                "cancel_url": "https://www.samuioceantour.com/payment/cancel"
-            },
-            "transactions": [{
-                "item_list": {
-                    "items": [{
-                        "name": packageName,
-                        "sku": skuType,
-                        "price": price,
-                        // "name": "Tour Koh Tao",
-                        // "sku": "Tour",
-                        // "price": "1",
-                        "currency": "THB",
-                        "quantity": 1
-                    }]
-                },
-                "amount": {
-                    "currency": "THB",
-                    "total": price,
-                    //"details": "Details of amount"
-                },
-                "description": packageName
-            }]
-        };
+                        //For production
+                        "redirect_urls": {
+                            "return_url": "https://www.samuioceantour.com/payment/success?total=" + price + "&id=" + id,
+                            "cancel_url": "https://www.samuioceantour.com/payment/cancel"
+                        },
 
-        // console.log(create_payment_json);
+                        "transactions": [{
+                            "item_list": {
+                                "items": [{
+                                    "name": packageName,
+                                    "sku": skuType,
+                                    "price": price,
+                                    "currency": "THB",
+                                    "quantity": 1
+                                }]
+                            },
+                            "amount": {
+                                "currency": "THB",
+                                "total": price,
+                                //"details": "Details of amount"
+                            },
+                            "description": packageName
+                        }]
+                    };
 
-        paypal.payment.create(create_payment_json, function (error, payment) {
-            if (error) {
+                    // console.log(create_payment_json);
 
-                //res.send(error);
-                throw error;
-            } else {
-                
-                for (let i = 0; i < payment.links.length; i++) {
+                    paypal.payment.create(create_payment_json, function (error, payment) {
+                        if (error) {
 
-                    if (payment.links[i].rel === 'approval_url') {
+                            //res.send(error);
+                            throw error;
+                        } else {
+                            
+                            for (let i = 0; i < payment.links.length; i++) {
 
-                        res.redirect(payment.links[i].href);
+                                if (payment.links[i].rel === 'approval_url') {
 
-                    } 
-                }
-            }
-        })
+                                    res.redirect(payment.links[i].href);
 
+                                } 
+                            }
+                        }
+                    })
+        });
     },
 
     //Payment Success
     success(req, res, next) {
-        const tourDate = req.query.tourdate;
+        const id = req.query.id;
         const price = req.query.total;
-        const packageName = req.query.packagename;
         const payerId = req.query.PayerID;
         const paymentId = req.query.paymentId;
         
@@ -135,20 +154,20 @@ module.exports = {
             }]
         };
 
-        //execute_payment_json.tourdate = tourDate;
+       
 
         paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
             if (error) {
                 console.log(error.response);
                 throw error;
             } else {
-                const paymentDetail = payment;
-                paymentDetail.tourdate = tourDate;
-                paymentDetail.package_name = packageName;
-                paymentDetail.price_total = price;
-                BookingTour.create(paymentDetail)
-                    .then(payment => {
 
+                const paymentDetail = payment;
+                const id = req.query.id;
+
+                BookingTour.findByIdAndUpdate({ _id: id }, paymentDetail)
+                    .then(payment => {
+                        
                         let transporter = nodeMailer.createTransport({
                             host: 'mail.directbooking.co.th',
                             port: 25,
@@ -167,17 +186,20 @@ module.exports = {
                             //to: req.body.to, // list of receivers
                             //to: toEmail,
                             //to: 'seaflyers@hotmail.com',
-                            to: `${ payment.payer.payer_info.email }`,
+                            to: `${ payment.tour_info.email }`,
                             subject: 'Samui Ocean Tour Confirmed Booking' , // Subject line
-                            text: `Dear ${ payment.payer.payer_info.first_name  } 
+                            text: `Dear ${ payment.tour_info.fname  } 
 
                             Thank you for your booking with Samui Ocean Tour.
                             
-                            Tour Date: ${ payment.tourdate }
-                            Tour Package: ${payment.package_name}
-                            Package Price: ${payment.price_total}
+                            *Booking Information*
+                            Tour Date: ${ payment.tour_info.date }
+                            Tour Package: ${payment.tour_info.package}
+                            Package Price: ${payment.tour_info.rate}
+                            Pickup At: ${payment.tour_info.pickup_at}
+
                             Your Booking ID: ${ payment._id }
-                            Your Payment ID: ${ payment.id }
+                            
                 
                            
                             Have a Good Trip :)
@@ -188,14 +210,11 @@ module.exports = {
                             //html: '<b>NodeJS Email Tutorial</b>' // html body
                         };
 
-
+                        //customer name on paypal
+                        //Customer Name:  ${ payment.payer.payer_info.first_name  } 
 
                         let mailOptionsNotice = {
                             from: '"Samui Ocean Tour" <seaflyers@hotmail.com>', // sender address
-                            //to: req.body.to, // list of receivers
-                            //to: toEmail,
-                            //to: `psinthorn@gmail.com`,
-                            //to: 'seaflyers@hotmail.com',
                             to: `seaflyers@hotmail.com`,
                            
                             subject: 'New Tour Confirmed Booking' , // Subject line
@@ -203,12 +222,15 @@ module.exports = {
 
                             Booking Tour service from Samui Ocean Tour website.
                             
-                            Customer Name:  ${ payment.payer.payer_info.first_name  } 
-                            Tour Date: ${ payment.tourdate }
-                            Tour Package: ${payment.package_name}
-                            Package Price: ${payment.price_total}
-                            Your Booking ID: ${ payment._id }
-                            Your Payment ID: ${ payment.id }
+                            *Booking Information*
+                            Customer Name: ${ payment.tour_info.fname  } ${ payment.tour_info.lname }
+                            Tour Date: ${ payment.tour_info.date }
+                            Tour Package: ${payment.tour_info.package}
+                            Package Price: ${payment.tour_info.rate}
+                            Pickup At: ${payment.tour_info.pickup_at}
+
+                            Booking ID: ${ payment._id }
+                            
                            
                             Have a Good Day :)
                             Samui Ocean Tour | Tel: 077 601 025 | Email: seaflyers@hotmail.com
