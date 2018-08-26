@@ -90,32 +90,6 @@ mongoose.connect(keys.mongoURI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err) );
 
-
-//connect to mongoDB by Mongoose
-// mongoose.Promise = global.Promise;
-
-// if( process.env.NODE_ENV !== 'test'){
-//     mongoose.connect('mongodb://localhost/apdlca');
-// }
-
-// //Set multer image uploads
-// const storage = multer.diskStorage({
-//     destination: './public/images/',
-//     filename: function(req, file, res){
-//         res(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-//     }
-// });
-
-// //Init multer upload
-// const upload = multer({
-//     storage: storage
-// }).single('imgUrl');
-
-
-/*
- * Configure the AWS region of the target bucket.
- * Remember to change this to the relevant region.
- */
 aws.config.region = 'eu-west-1';
 
 /*
@@ -127,14 +101,12 @@ const S3_BUCKET = process.env.S3_BUCKET;
 paypal.configure({
    
     'mode': 'sandbox', //sandbox or live
-    //Pornchai Transport and Tours
-    'client_id': 'AS7Mw57OYtE6DXs1cW-3wfmG1fISjFt7tx_l_HTxUgl_2UPRjNwFoyxQvK2H_LnARWBmHwFlFf5O9_n6', //seaflyers
-    'client_secret': 'EF-cGaliGY6pQxHK_GO4kxUAQkvbIOcRdAgKySHgtA6FiUzAAGK7isJFWzKy9gkwbMdL5sBwLFJZEg-D' //seaflyers
+    'client_id': 'paypal_client_id', //seaflyers
+    'client_secret': 'paypal_client_secret' //seaflyers
 
     // 'mode': 'live', //sandbox or live
-    // //Pornchai Transport and Tours
-    // 'client_id': 'Ae6-lrXlgPyh82E1FsFYvotXyM52rTS5kP50ZoDtKhJCz5sUMNqUHGBCX5dHpj28kQmJh-8Bc7qgygxw', //seaflyers
-    // 'client_secret': 'ECxQCSBm821lzuJxI7ltjNFfFmnq0QjaVgHQR4U1j_SEdgQyEaSJlq4yZ79b7dZG91ArWCEBIcA90_qn' //seaflyers
+    // 'client_id': 'paypal_client_id', //seaflyers
+    // 'client_secret': 'paypal_client_id' //seaflyers
 
 
 });
