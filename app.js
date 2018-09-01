@@ -22,17 +22,16 @@ const flash = require('connect-flash');
 //load user model
 require('./models/Category');
 require('./models/Contents');
+require('./models/UserAdmin');
 require('./models/Users');
-require('./models/Apartment');
+
+require('./models/ProductCategory');
+require('./models/Product');
+
+require('./models/Service');
 require('./models/Contact');
 require('./models/About');
-require('./models/Facility');
-require('./models/UserAdmin');
-require('./models/ApartmentIntro');
-require('./models/ApartmentIntro');
-require('./models/Slide');
-require('./models/Transfer')
-require('./models/TourCategory');
+
 require('./models/Policy');
 
 
@@ -46,12 +45,12 @@ const index = require('./routes/index');
 const contact = require('./routes/contact');
 const about = require('./routes/about');
 const intro      = require('./routes/Intro');
-const tour = require('./routes/tour');
-const slide = require('./routes/slide');
-const transfer = require('./routes/transfers');
-const tourcategory = require('./routes/tourCategory');
+const product = require('./routes/product');
+//const slide = require('./routes/slide');
+const service = require('./routes/service');
+const productcategory = require('./routes/productCategory');
 const payment = require('./routes/payment');
-const booking = require('./routes/booking');
+//const booking = require('./routes/booking');
 const policy = require('./routes/policy');
 
 const app = express();
@@ -59,7 +58,7 @@ const app = express();
 
 //use sessions for tracking logins
 app.use(session({
-    secret: 'apdl.ca',
+    secret: 'mscspets',
     resave: true,
     saveUninitialized: false
   }));
@@ -90,6 +89,7 @@ mongoose.connect(keys.mongoURI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err) );
 
+
 aws.config.region = 'eu-west-1';
 
 /*
@@ -101,12 +101,14 @@ const S3_BUCKET = process.env.S3_BUCKET;
 paypal.configure({
    
     'mode': 'sandbox', //sandbox or live
-    'client_id': 'paypal_client_id', //seaflyers
-    'client_secret': 'paypal_client_secret' //seaflyers
+    //Pornchai Transport and Tours
+    'client_id': 'AS7Mw57OYtE6DXs1cW-3wfmG1fISjFt7tx_l_HTxUgl_2UPRjNwFoyxQvK2H_LnARWBmHwFlFf5O9_n6', //seaflyers
+    'client_secret': 'EF-cGaliGY6pQxHK_GO4kxUAQkvbIOcRdAgKySHgtA6FiUzAAGK7isJFWzKy9gkwbMdL5sBwLFJZEg-D' //seaflyers
 
     // 'mode': 'live', //sandbox or live
-    // 'client_id': 'paypal_client_id', //seaflyers
-    // 'client_secret': 'paypal_client_id' //seaflyers
+    // //Pornchai Transport and Tours
+    // 'client_id': 'Ae6-lrXlgPyh82E1FsFYvotXyM52rTS5kP50ZoDtKhJCz5sUMNqUHGBCX5dHpj28kQmJh-8Bc7qgygxw', //seaflyers
+    // 'client_secret': 'ECxQCSBm821lzuJxI7ltjNFfFmnq0QjaVgHQR4U1j_SEdgQyEaSJlq4yZ79b7dZG91ArWCEBIcA90_qn' //seaflyers
 
 
 });
@@ -172,13 +174,13 @@ admin(app);
 index(app);
 contact(app);
 about(app);
-tour(app);
-slide(app);
+product(app);
+productcategory(app);
+service(app);
+//slide(app);
 intro(app);
-transfer(app);
-tourcategory(app);
 payment(app);
-booking(app);
+//booking(app);
 policy(app);
 
 module.exports = app;

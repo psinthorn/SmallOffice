@@ -1,0 +1,190 @@
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="row">
+
+            <div class="col s10 m10 l10 "><h4>service Management</h4></div>
+            <div class="col s1 m1 l1" style="text-align: bottom"><h4 class="right"><i class="material-icons include-check" >chevron_left</i> </h4></div>
+            <div class="col s1 m1 l1"> <a href="/admin/services"><h4 class="right">Back</h4></a></div>
+            
+
+        </div>
+        <div class="row">
+            <div class="hr-1px"></div>
+        </div>
+        <div class="col s12 m12 l12">
+
+            <div class="row">
+                <div class="col s12 m7 l7">
+                    <div class="card white darken-1">
+                        <div class="card-content gray-text">
+
+                            <h5>{{ service.title}}</h5>
+                            <div class="hr-1px"></div>
+
+                            <form action="/admin/service/{{ service.id }}?_method=PUT" method="post">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <input type="text" name="title" value="{{ service.title }}">
+                                        <label for="title">service Name</label>
+
+                                    </div>
+                                </div>
+
+                                {{!--
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <input type="text" name="address" value="{{ apartment.address }}">
+                                        <label for="address">Address</label>
+
+                                    </div>
+                                </div> --}}
+
+                                <div class="row">
+
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <h5>Descriptions</h5>
+                                        <textarea id="desc" name="desc" class="materialize-textarea">{{ service.desc }}</textarea>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <select name="status" id="status">
+                                            {{#select service.status }}
+
+                                            <option value="Public">Public</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Unpublished">Unpublished</option>
+
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <input type="submit" value="Update" class="btn right">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                {{!-- Single image upload --}}
+                <div class="col s12 m5 l5">
+
+                    {{> _image-upload-service }}
+
+                </div>
+
+                <div class="col s12 m5 l5">
+
+                    {{> _price-update }}
+
+                </div>
+
+
+                {{!-- Gallery manage  --}}
+
+                {{> _gallery-manage }}
+
+
+                {{!-- Facilities --}}
+
+
+              
+
+            </div>
+
+             {{!-- Itinerary Manage --}}
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _itinerary-add }}
+
+                </div>
+               
+            </div>
+
+            {{!-- Include Manage --}}
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _include }}
+
+                </div>
+               
+            </div>
+
+              {{!-- Exclude Manage --}}
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _exclude }}
+
+                </div>
+               
+            </div>
+
+
+
+            {{!-- Brings Manage --}}
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _brings }}
+
+                </div>
+               
+            </div>
+
+
+        {{!-- Contact Manage --}}
+
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _contact }}
+
+                </div>
+               
+            </div>
+
+
+
+
+            {{!-- Address --}}
+
+            <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _contact-address }}
+
+                     
+
+                </div>
+           </div>
+
+           <div class="row">
+                <div class="col s12 m12 l12">
+
+                     {{> _geocode }}
+
+                     
+
+                </div>
+           </div>
+
+
+
+</div>
+

@@ -1,0 +1,39 @@
+
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h5>Price</h5>
+                <div class="hr-1px"></div>
+
+                <form action="/admin/service/pricesale/{{ product.id }}?_method=PUT" method="post">
+                 <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="pricesale" value="{{product.price.sale}}">
+                            <label for="pricesale">Sale Price</label>
+
+                        </div>
+
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="pricenet" value="{{product.price.net}}">
+                            <label for="pricenet">Net Price</label>
+
+                        </div>
+                    </div>             
+                    <div class="row">
+                        <input type="submit" value=Update Price class="btn right">
+                    </div>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+
+
+

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
-const Tour = require('./../../models/Tour');
+const Product = require('./../../models/Product');
 
 
 module.exports = {
@@ -9,17 +9,17 @@ module.exports = {
     priceSale(req, res) {
 
         const id = req.params.id;
-        Tour.findById({ _id: id })
-            .then(tour => {
+        Product.findById({ _id: id })
+            .then(product => {
                 // const newItinerary = { 
                 //     title: req.body.title, 
                 //     value: req.body.value
                 // }
                 const newPrice = req.body.pricesale;
                 //res.send(newItinerary);
-                tour.save()
-                    .then(tour => {
-                        res.render('admin/tour-edit', { tour: tour });
+                product.save()
+                    .then(product => {
+                        res.render('admin/product-edit', { product: product });
                     });
             })
 
@@ -29,9 +29,9 @@ module.exports = {
     priceSaleEditForm(req, res) {
         const id = req.params.id;
 
-        Tour.find({ brings: { $elemMatch: { _id: id } } }).project({ "brings": { _id: id } })
+        Product.find({ brings: { $elemMatch: { _id: id } } }).project({ "brings": { _id: id } })
             .then(facSelect => {
-                res.render('admin/facility-edit', { tour: tour });
+                res.render('admin/facility-edit', { product: product });
                 //res.send(facSelect);
             });
     },
@@ -51,12 +51,12 @@ module.exports = {
         }
        
         
-        Tour.findByIdAndUpdate({_id: id}, newPrice)
+        Product.findByIdAndUpdate({_id: id}, newPrice)
             
-                .then(tour => {
-                    //console.log(tour.price.sale);
-                    //res.send(tour);
-                    res.redirect('/admin/tour/'+ id);
+                .then(product => {
+                    //console.log(product.price.sale);
+                    //res.send(product);
+                    res.redirect('/admin/product/'+ id);
                 })   
        
     },
@@ -65,12 +65,12 @@ module.exports = {
     //Delete Facility 
     priceSaleDelete(req, res) {
         const id = req.params.id;
-        Tour.findOne({ 'price.sale._id': id })
-            .then(tour => {
-                tour.pricesale.pull({ _id: id });
-                tour.save()
-                    .then(tour => {
-                        res.render('admin/tour-edit', { tour: tour });
+        Product.findOne({ 'price.sale._id': id })
+            .then(product => {
+                product.pricesale.pull({ _id: id });
+                product.save()
+                    .then(product => {
+                        res.render('admin/product-edit', { product: product });
                     });
             })
 

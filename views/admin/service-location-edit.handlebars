@@ -1,0 +1,113 @@
+<div class="container-fluid">
+
+
+    
+
+            {{!-- Address  --}}
+
+            <div class="col s12 m12 l12">
+
+
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <h4>Add Locations for Maps </h4>
+                        <div class="hr-1px"></div>
+
+                        <form action="/admin/service/location/{{ product.id }}?_method=PUT" method="post">
+                        <input type="hidden" name="_method" value="PUT">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title">
+                                    <label for="title">Title</label>
+
+                                </div>
+                            </div>
+
+                          
+
+                             <div class="row">
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="lat">
+                                    <label for="lat">Lattitude</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="lng">
+                                    <label for="lng">Longtitude</label>
+                                </div>
+                            </div>    
+
+                            <div class="row">
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="addr1">
+                                    <label for="addr1">Address1</label>
+
+                                </div>
+                           
+                            </div>    
+                               
+                
+                            <div class="row">
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="city">
+                                    <label for="city">City</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="province">
+                                    <label for="province">State</label>
+                            </div>
+
+                            </div>
+
+                            <div class="row">
+                                
+                                 <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="country">
+                                    <label for="country">Country</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="postCode">
+                                    <label for="postCode">Posttal Code</label>
+
+                                </div>
+                            
+                            </div>   
+
+                            <div class="row">
+                                <input type="submit" value="Add" class="btn right">
+                            </div>
+
+                        </form>
+
+                        
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+       
+
+       

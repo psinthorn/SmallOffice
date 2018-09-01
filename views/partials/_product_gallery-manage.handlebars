@@ -1,0 +1,82 @@
+ {{!-- Image Upload --}}
+
+
+<div class="col s12 m12 l12">
+
+
+
+
+    <form action="/admin/product/gallery/{{ product.id }}" method="post" enctype="multipart/form-data">
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h5>Add image to gallery</h5>
+                <div class="hr-1px"></div>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Choose Image</span>
+                        <input type="file" name="name">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+
+
+                {{!--
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+
+                        <input type="text" name="img" value="{{ apartment.imgUrl }}">
+                        <label for="img">Current Image</label>
+
+                    </div>
+                </div> --}}
+
+
+
+                <div class="row">
+                    <p class="left">*Recommend: 640x480 Pixel as minimum. </p>
+                    <input type="submit" value="Add" class="btn right">
+                </div>
+
+    </form>
+
+    <div class="row">
+
+        {{#each product.gallery }}
+        <div class="col s12 m3">
+
+            <div class="row">
+                <div class="col s12 m12 l12 clearfix">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/gallery/{{ name }}" alt="{{ name }}" class="responsive-img">
+
+
+                            <form action="/admin/product/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="oldImgUrl" value="{{ name }}">
+                                <button type="submit" class="btn red right">X</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+</div>

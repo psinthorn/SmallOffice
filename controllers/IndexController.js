@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Contact = require('../models/Contact');
 const About = require('../models/About');
-const Apartment = require('../models/Apartment');
-const Tour = require('../models/Tour');
+const ProductCategory = require('./../models/ProductCategory');
+const Product = require('../models/Product');
 const Intro = require('../models/Intro');
-const Transfer = require('./../models/Transfer');
-const TourCategory = require('./../models/TourCategory');
+const Service = require('./../models/Service');
+
 const Policy = require('./../models/Policy');
 
 
@@ -16,18 +16,25 @@ index(req, res){
 
     let promisesAll = [
 
-        Tour.find({status: 'Public'}).sort({ date: -1}).exec(),
+        Product.find({status: 'Public'}).sort({ date: -1}).exec(),
         Intro.find({ status: 'Public'}).exec(),
         Contact.find({}).exec()
 
     ];
 
     Promise.all(promisesAll)
-    .then( ([tours, intro, contact]) => {
-            res.render('index/welcome', { tours: tours, intro: intro, contact });          
+    .then( ([products, intro, contact]) => {
+            res.render('index/welcome', { products: products, intro: intro, contact });          
     });
     
 }, 
+
+companyProfile(req, res){
+    About.findOne({})
+        .then( about => {
+            res.render('index/about', { about: about });
+        })  
+},
 
 about(req, res){
     About.findOne({})
@@ -36,44 +43,50 @@ about(req, res){
         })  
 },
 
-tours(req, res){
+products(req, res){
 
-    Tour.find({status: 'Public'}).sort({ date: -1})
-    .then( (tours) => {
-            res.render('index/tours', { tours: tours });          
+    Product.find({status: 'Public'}).sort({ date: -1})
+    .then( (products) => {
+            res.render('index/products', { products: products });          
     });
    
 },
 
-tourShow(req, res){
+productShow(req, res){
 
     const id = req.params.id;
     
-        Tour.findById({ _id: id })
+        Product.findById({ _id: id })
             .populate('subcontact')
-            .then( tour => {
-                res.render('index/tour-show', { tour: tour });   
+            .then( product => {
+                res.render('index/product-show', { product: product });   
             }); 
     },
 
- transfer(req, res) {
+ services(req, res) {
 
-    let promisesAll = [
+    Service.find({status: 'Public'}).sort({ date: -1})
+    .then( (services) => {
+            res.render('index/services', { services: services });          
+    });
+
+
+    // let promisesAll = [
         
-                Transfer.find({status: 'public'}).sort({from: 1}).exec(),
-                TourCategory.find({status: 'Public'}).sort({ date: 1}).exec(),  
-            ];
+    //             Service.find({status: 'public'}).sort({from: 1}).exec(),
+    //             ProductCategory.find({status: 'Public'}).sort({ date: 1}).exec(),  
+    //         ];
         
-            Promise.all(promisesAll)
-            .then(([transfers, tourCategories]) => {
-                //res.send(tourCategories);
-                res.render('index/transfers', {transfers: transfers, tourCategories: tourCategories });
+    //         Promise.all(promisesAll)
+    //         .then(([transfers, productCategories]) => {
+    //             //res.send(productCategories);
+    //             res.render('index/transfers', {transfers: transfers, productCategories: productCategories });
                 
-            });    
+    //         });    
  },  
 
 
- bookTransfer(req, res) {
+ bookService(req, res) {
 
     const price = req.query.price;
     const type = req.query.type;

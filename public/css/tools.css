@@ -19,6 +19,8 @@
    display: inline-block;
    border-bottom: 1px solid grey;
    width: 100%;
+   padding-left: 10px;
+   padding-right: 10px;
    margin-bottom: 30px;
  }  
  

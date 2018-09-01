@@ -32,11 +32,14 @@ module.exports = {
     create(req, res) {
 
         const aboutProps = req.body;
+        
+        console.log(aboutProps);
+
         About.create(aboutProps)
             .then(() => About.findOne({}))
             .then(about => {
-                res.render('admin/about-add', { about: about });
-                //res.send(abouts);
+                //res.render('admin/about-add', { about: about });
+                res.send(about);
             });
     },
 

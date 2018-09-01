@@ -7,18 +7,22 @@ module.exports = (app) => {
    //Welcome landing page
   app.get('/', IndexController.index);
 
+  //Company Profile Page
+  app.get('/company-profile', IndexController.companyProfile);  
+
   //about page
   app.get('/about', IndexController.about);  
+  
 
   //tour List
-  app.get('/tours', IndexController.tours);
-  app.get('/tour-show/:id', IndexController.tourShow);
+  app.get('/products', IndexController.products);
+  app.get('/product-show/:id', IndexController.productShow);
 
   //transfers list
-  app.get('/transfers', IndexController.transfer );
+  app.get('/services', IndexController.services );
 
   //transfers booking form
-  app.get('/transfers/book/:id', IndexController.bookTransfer );
+  app.get('/service/book/:id', IndexController.bookService );
 
   //transfers booking form
   app.get('/term-policies', IndexController.termPolicy );

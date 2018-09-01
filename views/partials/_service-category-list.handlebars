@@ -1,0 +1,31 @@
+ {{#if tourCategories }}
+
+        <div class="col s12 m3 l3"><h5>Product</h5>
+
+             <div class="row">
+
+                 {{#each tourCategories }}
+                <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-image">
+                    <img src="images/tour-category/{{ imgUrl }}">
+                    <span class="card-title">{{ title }}</span>
+                    </div>
+                    <div class="card-content">
+                    <p>{{{ desc }}}</p>
+                    </div>
+                    <div class="card-action">
+                    <a href="{{ linkUrl }}" target="_blank">
+                        <button class="btn waves-effect waves-light center" type="submit" name="action">Book Now
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </a>
+                    </div>
+                </div>
+                </div>
+                {{/each}}
+            </div>
+        
+        </div>
+
+        {{/if}}

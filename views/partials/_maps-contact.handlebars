@@ -1,15 +1,4 @@
- {{!-- Maps Start Here --}} 
  
- 
-
-
-{{!-- <input type="hidden" id="addr1" value="{{ addr1 }}">
-<input type="hidden" id="district" value="{{ district }}">
-<input type="hidden" id="city" value="{{ city }}">
-<input type="hidden" id="province" value="{{ province }}">
-<input type="hidden" id="country" value="{{ country }}">
-<input type="hidden" id="postCode" value="{{ postCode }}"> --}}
-
 <input type="hidden" id="latData" value="{{ contact.lat }}">
 <input type="hidden" id="lngData" value="{{ contact.lng }}"> 
 
@@ -18,8 +7,8 @@
 <div class="row">
 
     <div class="col s12 m12 l12">
-        <h5>Maps</h5>
-        <div class="divider"></div>
+        {{!-- <h5>Maps</h5>
+        <div class="divider"></div> --}}
 
         <div id="map" class="map"></div>
 
@@ -61,7 +50,7 @@
                 });
 
                 var infoWindow = new google.maps.InfoWindow({
-                    content: 'Samui Ocean Tour'
+                    content: 'M.S.C.S. (THAILAND) CO.,LTD.'
                 });
 
                 marker.addListener('click', function () {

@@ -1,0 +1,41 @@
+ {{!-- Image Update --}}
+
+                    <div class="col s12 m12 l12">
+
+                        <form action="/admin/product/image/{{ product.id }}?_method=PUT" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <div class="card white darken-1">
+                                <div class="card-content gray-text">
+
+                                    <div class="row">
+
+                                        <h5>Thumbnail Image Upload</h5>
+                                        <div class="hr-1px"></div>
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Choose image</span>
+                                                <input type="file" name="imgUrl">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <input type="hidden" name="oldImgUrl" value="{{ product.imgUrl }}">
+                                        <img src="/images/product/{{ product.imgUrl }}" alt="{{ product.imgUrl }}" class="responsive-img" style="height: 60px">
+                                    </div>
+
+                                    <div class="row">
+                                        <input type="submit" value="Update" class="btn right">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <p>*Image size recommendation is 640x480 Pixels</p>
+                        <br>
+                        {{!-- <a class="btn" href="/admin/apartment/gallery/{{ apartment.id }}">Gallery Manage</a> --}}
+                    </div>

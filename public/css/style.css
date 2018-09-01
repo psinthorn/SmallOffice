@@ -1,5 +1,5 @@
 /*****************************/
-/************ Materialize ****/
+/************ MaterializeCSS ****/
 /*****************************/
 
 
@@ -30,7 +30,7 @@ body, html  {
 
   .nav-wrapper  {
     
-    background-color:     #0288d1; 
+    background-color:     #e53935; 
     /*$brand-primary:           #084672;*/
     /*materialize color #0288d1 light-blue darken-2*/
       
@@ -38,7 +38,7 @@ body, html  {
   }
 
   footer{
-      margin-top: 30px;
+      margin-top: 0px;
 
   }
 
@@ -84,7 +84,9 @@ body, html  {
 
   .header-text-01 {
     /* color: #455a64; */
-    color: #084672;
+    color: #424242;
+    padding-left: 0px;
+    /* text-decoration: none; */
   
   }
 

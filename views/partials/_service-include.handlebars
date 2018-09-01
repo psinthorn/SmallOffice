@@ -1,0 +1,44 @@
+
+
+
+
+        {{#if product.included}}
+
+        <br>  
+        <h5>Product Included</h5>
+        
+        <div class="divider"></div>
+        <br>
+        <div class="row">
+            {{#each product.included}}
+            <div class="col s12 m6 l6">
+
+                <div class="col s12 m12 l12">
+
+                    <div class="col s2 m2 l2">
+
+                        <i class="material-icons include-check">check</i>
+
+                    </div>
+                    <div class="col s10 m10 l10">
+
+                        {{ title }}
+
+                    </div>
+
+                </div>
+
+                
+
+
+            </div>
+            {{/each}}
+            <br>
+            <br>
+
+        </div>
+
+        {{/if}}
+
+
+       

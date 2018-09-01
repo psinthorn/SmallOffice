@@ -1,0 +1,152 @@
+<div class="container">
+
+
+    <div class="row">
+
+        {{> _msg}}
+       
+
+            <div class="col s12 m12 l12">
+
+
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <h4><p class="blue-grey-text"><a href="/admin/product/{{ product.id }}">{{ product.title }}</a> > Contact > Edit </p></h4>
+                        <div class="hr-1px"></div>
+
+                         {{#if product.subcontact }}
+                         {{#each product.subcontact }}   
+                        <form action="/admin/product/contact/{{ id }}?_method=PUT" method="post">
+                            <input type="hidden" name="_method" value="PUT">
+
+                                           
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title" value="{{ title }}">
+                                    <label for="title">Title</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="person" value="{{ person }} ">
+                                    <label for="person">Contact Person</label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="email" value="{{ email }}">
+                                    <label for="email">Email</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="phone" value="{{ phone }}">
+                                    <label for="phone">Phone</label>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="row">
+
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="whatsapp" value="{{whatsapp}}">
+                                    <label for="whatsapp">WhatsApp</label>
+
+                                </div>
+
+                                <div class="input-field col s12 m6 l6">
+
+                                    <input type="text" name="skype" value="{{skype}}">
+                                    <label for="skype">skype</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="workingHour" value="{{ workingHour}}" >
+                                    <label for="workingHour">Working Hour</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Update" class="btn right">
+                            </div>
+
+                        </form>
+
+                          
+
+                       
+                        <h5>Current Contact Lists</h5>
+                        <div class="divider"></div>
+
+                        <div class="row">
+
+                           
+                            <div class="col s6 m6 l6">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p><b>Title: </b>{{ title }}</p>
+                                            <P><b>Person: </b> {{ person }} </P>
+                                            <P> <b>Phone: </b> {{ phone }} </P>
+                                            <P> <b>WhatsApp: </b> {{ whatsapp }} </P>
+                                            <P> <b>Skype: </b> {{ skype }} </P>
+                                            <p><b>Email: </b> {{ email }}</p>
+                                            <p><b>Working Hour: </b> {{ workingHour }}</p>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                           
+                                           
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+
+                            {{/each}}
+
+                        </div>
+
+
+
+                        {{/if }}
+
+
+                    </div>
+
+                
+                   
+
+                </div>
+            </div>
+    </div>
+
+
+
+           

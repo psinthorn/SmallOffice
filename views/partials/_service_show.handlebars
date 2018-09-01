@@ -1,0 +1,177 @@
+
+<h4>
+    {{ product.title }}
+</h4>
+
+<p class="font-grey"><i class="material-icons small">place</i> {{#each product.locations }} {{!-- {{ title }} --}} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ province }} {{ country
+    }} {{ postCode }} {{/each }}
+
+</p>
+<br>
+{{> _product-gallery }}
+
+<div class="row">
+    <div class="col s12 m8 l8">
+        <p class="header-text-01">
+            {{{ product.body }}}
+        </p>
+
+        {{#if product.included}}
+
+        <br>  
+        <h5>Package Included</h5>
+        {{!--
+        <div class="divider"></div> --}}
+        <br>
+        <div class="row">
+            {{#each product.included}}
+            <div class="col s12 m6 l6">
+
+                <div class="col s12 m12 l12">
+
+                    <div class="col s2 m2 l2">
+
+                        <i class="material-icons">check</i>
+
+                    </div>
+                    <div class="col s10 m10 l10">
+
+                        {{ title }}
+
+                    </div>
+
+                </div>
+
+                
+
+
+            </div>
+            {{/each}}
+            <br>
+            <br>
+
+        </div>
+
+        {{/if}}
+
+
+        {{#if product.brings}}
+        <br>
+        
+        <h5>What's to Brings</h5>
+        {{!--
+        <div class="divider"></div> --}}
+        <br>
+        <div class="row">
+            {{#each product.brings}}
+            <div class="col s12 m6 l6">
+
+                <div class="col s12 m12 l12">
+
+                    <div class="col s2 m2 l2">
+
+                        <i class="material-icons">check</i>
+
+                    </div>
+                    <div class="col s10 m10 l10">
+
+                        {{ title }}
+
+                    </div>
+
+                </div>
+
+                
+
+
+            </div>
+            {{/each}}
+            <br>
+            <br>
+
+        </div>
+
+    {{/if}}
+
+    </div>
+
+    {{!--
+    <div class="col s12 m1 l1"></div> --}}
+
+    <div class="col s12 m4 l4">
+       
+        {{!-- <div>
+             {{#if product.price.sale > 0 }}
+            <button class="btn btn-sucess">
+                Book Now only 
+                <h3>{{ product.price.sale }}</h3>
+                Baht.
+            </button>
+            {{else}}
+                 <button class="btn btn-sucess">
+                    Enquiry
+                </button>
+            {{/if}}
+
+        </div> --}}
+        
+        {{#each product.subcontact }}
+
+        <div class="row" style="background-color: #eee ">
+            <div class="col s12 m12 l12">
+                <p class="header-text-01">
+                    <h5>{{ title }}</h5>
+                    <div class="divider"></div>
+                    <p class="blue-grey-text">
+                        <b>Contact: </b> {{ person }}</p>
+                    <p>
+                        <a class="blue-grey-text" href="tel:{{ phone }}">
+                            <b>Tel: </b> {{ phone }}</a>
+                    </p>
+                    <p class="blue-grey-text">
+                        <b>WhatsApp:</b> {{ whatsapp}}</p>
+                    <p class="blue-grey-text">
+                        <b>Skype: </b> {{ skype }}</p>
+                    <p>
+                        <a class="blue-grey-text" href="mailto: {{email}} ?Subject=Enquiry from APDL.CA">
+                            <b>Email: </b> {{ email }}</a>
+                    </p>
+                    <p class="blue-grey-text">
+                        <b>Working Hour: </b>
+                        <br>{{ workingHour }} </p>
+
+                </p>
+            </div>
+
+        </div>
+    
+
+        {{/each}}
+
+       {{> _maps-apartment }}
+
+    </div>
+</div>
+
+
+
+
+<div class="row">
+
+
+
+
+    <div class="col s12 m8 l8">
+        <div class="row">
+
+            <div class="col s12 m6 l6">
+                <img src="" alt="">
+            </div>
+
+            <div class="col s12 m6 l6">
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -24,7 +24,7 @@ module.exports = (app) => {
      app.get('/admin/register', ensureAuthenticated, adminController.registerForm);
      
     //Create new admin 
-    app.post('/admin/admin', ensureAuthenticated, adminController.create);
+    app.post('/admin/admin',  ensureAuthenticated, adminController.create);
 
     //Edit form
     app.get('/admin/admins/:id', ensureAuthenticated, adminController.editForm);

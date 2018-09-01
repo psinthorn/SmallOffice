@@ -1,0 +1,72 @@
+
+
+   
+
+        <div class="card white darken-1">
+            <div class="card-content gray-text">
+
+                <h4>Add Exclude</h4>
+                <div class="hr-1px"></div>
+
+                <form action="/admin/product/exclude/{{ product.id }}" method="post">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="title">
+                            <label for="title">Package Excluding</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value=Add class="btn right">
+                    </div>
+
+                </form>
+
+                {{#if product.excluded }}
+                <h5>Current Excluding Lists</h5>
+                <div class="divider"></div>
+
+                <div class="row">
+                <div class="col s12 m12 l12">
+
+
+
+                    {{#each product.excluded }}
+
+                    <div class="col s12 m6 l6">
+
+                        <div class="col s12 m8 l8" style="padding: 3px">
+                           <p>{{ title }}</p> 
+                        </div>
+
+
+                        <div class="col s12 m4 l4" style="padding: 3px">
+                            <p>
+                                <form action="/admin/product/exclude/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">X</button>
+                            </form>
+
+                            </p>
+                            
+
+                        </div>
+
+                    </div>
+
+                    {{/each}}
+
+                </div>
+                </div>
+
+                {{/if }}
+
+            </div>
+
+        </div>
+
+
+
+

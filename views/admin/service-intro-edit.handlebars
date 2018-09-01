@@ -1,0 +1,71 @@
+<div class="container-fluid">
+
+
+    <div class="row">
+
+        {{> _msg}}
+
+        <div class="col s12 m12 l12">
+            <h4>Edit Intro</h4>
+            <div class="hr-1px"></div>
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/admin/service-intro/{{ intro.id }}?_method=PUT" method="post">
+                             <input type="hidden" name="_method" value="PUT">
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title" value="{{ intro.title }}">
+                                    <label for="title">Intro Title</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <h5>Intro Detail</h5>
+                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ intro.desc }}</textarea>
+
+                                </div>
+
+                            </div>
+
+                              <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="owner" value="{{ intro.owner }} ">
+                                    <label for="owner">Samui Ocean service</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+                                        {{#select intro.status }}
+                                        <option value="Public">Public</option>
+                                        <option value="Private">Private</option>
+                                        <option value="Unpubblished">Unpubblished</option>
+                                        {{/select}}
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="update" class="btn right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

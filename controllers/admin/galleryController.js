@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
-const Tour = require('./../../models/Tour');
+const Product = require('./../../models/Product');
 const fs = require('fs');
 
 module.exports = {
@@ -10,11 +10,11 @@ module.exports = {
     gallery(req, res){
         const id = req.params.id;
 
-        Tour.findById({ _id: id})
-            .then( tour => {
-                res.render('admin/gallery-upload-form', { tour: tour });
+        Product.findById({ _id: id})
+            .then( product => {
+                res.render('admin/gallery-upload-form', { product: product });
             })
-        
+
         
     },
 
@@ -28,9 +28,9 @@ module.exports = {
 
         if( !imgUrl ){
             req.flash('error_msg', 'Image is empty please select an image');
-            Tour.findById({ _id: id })
-                .then( tour => {
-                    res.redirect(`/admin/tour/gallery/${tour.id}`);   
+            Product.findById({ _id: id })
+                .then( product => {
+                    res.redirect(`/admin/product/gallery/${product.id}`);   
                 });
         } else {
 
@@ -41,21 +41,21 @@ module.exports = {
     
             });
     
-            Tour.findById({ _id: id })
-                .then( tour => {
+            Product.findById({ _id: id })
+                .then( product => {
     
                     const imgName = ({
                         name: imgUrlName
                     });
                    
-                    tour.gallery.push(imgName);
+                    product.gallery.push(imgName);
     
-                    tour.save()
-                    .then( () => Tour.findById({ _id: id }))
-                        .then( tour => {
+                    product.save()
+                    .then( () => Product.findById({ _id: id }))
+                        .then( product => {
                             
                             req.flash('success_msg', 'Gallery is added');
-                            res.redirect(`/admin/tour/${tour.id}`);
+                            res.redirect(`/admin/product/${product.id}`);
                             //res.render('admin/gallery-upload-form', { apartment: apartment });
     
                         })
@@ -83,10 +83,10 @@ module.exports = {
             imgUrl: imgUrlName
         })
     
-        Tour.findByIdAndUpdate({ _id: id},newImg)
-            .then(() => Tour.findById({ _id: id }))
-            .then( tour => {
-                res.render('admin/tour-edit', { tour: tour });
+        Product.findByIdAndUpdate({ _id: id},newImg)
+            .then(() => Product.findById({ _id: id }))
+            .then( product => {
+                res.render('admin/product-edit', { product: product });
             });
 
     },
@@ -101,15 +101,15 @@ module.exports = {
        
 
         fs.unlink(delImage, (err) => { 
-            Tour.findOne({ 'gallery._id' : id })
+            Product.findOne({ 'gallery._id' : id })
             //.populate('facilities')
-            .then( tour => {
+            .then( product => {
 
-                tour.gallery.pull({ _id : id });
-                tour.save()
-                    .then(tour => {
+                product.gallery.pull({ _id : id });
+                product.save()
+                    .then(product => {
                         req.flash('error_msg', 'Image is deleted');
-                        res.redirect(`/admin/tour/${tour.id}`);
+                        res.redirect(`/admin/product/${product.id}`);
                     });
             })
         });

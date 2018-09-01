@@ -1,0 +1,136 @@
+<div class="container-fluid">
+
+
+    <div class="row">
+
+        {{> _msg}}
+
+        <div class="col s12 m12 l12">
+            <h4>Add new product</h4>
+            <div class="hr-1px"></div>
+
+            {{!-- <div class="row">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Banner Image</span>
+                                        <input type="file" name="bannerImgUrl">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+            </div> --}}
+
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/admin/product" method="post" enctype="multipart/form-data">
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title">
+                                    <label for="title">Title</label>
+
+                                </div>
+                            </div>
+
+                            {{!-- <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="address">
+                                    <label for="address">Apartment Address</label>
+
+                                </div>
+                            </div> --}}
+
+                            <div class="row">
+
+                                <div class="input-field col s12 m12 l12">
+
+                                    <h5>Descriptions</h5>
+                                    <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Thumbnail Image</span>
+                                        <input type="file" name="imgUrl">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+
+                                        <option value="Public" selected>Public</option>
+                                        <option value="Private">Private</option>
+                                        <option value="Unpublished">Unpublished</option>
+
+                                        <ect></ect>
+                                        <ect></ect>
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Add" class="btn right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{!--
+        <div class="col s12 m4 l4">
+            <h4>Current List</h4>
+            <div class="hr-1px"></div>
+
+            {{#if apartments }}
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>Apartment</th>
+                        <th>Status</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {{#each apartments }}
+
+                    <tr>
+                        <td>{{ title }}</td>
+                        <td>{{ status }}</td>
+                        <td>
+                            <a href="/admin/apartments/show/{{ id }}">Viewe</a> |
+                            <a href="/admin/apartments/{{ id }}">Edit</a> |
+                            <a href="/admin/apartments/delete/{{ id }}">Delete</a>
+                        </td>
+                    </tr>
+
+                    {{/each }}
+
+                </tbody>
+            </table>
+
+            {{ else }} No apartments available {{/if}}
+
+        </div>
+    </div> --}}
+</div>

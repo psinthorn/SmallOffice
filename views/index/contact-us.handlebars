@@ -1,7 +1,7 @@
-<div class="container-fluid">
-    {{> _banner_sub}}
+
+    
    
-    <div class="container" style="margin-top: 250px">
+    <div class="container-fluid">
         <h3 class="header-text-01">
             {{ contact.title}}
         </h3>
@@ -11,28 +11,14 @@
                 <p class="header-text-01">
                     {{{ contact.desc }}}
                 </p>
-
+                <br>
+               
                 <div class="row">
-                    <div class="input-field col s12">
-                        {{#if errors}}
-                        <div class="card-panel red lighten-4">
-                            {{#each errors}} {{error}}
-                            <br> {{/each}}
-                        </div>
-                        {{/if}} {{#each successMsg}}
-
-                        <div class="card-panel green lighten-4">
-                            <h3>
-                                <p style="text-align: center"> {{thankYou}} </p>
-                            </h3>
-                            <p style="text-align: center">{{success}}</p>
-                        </div>
-                        {{/each}}
+                    <div style="padding: 5px">
+                        {{> _maps-contact }}
                     </div>
-                </div>
-
-                <div class="row">
-                    <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img">
+                    
+                    {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img"> --}}
                 </div>
             </div>
 
@@ -71,47 +57,11 @@
                     </div>
                     <div class="col s12 m10 l10">
                         <p>
-                            <a class="blue-grey-text" href="mailto:{{ contact.email }}?Subject=Enquiry from samuioceantour.com">{{ contact.email }}</a>
+                            <a class="blue-grey-text" href="mailto:{{ contact.email }}?Subject=Enquiry from mscspest.com">{{ contact.email }}</a>
                         </p>
                     </div>
 
                 </div>
-
-                {{!-- <div class="row header-text-01">
-                    <h5>WhatsApp</h5>
-                    <div class="hr-1px-p10"></div>
-
-                    <div class="col s12 m2 l2">
-                        <p>
-
-                            <i class="material-icons">call</i>
-
-                        </p>
-                    </div>
-                    <div class="col s12 m10 l10">
-                        <p>
-                            <a class="blue-grey-text" href="#">{{ contact.whatsapp }}</a>
-                        </p>
-
-                    </div>
-
-
-                </div> --}}
-
-                {{!-- <div class="row header-text-01">
-                    <h5>Skype</h5>
-                    <div class="hr-1px-p10"></div>
-                    <div class="col s12 m2 l2">
-                        <p>
-                            <i class="material-icons">call</i>
-                        </p>
-                    </div>
-                    <div class="col s12 m10 l10">
-                        <p> <a class="blue-grey-text" href="#">{{ contact.skype }}</a>
-                        </p>
-                    </div>
-
-                </div> --}}
 
                 <div class="row header-text-01">
                     <h5>Address</h5>
@@ -134,13 +84,13 @@
                 </div>
 
                 {{#if contact.lat }}
-                <div class="row header-text-01">
+                {{!-- <div class="row header-text-01"> --}}
                     {{!-- <h5>Maps</h5> --}}
                     
-                    {{> _maps-contact }}
-                </div>
+                    {{!-- {{> _maps-contact }} --}}
+                {{!-- </div> --}}
                 {{/if}}
             </div>
         </div>
+
     </div>
-</div>
