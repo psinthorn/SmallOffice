@@ -36,10 +36,10 @@ module.exports = {
         console.log(aboutProps);
 
         About.create(aboutProps)
-            .then(() => About.findOne({}))
-            .then(about => {
-                //res.render('admin/about-add', { about: about });
-                res.send(about);
+            
+            .then( () => {
+                res.redirect('/admin/about');
+                //res.send(about);
             });
     },
 

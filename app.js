@@ -20,6 +20,7 @@ const upload = require('express-fileupload');
 const flash = require('connect-flash');
 
 //load user model
+require('./models/Welcome');
 require('./models/Category');
 require('./models/Contents');
 require('./models/UserAdmin');
@@ -37,19 +38,19 @@ require('./models/Policy');
 
 //load router
 const admin = require('./routes/admin');
-const reservations = require('./routes/reservations')
+//const reservations = require('./routes/reservations')
 const auth = require('./routes/auth'); 
 const mail = require('./routes/mail');
 const contents = require('./routes/content');
 const index = require('./routes/index');
 const contact = require('./routes/contact');
 const about = require('./routes/about');
-const intro      = require('./routes/Intro');
+const welcome = require('./routes/Welcome');
 const product = require('./routes/product');
 //const slide = require('./routes/slide');
 const service = require('./routes/service');
 const productcategory = require('./routes/productCategory');
-const payment = require('./routes/payment');
+//const payment = require('./routes/payment');
 //const booking = require('./routes/booking');
 const policy = require('./routes/policy');
 
@@ -102,14 +103,8 @@ paypal.configure({
    
     'mode': 'sandbox', //sandbox or live
     //Pornchai Transport and Tours
-    'client_id': 'AS7Mw57OYtE6DXs1cW-3wfmG1fISjFt7tx_l_HTxUgl_2UPRjNwFoyxQvK2H_LnARWBmHwFlFf5O9_n6', //seaflyers
-    'client_secret': 'EF-cGaliGY6pQxHK_GO4kxUAQkvbIOcRdAgKySHgtA6FiUzAAGK7isJFWzKy9gkwbMdL5sBwLFJZEg-D' //seaflyers
-
-    // 'mode': 'live', //sandbox or live
-    // //Pornchai Transport and Tours
-    // 'client_id': 'Ae6-lrXlgPyh82E1FsFYvotXyM52rTS5kP50ZoDtKhJCz5sUMNqUHGBCX5dHpj28kQmJh-8Bc7qgygxw', //seaflyers
-    // 'client_secret': 'ECxQCSBm821lzuJxI7ltjNFfFmnq0QjaVgHQR4U1j_SEdgQyEaSJlq4yZ79b7dZG91ArWCEBIcA90_qn' //seaflyers
-
+    'client_id': 'AS7Mw57OYtE6DXs1c', //seaflyers
+    'client_secret': 'EF-cGaliGY6pQxHK' //seaflyers
 
 });
 
@@ -177,10 +172,7 @@ about(app);
 product(app);
 productcategory(app);
 service(app);
-//slide(app);
-intro(app);
-payment(app);
-//booking(app);
+welcome(app);
 policy(app);
 
 module.exports = app;

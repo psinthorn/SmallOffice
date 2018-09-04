@@ -3,7 +3,7 @@
 <div class="row">
 
     {{> _msg}}
-
+    <h3 class="header-text-01">Services Lists</h3>
     <div class="divider"></div>
     <br>
     <br> {{#each services }}
@@ -44,7 +44,7 @@
                     {{/each}}
                     <br>
                     {{/if}}
-                    <p class="font-grey">{{{stripTags (truncate desc 300)}}}</p>
+                    <p class="font-grey">{{{stripTags (truncate desc 400)}}}</p>
                     </a>
 
 
@@ -54,10 +54,10 @@
                     </div>  --}}
                     <div class="row">
 
-                        <div class="col s6 m6 l6">
+                        <div class="col s12 m12 l12">
                             <a href="/service-show/{{ id }}">
-                        <div class="btn blue btn-hor-effect left">More Informations & Booking</div>
-                     </a>
+                        <div class="btn blue btn-hor-effect right">More Informations</div>
+                        </a>
                         </div>
 
                         {{!-- <div class="col s6 m6 l6"><div style="margin-bottom: 40px;"><h5 class="right">{{ price.sale }}.00 Baht</h5></div></div> --}}

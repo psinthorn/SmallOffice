@@ -199,7 +199,7 @@ module.exports = {
             Service.findByIdAndUpdate({ _id: id},newImg)
             .then(() => Service.findById({ _id: id }))
             .then( service => {
-                res.render('admin/service-edit', { service: product });
+                res.render('admin/service-edit', { service: service });
             });
         });
     },
@@ -298,8 +298,7 @@ module.exports = {
      },
 
     
-    //Include Function start 
-
+    //Include Function start here
     //Add include form 
     include(req, res){
         
@@ -310,8 +309,8 @@ module.exports = {
                         title: req.body.title, 
                         value: req.body.value
                     }
-                    Service.included.push(newInclude);
-                    Service.save()
+                    service.included.push(newInclude);
+                    service.save()
                     .then(service => {
                         res.render('admin/service-edit', { service: service });
                     });
@@ -345,8 +344,8 @@ module.exports = {
                         title: req.body.title, 
                         value: req.body.value
                     }
-                    Service.excluded.push(newExclude);
-                    Service.save()
+                    service.excluded.push(newExclude);
+                    service.save()
                     .then(service => {
                         res.render('admin/service-edit', { service: service });
                     });
@@ -359,8 +358,8 @@ module.exports = {
                 const id = req.params.id;
                 Service.findOne({ 'excluded._id' : id })
                     .then(exclude => {
-                            excluded.excluded.pull({ _id : id });
-                            excluded.save()
+                            exclude.excluded.pull({ _id : id });
+                            exclude.save()
                             .then(service => {
                                 res.render('admin/service-edit', { service: service });
                             });

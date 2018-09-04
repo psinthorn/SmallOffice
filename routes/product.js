@@ -63,7 +63,6 @@ module.exports = (app) => {
     app.delete('/admin/product/gallery/:id', ensureAuthenticated, GalleryController.delete );
 
     //Price Manage
-    
     app.put('/admin/product/pricesale/:id',ensureAuthenticated,PriceSaleController.priceSaleUpdate);
 
     

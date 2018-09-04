@@ -1,0 +1,92 @@
+<div class="container-fluid">
+
+
+    
+        <div class="row">
+
+            <div class="col s10 m10 l10  "><h4>Welcome Management</h4></div>
+            <div class="col s1 m1 l1" style="text-align: bottom"><h4 class="right"><i class="material-icons include-check" >chevron_left</i> </h4></div>
+            <div class="col s1 m1 l1"> <a href="/admin/welcomes"><h4 class="right">Back</h4></a></div>
+            
+
+        </div>
+
+         {{!-- Top banner image upload --}}
+
+         
+                       
+            <div class="row">
+
+                 
+
+                    {{!-- Single image upload --}}
+                    <div class="col s12 m12 l12">
+                        {{> _image-upload-welcome-top-banner }}
+                    </div>
+    
+                    
+                <div class="col s12 m12 l12">
+
+
+
+
+                    <div class="card white darken-1">
+                        <div class="card-content gray-text">
+
+                            <form action="/admin/welcome/{{ welcome.id }}?_method=PUT" method="post">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <input type="text" name="title" value="{{ welcome.title }}" required>
+                                        <label for="title">welcome Name</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <h5>Descriptions</h5>
+                                        <textarea id="desc" name="desc" class="materialize-textarea" required>{{ welcome.desc }}</textarea>
+
+                                    </div>
+
+                                </div>
+
+                              
+
+
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <select name="status" id="status">
+                                            {{#select welcome.status }}
+
+                                            <option value="Public">Public</option>
+                                            <option value="Private">Private</option>
+                                            <option value="Unpublished">Unpublished</option>
+
+                                            {{/select }}
+                                        </select>
+                                        <label for="status">Status</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <input type="submit" value="Update" class="btn right">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                  <div class="col s12 m12 l12">
+                                {{> _image-upload-welcome-bottom-banner }}
+                </div>
+                
+            </div>
+
+</div>
+

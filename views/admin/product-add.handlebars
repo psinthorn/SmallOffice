@@ -31,27 +31,18 @@
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="title">
-                                    <label for="title">Title</label>
+                                    <input type="text" name="title" required>
+                                    <label for="title">Title (*Required)</label>
 
                                 </div>
                             </div>
-
-                            {{!-- <div class="row">
-                                <div class="input-field col s12 m12 l12">
-
-                                    <input type="text" name="address">
-                                    <label for="address">Apartment Address</label>
-
-                                </div>
-                            </div> --}}
 
                             <div class="row">
 
                                 <div class="input-field col s12 m12 l12">
 
                                     <h5>Descriptions</h5>
-                                    <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+                                    <textarea id="desc" name="desc" class="materialize-textarea" required></textarea>
 
                                 </div>
 
@@ -62,7 +53,7 @@
                                 <div class="file-field input-field">
                                     <div class="btn">
                                         <span>Thumbnail Image</span>
-                                        <input type="file" name="imgUrl">
+                                        <input type="file" name="imgUrl" required>
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">
@@ -93,44 +84,4 @@
                 </div>
             </div>
         </div>
-
-
-        {{!--
-        <div class="col s12 m4 l4">
-            <h4>Current List</h4>
-            <div class="hr-1px"></div>
-
-            {{#if apartments }}
-            <table class="highlight">
-                <thead>
-                    <tr>
-                        <th>Apartment</th>
-                        <th>Status</th>
-                        <th>Manage</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    {{#each apartments }}
-
-                    <tr>
-                        <td>{{ title }}</td>
-                        <td>{{ status }}</td>
-                        <td>
-                            <a href="/admin/apartments/show/{{ id }}">Viewe</a> |
-                            <a href="/admin/apartments/{{ id }}">Edit</a> |
-                            <a href="/admin/apartments/delete/{{ id }}">Delete</a>
-                        </td>
-                    </tr>
-
-                    {{/each }}
-
-                </tbody>
-            </table>
-
-            {{ else }} No apartments available {{/if}}
-
-        </div>
-    </div> --}}
 </div>

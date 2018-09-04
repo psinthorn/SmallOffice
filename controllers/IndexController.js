@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Contact = require('../models/Contact');
 const About = require('../models/About');
+const Welcome = require('../models/Welcome');
 const ProductCategory = require('./../models/ProductCategory');
 const Product = require('../models/Product');
 const Intro = require('../models/Intro');
@@ -12,22 +13,30 @@ const Policy = require('./../models/Policy');
 module.exports = {
 
 
-index(req, res){
+dashBoard(req, res){
 
-    let promisesAll = [
+    // let promisesAll = [
 
-        Product.find({status: 'Public'}).sort({ date: -1}).exec(),
-        Intro.find({ status: 'Public'}).exec(),
-        Contact.find({}).exec()
+    //     Product.find({status: 'Public'}).sort({ date: -1}).exec(),
+    //     Intro.find({ status: 'Public'}).exec(),
+    //     Contact.find({}).exec()
 
-    ];
+    // ];
 
-    Promise.all(promisesAll)
-    .then( ([products, intro, contact]) => {
-            res.render('index/welcome', { products: products, intro: intro, contact });          
-    });
+    // Promise.all(promisesAll)
+    // .then( ([products, intro, contact]) => {
+    //         res.render('index/welcome', { products: products, intro: intro, contact });          
+    // });
     
 }, 
+
+index(req, res){
+    Welcome.findOne({})
+        .then( welcome => {
+            res.render('index/welcome', { welcome: welcome });
+        })  
+},
+
 
 companyProfile(req, res){
     About.findOne({})
@@ -63,6 +72,8 @@ productShow(req, res){
             }); 
     },
 
+
+
  services(req, res) {
 
     Service.find({status: 'Public'}).sort({ date: -1})
@@ -70,20 +81,17 @@ productShow(req, res){
             res.render('index/services', { services: services });          
     });
 
-
-    // let promisesAll = [
-        
-    //             Service.find({status: 'public'}).sort({from: 1}).exec(),
-    //             ProductCategory.find({status: 'Public'}).sort({ date: 1}).exec(),  
-    //         ];
-        
-    //         Promise.all(promisesAll)
-    //         .then(([transfers, productCategories]) => {
-    //             //res.send(productCategories);
-    //             res.render('index/transfers', {transfers: transfers, productCategories: productCategories });
-                
-    //         });    
  },  
+
+ serviceShow(req, res){
+
+    const id = req.params.id;
+    
+        Service.findById({ _id: id })
+            .then( service => {
+                res.render('index/service-show', { service: service });   
+            }); 
+    },
 
 
  bookService(req, res) {

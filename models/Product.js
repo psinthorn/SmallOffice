@@ -24,12 +24,12 @@ const ProductSchema = new Schema({
     },
     imgUrl: {
         type: String,
-        default: 'images/product/product-image-tempolary.jpg'
+        default: 'thumbnail640x480.png'
     },
 
     productBannerImgUrl: {
         type: String,
-        default: 'images/product/banner/product-banner-image-tempolary.jpg'
+        default: 'banner-temp1024x300.jpg'
     },
     category: {
         

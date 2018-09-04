@@ -8,12 +8,12 @@
                 <h4>Add Exclude</h4>
                 <div class="hr-1px"></div>
 
-                <form action="/admin/product/exclude/{{ product.id }}" method="post">
+                <form action="/admin/service/exclude/{{ service.id }}" method="post">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
 
-                            <input type="text" name="title">
-                            <label for="title">Package Excluding</label>
+                            <input type="text" name="title" required>
+                            <label for="title">Service Excluding</label>
 
                         </div>
                     </div>
@@ -24,7 +24,7 @@
 
                 </form>
 
-                {{#if product.excluded }}
+                {{#if service.excluded }}
                 <h5>Current Excluding Lists</h5>
                 <div class="divider"></div>
 
@@ -33,7 +33,7 @@
 
 
 
-                    {{#each product.excluded }}
+                    {{#each service.excluded }}
 
                     <div class="col s12 m6 l6">
 
@@ -44,8 +44,7 @@
 
                         <div class="col s12 m4 l4" style="padding: 3px">
                             <p>
-                                <form action="/admin/product
-                                exclude/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                <form action="/admin/service/exclude/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn red">X</button>
                             </form>

@@ -1,11 +1,12 @@
 const IndexController = require('./../controllers/IndexController');
+const WelcomeController = require('./../controllers/admin/welcomeController');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 
 module.exports = (app) => {
 
    //Welcome landing page
-  app.get('/', IndexController.index);
+  app.get('/', WelcomeController.index);
 
   //Company Profile Page
   app.get('/company-profile', IndexController.companyProfile);  
@@ -14,12 +15,13 @@ module.exports = (app) => {
   app.get('/about', IndexController.about);  
   
 
-  //tour List
+  //Product List
   app.get('/products', IndexController.products);
   app.get('/product-show/:id', IndexController.productShow);
 
-  //transfers list
+  //Service list
   app.get('/services', IndexController.services );
+  app.get('/service-show/:id', IndexController.serviceShow);
 
   //transfers booking form
   app.get('/service/book/:id', IndexController.bookService );

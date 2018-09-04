@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const Product = require('./../../models/Product');
+const Service = require('./../../models/Service');
 
 
 module.exports = {
@@ -37,7 +38,7 @@ module.exports = {
     },
 
 
-    //Edit Facility 
+    //Product Edit Price 
     priceSaleUpdate(req, res) {
         //const id = req.params.id;
         if( !req.params.id || req.params.id == undefined ){
@@ -75,6 +76,33 @@ module.exports = {
             })
 
         
+    },
+
+
+    //Service price update
+
+    //Product Edit Price 
+    priceServiceUpdate(req, res) {
+        //const id = req.params.id;
+        if( !req.params.id || req.params.id == undefined ){
+            return 
+        }
+
+        const id = req.params.id;
+        const newPrice = {
+            "price.sale": req.body.pricesale,
+            "price.net": req.body.pricenet
+        }
+       
+        
+        Service.findByIdAndUpdate({_id: id}, newPrice)
+            
+                .then(service => {
+                    //console.log(service.price.sale);
+                    //res.send(service);
+                    res.redirect('/admin/service/'+ id);
+                })   
+       
     },
 
 }

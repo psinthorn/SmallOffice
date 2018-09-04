@@ -35,20 +35,35 @@ module.exports = (app) => {
     app.post('/admin/service/location/:id', ensureAuthenticated, ServiceController.locationAdd);
 
     
-    //get image form   
+    //Thumbnail image process
     app.get('/admin/service/image', ensureAuthenticated, ServiceController.image); 
     app.post('/admin/service/image', ensureAuthenticated, ServiceController.imageUplaod);
     //Image Edit Section
     app.put('/admin/service/image/:id', ensureAuthenticated, ServiceController.imageUpdate);
+
+    //Banner image process
+    app.get('/admin/service/banner', ensureAuthenticated, ServiceController.banner); 
+    app.post('/admin/service/banner', ensureAuthenticated, ServiceController.imageBannerUplaod);
+    //banner Edit Section
+    app.put('/admin/service/banner/:id', ensureAuthenticated, ServiceController.imageBannerUpdate);
 
     //Gallery section
     app.get('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.gallery );
     app.post('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.galleryUpload);
     app.delete('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.delete );
 
+
+    //Included
+    app.post('/admin/service/include/:id', ensureAuthenticated, ServiceController.include);
+    app.delete('/admin/service/include/:id', ensureAuthenticated, ServiceController.includeDelete);
+
+     //Excluded
+     app.post('/admin/service/exclude/:id', ensureAuthenticated, ServiceController.exclude);
+     app.delete('/admin/service/exclude/:id', ensureAuthenticated, ServiceController.excludeDelete);
+
+
     //Price Manage
-    
-    app.put('/admin/service/pricesale/:id',ensureAuthenticated,PriceSaleController.priceSaleUpdate);
+    app.put('/admin/service/pricesale/:id',ensureAuthenticated,PriceSaleController.priceServiceUpdate);
 
     
 

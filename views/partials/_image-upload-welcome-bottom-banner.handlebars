@@ -1,0 +1,56 @@
+
+ {{!-- Image Update --}}
+
+                    <div class="col s12 m12 l12">
+
+                        <form action="/admin/welcome/banner/{{ welcome.id }}?_method=PUT" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <div class="card white darken-1">
+                                <div class="card-content gray-text">
+
+                                    <div class="row">
+
+                                        <h5>Bottome Banner Image Upload</h5>
+                                        <div class="hr-1px"></div>
+                                        <div class="col s12 m4 l4">
+                                            <div class="file-field input-field">
+                                            <br>
+                                            <div class="row">
+                                                     <div class="file-path-wrapper">
+                                                     <input class="file-path validate" type="text">
+                                                     </div>
+                                            </div>
+
+                                            <div class="row">
+                                                    <div class="btn">
+                                                        <span>Choose image</span>
+                                                         <input type="file" name="welcomeBannerImgUrl" required>
+                                                     </div>
+                                            </div>                                        
+                                        </div>
+
+                                         
+
+                                        </div>
+
+                                        <div class="col s12 m8 l8 ">
+                                            <input type="hidden" name="oldImgUrl" value="{{ welcome.welcomeBannerImgUrl }}">
+                                            <img src="/images/welcome/banner/{{ welcome.welcomeBannerImgUrl }}" alt="{{ welcome.welcomeBannerImgUrl }}" class="responsive-img">
+                                            
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row">
+                                        <input type="submit" value="Update" class="btn right">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <p>*Image size recommendation is 1000x300 Pixels</p>
+                        <br>
+                        {{!-- <a class="btn" href="/admin/apartment/gallery/{{ apartment.id }}">Gallery Manage</a> --}}
+                    </div>

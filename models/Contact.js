@@ -19,6 +19,16 @@ const ContactSchema = new Schema ({
     },
     email: {
         type: String,
+        default: 'your-email@domain-name.com'
+
+        // title: {
+        //      type: String,
+        //      default: 'Email:'
+        // },
+        // email: {
+        //     type: String,
+        //     default: 'your-email@domain-name.com'
+        // }
     },
     whatsapp: {
         type: String,

@@ -5,15 +5,15 @@
         <div class="card white darken-1">
             <div class="card-content gray-text">
 
-                <h4>Brings</h4>
+                <h4>Add Include</h4>
                 <div class="hr-1px"></div>
 
-                <form action="/admin/bring/{{ tour.id }}" method="post">
+                <form action="/admin/service/include/{{ service.id }}" method="post">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
 
-                            <input type="text" name="title">
-                            <label for="title">What to bring</label>
+                            <input type="text" name="title" required>
+                            <label for="title">Service including</label>
 
                         </div>
                     </div>
@@ -29,13 +29,13 @@
                     </div> --}}
 
                     <div class="row">
-                        <input type="submit" value=Add Bring class="btn right">
+                        <input type="submit" value=Add class="btn right">
                     </div>
 
                 </form>
 
-                {{#if tour.brings }}
-                <h5>Current Bring Lists</h5>
+                {{#if service.included }}
+                <h5>Current Including Lists</h5>
                 <div class="divider"></div>
 
                 <div class="row">
@@ -43,7 +43,7 @@
 
 
 
-                    {{#each tour.brings }}
+                    {{#each service.included }}
 
                     <div class="col s12 m6 l6">
 
@@ -55,7 +55,7 @@
                         <div class="col s12 m4 l4" style="padding: 3px">
                             <p>
                                {{!-- <a href="/admin/facility/{{ id }}">edit</a> --}}
-                                <form action="/admin/bring/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                                <form action="/admin/service/include/{{ id }}?_method=DELETE" method="post" id="delete-form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn red">X</button>
                             </form>

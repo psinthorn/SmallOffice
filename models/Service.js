@@ -24,7 +24,12 @@ const ServiceSchema = new Schema({
     },
     imgUrl: {
         type: String,
-        default: 'images/locations/koh-nangyuan-koh-tao.jpg'
+        default: 'thumbnail640x480.jpg'
+    },
+
+    serviceBannerImgUrl: {
+        type: String,
+        default: 'banner-temp1024x300.jpg'
     },
     category: {
         

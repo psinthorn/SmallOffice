@@ -6,19 +6,19 @@
                 <h5>Price</h5>
                 <div class="hr-1px"></div>
 
-                <form action="/admin/service/pricesale/{{ product.id }}?_method=PUT" method="post">
+                <form action="/admin/service/pricesale/{{ service.id }}?_method=PUT" method="post">
                  <input type="hidden" name="_method" value="PUT">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
 
-                            <input type="text" name="pricesale" value="{{product.price.sale}}">
+                            <input type="text" name="pricesale" value="{{service.price.sale}}">
                             <label for="pricesale">Sale Price</label>
 
                         </div>
 
                         <div class="input-field col s12 m12 l12">
 
-                            <input type="text" name="pricenet" value="{{product.price.net}}">
+                            <input type="text" name="pricenet" value="{{service.price.net}}">
                             <label for="pricenet">Net Price</label>
 
                         </div>
