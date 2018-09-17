@@ -1,6 +1,6 @@
 
-const ServiceController = require('./../controllers/admin/ServiceController');
-const ServiceGalleryController = require('./../controllers/admin/ServiceGalleryController');
+const ServiceController = require('./../controllers/admin/serviceController');
+const ServiceGalleryController = require('./../controllers/admin/serviceGalleryController');
 const PriceSaleController = require('./../controllers/admin/priceController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 

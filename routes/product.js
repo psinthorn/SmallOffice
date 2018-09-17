@@ -1,5 +1,5 @@
 //const ApartmentController = require('./../controllers/admin/apartmentController');
-const ProductController = require('./../controllers/admin/ProductController');
+const ProductController = require('./../controllers/admin/productController');
 const GalleryController = require('./../controllers/admin/galleryController');
 const PriceSaleController = require('./../controllers/admin/priceController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
