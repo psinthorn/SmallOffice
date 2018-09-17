@@ -1,21 +1,21 @@
 <div class="container-fluid">
 
-        <div class="row">
-            <div class="col s12 m6 l6">
-                <h3 class="header-text-01">{{ about.title }}</h3>
+        <div class="row" style="margin-top: 50px; margin-bottom: 50px">
+            <div class="col s12 m8 l8">
+                <h4 class="header-text-01">{{ about.title }}</h4>
                 <div class="hr-1px"></div>
                 <p>{{{ about.desc }}}</p>
+                <br>
+                <p class="right" style="padding-right: 10px" ><b><u>{{ about.manageBy}}</u></b> </p>
 
             </div>
 
-            <div class="col s12 m6 l6">
+            <div class="col s12 m4 l4">
                 <div style="padding-top: 20px">
                     <img class="responsive-img" src="/images/{{ about.imgUrl }}" alt="{{ about.title }}">
                 </div>
-               
-
             </div>
-
+            
         </div>
 
 

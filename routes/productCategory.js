@@ -1,5 +1,5 @@
 
-const ProductCategoryController = require('./../controllers/admin/ProductCategoryController');
+const ProductCategoryController = require('./../controllers/admin/productCategoryController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
 module.exports = (app) => {
