@@ -65,6 +65,8 @@ module.exports = (app) => {
     //Price Manage
     app.put('/admin/service/pricesale/:id',ensureAuthenticated,PriceSaleController.priceServiceUpdate);
 
+    //fixed broken links
+
     
 
 }

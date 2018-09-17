@@ -95,14 +95,14 @@ module.exports = {
     delete(req, res){
 
         const id = req.params.id;
-       // const oldImgUrl = req.body.oldImgUrl; 
+       
         const imagesUploads = './public/gallery/';
         const delImage = imagesUploads + req.body.oldImgUrl;
        
 
         fs.unlink(delImage, (err) => { 
             Service.findOne({ 'gallery._id' : id })
-            //.populate('facilities')
+           
             .then( service => {
 
                 service.gallery.pull({ _id : id });
