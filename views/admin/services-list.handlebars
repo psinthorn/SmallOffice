@@ -20,9 +20,10 @@
         <table class="striped">
             <thead>
                 <tr>
+                    <th>No.</th>
                     <th>Image</th>
                     <th>Title</th>
-                    <th>Address</th>
+                    <th>Descriptions</th>
                     <th>Status</th>
                     <th colspan="2" class="center-align">Manage</th>
 
@@ -37,23 +38,16 @@
 
                 <tr>
                     <td>
-                        <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                        {{ order }}
                     </td>
-                    <td>{{ title }}</td>
 
                     <td>
-                        {{#if locations }}
-                        {{#each locations }}
-                        
-                        {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ state }} {{ country }} {{ postCode }}
+                        <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                    </td>
+                    <td>{{{stripTags (truncate title 30)}}}</td>
 
-                        {{/each}}
-
-                        {{else}}
-
-                            No Location found, Please add
-
-                        {{/if}}
+                    <td>
+                        {{{stripTags (truncate desc 50)}}}
                     </td>
 
                     <td>{{ status }}</td>

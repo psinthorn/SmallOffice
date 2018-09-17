@@ -54,7 +54,7 @@ about(req, res){
 
 products(req, res){
 
-    Product.find({status: 'Public'}).sort({ date: -1})
+    Product.find({status: 'Public'}).sort({ order: 1})
     .then( (products) => {
             res.render('index/products', { products: products });          
     });
@@ -76,7 +76,7 @@ productShow(req, res){
 
  services(req, res) {
 
-    Service.find({status: 'Public'}).sort({ date: -1})
+    Service.find({status: 'Public'}).sort({ order: 1})
     .then( (services) => {
             res.render('index/services', { services: services });          
     });

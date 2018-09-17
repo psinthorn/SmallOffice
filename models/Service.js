@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
-const Facility = require('./../models/Bring');
 const Schema = mongoose.Schema;
 const LocationSchema = require('./../models/LocationSchema');
-const SubContactSchema = require('./../models/SubContactSchema');
 const GallerySchema = require('./../models/GallerySchema');
 
 
 const ServiceSchema = new Schema({
     order: {
-        no: String
+        type: String
     },
     name: {
         type: String,
@@ -37,7 +35,6 @@ const ServiceSchema = new Schema({
     },
     gallery: [GallerySchema],
     locations: [LocationSchema],
-    subcontact: [SubContactSchema],
     address: {
         type: String,
     },

@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const Service = require('../../models/Service');
-const SubContact = require('../../models/SubContact');
 const fs = require('fs');
 
 
@@ -12,7 +11,7 @@ module.exports = {
     //Get all available list of apartments
     getAll(req, res){
 
-        Service.find({}).sort({ date: -1})
+        Service.find({}).sort({ order: 1})
         .then(services => {
             res.render('admin/services-list', { services: services });
             //res.send(services);

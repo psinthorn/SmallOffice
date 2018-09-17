@@ -12,6 +12,9 @@ const AboutSchema = new Schema({
     imgUrl: {
         type: String
     },
+    manageBy: {
+        type: String,
+    },
     status: {
         type: String,
         default: 'public'

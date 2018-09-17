@@ -19,7 +19,7 @@ const keys  = require('./config/key');
 const upload = require('express-fileupload');
 const flash = require('connect-flash');
 
-//load user model
+//load models
 require('./models/Welcome');
 require('./models/Category');
 require('./models/Contents');

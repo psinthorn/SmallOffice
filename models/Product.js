@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Facility = require('./../models/Bring');
 const Schema = mongoose.Schema;
 const LocationSchema = require('./../models/LocationSchema');
-const SubContactSchema = require('./../models/SubContactSchema');
+//const SubContactSchema = require('./../models/SubContactSchema');
 const GallerySchema = require('./../models/GallerySchema');
 
 
@@ -37,7 +37,6 @@ const ProductSchema = new Schema({
     },
     gallery: [GallerySchema],
     locations: [LocationSchema],
-    subcontact: [SubContactSchema],
     address: {
         type: String,
     },
