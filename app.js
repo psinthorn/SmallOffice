@@ -38,20 +38,16 @@ require('./models/Policy');
 
 //load router
 const admin = require('./routes/admin');
-//const reservations = require('./routes/reservations')
 const auth = require('./routes/auth'); 
 const mail = require('./routes/mail');
 const contents = require('./routes/content');
 const index = require('./routes/index');
 const contact = require('./routes/contact');
 const about = require('./routes/about');
-const welcome = require('./routes/Welcome');
+const welcome = require('./routes/welcome');
 const product = require('./routes/product');
-//const slide = require('./routes/slide');
 const service = require('./routes/service');
 const productcategory = require('./routes/productCategory');
-//const payment = require('./routes/payment');
-//const booking = require('./routes/booking');
 const policy = require('./routes/policy');
 
 const app = express();
