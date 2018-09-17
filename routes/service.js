@@ -1,6 +1,6 @@
 
 const ServiceController = require('./../controllers/admin/ServiceController');
-const GalleryController = require('./../controllers/admin/galleryController');
+const ServiceGalleryController = require('./../controllers/admin/ServiceGalleryController');
 const PriceSaleController = require('./../controllers/admin/priceController');
 const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
 
@@ -48,9 +48,9 @@ module.exports = (app) => {
     app.put('/admin/service/banner/:id', ensureAuthenticated, ServiceController.imageBannerUpdate);
 
     //Gallery section
-    app.get('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.gallery );
-    app.post('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.galleryUpload);
-    app.delete('/admin/service/gallery/:id', ensureAuthenticated, GalleryController.delete );
+    app.get('/admin/service/gallery/:id', ensureAuthenticated, ServiceGalleryController.gallery );
+    app.post('/admin/service/gallery/:id', ensureAuthenticated, ServiceGalleryController.galleryUpload);
+    app.delete('/admin/service/gallery/:id', ensureAuthenticated, ServiceGalleryController.delete );
 
 
     //Included

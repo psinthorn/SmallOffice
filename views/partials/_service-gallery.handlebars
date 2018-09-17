@@ -1,20 +1,21 @@
-{{#if product.gallery }}
+{{#if service.gallery }}
 
-<div class="row " style="background-color: #cfd8dc; padding: 20px">
+<div class="row " style="padding: 20px">
+    {{!-- <div class="row " style="background-color: #cfd8dc; padding: 20px"> --}}
 
 
 
     {{!-- <div class="card"> --}}
         <div class="clearfix"> 
           
-            {{#each product.gallery }}
+            {{#each service.gallery }}
 
             <div class="col s12 m3 l3">
 
                     <div class="gallery">
                         
-                        <a href="/gallery/{{ name }}" data-lightbox="APDL Gallery">
-                            <img src="/gallery/{{ name }}" class="responsive-img">
+                        <a href="/images/service/gallery/{{ name }}" data-lightbox="APDL Gallery">
+                            <img src="/images/service/gallery/{{ name }}" class="responsive-img">
                         </a>
                     </div>                                   
             </div>

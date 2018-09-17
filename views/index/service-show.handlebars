@@ -2,24 +2,13 @@
 <br> {{> _header-intro }} --}}
 <div class="container-fluid">
     
+                    <div class="row" style="margin-top: 20px">
 
-    <div class="card" style="margin-top: 20px">
-                    <div class="card-image">
-
-                        <img class="responsive-img" src="/images/service/banner/{{ service.serviceBannerImgUrl }}" style="height: 300px" alt="{{ service.serviceBannerImgUrl }}"> 
-                        <div class="card-footer blue-grey-text center-align">
-
-                        </div>
+                        <img class="responsive-img center" src="/images/service/banner/{{ service.serviceBannerImgUrl }}" style="width: 100%" alt="{{ service.serviceBannerImgUrl }}"> 
+                        
                     </div>
-
-    </div>
-
    
-       <h4 class="header-text-01">
-                {{ service.title }}
-        </h4>
    
-    
     <div class="row">
         <div class="col s12 m12 l12">
             <br>
@@ -28,12 +17,6 @@
             </p>
 
             <br>  
-            
-
-            
-            
-
-
 
             <br>
 
@@ -51,55 +34,12 @@
                 {{> _service-exclude }}
             </div>
         </div>
-
-        {{!--
-        <div class="col s12 m1 l1"></div> --}}
-
-        
-{{!--
-        <div class="col s12 m4 l4">
-
-            <br> {{#if service.subcontact }} {{#each service.subcontact }}
-
-            <div class="row" style="background-color: #eee ">
-                <div class="col s12 m12 l12">
-                    <p class="header-text-01">
-                        <h5>{{ title }}</h5>
-                        <div class="divider"></div>
-                        <p class="blue-grey-text">
-                            <b>Contact: </b> {{ person }}</p>
-                        <p>
-                            <a class="blue-grey-text" href="tel:{{ phone }}">
-                                <b>Tel: </b> {{ phone }}</a>
-                        </p>
-                        <p class="blue-grey-text">
-                            <b>WhatsApp:</b> {{ whatsapp}}</p>
-                        <p class="blue-grey-text">
-                            <b>Skype: </b> {{ skype }}</p>
-                        <p>
-                            <a class="blue-grey-text" href="mailto: {{email}} ?Subject=Enquiry from Website">
-                                <b>Email: </b> {{ email }}</a>
-                        </p>
-                        <p class="blue-grey-text">
-                            <b>Working Hour: </b>
-                            <br>{{ workingHour }} </p>
-
-                    </p>
-                </div>
-
-            </div>
-
-
-            {{/each}} {{/if}} {{#if service.locations }} {{> _maps-location }} {{/if}}
-        </div>--}}
-
-
     </div>
    
     <div class="row">
         <div class="col s12 m12 l12">
             {{> _service-gallery }}
-            {{!-- {{> _service_book_form}} --}}
+            
         </div>
         </div>
    

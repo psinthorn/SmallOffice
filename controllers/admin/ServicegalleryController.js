@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
-const product = require('./../../models/Product');
+const Service = require('./../../models/Service');
 const fs = require('fs');
 
 module.exports = {
@@ -10,9 +10,9 @@ module.exports = {
     gallery(req, res){
         const id = req.params.id;
 
-        product.findById({ _id: id})
-            .then( product => {
-                res.render('admin/gallery-upload-form', { product: product });
+        Service.findById({ _id: id})
+            .then( service => {
+                res.render('admin/service-gallery-upload-form', { service: service });
             })
         
         
@@ -28,34 +28,34 @@ module.exports = {
 
         if( !imgUrl ){
             req.flash('error_msg', 'Image is empty please select an image');
-            product.findById({ _id: id })
-                .then( product => {
-                    res.redirect(`/admin/product/gallery/${product.id}`);   
+            Service.findById({ _id: id })
+                .then( service => {
+                    res.redirect(`/admin/service/gallery/${service.id}`);   
                 });
         } else {
 
             const imgUrlName = Date.now() + '-' + imgUrl.name;
-            const imagesUploads = './public/gallery/';
+            const imagesUploads = './public/images/service/gallery/';
             imgUrl.mv(imagesUploads + imgUrlName, (err) => {
                 if(err) throw err;
     
             });
     
-            product.findById({ _id: id })
-                .then( product => {
+            Service.findById({ _id: id })
+                .then( service => {
     
                     const imgName = ({
                         name: imgUrlName
                     });
                    
-                    product.gallery.push(imgName);
+                    service.gallery.push(imgName);
     
-                    product.save()
-                    .then( () => product.findById({ _id: id }))
-                        .then( product => {
+                    service.save()
+                    .then( () => Service.findById({ _id: id }))
+                        .then( service => {
                             
                             req.flash('success_msg', 'Gallery is added');
-                            res.redirect(`/admin/product/${product.id}`);
+                            res.redirect(`/admin/service/${service.id}`);
                             //res.render('admin/gallery-upload-form', { apartment: apartment });
     
                         })
@@ -83,10 +83,10 @@ module.exports = {
             imgUrl: imgUrlName
         })
     
-        product.findByIdAndUpdate({ _id: id},newImg)
-            .then(() => product.findById({ _id: id }))
-            .then( product => {
-                res.render('admin/product-edit', { product: product });
+        Service.findByIdAndUpdate({ _id: id},newImg)
+            .then(() => service.findById({ _id: id }))
+            .then( service => {
+                res.render('admin/service-edit', { service: service });
             });
 
     },
@@ -101,15 +101,15 @@ module.exports = {
        
 
         fs.unlink(delImage, (err) => { 
-            product.findOne({ 'gallery._id' : id })
+            Service.findOne({ 'gallery._id' : id })
             //.populate('facilities')
-            .then( product => {
+            .then( service => {
 
-                product.gallery.pull({ _id : id });
-                product.save()
-                    .then(product => {
+                service.gallery.pull({ _id : id });
+                service.save()
+                    .then(service => {
                         req.flash('error_msg', 'Image is deleted');
-                        res.redirect(`/admin/product/${product.id}`);
+                        res.redirect(`/admin/service/${service.id}`);
                     });
             })
         });
