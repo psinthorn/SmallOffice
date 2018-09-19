@@ -11,12 +11,17 @@
   text-decoration: none;
 }
 
-body, html  {
+html  {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-size: 62.5%;
     font-family: Roboto,Helvetica Neue,sans-serif;
     color: #455a64;
+  }
+
+  body {
+    font-size: 1.6em;
   }
 
   main {
@@ -28,8 +33,10 @@ body, html  {
 
   }
 
+
   .nav-wrapper  {
-    
+    font-size: 30px;
+    font-size: 3.0rem;
     background-color:     #e53935; 
     /*$brand-primary:           #084672;*/
     /*materialize color #0288d1 light-blue darken-2*/
@@ -354,19 +361,15 @@ a:hover {
 }
 
 .top-logo {
-  /*background-color: green;*/
-  /*align-self: ;*/
-  /*justify-self:;*/
-  /*margin-left: 20px;*/
+
   padding-top: 2px;
   
 }
 
 .top-main-menu {
-  /*background-color: blue;*/
-  /*align-self: start;*/
   padding-right: 20px;
   padding-left: 20px; 
+  font-size: 100px;
   justify-self: center;
 
 }
