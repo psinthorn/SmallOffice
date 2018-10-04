@@ -2,9 +2,6 @@
 /************ MaterializeCSS ****/
 /*****************************/
 
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +30,6 @@ html  {
 
   }
 
-
   .nav-wrapper  {
     font-size: 30px;
     font-size: 3.0rem;
@@ -41,7 +37,6 @@ html  {
     /*$brand-primary:           #084672;*/
     /*materialize color #0288d1 light-blue darken-2*/
       
-    
   }
 
   footer{

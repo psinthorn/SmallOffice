@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+    <div class="row">
+       {{!-- {{> _msg }} --}}
+    </div>
+
+
+    <h3>Banner</h3>
+    <div class="hr-1px"></div>
+    <div class="row">
+        <div class="left"></div>
+        <a href="/admin/banner/add">
+            <div class="btn right">Add New Banner</div>
+        </a>
+    </div>
+    <div class="row">
+
+        {{#if categories }}
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Descriptions</th>
+                    <th>Link Url</th>
+                    <th>Status</th>
+                    <th colspan="2" class="center-align">Manage</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                {{#each categories }}
+
+
+                <tr>
+                    <td>
+                        <img src="/images/banner/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                    </td>
+                    <td>{{ title }}</td>
+
+                    <td>
+                            {{{ desc }}}
+                    </td>
+
+                     <td>
+                            {{ linkUrl }}
+                    </td>
+
+                    <td>{{ status}}</td>
+
+                    <td class="right-align">
+                        <a href="/admin/banner/edit/{{ id }}" class="btn">Edit</a>
+                    </td>
+                    <td class="left-align">
+                        <form action="/admin/banner/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">X</button>
+                        </form>
+
+                    </td>
+
+
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+
+        {{else}}
+        <p>Currently is no banner available!</p>
+        {{/if}}
+
+
+    </div>
+</div>

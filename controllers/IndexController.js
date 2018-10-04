@@ -33,7 +33,7 @@ dashBoard(req, res){
 index(req, res){
     Welcome.findOne({})
         .then( welcome => {
-            res.render('index/welcome', { welcome: welcome });
+            res.render('index/home', { welcome: welcome });
         })  
 },
 
