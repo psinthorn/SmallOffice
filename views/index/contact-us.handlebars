@@ -36,11 +36,18 @@
                             <i class="material-icons">call</i>
                         </p>
                     </div>
-                    <div class="col s12 m10 l10">
-                        <p>
-                            <a class="blue-grey-text" href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
-                        </p>
+                    <div class="row">
+
+                        <div class="col s1 m1 l1"></div>
+                         <div class="col s5 m5 l5 hide-on-small-only"></div>
+                        <div class="col s5 m5 l5">
+                            <p>
+                                <a class="blue-grey-text" href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                            </p>
+                        </div>
+
                     </div>
+                   
 
                 </div>
 
@@ -55,11 +62,15 @@
                             <i class="material-icons">drafts</i>
                         </p>
                     </div>
-                    <div class="col s12 m10 l10">
+                    <div class="row">
+                    <div class="col s1 m1 l1"></div>
+                    <div class="col s11 m9 l9">
                         <p>
                             <a class="blue-grey-text" href="mailto:{{ contact.email }}?Subject=Enquiry from mscspest.com">{{ contact.email }}</a>
                         </p>
                     </div>
+                    </div>
+                    
 
                 </div>
 
@@ -71,16 +82,22 @@
                             <i class="material-icons">location_on</i>
                         </p>
                     </div>
-                    <div class="col s12 m10 l10">
+                    <div class="row">
+                        <div class="col s1 m1 l1"></div>
+                    <div class="col s11 m9 l9">
                         <p>
                             <p class="blue-grey-text" href="#">
                             {{ contact.addr1 }}
                             <br>
                             <span>{{ contact.addr2 }}</span>
                             <br>
+                            <span>{{ contact.addr3 }}</span>
                             </p>
                         </p>
                     </div>
+
+                    </div>
+                    
                 </div>
 
                 {{#if contact.lat }}
