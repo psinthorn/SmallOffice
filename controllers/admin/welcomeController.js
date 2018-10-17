@@ -1,16 +1,38 @@
 const mongoose = require('mongoose');
 const Welcome = require('../../models/Welcome');
+const Banner = require('../../models/Banner');
 const fs = require('fs');
 
 
 module.exports = {
 
+
+   
+    
+
     //Welcome Page
     index(req, res){
-        Welcome.findOne({})
-        .then( welcome => {
-            res.render('index/welcome', { welcome: welcome });
-        })  
+
+         let promisesAll = [
+
+            // Product.find({status: 'Public'}).sort({ date: -1}).exec(),
+            // Intro.find({ status: 'Public'}).exec(),
+            // Contact.find({}).exec(),
+            Welcome.find({status: 'Public'}).sort({ date: -1}).exec(),
+            Banner.find({status: 'Public'}).exec()
+
+            ];
+
+            Promise.all(promisesAll)
+            .then( ([welcome, banner]) => {
+                    res.render('index/welcome', { welcome: welcome, banner: banner });          
+        });
+
+
+        // Welcome.findOne({})
+        // .then( welcome => {
+        //     res.render('index/welcome', { welcome: welcome });
+        // })  
     },
 
     //Get all available list of apartments

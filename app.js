@@ -25,6 +25,8 @@ require('./models/Category');
 require('./models/Contents');
 require('./models/UserAdmin');
 require('./models/Users');
+require('./models/Banner');
+require('./models/Slide');
 
 require('./models/ProductCategory');
 require('./models/Product');
@@ -38,6 +40,8 @@ require('./models/Policy');
 
 //load router
 const admin = require('./routes/admin');
+const banner = require('./routes/banner');
+const slide = require('./routes/slide');
 const auth = require('./routes/auth'); 
 const mail = require('./routes/mail');
 const contents = require('./routes/content');
@@ -162,12 +166,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //use route
 admin(app);
+banner(app);
 index(app);
 contact(app);
 about(app);
 product(app);
 productcategory(app);
 service(app);
+slide(app);
 welcome(app);
 policy(app);
 

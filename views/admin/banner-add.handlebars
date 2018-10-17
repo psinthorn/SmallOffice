@@ -1,0 +1,76 @@
+
+
+
+    <div class="row">
+
+        {{> _msg}}
+
+        <div class="col s12 m12 l12">
+            <h4>Add New Banner</h4>
+            <div class="hr-1px"></div>
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text" >
+
+                        <form action="/admin/banner" method="post">
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <input type="text" name="title" required>
+                                    <label for="title">Title</label>
+
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="input-field col s12 m12 l12">
+
+                                    <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+                                    {{!-- <label for="desc">Contact Content</label> --}}
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <input type="text" name="manageBy">
+                                        <label for="manageBy">Manage By</label>
+
+                                    </div>
+                                </div>
+
+
+                             {{!-- <div class="row">
+                                {{> _banner-image-upload }}
+                            </div> --}}
+
+
+                            
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+                                        <option value="public" selected>Public</option>
+                                        <option value="private">Private</option>
+                                        <option value="unpublished">unpublished</option>
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <input type="submit" value="Add" class="btn right">
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+            
+</div>

@@ -1,0 +1,82 @@
+
+
+    <div class="row">
+        <div class="input-field col s12">
+            {{#if errors}}
+            <div class="card-panel red lighten-4">
+                {{#each errors}} {{error}}
+                <br> {{/each}}
+            </div>
+            {{/if}} {{#each successMsg}}
+
+            <div class="card-panel green lighten-4">
+                {{success}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <h3>Banner Info</h3>
+    <div class="hr-1px"></div>
+
+    <div class="row">
+
+        <div class="col s12 m12 l12">
+            <div class="card white darken-1">
+                <div class="card-content gray-text">
+
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <input type="text" name="title" value="{{ banner.title}}" readonly>
+                            <label for="title">Title</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <textarea name="desc" id="desc" cols="30" rows="10" readonly>{{ banner.desc }}</textarea>
+
+                        </div>
+                    </div>
+
+                     
+                    <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+                                        {{#select banner.status }}
+                                        <option value="public" >Public</option>
+                                        <option value="private">Private</option>
+                                        <option value="Unpublished">unpublished</option>
+                                        {{/select }}
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+                   
+                   <div class="row">
+                        <div class="input-field col s12 m12 l12">
+
+                            <img class="responsive-img" src="/images/{{ banner.imgUrl }}" alt="{{ banner.title }}">
+
+                        </div>
+                    </div>
+
+
+            <div class="right-align">
+                <a href="/admin/banner/{{ banner.id }}" class="btn">Edit</a>
+            </div>
+
+        </div>
+
+
+        </form>
+
+    </div>
+
+
+
+</div>

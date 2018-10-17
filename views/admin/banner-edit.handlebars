@@ -1,0 +1,78 @@
+
+    <div class="row">
+
+        {{> _msg}}
+
+        <div class="col s12 m12 l12">
+            <h4>Edit banner Info</h4>
+            <div class="hr-1px"></div>
+
+            <div class="col s12 m12 l12">
+                <div class="card white darken-1">
+                    <div class="card-content gray-text">
+
+                        <form action="/admin/banner/{{ banner.id }}?_method=PUT" method="post">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <input type="text" name="title" value="{{ banner.title}}">
+                                        <label for="title">Title</label>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+
+                                        <textarea name="desc" id="desc" cols="30" rows="10">{{ banner.desc }}</textarea>
+                                        <label for="desc">banner Content</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <input type="text" name="manageBy" value="{{ banner.manageBy }}">
+                                        <label for="manageBy">Manage By</label>
+
+                                    </div>
+                                </div>
+
+
+                            
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="status" id="status">
+                                        {{#select banner.status }}
+                                        <option value="public" >Public</option>
+                                        <option value="private">Private</option>
+                                        <option value="Unpublished">unpublished</option>
+                                        {{/select }}
+                                    </select>
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                
+                                <input type="submit" value="Update" class="btn right">
+                            </div>
+                        </form>
+
+                        <div class="row">
+                                {{> _banner-image-upload }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        </div>
+
+
+    

@@ -5,29 +5,26 @@ const Schema = mongoose.Schema;
 const BannerSchema = new Schema ({
     title: {
         type: String,
-        required: true
+        default: 'À Propos'
     },
     desc: {
-        type: String,
-        default: 'Category Desc'
-    },
-
-    imgUrl: {
-        type: String,
-        default: 'default'
-    },
-    linkUrl: {
         type: String
+    },
+    imgUrl: {
+        type: String
+    },
+    manageBy: {
+        type: String,
     },
     status: {
         type: String,
         default: 'public'
     },
-    user:{
-        type: Schema.Types.ObjectId,
-        ref: 'user'
+    user: {
+        type: String,
+        default: 'admin'
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now
     }
