@@ -41,13 +41,13 @@
                    
                     </div>
 
-                    <div class="row">
+                    {{!-- <div class="row">
                         <div class="input-field col s12 m12 l12">
 
                             <textarea name="desc" id="desc" cols="30" rows="10" readonly>{{ contact.desc }}</textarea>
 
                         </div>
-                    </div>
+                    </div> --}}
                     
                     <div class="row">
 
@@ -59,6 +59,7 @@
                         </div>
 
                     <div class="row header-text-01">
+                        
                         <h5>Phone</h5>
                         <div class="hr-1px-p10"></div>
                         <div class="col s12 m2 l2">
@@ -68,8 +69,35 @@
                         </div>
                         <div class="col s12 m10 l10">
                             <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                                <a class="blue-grey-text" href="tel:{{ contact.phone1 }}">{{ contact.phone1 }}</a>
                             </p>
+                            <p>
+                                <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
+                            </p>
+                            <p>
+                                <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
+                            </p>
+                            <p>
+                                <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row header-text-01">
+                        
+                        <h5>Fax</h5>
+                        <div class="hr-1px-p10"></div>
+                        <div class="col s12 m2 l2">
+                            <p>
+                                <i class="material-icons">call</i>
+                            </p>
+                        </div>
+                        <div class="col s12 m10 l10">
+                            <p>
+                                <a class="blue-grey-text" href="tel:{{ contact.fax }}">{{ contact.fax }}</a>
+                            </p>
+                            
                         </div>
 
                     </div>
@@ -163,6 +191,8 @@
                                     {{ contact.addr1 }}
                                     <br>
                                     <span>{{ contact.addr2 }}</span>
+                                    <br>
+                                    <span>{{ contact.addr3 }}</span>
                                     <br>
                                 </p>
                             </p>

@@ -17,6 +17,26 @@ const ContactSchema = new Schema ({
         type: String,
         default: '+ 662 999 9999'
     },
+    phone1: {
+        type: String,
+        default: '+ 662 999 9999'
+    },
+    phone2: {
+        type: String,
+        default: '+ 662 999 9999'
+    },
+    phone3: {
+        type: String,
+        default: '+ 662 999 9999'
+    },
+    phone4: {
+        type: String,
+        default: '+ 662 999 9999'
+    },
+    fax: {
+        type: String,
+        default: '+ 662 999 9999'
+    },
     email: {
         type: String,
         default: 'your-email@domain-name.com'
