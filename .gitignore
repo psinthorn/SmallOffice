@@ -1,6 +1,8 @@
 node_modules
 test
 config/dev.js
+public/images
+public/gallery
 
 
 
