@@ -1,5 +1,4 @@
-
-
+<div class="container">
     <div class="row">
         <div class="input-field col s12">
             {{#if errors}}
@@ -37,8 +36,8 @@
                             <input type="text" name="title" value="{{ contact.title}}" readonly>
                             <label for="title">Title</label>
 
-                        </div>   
-                   
+                        </div>
+
                     </div>
 
                     {{!-- <div class="row">
@@ -48,18 +47,18 @@
 
                         </div>
                     </div> --}}
-                    
+
                     <div class="row">
 
-                            <div class="input-field col s12 m12 l12">
+                        <div class="input-field col s12 m12 l12">
                             {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img" style="padding: 20px"> --}}
-                            {{> _image-upload-contact }}
+                            {{!-- {{> _image-upload-contact }} --}}
                         </div>
 
-                        </div>
+                    </div>
 
                     <div class="row header-text-01">
-                        
+
                         <h5>Phone</h5>
                         <div class="hr-1px-p10"></div>
                         <div class="col s12 m2 l2">
@@ -85,7 +84,7 @@
                     </div>
 
                     <div class="row header-text-01">
-                        
+
                         <h5>Fax</h5>
                         <div class="hr-1px-p10"></div>
                         <div class="col s12 m2 l2">
@@ -97,7 +96,7 @@
                             <p>
                                 <a class="blue-grey-text" href="tel:{{ contact.fax }}">{{ contact.fax }}</a>
                             </p>
-                            
+
                         </div>
 
                     </div>
@@ -115,7 +114,8 @@
                         </div>
                         <div class="col s12 m10 l10">
                             <p>
-                                <a class="blue-grey-text" href="mailto:{{ contact.email }}?Subject=Enquiry from samuioceantour.com">{{ contact.email }}</a>
+                                <a class="blue-grey-text"
+                                    href="mailto:{{ contact.email }}?Subject=Enquiry from samuioceantour.com">{{ contact.email }}</a>
                             </p>
                         </div>
 
@@ -200,12 +200,12 @@
 
                     </div>
 
-                     <div class="row header-text-01">
+                    <div class="row header-text-01">
                         <h5>Maps</h5>
                         <div class="hr-1px-p10"></div>
-                       
+
                         <div class="col s12 m12 l12">
-                          <div class="row">
+                            <div class="row">
                                 <div class="input-field col s12 m5 l5">
                                     <input type="text" name="lat" value="{{ contact.lat }}" disabled>
                                     <label for="lat">Latitude</label>
@@ -214,35 +214,36 @@
                                     <input type="text" name="lng" value="{{ contact.lng }}" disabled>
                                     <label for="lng">Longitude</label>
                                 </div>
-                        </div>
+                            </div>
 
-                        <div class="row">
+                            <div class="row">
                                 <div style="padding: 5px">
                                     {{> _maps-contact }}
                                 </div>
-                    
+
                                 {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img"> --}}
                             </div>
 
                         </div>
 
+                    </div>
+
+                    <div class="right-align">
+                        <a href="/admin/contact/{{ contact.id }}" class="btn">Edit</a>
+                    </div>
+
                 </div>
 
-                <div class="right-align">
-                <a href="/admin/contact/{{ contact.id }}" class="btn">Edit</a>
-            </div>
-            
+
+
             </div>
 
-            
+
+            </form>
 
         </div>
 
 
-        </form>
 
     </div>
-
-
-
 </div>

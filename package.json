@@ -13,6 +13,7 @@
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
     "express-handlebars": "^3.0.0",
@@ -31,17 +32,10 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/psinthorn/CodeStories.git"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/psinthorn/CodeStories/issues"
-  },
-  "homepage": "https://github.com/psinthorn/CodeStories#readme"
+  "license": "ISC"
 }

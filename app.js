@@ -7,6 +7,7 @@ const fs = require('fs');
 const axios = require('axios');
 const aws = require('aws-sdk');
 const paypal = require('paypal-rest-sdk');
+const cors = require('cors');
 
 
 
@@ -55,6 +56,7 @@ const productcategory = require('./routes/productCategory');
 const policy = require('./routes/policy');
 
 const app = express();
+app.use(cors());
 
 
 //use sessions for tracking logins

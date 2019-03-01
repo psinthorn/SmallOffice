@@ -79,7 +79,7 @@ html  {
     height: 95vh;
     /* background-image: url(../imags/natours/nat-5.jpg); */
     background-size: cover;
-    background-color: #777;
+    background-color: #fff;
     background-position: top;
     
   }
@@ -386,6 +386,10 @@ i.include-check {
 
 i.exclude-check {
   color: #ff5252;
+}
+
+.banner-caption {
+  color: grey;
 }
 
 

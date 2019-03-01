@@ -4,7 +4,7 @@
 
     {{> _msg}}
 
-    <h3 class="header-text-01">เอ็ม.เอส.ซี.เอส มีบริการต่างๆ ดังนี้</h3>
+    <h3 class="header-text-01">MostOffice มีบริการต่างๆ ดังนี้</h3>
     <div class="divider"></div>
     <br>
     <br> {{#each services }}
@@ -14,16 +14,16 @@
         <div class="col s12 m4 l4">
 
             <a href="/service-show/{{ id }}">
-                <div class="card">
-                    <div class="card-image">
+                {{!-- <div class="card">
+                    <div class="card-image"> --}}
 
                         <img class="responsive-img" src="/images/service/{{ imgUrl }}"> 
-                        <div class="card-footer blue-grey-text center-align">
+                        {{!-- <div class="card-footer blue-grey-text center-align"> --}}
 
-                        </div>
-                    </div>
+                        {{!-- </div>
+                    </div> --}}
 
-                </div>
+                {{!-- </div> --}}
             </a>
         </div>
 
@@ -57,7 +57,7 @@
 
                         <div class="col s12 m12 l12">
                             <a href="/service-show/{{ id }}">
-                        <div class="btn blue btn-hor-effect right">More Informations</div>
+                        <div class="btn blue btn-hor-effect right">เงื่อนไขอื่นๆ เพิ่มเติม</div>
                         </a>
                         </div>
 

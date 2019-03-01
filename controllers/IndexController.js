@@ -31,10 +31,24 @@ dashBoard(req, res){
 }, 
 
 index(req, res){
-    Welcome.findOne({})
-        .then( welcome => {
-            res.render('index/home', { welcome: welcome });
-        })  
+
+     let promisesAll = [
+
+        Product.find({status: 'Public'}).sort({ date: -1}).exec(),
+        Service.find({ status: 'Public'}).exec(),
+        Contact.find({}).exec()
+
+    ];
+
+    Promise.all(promisesAll)
+    .then( ([products, services, contact]) => {
+            res.render('index/home', { products: products, services: services, contact: contact });          
+    });
+
+    // Welcome.findOne({})
+    //     .then( welcome => {
+    //         res.render('index/home', { welcome: welcome });
+    //     })  
 },
 
 

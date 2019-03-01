@@ -21,10 +21,10 @@ module.exports = (app) => {
     app.get('/admin/admins', ensureAuthenticated, adminController.getAll);
 
      //Get all admin List
-     app.get('/admin/register', ensureAuthenticated, adminController.registerForm);
+     app.get('/admin/register', adminController.registerForm);
      
     //Create new admin 
-    app.post('/admin/admin',  ensureAuthenticated, adminController.create);
+    app.post('/admin/admin',  adminController.create);
 
     //Edit form
     app.get('/admin/admins/:id', ensureAuthenticated, adminController.editForm);

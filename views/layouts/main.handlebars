@@ -17,67 +17,85 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-      <link rel="stylesheet" href="/css/welcome.css">
+    <link rel="stylesheet" href="/css/welcome.css">
     <link rel="stylesheet" href="/css/tools.css">
-     <link rel="stylesheet" href="/css/lightbox.min.css">   
-     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/lightbox.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    
-     <!-- Compiled and minified JavaScript -->
+
+    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-     {{!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
-    <script defer src="/fontawesome506/svg-with-js/js/fontawesome-all.js"></script>    
+    {{!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
+    <script defer src="/fontawesome506/svg-with-js/js/fontawesome-all.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-     <script src="/js/lightbox-plus-jquery.min.js" ></script>
-
-   
-
-     <style>
-    #map {
-  height: 400px;
-  width: 100%;
- }
-
-</style>
+    <script src="/js/lightbox-plus-jquery.min.js"></script>
 
 
-    <title>M.S.C.S (Thailand) - บริการ กำจัดปลวก</title>
+
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+
+
+    <title>MostOffice - เทปคุณภาพสูง ที่ท่านมั่นใจ</title>
 </head>
 
 <body>
-    <div class="container">
-    {{> _header_ads }}
-     {{> _nav2bar }}  
-    {{!--{{> _header }} --}}
-    
-
-    {{!-- {{#if user}} {{> _add-btn}} {{else}} {{/if}} --}}
-
-    <main>
-        
+    <div class="row">
         <div class="container-fluid">
-            {{> _msg-flash}}
-       
+
+            {{!-- {{> _nav-right-hamburger }} --}}
+            {{> _nav2bar }}
+            {{!--{{> _header }} --}}
+
+
+            {{!-- {{#if user}} {{> _add-btn}} {{else}} {{/if}} --}}
         </div>
 
-             {{{body}}}
-        
-    </main>
-    <div class="container-fluid">
-        {{> _footer}}
+    </div>
+    <div class="row">
+
+        <div class="container-fluid">
+            <main>
+
+                <div class="container-fluid">
+                    {{> _msg-flash}}
+
+                </div>
+
+                <div class="container-fluid">
+                    {{{body}}}
+                </div>
+
+
+            </main>
+
+        </div>
+
 
     </div>
-    
+
+    <div class="row">
+        <div class="container-fluid">
+            {{> _footer}}
+
+        </div>
 
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
         </script>
 
     <!-- Compiled and minified JavaScript -->
@@ -95,10 +113,10 @@
         });
 
 
-         CKEDITOR.replace('body', { }); 
-         CKEDITOR.replace('body');
+        CKEDITOR.replace('body', {});
+        CKEDITOR.replace('body');
 
-         plugins: 'wysiwygarea,toolbar,link,basicstyles'
+        plugins: 'wysiwygarea,toolbar,link,basicstyles'
 
     </script>
 
@@ -109,7 +127,7 @@
         });
 
 
-        CKEDITOR.replace('desc', { });
+        CKEDITOR.replace('desc', {});
         plugins: 'wysiwygarea,toolbar,link,basicstyles'
 
     </script> {{!--
@@ -137,50 +155,50 @@
 
     </script>
 
-     {{!-- <script>
+    {{!-- <script>
 
-          $("div.menu-icon").on({
+        $("div.menu-icon").on({
 
-            mouseenter: function(){
-              $(this).css('color', 'red');
-              $(this).css('font-size', 150%);
-              $()this.html('test over');
+            mouseenter: function () {
+                $(this).css('color', 'red');
+                $(this).css('font-size', 150 %);
+                $()this.html('test over');
             },
 
-            mouseleave: function(){
+            mouseleave: function () {
                 $(this).css('color', 'white');
-              $(this).css('font-size', 100%);
+                $(this).css('font-size', 100 %);
             }
 
-          });
+        });
 
-        </script> --}}
+    </script> --}}
 
-        <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.datepicker');
-                M.Datepicker.init(elems, {
-                    format: 'dd-mm-yyyy'
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            M.Datepicker.init(elems, {
+                format: 'dd-mm-yyyy'
             });
-                });
-        </script>    
+        });
+    </script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var timmer = document.querySelectorAll('.timepicker');
-                M.Timepicker.init(timmer, {
-                    showClearBtn: true,
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var timmer = document.querySelectorAll('.timepicker');
+            M.Timepicker.init(timmer, {
+                showClearBtn: true,
                     {{!--i18n: {
-                        clear: 'เริ่มใหม่',
-                        done: 'ตกลง',
-                        cancel: 'ยกเลิก'
-                    }--}}
+                    clear: 'เริ่มใหม่',
+                    done: 'ตกลง',
+                    cancel: 'ยกเลิก'
+                }--}}
                 });
             });
 
-        </script>
+    </script>
 
-    
+
 
 </body>
 

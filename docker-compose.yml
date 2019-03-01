@@ -1,0 +1,21 @@
+version: "3"
+services:
+  # mongo:
+  #   image: mongo:latest
+  #   ports:
+  #     - "27017:27017"
+  node-app:
+    restart: always
+    build:
+      dockerfile: ./Dockerfile.dev
+      context: .
+    volumes:
+      - /app/node_modules
+      - .:/app
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "8080:80"

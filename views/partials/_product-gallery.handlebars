@@ -1,19 +1,17 @@
 {{#if product.gallery }}
 
-<div class="row " style="background-color: #cfd8dc; padding: 20px">
-
-
+<div class="row " style="background-color: #ffffff; padding: 10px">
 
     {{!-- <div class="card"> --}}
         <div class="clearfix"> 
           
             {{#each product.gallery }}
 
-            <div class="col s12 m3 l3">
+            <div class="col s3 m3 l3">
 
                     <div class="gallery">
                         
-                        <a href="/gallery/{{ name }}" data-lightbox="MSCS Gallery">
+                        <a href="/gallery/{{ name }}" data-lightbox="MostOffice Gallery">
                             <img src="/gallery/{{ name }}" class="responsive-img">
                         </a>
                     </div>                                   
@@ -69,7 +67,7 @@
 
         if(sliderImages.length > 4 ){
             //sliderImages[4].style.display = "block";
-            document.querySelector(".total-images").innerHTML= `<a href='' > +${sliderImages.length - 4} images</a>`;
+            document.querySelector(".total-images").innerHTML= `<a href='' > +${sliderImages.length - 4} รูป</a>`;
         }
         
     }

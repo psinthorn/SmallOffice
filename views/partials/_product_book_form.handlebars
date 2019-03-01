@@ -1,24 +1,24 @@
 <div class="card">
     <div class="card-content">
-        <span class="card-title">Buy This Product</span>
+        <span class="card-title">สนใจสั่งซื้อสิ้นค้าชนิดนี้</span>
         <form action="/payment/paypal" method="POST">
 
 
             <div class="row">
                 <div class="input-field">
                     <input type="text" class="datepicker" name="productdate">
-                    <label for="datepicker">Select Delivery Date</label>
+                    <label for="datepicker">วันที่ต้องการให้จัดส่ง</label>
                 </div>
             </div>
                 <div class="row">
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="fname" required>
-                        <label for="fname">First Name</label>
+                        <label for="fname">ชื่อ</label>
                     </div>
 
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="lname" required >
-                        <label for="lname">Last Name</label>
+                        <label for="lname">นามสกุล</label>
                     </div>
 
                 </div>
@@ -26,26 +26,26 @@
                <div class="row">
                     <div class="col s12 m6 l6 input-field">
                         <input type="email" name="email" required >
-                        <label for="email">Your Email Address</label>
+                        <label for="email">อีเมล์</label>
                     </div>
 
                     <div class="col s12 m6 l6 input-field">
                         <input type="text" name="phone">
-                        <label for="phone">Phone No.</label>
+                        <label for="phone">โทรศัพท์</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 m12 l12 input-field">
                         <input type="text" name="pickupat" required>
-                        <label for="pickupat">Pickup Location Name ( Ex. Hotel Name , Hinta Hinyai )</label>
+                        <label for="pickupat">สถานที่จัดส่ง</label>
                 </div>
 
                 <div class="row">
                     <div class="col s12 m12 l12 right">
                         <label>
                             <input type="checkbox" name="readPolicy" class="filled-in" required />
-                            <span>*I has been read and accepted <a href="/term-policies" target="_blank"> Term & Conditions</a></span>
+                            <span>*ได้อ่านและยอมรับเงื่อนไขของทางบริษัทในทุกข้อ<a href="/term-policies" target="_blank"> เงื่อนไข ข้อยกเว้น และกำหนดอื่นๆ </a></span>
                         </label>
                     </div>
                 </div>
@@ -66,8 +66,8 @@
                         <p>
                             {{#if product.price.sale  }}              
                         <button class="btn light-blue accent-4 right" style="inline-block" type="submit">               
-                        Book Now
-                        {{ product.price.sale }}.00 Baht   
+                        สอบถาม และ/หรือ สั่งซื้อสินค้า
+                        {{ product.price.sale }}.00 บาท  
                         </button> {{/if}}
                         </p>
 

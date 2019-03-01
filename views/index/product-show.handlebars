@@ -1,9 +1,9 @@
  {{!-- <br>
 <br> {{> _header-intro }} --}}
-<div class="container-fluid">
+
     
 
-    <div class="card" style="margin-top: 20px">
+    {{!-- <div class="card" style="margin-top: 20px">
                     <div class="card-image">
 
                         <img class="responsive-img" src="/images/product/banner/{{ product.productBannerImgUrl }}" style="height: 300px" alt="{{ product.productBannerImgUrl }}"> 
@@ -12,31 +12,57 @@
                         </div>
                     </div>
 
+    </div> --}}
+
+<div class="container-fluid red lighten-5">
+    <div class="container" style="height: 100px">
+        {{!-- MostOffice มีรายการสินค้าต่าง ให้บริการดังนี้ --}}
+    </div>    
+</div>
+
+<div class="container">
+
+    <div class="row">
+       <div class="col s6 m6 l6">
+           <h3>รายละเอียดสินค้า</h3>
+       </div>
+       <div class="col s6 m6 l6">
+          <a href="/products"><p class="btn right" style="text-align: bottom; margin-top: 20px">กลับหน้าเดิม</p></a> 
+       </div>
+        <div class="col s12 m12 l12">
+            <div class="hr-1px"></div>
+        </div>
     </div>
 
-   
-       <h4 class="header-text-01">
+    
+    <div class="row">
+      
+        <div class="col s12 m5 l5">     
+            <div class="card">
+                 <p class="center" >
+                <img class="responsive-img" src="/images/product/{{ product.imgUrl }}" style="height: 400px;">                               
+            </p>
+            </div>                
+           <div class="card">
+               {{> _product-gallery }}
+           </div>
+             
+        </div>
+
+        <div class="col s1 m1 l1 hidden-on-xs"></div>
+
+        <div class="col s12 m6 l6">
+            <h4 class="header-text-01">
                 {{ product.title }}
         </h4>
    
-    
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <br>
             <p class="header-text-01">
                 {{{ product.desc }}}
             </p>
 
             <br>  
-            
-
-            
-            
-
-
-
-            <br>
-
+        </div>         
+         
 
         </div>
 
@@ -94,16 +120,16 @@
         </div>--}}
 
 
-    </div>
+  
    
     <div class="row">
         <div class="col s12 m12 l12">
-            {{> _product-gallery }}
-            {{!-- {{> _product_book_form}} --}}
+            {{> _product_book_form}}
         </div>
-        </div>
+    </div>
    
+</div>
 
-   
 </div> 
+
 {{!--end container--}}
