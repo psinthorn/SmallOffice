@@ -14,7 +14,7 @@ after_success:
   - docker build -t ecosyn/mostoffice-node-app
   - docker build -t ecosyn/mostoffice-nginx ./nginx
 
-  # Login to docker hub
+  # Login to docker hub then push
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push to docker hub
