@@ -18,7 +18,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push to docker hub
-  - docker push ecosyn/mostofice-node-app
+  - docker push ecosyn/mostoffice-node-app
   - docker push ecosyn/mostoffice-nginx
 # Deploy section
 # deploy:
