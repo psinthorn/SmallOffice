@@ -8,5 +8,17 @@ before_install:
 # Script for test run or etc
 script:
   - echo "skip test"
+
+# After success
+after_success:
+  - docker build -t ecosyn/mostoffice-node-app
+  - docker build -t ecosyn/mostoffice-nginx ./nginx
+
+  # Login to docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Push to docker hub
+  - docker push ecosyn/mostofice-node-app
+  - docker push ecosyn/mostoffice-nginx
 # Deploy section
 # deploy:
