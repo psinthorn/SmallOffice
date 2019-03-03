@@ -7,11 +7,11 @@ services:
   node-app:
     restart: always
     build:
-      dockerfile: ./Dockerfile.dev
-      context: .
+      dockerfile: Dockerfile.dev
+      context: ./server
     volumes:
       - /app/node_modules
-      - .:/app
+      - ./server:/app
   nginx:
     restart: always
     build:

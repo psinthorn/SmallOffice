@@ -1,0 +1,62 @@
+<input type="hidden" id="latData" value="{{ contact.lat }}">
+<input type="hidden" id="lngData" value="{{ contact.lng }}">
+
+
+
+<div class="row">
+
+    <div class="col s12 m12 l12">
+        {{!-- <h5>Maps</h5>
+        <div class="divider"></div> --}}
+
+        <div id="map" class="map"></div>
+
+
+        <script>
+
+            function initMap() {
+
+
+                //Show On Maps
+
+                var latData = Number(document.getElementById("latData").value);
+                var lngData = Number(document.getElementById("lngData").value);
+
+                var kohSamui = { "lat": latData, "lng": lngData };
+
+                var options = {
+                    zoom: 12,
+                    center: { "lat": latData, "lng": lngData }
+                }
+
+                var map = new google.maps.Map(document.getElementById('map'), options);
+
+                var marker = new google.maps.Marker({
+                    position: { "lat": latData, "lng": lngData },
+                    map: map
+                });
+
+                var infoWindow = new google.maps.InfoWindow({
+                    content: 'Most Office Company Limited '
+                });
+
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+
+            }
+        </script>
+
+
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
+            </script>
+
+
+
+    </div>
+
+
+</div>
+
+{{!-- end of maps function --}}
