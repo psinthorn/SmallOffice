@@ -8,153 +8,136 @@
   text-decoration: none;
 }
 
-html  {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-size: 62.5%;
-    font-family: Roboto,Helvetica Neue,sans-serif;
-    color: #455a64;
-  }
+html {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-size: 62.5%;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  color: #455a64;
+}
 
-  body {
-    font-size: 1.6em;
-  }
+body {
+  font-size: 1.6em;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  .nav-wrapper .fa-bars {
-    font-size: 30px;
+.nav-wrapper .fa-bars {
+  font-size: 30px;
+}
 
-  }
+.nav-wrapper {
+  font-size: 30px;
+  font-size: 3rem;
+  background-color: #fff;
+  color: #e53935;
 
-  .nav-wrapper  {
-    font-size: 30px;
-    font-size: 3.0rem;
-    background-color:     #e53935; 
-    /*$brand-primary:           #084672;*/
-    /*materialize color #0288d1 light-blue darken-2*/
-      
-  }
+  /* background-color:     #e53935;  */
+  /*$brand-primary:           #084672;*/
+  /*materialize color #0288d1 light-blue darken-2*/
+}
 
-  footer{
-      margin-top: 0px;
+footer {
+  margin-top: 0px;
+}
 
-  }
+#delete-form {
+  display: inline;
+}
 
-  #delete-form{
-    display: inline;
-  }
+.text-capitalize {
+  text-transform: capitalize;
+}
 
-  .text-capitalize{
-    text-transform: capitalize;
-  }
+.services-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 
-  .services-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-   
-  }
+.about-section {
+  background-color: #eceff1;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  color: #fff;
+}
 
-  .about-section{
-    background-color: #eceff1;
-    padding-top: 120px;
-    padding-bottom: 120px;
-    color: #fff;
-   
-  }
+.banner-index {
+  height: 95vh;
+  /* background-image: url(../imags/natours/nat-5.jpg); */
+  background-size: cover;
+  background-color: #777;
+  background-position: top;
+}
 
-  .banner-index {
-    height: 95vh;
-    /* background-image: url(../imags/natours/nat-5.jpg); */
-    background-size: cover;
-    background-color: #777;
-    background-position: top;
-    
-  }
+.slider {
+  height: 95vh;
+  /* background-image: url(../imags/natours/nat-5.jpg); */
+  background-size: cover;
+  background-color: #fff;
+  background-position: top;
+}
 
-  .slider {
-    height: 95vh;
-    /* background-image: url(../imags/natours/nat-5.jpg); */
-    background-size: cover;
-    background-color: #fff;
-    background-position: top;
-    
-  }
+.header-text-01 {
+  /* color: #455a64; */
+  color: #424242;
+  padding-left: 0px;
+  /* text-decoration: none; */
+}
 
-  .header-text-01 {
-    /* color: #455a64; */
-    color: #424242;
-    padding-left: 0px;
-    /* text-decoration: none; */
-  
-  }
+.why-section {
+  background-color: #eceff1;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  color: #fff;
+}
 
-  .why-section{
-    
-    background-color: #eceff1;
-    padding-top: 120px;
-    padding-bottom: 120px;
-   color: #fff;
-   
-  }
+.social-section {
+  background-color: #ffffff;
+  margin-top: 70px;
+  /* padding-top: 180px; */
+  padding-bottom: 120px;
+  color: #455a64;
+}
 
-  .social-section {
-    background-color: #ffffff;
-    margin-top: 70px;
-    /* padding-top: 180px; */
-    padding-bottom: 120px;
-    color: #455a64;
-  }
+.banner-sub {
+  height: 30vh;
+  /* background-image: url(../imags/natours/nat-5.jpg); */
+  background-size: cover;
+  background-color: #777;
+  background-position: top;
+}
 
-  .banner-sub {
-   
-      height: 30vh;
-      /* background-image: url(../imags/natours/nat-5.jpg); */
-      background-size: cover;
-      background-color: #777;
-      background-position: top;
-    
-  }
+.about-us {
+  background-color: #ffffff;
+  padding-top: 150px;
+  margin-top: 120px;
+  padding-bottom: 120px;
+  color: #455a64;
+}
 
-  .about-us{
-    background-color: #ffffff;
-    padding-top: 150px;
-    margin-top: 120px;
-    padding-bottom: 120px;
-    color: #455a64;
-   
-  }
+.apartment-pic-box {
+  height: 30vh;
+  width: 90%;
+}
 
-  .apartment-pic-box {
-    height: 30vh;
-    width: 90%;
+.blue-grey-text {
+  color: #455a64;
+}
 
-  }
+.blue-grey-text:hover {
+  color: #455a64;
+  font-size: 105%;
+}
 
-  .blue-grey-text {
-    color: #455a64;
-    
-    
-  }
+.btn:hover {
+  font-size: 105%;
 
-  .blue-grey-text:hover {
-    color: #455a64;
-    font-size: 105%;
-  
-    
-  }
+  transition: all 500ms ease;
+}
 
-  .btn:hover {
-   
-    font-size: 105%;
-   
-    transition: all 500ms ease; 
-  }
-
- 
 /* .menu-icon:hover {
   font-size: 130%;
   color: white;
@@ -185,8 +168,8 @@ a:active {
 
 a:hover {
   /*color: white;*/
-   /*font-size: 110%; */
-   transition-timing-function: ease-out;
+  /*font-size: 110%; */
+  transition-timing-function: ease-out;
 }
 
 .logo {
@@ -194,12 +177,12 @@ a:hover {
   height: 90%;
 }
 
-.logo>img {
-  vertical-align: middle
+.logo > img {
+  vertical-align: middle;
 }
 
 .font-grey {
-  color: #777
+  color: #777;
 }
 
 .fac-inline {
@@ -209,18 +192,16 @@ a:hover {
 .map {
   height: 100%;
   width: 100%;
- }
+}
 
- .total-images {
-   display: block;
+.total-images {
+  display: block;
   text-align: right;
   padding-right: 30px;
   font-size: 1.5rem;
+}
 
-   
- }
-
- .clearfix::after {
+.clearfix::after {
   content: "";
   clear: both;
   display: table;
@@ -230,15 +211,11 @@ a:hover {
   padding: 0px;
 }
 
-
-
-
 /*****************************/
 /*From here work on css grid */
 /*****************************/
 
 .menu-stack {
-
   display: grid;
 
   grid-template-rows: repeat(2, 30px);
@@ -248,30 +225,26 @@ a:hover {
   color: white;
   align-items: start;
   /*justify-content: end;*/
-   /*justify-items: end; */
+  /*justify-items: end; */
 }
 
 /*Menu will hide on small only*/
 .email-icon {
-   align-self: center;
+  align-self: center;
   justify-self: end;
   padding-right: 10px;
 
-
   grid-row: 1/2;
   grid-column: 1/2;
-
 }
 
 .email-stack {
-
   align-self: center;
   justify-self: end;
 
   grid-row: 1/2;
   grid-column: 2/3;
   padding-right: 20px;
-  
 }
 
 .tel-icon {
@@ -281,25 +254,22 @@ a:hover {
 
   grid-row: 2/3;
   grid-column: 1/2;
-
 }
 
 .tel-stack {
   align-self: center;
   justify-self: start;
-  padding-right: 20px;  
+  padding-right: 20px;
 
   grid-row: 2/3;
   grid-column: 2/3;
 }
-
 
 /*****************************/
 /*From here work on css grid */
 /*****************************/
 
 .menu-stack-small {
-
   display: grid;
 
   grid-template-rows: 55px;
@@ -310,7 +280,7 @@ a:hover {
   align-items: end;
   /*padding: 5px;*/
   /*justify-content: end;*/
-   /*justify-items: end; */
+  /*justify-items: end; */
 }
 
 /*Menu will show on small only*/
@@ -319,13 +289,9 @@ a:hover {
   justify-self: end;
   padding-right: 40px;
 
-
   grid-row: 1/2;
   grid-column: 1/2;
-
 }
-
-
 
 .tel-icon-small {
   align-self: center;
@@ -334,9 +300,7 @@ a:hover {
 
   grid-row: 1/2;
   grid-column: 2/3;
-
 }
-
 
 /*New top menu*/
 
@@ -345,9 +309,6 @@ a:hover {
   grid-template-rows: 60px;
   grid-template-columns: max-content max-content 1fr 250px;
   /*width: 100%;*/
-
-
-
 }
 
 .top-side-nav {
@@ -356,24 +317,33 @@ a:hover {
 }
 
 .top-logo {
-
   padding-top: 2px;
-  
+  color: #e53935;
 }
 
 .top-main-menu {
   padding-right: 20px;
-  padding-left: 20px; 
+  padding-left: 20px;
   font-size: 100px;
   justify-self: center;
+  color: #000;
+}
 
+.top-title-header {
+  padding-top: 48px;
+  font-size: 32px;
+  color: #000;
+}
+
+.main-menu {
+  color: #000;
 }
 
 .intro {
   color: whitesmoke;
   background-color: #0288d1;
-  padding-top: 50px; 
-  padding-bottom: 80px; 
+  padding-top: 0px;
+  padding-bottom: 80px;
 }
 
 .to-uppercase {
@@ -391,8 +361,3 @@ i.exclude-check {
 .banner-caption {
   color: grey;
 }
-
-
-
-
-

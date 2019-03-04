@@ -1,65 +1,62 @@
-<div style="padding: 20px">
+<div>
 
-<div class="row">
-
-    {{> _msg}}
-
-         
-    <h3 class="header-text-01">MostOffice มีรายการสินค้าต่าง ให้บริการดังนี้</h3>
-    <div class="divider"></div>
-    <br>
     <div class="row">
+
+        {{> _msg}}
+
+
+        {{!-- <h3 class="header-text-01">MostOffice มีรายการสินค้าต่าง ให้บริการดังนี้</h3>
+        <div class="divider"></div>
+        <br> --}}
+
 
         {{#each products }}
 
         <div class="col s12 m3 l3">
-            <div class="card" style="padding: 10px">
+            <div class="card-panel clearfix" style="padding: 10px; margin-bottom: 40px">
 
-                {{#if imgUrl }}                   
-                        <a href="/product-show/{{ id }}">
-                                    <img class="responsive-img" src="/images/product/{{ imgUrl }}" style="height: 200px; text-align: center">                               
-                        </a>
-           
+                {{#if imgUrl }}
+                <a href="/product-show/{{ id }}">
+                    <img class="responsive-img" src="/images/product/{{ imgUrl }}"
+                        style="height: 200px; text-align: center">
+                </a>
+
                 {{/if}}
 
-                 <a href="/product-show/{{ id }}">
+                <a href="/product-show/{{ id }}">
                     <h4 class="header-text-01">{{ title }}</h4>
                 </a>
 
-                <a href="/product-show/{{ id }}">                                   
+                <a href="/product-show/{{ id }}">
                     <p class="font-grey">{{{stripTags (truncate desc 50)}}}</p>
                 </a>
+                <br>
+                <div>
+                    <p>ราคา {{ price.sale }} .00 บาท</p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <a href="/product-show/{{ id }}">
+                            <div class="btn green lighten-2 btn-hor-effect right">ข้อมูลสินค้าเพิ่มเติม</div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
-                    <br>
-                    <div class="row">
-                        <div class="right"><h5>ราคา {{ price.sale }} .00 บาท</h5></div>
-                    </div> 
+        {{/each}}
 
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <a href="/product-show/{{ id }}">
-                                <div class="btn blue btn-hor-effect right">ข้อมูลสินค้าเพิ่มเติม</div>
-                            </a>
-                        </div>                    
-                    </div>   
-                        
 
-             </div>
+        {{!-- End row --}}
+
+
+
+
     </div>
-                   
-          
-      {{/each}}           
-                
-    </div> 
-    {{!-- End row --}}
-     
 
-   
+
 
 </div>
-
-   
-
-</div>
-

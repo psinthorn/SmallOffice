@@ -1,17 +1,8 @@
-const BookingController = require('./../controllers/bookings/bookingController');
-const {ensureAuthenticated, ensureGuest} = require('./../helpers/auth');
+const BookingController = require("./../controllers/bookings/bookingController");
+const { ensureAuthenticated, ensureGuest } = require("./../helpers/auth");
 
-module.exports = (app) => {
+module.exports = app => {
+  app.get("/bookings", BookingController.booking);
 
-   
-
-    app.get('/bookings', BookingController.booking);
-    
-    app.get('/bookings/show/:id', BookingController.showDetails);
-
-
-
-}
-
-
-
+  app.get("/bookings/show/:id", BookingController.showDetails);
+};
