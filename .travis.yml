@@ -2,8 +2,8 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t ecosyn/mostoffice -f ./server/Dockerfile.dev .
+# before_install:
+#   - docker build -t ecosyn/mostoffice -f ./server/Dockerfile.dev .
 
 # Script for test run or etc
 script:
