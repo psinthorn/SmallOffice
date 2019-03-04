@@ -1,32 +1,37 @@
-<div class="container">
+<div class="container-fluid top-title-header">
+    <div class="container">
+        แก้ไขรายละเอียดการติดต่อ Most Office
+    </div>
+    <div class="divider"></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <a href="/admin/contact">
+                <div class="btn right">กลับหน้าเดิม</div>
+            </a>
+        </div>
 
+        {{> _msg}}
 
+        <div class="col s12 m12 l12">
 
+            <div class="card white darken-1">
+                <div class="card-content gray-text">
 
-    {{> _msg}}
+                    <form action="/admin/contact/{{ contact.id }}?_method=PUT" method="post">
+                        <input type="hidden" name="_method" value="PUT">
 
-
-    <h4>Edit Contact</h4>
-    <div class="hr-1px"></div>
-
-    <div class="col s12 m12 l12">
-        <div class="card white darken-1">
-            <div class="card-content gray-text">
-
-                <form action="/admin/contact/{{ contact.id }}?_method=PUT" method="post">
-                    <input type="hidden" name="_method" value="PUT">
-
-                    <div class="row">
                         <div class="row">
-                            <div class="input-field col s12 m12 l12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
 
-                                <input type="text" name="title" value="{{ contact.title}}">
-                                <label for="title">Title</label>
+                                    <input type="text" name="title" value="{{ contact.title}}">
+                                    <label for="title">Title</label>
 
+                                </div>
                             </div>
-                        </div>
 
-                        {{!-- <div class="row">
+                            {{!-- <div class="row">
                                     <div class="input-field col s12 m12 l12">
 
                                         <textarea name="desc" id="desc" cols="30" rows="10">{{ contact.desc }}</textarea>
@@ -34,135 +39,134 @@
                                     </div>
                                 </div> --}}
 
-                        <div class="row">
-                            <div class="input-field col s3 m3 l3">
+                            <div class="row">
+                                <div class="input-field col s3 m3 l3">
 
-                                <input type="text" name="phone1" value="{{ contact.phone1}}">
-                                <label for="phone1">Phone#1</label>
+                                    <input type="text" name="phone1" value="{{ contact.phone1}}">
+                                    <label for="phone1">Phone#1</label>
+
+                                </div>
+
+                                <div class="input-field col s3 m3 l3">
+
+                                    <input type="text" name="phone2" value="{{ contact.phone2}}">
+                                    <label for="phone3">Phone#2</label>
+
+                                </div>
+
+                                <div class="input-field col s3 m3 l3">
+
+                                    <input type="text" name="phone3" value="{{ contact.phone3}}">
+                                    <label for="phone3">Phone#3</label>
+
+                                </div>
+
+                                <div class="input-field col s3 m3 l3">
+
+                                    <input type="text" name="phone4" value="{{ contact.phone4}}">
+                                    <label for="phone4">Phone#4</label>
+
+                                </div>
 
                             </div>
 
-                            <div class="input-field col s3 m3 l3">
+                            <div class="row">
 
-                                <input type="text" name="phone2" value="{{ contact.phone2}}">
-                                <label for="phone3">Phone#2</label>
+                                <div class="input-field col s12 m12 l12">
 
-                            </div>
+                                    <input type="text" name="fax" value="{{ contact.fax}}">
+                                    <label for="fax">Fax</label>
 
-                            <div class="input-field col s3 m3 l3">
-
-                                <input type="text" name="phone3" value="{{ contact.phone3}}">
-                                <label for="phone3">Phone#3</label>
-
-                            </div>
-
-                            <div class="input-field col s3 m3 l3">
-
-                                <input type="text" name="phone4" value="{{ contact.phone4}}">
-                                <label for="phone4">Phone#4</label>
+                                </div>
 
                             </div>
 
                         </div>
 
                         <div class="row">
-
                             <div class="input-field col s12 m12 l12">
+                                <input type="text" name="email" value="{{ contact.email }}">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
 
-                                <input type="text" name="fax" value="{{ contact.fax}}">
-                                <label for="fax">Fax</label>
 
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="whatsapp" value="{{ contact.whatsapp }}">
+                                <label for="whatsapp">WhatsApp</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="skype" value="{{ contact.skype }}">
+                                <label for="skype">Skype</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="website" value="{{ contact.website }}">
+                                <label for="website">Website</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="addr1" value="{{ contact.addr1 }}">
+                                <label for="addr1">Address #1</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="addr2" value="{{ contact.addr2 }}">
+                                <label for="addr2">Address #2</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="text" name="addr3" value="{{ contact.addr3 }}">
+                                <label for="addr2">Address #3</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" name="lat" value="{{ contact.lat }}">
+                                <label for="lat">Latitude</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" name="lng" value="{{ contact.lng }}">
+                                <label for="lng">Longitude</label>
                             </div>
 
-                        </div>
 
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="email" value="{{ contact.email }}">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="whatsapp" value="{{ contact.whatsapp }}">
-                            <label for="whatsapp">WhatsApp</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="skype" value="{{ contact.skype }}">
-                            <label for="skype">Skype</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="website" value="{{ contact.website }}">
-                            <label for="website">Website</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="addr1" value="{{ contact.addr1 }}">
-                            <label for="addr1">Address #1</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="addr2" value="{{ contact.addr2 }}">
-                            <label for="addr2">Address #2</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input type="text" name="addr3" value="{{ contact.addr3 }}">
-                            <label for="addr2">Address #3</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m6 l6">
-                            <input type="text" name="lat" value="{{ contact.lat }}">
-                            <label for="lat">Latitude</label>
-                        </div>
-                        <div class="input-field col s12 m6 l6">
-                            <input type="text" name="lng" value="{{ contact.lng }}">
-                            <label for="lng">Longitude</label>
                         </div>
 
 
-                    </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="status" id="status">
-                                {{#select contact.status }}
-                                <option value="public">Public</option>
-                                <option value="private">Private</option>
-                                <option value="unpublished">unpublished</option>
-                                {{/select }}
-                            </select>
-                            <label for="status">Status</label>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <select name="status" id="status">
+                                    {{#select contact.status }}
+                                    <option value="public">Public</option>
+                                    <option value="private">Private</option>
+                                    <option value="unpublished">unpublished</option>
+                                    {{/select }}
+                                </select>
+                                <label for="status">Status</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <input type="submit" value="Update" class="btn right">
-                    </div>
-                </form>
-
+                        <div class="row">
+                            <input type="submit" value="Update" class="btn right">
+                        </div>
+                    </form>
 
 
+
+                </div>
             </div>
         </div>
-    </div>
-</div>

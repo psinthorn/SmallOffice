@@ -376,3 +376,15 @@ i.exclude-check {
   /* width: 600px; */
   /* background-color: #ccc; */
 }
+
+.tel-border {
+  margin-top: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: #ccc;
+  /* background: #73ad21; */
+  padding: 20px;
+  width: 250px;
+  height: 50px;
+}
