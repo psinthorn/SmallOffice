@@ -133,9 +133,9 @@ footer {
 }
 
 .btn:hover {
-  font-size: 105%;
-
+  /* font-size: 10%; */
   transition: all 500ms ease;
+  background-color: #ccc;
 }
 
 /* .menu-icon:hover {
@@ -360,4 +360,19 @@ i.exclude-check {
 
 .banner-caption {
   color: grey;
+}
+
+.title-bold {
+  color: #000;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* clip-path */
+.rectangle-right-clibpath {
+  /* -webkit-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  height: 128px; */
+  /* width: 600px; */
+  /* background-color: #ccc; */
 }

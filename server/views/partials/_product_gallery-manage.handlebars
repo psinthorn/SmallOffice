@@ -1,4 +1,4 @@
- {{!-- Image Upload --}}
+{{!-- Image Upload --}}
 
 
 <div class="col s12 m12 l12">
@@ -37,7 +37,7 @@
 
 
                 <div class="row">
-                    <p class="left">*Recommend: 640x480 Pixel as minimum. </p>
+                    <p class="left helper-text">*Recommend: 640x480 Pixel as minimum. </p>
                     <input type="submit" value="Add" class="btn right">
                 </div>
 
@@ -55,7 +55,8 @@
                             <img src="/gallery/{{ name }}" alt="{{ name }}" class="responsive-img">
 
 
-                            <form action="/admin/product/gallery/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                            <form action="/admin/product/gallery/{{ id }}?_method=DELETE" method="post"
+                                id="delete-form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="oldImgUrl" value="{{ name }}">
                                 <button type="submit" class="btn red right">X</button>
@@ -65,7 +66,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
 
@@ -73,8 +74,8 @@
         {{/each}}
     </div>
 
-    </div>
-    </div>
+</div>
+</div>
 
 
 

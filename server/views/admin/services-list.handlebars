@@ -1,16 +1,15 @@
-<div class="container">
-
-    <div class="row">
-       {{!-- {{> _msg }} --}}
+<div class="container-fluid top-title-header">
+    <div class="container">
+        รายการบริการ
     </div>
-
-
-    <h3>Current Services</h3>
-    <div class="hr-1px"></div>
+    <div class="divider"></div>
+</div>
+<div class="container">
+    <br>
     <div class="row">
         <div class="left"></div>
         <a href="/admin/service/add">
-            <div class="btn right">Add New Service</div>
+            <div class="btn right">เพิ่มบริการ</div>
         </a>
     </div>
     <div class="row">
@@ -20,12 +19,12 @@
         <table class="striped">
             <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Descriptions</th>
-                    <th>Status</th>
-                    <th colspan="2" class="center-align">Manage</th>
+                    <th>หมายเลข</th>
+                    <th>รูปภาพ</th>
+                    <th>หัวข้อ</th>
+                    <th>รายละเอียด</th>
+                    <th></th>
+                    <th colspan="2" class="center-align">จัดการ</th>
 
                 </tr>
             </thead>
@@ -42,7 +41,8 @@
                     </td>
 
                     <td>
-                        <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                        <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img"
+                            style="width: 100px">
                     </td>
                     <td>{{{stripTags (truncate title 30)}}}</td>
 
@@ -53,7 +53,7 @@
                     <td>{{ status }}</td>
 
                     <td class="right-align">
-                        <a href="/admin/service/{{ id }}" class="btn">Edit</a>
+                        <a href="/admin/service/{{ id }}" class="btn">แก้ไข</a>
                     </td>
                     <td class="left-align">
                         <form action="/admin/service/{{ id }}?_method=DELETE" method="post" id="delete-form">
