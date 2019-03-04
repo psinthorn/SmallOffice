@@ -1,51 +1,52 @@
 <div style="padding: 10px">
 
-<div class="row">
-
-    {{> _msg}}
-
-    <h3 class="header-text-01">MostOffice มีบริการต่างๆ ดังนี้</h3>
-    <div class="divider"></div>
-    <br>
-    <br> {{#each services }}
     <div class="row">
-        
-        {{#if imgUrl }}
-        <div class="col s12 m4 l4">
 
-            <a href="/service-show/{{ id }}">
-                {{!-- <div class="card">
+        {{> _msg}}
+
+        {{!-- <h3 class="header-text-01">MostOffice มีบริการต่างๆ ดังนี้</h3>
+    <div class="divider"></div>
+    <br> --}}
+        <br> {{#each services }}
+        <div class="row">
+
+            {{#if imgUrl }}
+            <div class="col s12 m4 l4">
+
+                <a href="/service-show/{{ id }}">
+                    {{!-- <div class="card">
                     <div class="card-image"> --}}
 
-                        <img class="responsive-img" src="/images/service/{{ imgUrl }}"> 
-                        {{!-- <div class="card-footer blue-grey-text center-align"> --}}
+                    <img class="responsive-img" src="/images/service/{{ imgUrl }}">
+                    {{!-- <div class="card-footer blue-grey-text center-align"> --}}
 
-                        {{!-- </div>
+                    {{!-- </div>
                     </div> --}}
 
-                {{!-- </div> --}}
-            </a>
-        </div>
+                    {{!-- </div> --}}
+                </a>
+            </div>
 
-        {{/if}}
+            {{/if}}
 
 
-        <div class="col s12 m8 l8 ml-3">
-            <a href="/service-show/{{ id }}">
-                <h4 class="header-text-01">{{ title }}</h4>
+            <div class="col s12 m8 l8 ml-3">
                 <a href="/service-show/{{ id }}">
-                    {{!--
-                    <p class="font-grey">{{ address }}</p> --}} 
+                    <h4 class="header-text-01">{{ title }}</h4>
+                    <a href="/service-show/{{ id }}">
+                        {{!--
+                    <p class="font-grey">{{ address }}</p> --}}
 
-                    {{#if locations }}
-                    {{#each locations }}
+                        {{#if locations }}
+                        {{#each locations }}
 
-                    <p class="font-grey"><i class="material-icons meduim">place</i> {{!-- {{ title }} --}} {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
+                        <p class="font-grey"><i class="material-icons meduim">place</i> {{!-- {{ title }} --}}
+                            {{ addr1 }} {{ city }} {{ province }} {{ state }} {{ country }} {{ postCode }}</p>
 
-                    {{/each}}
-                    <br>
-                    {{/if}}
-                    <p class="font-grey">{{{stripTags (truncate desc 400)}}}</p>
+                        {{/each}}
+                        <br>
+                        {{/if}}
+                        <p class="font-grey">{{{stripTags (truncate desc 400)}}}</p>
                     </a>
 
 
@@ -57,27 +58,26 @@
 
                         <div class="col s12 m12 l12">
                             <a href="/service-show/{{ id }}">
-                        <div class="btn blue btn-hor-effect right">เงื่อนไขอื่นๆ เพิ่มเติม</div>
-                        </a>
+                                <div class="btn blue btn-hor-effect right">เงื่อนไขอื่นๆ เพิ่มเติม</div>
+                            </a>
                         </div>
 
                         {{!-- <div class="col s6 m6 l6"><div style="margin-bottom: 40px;"><h5 class="right">{{ price.sale }}.00 Baht</h5></div></div> --}}
-                        
-                      
-                    </div>   
-                        
-            </div>
-                
-                
+
+
+                    </div>
+
             </div>
 
-             <div class="divider"></div>
-    <br>
-    <br> {{/each}}
+
+        </div>
+
+        <div class="divider"></div>
+        <br>
+        <br> {{/each}}
+
+    </div>
+
+
 
 </div>
-
-   
-
-</div>
-

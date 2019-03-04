@@ -1,150 +1,151 @@
-<div class="container-fluid red lighten-5">
-    <div class="container" style="height: 100px">
-        {{!-- MostOffice มีรายการสินค้าต่าง ให้บริการดังนี้ --}}
-    </div>    
-</div>
-
+<div class="container-fluid top-title-header">
     <div class="container">
+        {{ contact.title}}
+    </div>
+    <div class="divider"></div>
+</div>
+<div class="container">
 
-        <h3 class="header-text-01">
+    {{!-- <h3 class="header-text-01">
             {{ contact.title}}
         </h3>
-        <div class="hr-1px"></div>
-        <div class="row">
-            <div class="col s12 m7 l7">
-                <p class="header-text-01">
-                    {{!-- {{{ contact.desc }}} --}}
-                </p>
-                <br>
-               
-                <div class="row">
-                    <div style="padding: 5px">
-                        {{> _maps-contact }}
-                    </div>
-                    
-                    {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img"> --}}
-                </div>
-            </div>
+        <div class="hr-1px"></div> --}}
+    <div class="row">
+        <div class="col s12 m7 l7">
+            <p class="header-text-01">
+                {{!-- {{{ contact.desc }}} --}}
+            </p>
+            <br>
 
-            <div class="col s12 m1 l1"></div>
-
-            <div class="col s12 m4 l4">
-
-               
-
-                <div class="row header-text-01">
-                    <h5>โทรศัพท์</h5>
-                    <div class="hr-1px-p10"></div>
-                    <div class="col s12 m2 l2">
-                        <p>
-                            <i class="material-icons">call</i>
-                        </p>
-                    </div>
-                    <div class="row">
-
-                        <div class="col s1 m1 l1"></div>
-                         <div class="col s5 m5 l5 hide-on-small-only"></div>
-                        <div class="col s5 m5 l5">
-                            <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.phone1 }}">{{ contact.phone1 }}</a>
-                            </p>
-                            <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
-                            </p>
-                            <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.phone3 }}">{{ contact.phone3 }}</a>
-                            </p>
-                            <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.phone4 }}">{{ contact.phone4 }}</a>
-                            </p>
-                        </div>
-
-                    </div>
-                   
-
+            <div class="row">
+                <div style="padding: 5px">
+                    {{> _maps-contact }}
                 </div>
 
-                <div class="row header-text-01">
-                    <h5>แฟกซ์</h5>
-                    <div class="hr-1px-p10"></div>
-                    <div class="col s12 m2 l2">
-                        <p>
-                            <i class="material-icons">call</i>
-                        </p>
-                    </div>
-                    <div class="row">
-
-                        <div class="col s1 m1 l1"></div>
-                         <div class="col s5 m5 l5 hide-on-small-only"></div>
-                        <div class="col s5 m5 l5">
-                            <p>
-                                <a class="blue-grey-text" href="tel:{{ contact.fax }}">{{ contact.fax }}</a>
-                            </p>
-                        </div>
-
-                    </div>
-                   
-
-                </div>
-
-
-
-
-                <div class="row header-text-01">
-                    <h5>อีเมล์</h5>
-                    <div class="hr-1px-p10"></div>
-
-                    <div class="col s12 m2 l2">
-                        <p>
-                            <i class="material-icons">drafts</i>
-                        </p>
-                    </div>
-                    <div class="row">
-                    <div class="col s1 m1 l1"></div>
-                    <div class="col s11 m9 l9">
-                        <p>
-                            <a class="blue-grey-text" href="mailto:{{ contact.email }}?Subject=Enquiry from mscspest.com">{{ contact.email }}</a>
-                        </p>
-                    </div>
-                    </div>
-                    
-
-                </div>
-
-                <div class="row header-text-01">
-                    <h5>ที่อยู่</h5>
-                    <div class="hr-1px-p10"></div>
-                    <div class="col s12 m2 l2">
-                        <p>
-                            <i class="material-icons">location_on</i>
-                        </p>
-                    </div>
-                    <div class="row">
-                        <div class="col s1 m1 l1"></div>
-                    <div class="col s11 m9 l9">
-                        <p>
-                            <p class="blue-grey-text" href="#">
-                            {{ contact.addr1 }}
-                            <br>
-                            <span>{{ contact.addr2 }}</span>
-                            <br>
-                            <span>{{ contact.addr3 }}</span>
-                            </p>
-                        </p>
-                    </div>
-
-                    </div>
-                    
-                </div>
-
-                {{#if contact.lat }}
-                {{!-- <div class="row header-text-01"> --}}
-                    {{!-- <h5>Maps</h5> --}}
-                    
-                    {{!-- {{> _maps-contact }} --}}
-                {{!-- </div> --}}
-                {{/if}}
+                {{!-- <img src="/images/{{ contact.imgUrl }}" alt="{{ contact.imgUrl }}" class="responsive-img"> --}}
             </div>
         </div>
 
-</div>  
+        <div class="col s12 m1 l1"></div>
+
+        <div class="col s12 m4 l4">
+
+
+
+            <div class="row header-text-01">
+                <h5>โทรศัพท์</h5>
+                <div class="hr-1px-p10"></div>
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">call</i>
+                    </p>
+                </div>
+                <div class="row">
+
+                    <div class="col s1 m1 l1"></div>
+                    <div class="col s5 m5 l5 hide-on-small-only"></div>
+                    <div class="col s5 m5 l5">
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ contact.phone1 }}">{{ contact.phone1 }}</a>
+                        </p>
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
+                        </p>
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ contact.phone3 }}">{{ contact.phone3 }}</a>
+                        </p>
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ contact.phone4 }}">{{ contact.phone4 }}</a>
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row header-text-01">
+                <h5>แฟกซ์</h5>
+                <div class="hr-1px-p10"></div>
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">call</i>
+                    </p>
+                </div>
+                <div class="row">
+
+                    <div class="col s1 m1 l1"></div>
+                    <div class="col s5 m5 l5 hide-on-small-only"></div>
+                    <div class="col s5 m5 l5">
+                        <p>
+                            <a class="blue-grey-text" href="tel:{{ contact.fax }}">{{ contact.fax }}</a>
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="row header-text-01">
+                <h5>อีเมล์</h5>
+                <div class="hr-1px-p10"></div>
+
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">drafts</i>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col s1 m1 l1"></div>
+                    <div class="col s11 m9 l9">
+                        <p>
+                            <a class="blue-grey-text"
+                                href="mailto:{{ contact.email }}?Subject=Enquiry from mscspest.com">{{ contact.email }}</a>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row header-text-01">
+                <h5>ที่อยู่</h5>
+                <div class="hr-1px-p10"></div>
+                <div class="col s12 m2 l2">
+                    <p>
+                        <i class="material-icons">location_on</i>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col s1 m1 l1"></div>
+                    <div class="col s11 m9 l9">
+                        <p>
+                            <p class="blue-grey-text" href="#">
+                                {{ contact.addr1 }}
+                                <br>
+                                <span>{{ contact.addr2 }}</span>
+                                <br>
+                                <span>{{ contact.addr3 }}</span>
+                            </p>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {{#if contact.lat }}
+            {{!-- <div class="row header-text-01"> --}}
+            {{!-- <h5>Maps</h5> --}}
+
+            {{!-- {{> _maps-contact }} --}}
+            {{!-- </div> --}}
+            {{/if}}
+        </div>
+    </div>
+
+</div>

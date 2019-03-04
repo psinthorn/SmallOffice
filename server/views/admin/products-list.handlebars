@@ -1,16 +1,16 @@
 <div class="container">
 
     <div class="row">
-       {{!-- {{> _msg }} --}}
+        {{!-- {{> _msg }} --}}
     </div>
 
 
-    <h3>Current product lists</h3>
+    <h3>รายการสินค้า</h3>
     <div class="hr-1px"></div>
     <div class="row">
         <div class="left"></div>
         <a href="/admin/product/add">
-            <div class="btn right">Add New Package</div>
+            <div class="btn right">เพิ่มสินค้า</div>
         </a>
     </div>
     <div class="row">
@@ -20,11 +20,11 @@
         <table class="striped">
             <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Address</th>
-                    <th>Status</th>
-                    <th colspan="2" class="center-align">Manage</th>
+                    <th>รูปภาพ</th>
+                    <th>สินค้า</th>
+                    <th>รายละเอียด</th>
+                    <th>สภานะ</th>
+                    <th colspan="2" class="center-align">จัดการ</th>
 
                 </tr>
             </thead>
@@ -37,29 +37,23 @@
 
                 <tr>
                     <td>
-                        <img src="/images/product/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img" style="width: 100px">
+                        <img src="/images/product/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img"
+                            style="width: 100px">
                     </td>
                     <td>{{ title }}</td>
 
                     <td>
-                        {{#if locations }}
-                        {{#each locations }}
-                        
-                        {{ title }} {{ addr1 }} {{ addr2 }} {{ district }} {{ city }} {{ state }} {{ country }} {{ postCode }}
 
-                        {{/each}}
 
-                        {{else}}
+                        {{{ stripTags (truncate desc 50) }}}
 
-                            No Location found, Please add
 
-                        {{/if}}
                     </td>
 
                     <td>{{ status }}</td>
 
                     <td class="right-align">
-                        <a href="/admin/product/{{ id }}" class="btn">Edit</a>
+                        <a href="/admin/product/{{ id }}" class="btn">แก้ไข</a>
                     </td>
                     <td class="left-align">
                         <form action="/admin/product/{{ id }}?_method=DELETE" method="post" id="delete-form">
@@ -79,7 +73,7 @@
         </table>
 
         {{else}}
-        <p>Currently is no product available!</p>
+        <p>ยังไม่มีสินค้าในหมวดนี้!</p>
         {{/if}}
 
 

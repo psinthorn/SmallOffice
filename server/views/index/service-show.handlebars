@@ -1,51 +1,53 @@
- {{!-- <br>
+{{!-- <br>
 <br> {{> _header-intro }} --}}
 
-<div class="container-fluid red lighten-5">
-    <div class="container" style="height: 100px">
-        {{!-- MostOffice มีรายการสินค้าต่าง ให้บริการดังนี้ --}}
-    </div>    
+<div class="container-fluid top-title-header">
+    <div class="container">
+        รายละเอียดเพิ่มเติม
+    </div>
+    <div class="divider"></div>
 </div>
 
 <div class="container">
 
-                    <div class="row" style="margin-top: 20px">
+    <div class="row" style="margin-top: 20px">
 
-                        <img class="responsive-img center" src="/images/service/banner/{{ service.serviceBannerImgUrl }}" style="width: 100%" alt="{{ service.serviceBannerImgUrl }}"> 
-                        
-                    </div>
-   
-   
+        <img class="responsive-img center" src="/images/service/banner/{{ service.serviceBannerImgUrl }}"
+            style="width: 100%" alt="{{ service.serviceBannerImgUrl }}">
+
+    </div>
+
+
     <div class="row">
         <div class="col s12 m12 l12">
-            
+
             <p class="header-text-01">
                 {{{ service.desc }}}
             </p>
 
-        </div>      
-    </div>
-   
-    <div class="row">
-        <div class="col s12 m12 l12">
-            {{> _service-gallery }}
-            
         </div>
     </div>
 
     <div class="row">
-            <div class="col s12 m6 l6">
-                {{> _service-include }} 
-            
-            </div>
+        <div class="col s12 m12 l12">
+            {{> _service-gallery }}
 
-             <div class="col s12 m6 l6">
-               
-                {{> _service-exclude }}
-            </div>
+        </div>
     </div>
-   
 
- </div>  
+    <div class="row">
+        <div class="col s12 m6 l6">
+            {{> _service-include }}
+
+        </div>
+
+        <div class="col s12 m6 l6">
+
+            {{> _service-exclude }}
+        </div>
+    </div>
+
+
+</div>
 
 {{!--end container--}}
