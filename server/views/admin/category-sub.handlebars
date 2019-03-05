@@ -1,0 +1,59 @@
+<div class="container-fluid top-title-header">
+  <div class="container">
+    หมวดหมู่รอง
+  </div>
+  <div class="divider"></div>
+</div>
+<div class="container">
+  <div class="row">
+    {{> _msg}}
+  </div>
+
+  <div class="row">
+
+    {{#if categories}}
+    <table class="striped">
+      <thead>
+        <tr>
+
+          <th>ชื่อ</th>
+          <th>รายละเอียด</th>
+          <th>หมวดหมู่หลัก</th>
+          <th>สถานะ</th>
+          <th>จัดการ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+
+        {{#each categories }}
+
+
+        <tr>
+          <td>{{name}}</td>
+          <td>{{stripTags (truncate desc 100)}}</td>
+          <td>{{status}}</td>
+          <td> <a href="/admin/category/sub/edit/{{id}}" class="btn">แก้ไข</a>
+
+            <form action="/admin/category/sub/{{id}}?_method=DELETE" method="post" id="delete-form">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn red"> <i class="fa fa-remove"></i></button>
+            </form>
+
+          </td>
+
+
+        </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+
+    {{else}}
+    <p>No Sub Category Found!</p>
+    {{/if}}
+
+
+  </div>
+</div>
