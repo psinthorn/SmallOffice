@@ -63,7 +63,7 @@ module.exports = {
     const id = req.params.id;
 
     Product.findByIdAndUpdate({ _id: id }, productProps)
-      .then(() => Product.find({}))
+      .then(() => Product.find({}).sort({ date: -1 }))
       .then(products => {
         res.render("admin/products-list", { products: products });
       });
@@ -74,7 +74,7 @@ module.exports = {
     const id = req.params.id;
 
     Product.findByIdAndRemove({ _id: id })
-      .then(() => Product.find({}))
+      .then(() => Product.find({}).sort({ date: -1 }))
       .then(products => {
         res.render("admin/products-list", { products: products });
       });
