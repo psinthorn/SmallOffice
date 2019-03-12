@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-const Facility = require("./../models/Bring");
 const Schema = mongoose.Schema;
 const LocationSchema = require("./../models/LocationSchema");
-//const SubContactSchema = require('./../models/SubContactSchema');
 const GallerySchema = require("./../models/GallerySchema");
 
 const ProductSchema = new Schema({
@@ -19,33 +17,24 @@ const ProductSchema = new Schema({
   desc: {
     type: String
   },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "category"
+  },
   imgUrl: {
     type: String,
     default: "thumbnail640x480.png"
   },
-
   productBannerImgUrl: {
     type: String,
     default: "banner-temp1024x300.jpg"
   },
-  category: {
-    type: String
-  },
+
   gallery: [GallerySchema],
   locations: [LocationSchema],
   address: {
     type: String
   },
-  brings: [
-    {
-      title: {
-        type: String
-      },
-      value: {
-        type: String
-      }
-    }
-  ],
 
   included: [
     {
@@ -66,32 +55,6 @@ const ProductSchema = new Schema({
       value: {}
     }
   ],
-  itinerary: [
-    {
-      order: {
-        type: String
-      },
-      title: {
-        type: String,
-        trim: true
-      },
-      timeTable: {
-        type: String,
-        trim: true
-      },
-      description: {
-        type: String
-      },
-      location: {
-        type: String,
-        trim: true
-      },
-      remark: {
-        type: String,
-        trim: true
-      }
-    }
-  ],
   price: {
     sale: {
       type: String,
@@ -110,7 +73,8 @@ const ProductSchema = new Schema({
   },
 
   user: {
-    type: String
+    type: Schema.Types.ObjectId,
+    ref: "user"
   },
   date: {
     type: Date,
@@ -128,5 +92,3 @@ const ProductSchema = new Schema({
 
 const Product = mongoose.model("product", ProductSchema, "products");
 module.exports = Product;
-
-//mongoose.model('apartment', ApartmentSchema, 'apartments');

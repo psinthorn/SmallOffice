@@ -20,8 +20,7 @@ const flash = require("connect-flash");
 
 //load models
 require("./models/Welcome");
-require("./models/CategoryMain");
-require("./models/CategorySub");
+require("./models/Category");
 require("./models/Contents");
 require("./models/UserAdmin");
 require("./models/Users");
@@ -47,7 +46,7 @@ const about = require("./routes/about");
 const welcome = require("./routes/welcome");
 const product = require("./routes/product");
 const service = require("./routes/service");
-const productcategory = require("./routes/productCategory");
+const category = require("./routes/category");
 const policy = require("./routes/policy");
 
 const app = express();
@@ -56,7 +55,7 @@ app.use(cors());
 //use sessions for tracking logins
 app.use(
   session({
-    secret: "mscspets",
+    secret: "F2Code",
     resave: true,
     saveUninitialized: false
   })
@@ -169,7 +168,7 @@ index(app);
 contact(app);
 about(app);
 product(app);
-productcategory(app);
+category(app);
 service(app);
 slide(app);
 welcome(app);

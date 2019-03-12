@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CategorySubSchema = new Schema({
-  categorymain: {
-    type: Schema.Types.ObjectId,
-    ref: "categorymain"
-  },
-
+const CategoryMainSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -15,6 +10,7 @@ const CategorySubSchema = new Schema({
     type: String,
     default: "Category Desc"
   },
+
   imgUrl: {
     type: String,
     default: "default"
@@ -33,9 +29,9 @@ const CategorySubSchema = new Schema({
   }
 });
 
-const CategorySub = mongoose.model(
-  "categorysub",
-  CategorySubSchema,
-  "categorysubs"
+const CategoryMain = mongoose.model(
+  "categorymain",
+  CategoryMainSchema,
+  "categoriesmain"
 );
-module.exports = CategorySub;
+module.exports = CategoryMain;

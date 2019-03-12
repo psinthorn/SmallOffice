@@ -1,54 +1,74 @@
+<div>
+    {{> _header-section-title}}
+</div>
 <div class="container">
-    <h4>Add new category</h4>
-    
-    
-        {{> _msg}}
 
-        <form action="/admin/category/{{category.id}}?_method=PUT" method="post">
+    {{> _msg}}
+
+    <form action="/admin/category/{{category.id}}?_method=PUT" method="post">
         <input type="hidden" name="_method" value="PUT">
-            <div class="row">
-                <div class="input-field">
-                    <input type="text" name="name" value="{{category.name}}">
-                    <label for="name">Category Name</label>
-                </div>
-
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title" value="{{category.title}}">
+                <label for="title">Category title</label>
             </div>
 
-            <div class="row">
-                <div class="input-field">
-                    <h5>Category Description</h5>
-                    <textarea name="desc" id="desc" cols="30" rows="10">{{category.desc}}</textarea>
-                    {{!-- <input type="text" name="description" value="{{category.desc}}">
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Category Description</h5>
+                <textarea name="desc" id="desc" cols="30" rows="10">{{category.desc}}</textarea>
+                {{!-- <input type="text" name="description" value="{{category.desc}}">
                     <label for="description">Category Description</label> --}}
-                </div>
-
             </div>
 
-              <div class="row">
-                <div class="input-field">
-                    <input type="text" name="imgUrl" value="{{category.imgUrl}}">
-                    <label for="imgUrl">Category image</label>
-                </div>
+        </div>
 
-            </div>
 
-            <div class="row">
-                <div class="input-field">
-                    <select name="status" id="status">
-                        {{#select category.status}}
-                        <option value="public" selected>Public</option>
-                        <option value="private">Private</option>
-                        <option value="unpublished">Unpublished</option>
-                        {{/select}}
-                    </select>
-                    <label for="status">Status</label>
-                </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="categorymain" id="categorymain">
+                    {{#select category.categorymain}}
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                    {{/select}}
+                </select>
+                <label for="categorymain">หมวดหมู่หลัก</label>
             </div>
-  
-            <div class="row">
-                <input type="submit" value="Update" class="btn right">
-            </div>
+        </div>
 
-        </form>
-    
+        <div class="row">
+            <div class="input-field">
+                <select name="categorysub" id="categorysub">
+                    {{#select category.categorysub}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                    {{/select}}
+                </select>
+                <label for="categorysub">หมวดหมู่รอง</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    {{#select category.status}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Update" class="btn right">
+        </div>
+
+    </form>
+
 </div>

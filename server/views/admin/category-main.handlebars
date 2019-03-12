@@ -6,11 +6,9 @@
 </div>
 <div class="container">
   <div class="row">
-    {{> _msg}}
-  </div>
-
-  <div class="row">
-
+    <div class="row">
+      {{> _msg}}
+    </div>
     {{#if categories}}
     <table class="striped">
       <thead>
@@ -29,7 +27,7 @@
 
 
         <tr>
-          <td>{{name}}</td>
+          <td>{{title}}</td>
           <td>{{stripTags (truncate desc 100)}}</td>
           <td>{{status}}</td>
           <td> <a href="/admin/category/main/edit/{{id}}" class="btn">แก้ไข</a>

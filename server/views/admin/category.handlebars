@@ -1,0 +1,58 @@
+<div>
+    {{> _header-section-title}}
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="row">
+            {{> _msg}}
+        </div>
+        {{#if categories}}
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>ชื่อ</th>
+                    <th>รายละเอียด</th>
+                    <th>หมวดหมู่หลัก</th>
+                    <th>หมวดหมู่รอง</th>
+                    <th>สถานะ</th>
+                    <th class="right-align">จัดการ</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                {{#each categories }}
+
+
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{stripTags (truncate desc 100)}}</td>
+                    <td>{{categorymain}}</td>
+                    <td>{{categorysub}}</td>
+                    <td>{{status}}</td>
+                    <td class="right-align"> <a href="/admin/category/edit/{{id}}" class="btn">แก้ไข</a>
+
+                        <form action="/admin/category/{{id}}?_method=DELETE" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red"> <i class="fa fa-remove"></i></button>
+                        </form>
+
+                    </td>
+
+
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+
+        {{else}}
+        <p>No Main Category Found!</p>
+        {{/if}}
+
+
+    </div>
+</div>

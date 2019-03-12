@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CategoryMainSchema = new Schema({
+const CategorySubSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -28,9 +28,9 @@ const CategoryMainSchema = new Schema({
   }
 });
 
-const CategoryMain = mongoose.model(
-  "categorymain",
-  CategoryMainSchema,
-  "categorymains"
+const CategorySub = mongoose.model(
+  "categorysub",
+  CategorySubSchema,
+  "categoriessub"
 );
-module.exports = CategoryMain;
+module.exports = CategorySubSchema;
