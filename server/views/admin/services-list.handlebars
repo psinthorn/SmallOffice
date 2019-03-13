@@ -23,8 +23,9 @@
                     <th>รูปภาพ</th>
                     <th>หัวข้อ</th>
                     <th>รายละเอียด</th>
-                    <th></th>
-                    <th colspan="2" class="center-align">จัดการ</th>
+                    <th>หมวดหมู่</th>
+                    <th>สถานะ</th>
+                    <th colspan="2" class="right-align">จัดการ</th>
 
                 </tr>
             </thead>
@@ -49,6 +50,7 @@
                     <td>
                         {{{stripTags (truncate desc 50)}}}
                     </td>
+                    <td>{{ category }}</td>
 
                     <td>{{ status }}</td>
 
