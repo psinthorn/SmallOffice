@@ -1,0 +1,53 @@
+<div>
+    {{> _header-section-title}}
+</div>
+
+<div class="container">
+
+    {{> _msg}}
+
+    <form action="/admin/category/main" method="post">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title">
+                <label for="title">ชื่อหมวดหมู่</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>รายละเอียดหมวดหมู่</h5>
+                <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+                {{!-- <label for="desc">Category Description</label> --}}
+            </div>
+
+        </div>
+
+        {{!-- <div class="row">
+            <div class="input-field">
+                <input type="text" name="imgUrl">
+                <label for="imgUrl">Category Image</label>
+            </div>
+
+        </div> --}}
+
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                </select>
+                <label for="status">สถานะ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="เพิ่ม" class="btn right">
+        </div>
+
+    </form>
+
+</div>

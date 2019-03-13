@@ -76,7 +76,8 @@ module.exports = {
     Product.findByIdAndRemove({ _id: id })
       .then(() => Product.find({}).sort({ date: -1 }))
       .then(products => {
-        res.render("admin/products-list", { products: products });
+        // res.render("admin/products-list", { products: products });
+        res.redirect("/admin/products");
       });
   },
 

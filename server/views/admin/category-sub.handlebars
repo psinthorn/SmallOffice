@@ -18,9 +18,9 @@
 
           <th>ชื่อ</th>
           <th>รายละเอียด</th>
-          <th>หมวดหมู่หลัก</th>
+
           <th>สถานะ</th>
-          <th>จัดการ</th>
+          <th class="right-align">จัดการ</th>
         </tr>
       </thead>
 
@@ -31,10 +31,10 @@
 
 
         <tr>
-          <td>{{name}}</td>
+          <td>{{title}}</td>
           <td>{{stripTags (truncate desc 100)}}</td>
           <td>{{status}}</td>
-          <td> <a href="/admin/category/sub/edit/{{id}}" class="btn">แก้ไข</a>
+          <td class="right-align"> <a href="/admin/category/sub/edit/{{id}}" class="btn">แก้ไข</a>
 
             <form action="/admin/category/sub/{{id}}?_method=DELETE" method="post" id="delete-form">
               <input type="hidden" name="_method" value="DELETE">

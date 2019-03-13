@@ -1,0 +1,47 @@
+<div>
+    {{> _header-section-title}}
+</div>
+<div class="container">
+
+    {{> _msg}}
+
+    <form action="/admin/category/sub/{{category.id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title" value="{{category.title}}">
+                <label for="title">ชื่อหมวดหมู่</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>รายละเอียดหมวดหมู่</h5>
+                <textarea name="desc" id="desc" cols="30" rows="10">{{category.desc}}</textarea>
+                {{!-- <input type="text" name="description" value="{{category.desc}}">
+                    <label for="description">Category Description</label> --}}
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="status">
+                    {{#select category.status}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Update" class="btn right">
+        </div>
+
+    </form>
+
+</div>
