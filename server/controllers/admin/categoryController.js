@@ -26,9 +26,15 @@ module.exports = {
 
   //Create form
   addForm(req, res) {
-    Category.find({}).then(categories => {
+    let queryAll = [
+      CategoryMain.find({ status: "public" }).exec(),
+      CategorySub.find({ status: "public" }).exec()
+    ];
+
+    Promise.all(queryAll).then(([categoriesMain, categoriesSub]) => {
       res.render("admin/category-add", {
-        categories: categories,
+        categoriesMain: categoriesMain,
+        categoriesSub: categoriesSub,
         sectionTitle: "เพิ่มหมวดหมู่"
       });
     });
@@ -66,10 +72,19 @@ module.exports = {
   //Edit form  category
   editForm(req, res) {
     const id = req.params.id;
-    //console.log(id);
-    Category.findById({ _id: id }).then(category => {
+    console.log(id);
+
+    let queryAll = [
+      Category.findById({ _id: id }).exec(),
+      CategoryMain.find({ status: "public" }).exec(),
+      CategorySub.find({ status: "public" }).exec()
+    ];
+
+    Promise.all(queryAll).then(([category, categoriesMain, categoriesSub]) => {
       res.render("admin/category-edit", {
         category: category,
+        categoriesMain: categoriesMain,
+        categoriesSub: categoriesSub,
         sectionTitle: "แก้ไขหมวดหมู่"
       });
     });

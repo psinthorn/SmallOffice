@@ -10,14 +10,14 @@
         <div class="row">
             <div class="input-field">
                 <input type="text" name="title" value="{{category.title}}">
-                <label for="title">Category title</label>
+                <label for="title">ชื่อหมวดหมู่</label>
             </div>
 
         </div>
 
         <div class="row">
             <div class="input-field">
-                <h5>Category Description</h5>
+                <h5>รายละเอียดหมวดหมู่</h5>
                 <textarea name="desc" id="desc" cols="30" rows="10">{{category.desc}}</textarea>
                 {{!-- <input type="text" name="description" value="{{category.desc}}">
                     <label for="description">Category Description</label> --}}
@@ -30,9 +30,9 @@
             <div class="input-field">
                 <select name="categorymain" id="categorymain">
                     {{#select category.categorymain}}
-                    <option value="public" selected>Public</option>
-                    <option value="private">Private</option>
-                    <option value="unpublished">Unpublished</option>
+                    {{#each categoriesMain }}
+                    <option value={{title}}>{{title}}</option>
+                    {{/each}}
                     {{/select}}
                 </select>
                 <label for="categorymain">หมวดหมู่หลัก</label>
@@ -43,9 +43,9 @@
             <div class="input-field">
                 <select name="categorysub" id="categorysub">
                     {{#select category.categorysub}}
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                    <option value="unpublished">Unpublished</option>
+                    {{#each categoriesSub }}
+                    <option value={{title}}>{{title}}</option>
+                    {{/each}}
                     {{/select}}
                 </select>
                 <label for="categorysub">หมวดหมู่รอง</label>

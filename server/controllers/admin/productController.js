@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Product = require("../../models/Product");
+const Category = require("./../../models/Category");
 const fs = require("fs");
 
 module.exports = {
@@ -13,11 +14,27 @@ module.exports = {
       });
   },
 
-  //Create form
+  //
+  //  Create form
+  //
 
   addForm(req, res) {
-    Product.find({}).then(products => {
-      res.render("admin/product-add", { products: products });
+    //
+    //  Createarray of all query follow by exec() and then run all the query by Promise.all(queryAll)
+    //
+
+    let queryAll = [
+      Product.find({}).exec(),
+      Category.find({ status: "public" }).exec()
+    ];
+
+    Promise.all(queryAll).then(([products, categories]) => {
+      //console.log(`Category is: ${categories}`);
+      //res.send(categories);
+      res.render("admin/product-add", {
+        products: products,
+        categories: categories
+      });
     });
   },
 
@@ -34,7 +51,8 @@ module.exports = {
       title: req.body.title,
       desc: req.body.desc,
       imgUrl: imgUrlName,
-      address: req.body.address,
+      category: req.body.category,
+      //address: req.body.address,
       status: req.body.status,
       user: req.user.id
     });
@@ -50,11 +68,19 @@ module.exports = {
   editForm(req, res) {
     const id = req.params.id;
     //console.log(id);
-    Product.findById({ _id: id })
-      .populate("subcontact")
-      .then(product => {
-        res.render("admin/product-edit", { product: product });
+
+    let queryAll = [
+      Product.findById({ _id: id }).exec(),
+      Category.find({ status: "public" }).exec()
+    ];
+
+    // .populate("subcontact")
+    Promise.all(queryAll).then(([product, categories]) => {
+      res.render("admin/product-edit", {
+        product: product,
+        categories: categories
       });
+    });
   },
 
   //Edit form product

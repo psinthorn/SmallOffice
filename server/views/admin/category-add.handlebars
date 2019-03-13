@@ -34,9 +34,10 @@
         <div class="row">
             <div class="input-field">
                 <select name="categorymain" id="categorymain">
-                    <option value="MainCategory1" selected>MainCategory1</option>
-                    <option value="MainCategory2">MainCategory2</option>
-                    <option value="NoMainCategory">NoMainCategory</option>
+                    <option value="NoMainCategory" selected>กรุณาเลือก หมวดหมู่หลัก</option>
+                    {{#each categoriesMain}}
+                    <option value={{title}}>{{title}}</option>
+                    {{/each}}
                 </select>
                 <label for="categorymain">หมวดหมู่หลัก</label>
             </div>
@@ -45,9 +46,10 @@
         <div class="row">
             <div class="input-field">
                 <select name="categorysub" id="categorysub">
-                    <option value="SubCategory1" selected>SubCategory1</option>
-                    <option value="SubCategory2">SubCategory2</option>
-                    <option value="NoSubCategory">NoSubCategory</option>
+                    <option value="NoMainCategory" selected>กรุณาเลือก หมวดหมู่รอง</option>
+                    {{#each categoriesSub}}
+                    <option value={{title}}>{{title}}</option>
+                    {{/each}}
                 </select>
                 <label for="categorysub">หมวดหมู่รอง</label>
             </div>
