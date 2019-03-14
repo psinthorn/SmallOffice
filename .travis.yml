@@ -11,14 +11,17 @@ script:
 
 # After success
 after_success:
-  - docker build -t ecosyn/mostoffice-node-app ./server
-  - docker build -t ecosyn/mostoffice-nginx ./nginx
+
+  - docker build -t ecosyn/smalloffice-node-app ./server
+  - docker build -t ecosyn/smalloffice-nginx ./nginx
+
 
   # Login to docker hub then push
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push to docker hub
-  - docker push ecosyn/mostoffice-node-app
-  - docker push ecosyn/mostoffice-nginx
+  - docker push ecosyn/smalloffice-node-app
+  - docker push ecosyn/smalloffice-nginx
 # Deploy section
 # deploy:
+#
