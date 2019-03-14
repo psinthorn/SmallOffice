@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const CategoryMainSchema = require("./CategoryMainSchema");
-const CategorySubSchema = require("./CategorySubSchema");
+const CategoryMain = require("./CategoryMain");
+const CategorySub = require("./CategorySub");
 
 const CategorySchema = new Schema({
   title: {

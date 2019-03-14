@@ -6,7 +6,7 @@
 
     {{> _msg}}
 
-    <form action="/admin/category" method="post">
+    <form action="/admin/category/main" method="post">
         <div class="row">
             <div class="input-field">
                 <input type="text" name="title">
@@ -31,29 +31,7 @@
             </div>
 
         </div> --}}
-        <div class="row">
-            <div class="input-field">
-                <select name="categorymain" id="categorymain">
-                    <option value="NoMainCategory" selected>กรุณาเลือก หมวดหมู่หลัก</option>
-                    {{#each categoriesMain}}
-                    <option value={{title}}>{{title}}</option>
-                    {{/each}}
-                </select>
-                <label for="categorymain">หมวดหมู่หลัก</label>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="input-field">
-                <select name="categorysub" id="categorysub">
-                    <option value="NoMainCategory" selected>กรุณาเลือก หมวดหมู่รอง</option>
-                    {{#each categoriesSub}}
-                    <option value={{title}}>{{title}}</option>
-                    {{/each}}
-                </select>
-                <label for="categorysub">หมวดหมู่รอง</label>
-            </div>
-        </div>
 
         <div class="row">
             <div class="input-field">

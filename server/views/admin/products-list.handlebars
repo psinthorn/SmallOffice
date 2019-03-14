@@ -3,16 +3,23 @@
         รายการสินค้า
     </div>
     <div class="divider"></div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="left"></div>
+            <a href="/admin/product/add">
+                <div class="btn right">เพิ่มสินค้า</div>
+            </a>
+        </div>
+    </div>
 </div>
 
 <div class="container">
-    <br>
-    <div class="row">
-        <div class="left"></div>
-        <a href="/admin/product/add">
-            <div class="btn right">เพิ่มสินค้า</div>
-        </a>
-    </div>
+
+    {{#each categories}}
+    {{title}}
+    {{/each }}
+
     <div class="row">
 
         {{#if products }}

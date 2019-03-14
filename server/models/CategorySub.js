@@ -33,4 +33,5 @@ const CategorySub = mongoose.model(
   CategorySubSchema,
   "categoriessub"
 );
-module.exports = CategorySubSchema;
+
+module.exports = CategorySub;

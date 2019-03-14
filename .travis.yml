@@ -11,8 +11,10 @@ script:
 
 # After success
 after_success:
+
   - docker build -t ecosyn/smalloffice-node-app ./server
   - docker build -t ecosyn/smalloffice-nginx ./nginx
+
 
   # Login to docker hub then push
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin

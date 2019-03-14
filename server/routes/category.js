@@ -21,73 +21,38 @@ module.exports = app => {
   app.delete("/admin/category/:id", CategoryController.delete);
 
   //888888888888888888888888888
-  //88   Mian Product Category
+  //88   Main Category
   //888888888888888888888888888
 
-  app.get("/admin/category/main", CategoryController.getAll);
+  app.get("/admin/category/main", CategoryController.getAllMain);
 
-  app.get("/admin/category/main/add", CategoryController.addForm);
+  app.get("/admin/category/main/add", CategoryController.addFormMain);
 
-  app.get("/admin/product/category/main/edit/:id", CategoryController.editForm);
+  app.get("/admin/category/main/edit/:id", CategoryController.editFormMain);
 
-  app.post("/admin/category/main", CategoryController.create);
+  app.post("/admin/category/main", CategoryController.createMain);
 
-  app.put("/admin/product/category/main/:id", CategoryController.editUpdate);
+  app.put("/admin/category/main/:id", CategoryController.editUpdateMain);
 
-  app.put(
-    "/admin/product/category/main/image/:id",
-    CategoryController.imageUpdate
-  );
+  app.put("/admin/category/main/image/:id", CategoryController.imageUpdate);
 
-  app.delete(
-    "/admin/category/main/:id",
-    ensureAuthenticated,
-    CategoryController.delete
-  );
+  app.delete("/admin/category/main/:id", CategoryController.deleteMain);
 
   //8888888888888888888888888888
   //88   Sub Product Category 88
   //8888888888888888888888888888
 
-  app.get(
-    "/admin/category/sub",
+  app.get("/admin/category/sub", CategoryController.getAllSub);
 
-    CategoryController.getAllSub
-  );
+  app.get("/admin/category/sub/add", CategoryController.addFormSub);
 
-  app.get(
-    "/admin/product/category/sub/add",
+  app.get("/admin/category/sub/edit/:id", CategoryController.editFormSub);
 
-    CategoryController.addForm
-  );
+  app.post("/admin/category/sub", CategoryController.createSub);
 
-  app.get(
-    "/admin/product/category/sub/edit/:id",
+  app.put("/admin/category/sub/:id", CategoryController.editUpdateSub);
 
-    CategoryController.editForm
-  );
+  app.put("/admin/category/sub/image/:id", CategoryController.imageUpdate);
 
-  app.post(
-    "/admin/product/category/sub",
-
-    CategoryController.create
-  );
-
-  app.put(
-    "/admin/product/category/sub/:id",
-
-    CategoryController.editUpdate
-  );
-
-  app.put(
-    "/admin/product/category/sub/image/:id",
-
-    CategoryController.imageUpdate
-  );
-
-  app.delete(
-    "/admin/product/category/sub/:id",
-
-    CategoryController.delete
-  );
+  app.delete("/admin/category/sub/:id", CategoryController.deleteSub);
 };

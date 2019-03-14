@@ -1,6 +1,6 @@
 <div class="container-fluid top-title-header">
     <div class="container">
-        แก้ไขรายละเอียดบริการ
+        {{ sectionTitle }}
     </div>
     <div class="divider"></div>
 </div>
@@ -32,13 +32,13 @@
                             <div class="input-field col s2 m2 l2">
 
                                 <input type="text" name="order" value="{{ service.order }}">
-                                <label for="order">No.</label>
+                                <label for="order">ลำดับ.</label>
 
                             </div>
 
                             <div class="input-field col s10 m10 l10">
                                 <input type="text" name="title" value="{{ service.title }}" required>
-                                <label for="title">Service Name</label>
+                                <label for="title">ชื่อบริการ</label>
 
                             </div>
                         </div>
@@ -47,12 +47,25 @@
 
                             <div class="input-field col s12 m12 l12">
 
-                                <h5>Descriptions</h5>
+                                <h5>รายละเอียด</h5>
                                 <textarea id="desc" name="desc" class="materialize-textarea"
                                     required>{{ service.desc }}</textarea>
 
                             </div>
 
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <select name="category" id="category">
+                                    {{#select service.category }}
+                                    {{#each categories }}
+                                    <option value={{title}}>{{title}}</option>
+                                    {{/each}}
+                                    {{/select }}
+                                </select>
+                                <label for="category">หมวดหมู่</label>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -66,7 +79,7 @@
 
                                     {{/select }}
                                 </select>
-                                <label for="status">Status</label>
+                                <label for="status">สถานะ</label>
                             </div>
                         </div>
 

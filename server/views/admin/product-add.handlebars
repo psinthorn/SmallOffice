@@ -3,6 +3,15 @@
         เพิ่มสินค้า
     </div>
     <div class="divider"></div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="left"></div>
+            <a href="/admin/products">
+                <div class="btn right" style="padding-right: 10px">กลับหน้าหลัก</div>
+            </a>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -38,7 +47,6 @@
 
                             </div>
 
-
                             <div class="row">
                                 <div class="file-field input-field">
                                     <div class="btn">
@@ -48,6 +56,22 @@
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">
                                     </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <select name="category" id="category">
+
+                                        <option value="NoCategory" selected>เลือกหมวดหมู่</option>
+                                        {{#each categories}}
+                                        <option value={{title}}>{{title}}</option>
+                                        {{/each}}
+                                        <ect></ect>
+                                        <ect></ect>
+                                    </select>
+                                    <label for="category">หมวดหมู่</label>
                                 </div>
                             </div>
 

@@ -5,7 +5,7 @@
 
     {{> _msg}}
 
-    <form action="/admin/category/{{category.id}}?_method=PUT" method="post">
+    <form action="/admin/category/sub/{{category.id}}?_method=PUT" method="post">
         <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
@@ -23,33 +23,6 @@
                     <label for="description">Category Description</label> --}}
             </div>
 
-        </div>
-
-
-        <div class="row">
-            <div class="input-field">
-                <select name="categorymain" id="categorymain">
-                    {{#select category.categorymain}}
-                    {{#each categoriesMain }}
-                    <option value={{title}}>{{title}}</option>
-                    {{/each}}
-                    {{/select}}
-                </select>
-                <label for="categorymain">หมวดหมู่หลัก</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field">
-                <select name="categorysub" id="categorysub">
-                    {{#select category.categorysub}}
-                    {{#each categoriesSub }}
-                    <option value={{title}}>{{title}}</option>
-                    {{/each}}
-                    {{/select}}
-                </select>
-                <label for="categorysub">หมวดหมู่รอง</label>
-            </div>
         </div>
 
         <div class="row">
