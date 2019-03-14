@@ -1,83 +1,87 @@
 <div class="container-fluid top-title-header">
     <div class="container">
-        รายการบริการ
+        {{ sectionTitle }}
     </div>
     <div class="divider"></div>
-</div>
-<div class="container">
     <br>
-    <div class="row">
-        <div class="left"></div>
-        <a href="/admin/service/add">
-            <div class="btn right">เพิ่มบริการ</div>
-        </a>
-    </div>
-    <div class="row">
-
-        {{#if services }}
-
-        <table class="striped">
-            <thead>
-                <tr>
-                    <th>หมายเลข</th>
-                    <th>รูปภาพ</th>
-                    <th>หัวข้อ</th>
-                    <th>รายละเอียด</th>
-                    <th>หมวดหมู่</th>
-                    <th>สถานะ</th>
-                    <th colspan="2" class="right-align">จัดการ</th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-
-
-                {{#each services }}
-
-
-                <tr>
-                    <td>
-                        {{ order }}
-                    </td>
-
-                    <td>
-                        <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img"
-                            style="width: 100px">
-                    </td>
-                    <td>{{{stripTags (truncate title 30)}}}</td>
-
-                    <td>
-                        {{{stripTags (truncate desc 50)}}}
-                    </td>
-                    <td>{{ category }}</td>
-
-                    <td>{{ status }}</td>
-
-                    <td class="right-align">
-                        <a href="/admin/service/{{ id }}" class="btn">แก้ไข</a>
-                    </td>
-                    <td class="left-align">
-                        <form action="/admin/service/{{ id }}?_method=DELETE" method="post" id="delete-form">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">X</button>
-                        </form>
-
-
-
-                    </td>
-
-
-                </tr>
-                {{/each}}
-
-            </tbody>
-        </table>
-
-        {{else}}
-        <p>Currently is no services available!</p>
-        {{/if}}
-
+    <div class="container">
+        <div class="row">
+            <div class="left"></div>
+            <a href="/admin/service/add">
+                <div class="btn right">เพิ่มบริการ</div>
+            </a>
+        </div>
+        <div class="row">
+        </div>
 
     </div>
+</div>
+
+<div class="container">
+
+    {{#if services }}
+
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>หมายเลข</th>
+                <th>รูปภาพ</th>
+                <th>หัวข้อ</th>
+                <th>รายละเอียด</th>
+                <th>หมวดหมู่</th>
+                <th>สถานะ</th>
+                <th colspan="2" class="right-align">จัดการ</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+
+            {{#each services }}
+
+
+            <tr>
+                <td>
+                    {{ order }}
+                </td>
+
+                <td>
+                    <img src="/images/service/{{ imgUrl }}" alt="{{ imgUrl }}" class="responsive-img"
+                        style="width: 100px">
+                </td>
+                <td>{{{stripTags (truncate title 30)}}}</td>
+
+                <td>
+                    {{{stripTags (truncate desc 50)}}}
+                </td>
+                <td>{{ category }}</td>
+
+                <td>{{ status }}</td>
+
+                <td class="right-align">
+                    <a href="/admin/service/{{ id }}" class="btn">แก้ไข</a>
+                </td>
+                <td class="left-align">
+                    <form action="/admin/service/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn red">X</button>
+                    </form>
+
+
+
+                </td>
+
+
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+    {{else}}
+    <p>Currently is no services available!</p>
+    {{/if}}
+
+
 </div>

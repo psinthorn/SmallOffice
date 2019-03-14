@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Service = require("../../models/Service");
 const Category = require("./../../models/Category");
+// const chalk = require("chalk");
 
 const fs = require("fs");
 
@@ -10,7 +11,11 @@ module.exports = {
     Service.find({})
       .sort({ order: 1 })
       .then(services => {
-        res.render("admin/services-list", { services: services });
+        //console.log(chalk.blue(services));
+        res.render("admin/services-list", {
+          services: services,
+          sectionTitle: "รายการบริการ"
+        });
         //res.send(services);
       });
   },
@@ -21,7 +26,10 @@ module.exports = {
     Category.find({ status: "public" })
       .where({ categorymain: "บริการ" })
       .then(categories => {
-        res.render("admin/service-add", { categories: categories });
+        res.render("admin/service-add", {
+          categories: categories,
+          sectionTitle: "เพิ่มบริการ"
+        });
         //res.send(categories);
       });
   },
@@ -60,7 +68,7 @@ module.exports = {
     let queryAll = [
       Service.findById({ _id: id }).exec(),
       Category.find({ status: "public" })
-        .where({ categorymain: "บริการ" })
+        .where({ categorymain: "แก้ไขบริการ" })
         .exec()
     ];
 
@@ -68,7 +76,7 @@ module.exports = {
       res.render("admin/service-edit", {
         service: service,
         categories: categories,
-        sectionTitle: "แก้ไขรายละเอียด"
+        sectionTitle: "แก้ไขรายละเอียดบริการ"
       });
     });
   },
