@@ -24,7 +24,8 @@
     "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
     "paypal-rest-sdk": "^1.8.1",
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
