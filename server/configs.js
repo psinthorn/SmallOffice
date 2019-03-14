@@ -39,4 +39,6 @@ yargs.command({
   }
 });
 
+// How to parse
+
 console.log(yargs.argv);
