@@ -68,7 +68,7 @@ module.exports = {
     let queryAll = [
       Service.findById({ _id: id }).exec(),
       Category.find({ status: "public" })
-        .where({ categorymain: "แก้ไขบริการ" })
+        .where({ categorymain: "บริการ" })
         .exec()
     ];
 
