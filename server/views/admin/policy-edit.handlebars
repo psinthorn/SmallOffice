@@ -1,20 +1,35 @@
+<div class="container-fluid top-title-header">
+    <div class="container">
+        {{ sectionTitle }}
+    </div>
+    <div class="divider"></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="left"></div>
+            <a href="/admin/policy">
+                <div class="btn right">กลับหน้าหลัก</div>
+            </a>
+        </div>
+        <div class="row">
+        </div>
+
+    </div>
+</div>
+
 <div class="container">
-
-
     <div class="row">
 
         {{> _msg}}
 
         <div class="col s12 m12 l12">
-            <h4>Edit Term & Policies</h4>
-            <div class="hr-1px"></div>
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
                         <form action="/admin/policy/{{ policy.id }}?_method=PUT" method="post">
-                             <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_method" value="PUT">
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
@@ -30,21 +45,22 @@
                                 <div class="input-field col s12 m12 l12">
 
                                     <h5>Policies Detail</h5>
-                                    <textarea id="desc" name="desc" class="materialize-textarea">{{ policy.desc }}</textarea>
+                                    <textarea id="desc" name="desc"
+                                        class="materialize-textarea">{{ policy.desc }}</textarea>
 
                                 </div>
 
                             </div>
 
-                            
+
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
                                     <select name="status" id="status">
                                         {{#select policy.status }}
-                                        <option value="Public" >Public</option>
-                                        <option value="Private" >Private</option>
-                                        <option value="Unpubblished" >Unpubblished</option>
+                                        <option value="Public">Public</option>
+                                        <option value="Private">Private</option>
+                                        <option value="Unpubblished">Unpubblished</option>
                                         {{/select}}
                                     </select>
                                     <label for="status">Status</label>

@@ -1,18 +1,32 @@
-
-
+<div class="container-fluid top-title-header">
+    <div class="container">
+        เพิ่มเกี่ยวกับ
+    </div>
+    <div class="divider"></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="left"></div>
+            <a href="/admin/about">
+                <div class="btn right">กลับหน้าหลัก</div>
+            </a>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>
 <div class="container">
 
-     <div class="row">
+    <div class="row">
 
         {{> _msg}}
 
         <div class="col s12 m12 l12">
-            <h4>Add New About</h4>
-            <div class="hr-1px"></div>
+
 
             <div class="col s12 m12 l12">
                 <div class="card white darken-1">
-                    <div class="card-content gray-text" >
+                    <div class="card-content gray-text">
 
                         <form action="/admin/about" method="post">
 
@@ -20,12 +34,12 @@
                                 <div class="input-field col s12 m12 l12">
 
                                     <input type="text" name="title" required>
-                                    <label for="title">Title</label>
+                                    <label for="title">ชื่อเรื่อง</label>
 
                                 </div>
                             </div>
 
-                             <div class="row">
+                            <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
                                     <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
@@ -33,21 +47,21 @@
                                 </div>
                             </div>
 
-                             <div class="row">
-                                    <div class="input-field col s12 m12 l12">
-                                        <input type="text" name="manageBy">
-                                        <label for="manageBy">Manage By</label>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <input type="text" name="manageBy">
+                                    <label for="manageBy">๗ัดการโดย</label>
 
-                                    </div>
                                 </div>
+                            </div>
 
 
-                             {{!-- <div class="row">
+                            {{!-- <div class="row">
                                 {{> _about-image-upload }}
                             </div> --}}
 
 
-                            
+
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
@@ -56,15 +70,15 @@
                                         <option value="private">Private</option>
                                         <option value="unpublished">unpublished</option>
                                     </select>
-                                    <label for="status">Status</label>
+                                    <label for="status">สถานะ</label>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <input type="submit" value="Add" class="btn right">
+                                <input type="submit" value="เพิ่ม" class="btn right">
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -73,13 +87,11 @@
 
 
 
-            
+
+    </div>
+
+
+
+
+
 </div>
-
-
-
-    
-
-</div>
-
-   
