@@ -21,12 +21,11 @@ const flash = require("connect-flash");
 //load models
 require("./models/Welcome");
 require("./models/Category");
-require("./models/Contents");
 require("./models/UserAdmin");
 require("./models/Users");
 require("./models/Banner");
 require("./models/Slide");
-require("./models/ProductCategory");
+// require("./models/ProductCategory");
 require("./models/Product");
 require("./models/Service");
 require("./models/Contact");

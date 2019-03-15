@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("user");
-const Content = mongoose.model("content");
+// const Content = mongoose.model("content");
 const { ensureAuthenticated, ensureGuest } = require("../helpers/auth");
 
 router.get("/", (req, res) => {
