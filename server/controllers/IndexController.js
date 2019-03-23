@@ -25,9 +25,12 @@ module.exports = {
   index(req, res) {
     let promisesAll = [
       Product.find({ status: "Public" })
+        .limit(8)
         .sort({ date: -1 })
         .exec(),
-      Service.find({ status: "Public" }).exec(),
+      Service.find({ status: "Public" })
+        .limit(4)
+        .exec(),
       Contact.find({}).exec()
     ];
 

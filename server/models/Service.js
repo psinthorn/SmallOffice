@@ -107,6 +107,14 @@ const ServiceSchema = new Schema({
     }
   },
 
+  tags: [
+    {
+      keywords: {
+        type: String
+      }
+    }
+  ],
+
   user: {
     type: String
   },
