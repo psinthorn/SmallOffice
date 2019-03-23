@@ -72,7 +72,13 @@ const ProductSchema = new Schema({
       default: "Unavailable"
     }
   },
-
+  tags: [
+    {
+      keywords: {
+        type: String
+      }
+    }
+  ],
   user: {
     type: Schema.Types.ObjectId,
     ref: "user"
