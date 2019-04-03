@@ -26,7 +26,7 @@
         <div class="col s12 m4 l4">
 
 
-
+            {{#if contact.phone1 }}
             <div class="row header-text-01">
                 <h5>โทรศัพท์</h5>
                 <div class="hr-1px-p10"></div>
@@ -40,18 +40,27 @@
                     <div class="col s1 m1 l1"></div>
                     <div class="col s5 m5 l5 hide-on-small-only"></div>
                     <div class="col s5 m5 l5">
+                        {{#if contact.phone1 }}
                         <p>
                             <a class="blue-grey-text" href="tel:{{ contact.phone1 }}">{{ contact.phone1 }}</a>
                         </p>
+                        {{/if}}
+                        {{#if contact.phone2 }}
                         <p>
                             <a class="blue-grey-text" href="tel:{{ contact.phone2 }}">{{ contact.phone2 }}</a>
                         </p>
+                        {{/if}}
+                        {{#if contact.phone3 }}
                         <p>
                             <a class="blue-grey-text" href="tel:{{ contact.phone3 }}">{{ contact.phone3 }}</a>
                         </p>
+                        {{/if}}
+                        {{#if contact.phone3 }}
                         <p>
                             <a class="blue-grey-text" href="tel:{{ contact.phone4 }}">{{ contact.phone4 }}</a>
                         </p>
+                        {{/if}}
+
                     </div>
 
                 </div>
@@ -59,6 +68,9 @@
 
             </div>
 
+            {{/if}}
+
+            {{#if contact.fax}}
             <div class="row header-text-01">
                 <h5>แฟกซ์</h5>
                 <div class="hr-1px-p10"></div>
@@ -81,10 +93,11 @@
 
 
             </div>
+            {{/if}}
 
 
 
-
+            {{#if contact.email}}
             <div class="row header-text-01">
                 <h5>อีเมล์</h5>
                 <div class="hr-1px-p10"></div>
@@ -106,7 +119,9 @@
 
 
             </div>
+            {{/if}}
 
+            {{#if contact.addr1}}
             <div class="row header-text-01">
                 <h5>ที่อยู่</h5>
                 <div class="hr-1px-p10"></div>
@@ -132,6 +147,7 @@
                 </div>
 
             </div>
+            {{/if}}
 
             {{#if contact.lat }}
             {{!-- <div class="row header-text-01"> --}}

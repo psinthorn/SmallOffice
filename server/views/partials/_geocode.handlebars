@@ -1,56 +1,62 @@
+<div class="container">
+
+
   <div class="card white darken-1">
-    <div class="card-content"> 
+    <div class="card-content">
 
-    <h4 id="text-center">Get your geo-location by address : </h4>
-    *Include Latitude & Longitude
-    <form id="location-form">
-       
-            <input type="text" id="location-input" class="form-control form-control-lg" value="{{ addr1 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }}" placeholder="Put your address here">
-      
-      <br>
-      <div class="row">
-        <button type="submit" class="btn btn-primary btn-block right">Submit</button>
-       
+      <h4 id="text-center">Get your geo-location by address : </h4>
+      *Include Latitude & Longitude
+      <form id="location-form">
 
-      </div>
-      
-    </form>
-    
-    <div class="card-block" id="formatted-address"></div>
-    <div class="card-block" id="address-components"></div>
-    <div class="card-block" id="geometry"></div>
+        <input type="text" id="location-input" class="form-control form-control-lg"
+          value="{{ addr1 }} {{ district }} {{ city }} {{ province }} {{ country }} {{ postCode }}"
+          placeholder="Put your address here">
+
+        <br>
+        <div class="row">
+          <button type="submit" class="btn btn-primary btn-block right">Submit</button>
+
+
+        </div>
+
+      </form>
+
+      <div class="card-block" id="formatted-address"></div>
+      <div class="card-block" id="address-components"></div>
+      <div class="card-block" id="geometry"></div>
 
     </div>
-    
-    <span class="new badge" data-badge-caption="*Remark: If Geocode not working, May cuase of some 3rd party service not response. please take time and then try again."></span>
-    
+
+    <span class="new badge"
+      data-badge-caption="*Remark: If Geocode not working, May cuase of some 3rd party service not response. please take time and then try again."></span>
+
   </div>
+</div>
 
+<script>
+  // Call Geocode
 
-  <script>
-    // Call Geocode
-    
-    //geocode();
+  //geocode();
 
-    // Get location form
+  // Get location form
 
-    var locationForm = document.getElementById('location-form');
+  var locationForm = document.getElementById('location-form');
 
-    // Listen for submiot
-    locationForm.addEventListener('submit', geocode);
-    function geocode(e){
-      // Prevent actual submit
-      e.preventDefault();
+  // Listen for submiot
+  locationForm.addEventListener('submit', geocode);
+  function geocode(e) {
+    // Prevent actual submit
+    e.preventDefault();
 
-      var location = document.getElementById('location-input').value;
+    var location = document.getElementById('location-input').value;
 
-      axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-        params:{
-          address:location,
-          key:'AIzaSyC4CAkNk4_lhvYHw_5t91EhjCNQb9D6hII'
-        }
-      })
-      .then(function(response){
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+        address: location,
+        key: 'AIzaSyC4CAkNk4_lhvYHw_5t91EhjCNQb9D6hII'
+      }
+    })
+      .then(function (response) {
         // Log full response
         //console.log(response);
 
@@ -65,7 +71,7 @@
         // Address Components
         var addressComponents = response.data.results[0].address_components;
         var addressComponentsOutput = '<ul class="list-group">';
-        for(var i = 0;i < addressComponents.length;i++){
+        for (var i = 0; i < addressComponents.length; i++) {
           addressComponentsOutput += `
             <li class="list-group-item"><strong>${addressComponents[i].types[0]}</strong>: ${addressComponents[i].long_name}</li>
           `;
@@ -83,13 +89,12 @@
         `;
 
         //// Output to app
-       document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
-       document.getElementById('address-components').innerHTML = addressComponentsOutput;
-       document.getElementById('geometry').innerHTML = geometryOutput;
+        document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+        document.getElementById('address-components').innerHTML = addressComponentsOutput;
+        document.getElementById('geometry').innerHTML = geometryOutput;
       })
-      .catch(function(error){
+      .catch(function (error) {
         console.log(error);
       });
-    }
-  </script>
-
+  }
+</script>

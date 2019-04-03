@@ -1,73 +1,66 @@
-
-
 <div class="container">
-     <div class="row">
-            <div class="col s12 m12 l12">
-                
-                {{> _msg}}
+    <div class="row">
+        <div class="col s12 m12 l12">
 
-                    <h3>Add New Admin</h3>
+            {{> _msg}}
 
-                <div class="card-panel white" style="padding-left: 50px; padding-right: 50px">
+            <h3>Add New Admin</h3>
 
-
-                   
-                        <form action="/admin/admin" method="post">
-
-                            <div class="row">
-
-                                <div class="input-field">
-                                    <input type="text" name="email">
-                                    <label for="email">Email</label>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                              <div class="input-field">
-                                    <input type="text" name="username">
-                                    <label for="username">User Name</label>
-                                </div>
-                            </div>
-
-                                
-                            <div class="row">
-
-                                 <div class="input-field">
-                                    <input type="password" name="password">
-                                    <label for="name">Password</label>
-                                </div>
-
-                            </div>
-
-                             <div class="row">
-
-                                 <div class="input-field">
-                                    <input type="password" name="passwordConf">
-                                    <label for="passwordConf">Confirm Password</label>
-                                </div>
-
-                            </div>
-                              
-                            <div class="row">
-                                <input type="submit" value="Register" class="btn right">
-                            </div>
-
-                        </form>
-                   
-                </div>
+            <div class="card-panel white" style="padding-left: 50px; padding-right: 50px">
 
 
 
+                <form action="/admin/register" method="post">
+
+                    <div class="row">
+
+                        <div class="input-field">
+                            <input type="text" name="email">
+                            <label for="email">Email</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <input type="text" name="username">
+                            <label for="username">User Name</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="input-field">
+                            <input type="password" name="password">
+                            <label for="name">Password</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="input-field">
+                            <input type="password" name="passwordConf">
+                            <label for="passwordConf">Confirm Password</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value="Register" class="btn right">
+                    </div>
+
+                </form>
 
             </div>
 
-           
+
+
+
         </div>
 
+
+    </div>
+
 </div>
-    
-
-
-
-       

@@ -90,7 +90,7 @@ module.exports = {
     });
   },
 
-  //Edit form tour category
+  //Edit form category
   editUpdate(req, res) {
     const id = req.params.id;
     const categoryProps = req.body;

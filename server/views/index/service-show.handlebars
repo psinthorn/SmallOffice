@@ -3,17 +3,28 @@
 
 <div class="container-fluid top-title-header">
     <div class="container">
-        รายละเอียดเพิ่มเติม
+        {{{ service.title }}}
+        {{!-- รายละเอียดเพิ่มเติม --}}
     </div>
     <div class="divider"></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <a href="/services">
+                <div class="btn right">กลับหน้าเดิม</div>
+            </a>
+        </div>
+
+    </div>
+
 </div>
 
 <div class="container">
 
     <div class="row" style="margin-top: 20px">
 
-        {{!-- <img class="responsive-img center" src="/images/service/banner/{{ service.serviceBannerImgUrl }}"
-            style="width: 100%" alt="{{ service.serviceBannerImgUrl }}"> --}}
+        <img class="responsive-img center" src="/images/service/banner/{{ service.serviceBannerImgUrl }}"
+            style="width: 100%" alt="{{ service.serviceBannerImgUrl }}">
 
     </div>
 

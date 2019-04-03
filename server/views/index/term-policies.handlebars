@@ -22,6 +22,7 @@
 </div>
 
 <div class="container">
+    {{#if policy}}
     <div class="card">
         <div class="card-content">
             {{#each policy}}
@@ -36,4 +37,8 @@
             {{/each }}
         </div>
     </div>
+    {{else}}
+    No term and policies available please add.
+    {{/if}}
+
 </div>

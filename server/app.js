@@ -87,12 +87,12 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-aws.config.region = "eu-west-1";
+// aws.config.region = "eu-west-1";
 
 /*
  * Load the S3 information from the environment variables.
  */
-const S3_BUCKET = process.env.S3_BUCKET;
+// const S3_BUCKET = process.env.S3_BUCKET;
 
 //Paypal Config
 paypal.configure({
