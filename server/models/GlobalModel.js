@@ -1,20 +1,18 @@
 const mongoose = require("mongoose");
-const Schedma = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const GlobalSchema = new Schema({
   logo: {
     type: String
   },
-  name: [
-    {
-      wordone: {
-        type: String
-      },
-      wordtwo: {
-        type: String
-      }
+  name: {
+    wordone: {
+      type: String
+    },
+    wordtwo: {
+      type: String
     }
-  ],
+  },
   //   welcomemsg: {
   //     header: {
   //       type: String
@@ -32,14 +30,10 @@ const GlobalSchema = new Schema({
   //     }
   //   },
   slogan: {
-    title: {
-      type: String
-    }
+    type: String
   },
-  shortdesc: {
-    desc: {
-      String
-    }
+  desc: {
+    type: String
   },
   url: {
     type: String

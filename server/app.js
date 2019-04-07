@@ -25,7 +25,7 @@ require("./models/UserAdmin");
 require("./models/Users");
 require("./models/Banner");
 require("./models/Slide");
-// require("./models/ProductCategory");
+require("./models/GlobalModel");
 require("./models/Product");
 require("./models/Service");
 require("./models/Contact");
@@ -33,6 +33,7 @@ require("./models/About");
 require("./models/Policy");
 
 //load router
+const globalRoutes = require("./routes/globalRoutes");
 const admin = require("./routes/admin");
 const banner = require("./routes/banner");
 const slide = require("./routes/slide");
@@ -161,6 +162,7 @@ app.use(upload());
 app.use(express.static(path.join(__dirname, "public")));
 
 //use route
+globalRoutes(app);
 admin(app);
 banner(app);
 index(app);

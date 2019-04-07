@@ -23,7 +23,7 @@
                     {{/if}}
                 </p>
                 <a href="/product-show/{{ id }}">
-                    <h4 class="header-text-01">{{ title }}</h4>
+                    <h4 class="header-text-01">{{{stripTags (truncate title 30)}}}</h4>
                 </a>
 
                 <a href="/product-show/{{ id }}">
@@ -37,9 +37,9 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12 center-align">
                         <a href="/product-show/{{ id }}">
-                            <div class="btn green lighten-2 btn-hor-effect right">ข้อมูลสินค้าเพิ่มเติม</div>
+                            <div class="btn disabled">ข้อมูลสินค้าเพิ่มเติม</div>
                         </a>
                     </div>
                 </div>

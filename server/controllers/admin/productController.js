@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const Product = require("../../models/Product");
+const Global = require("./../../models/GlobalModel");
+const Product = require("./../../models/Product");
 const Category = require("./../../models/Category");
 const fs = require("fs");
 
@@ -24,14 +25,16 @@ module.exports = {
     //
 
     let queryAll = [
+      Global.findOne({}).exec(),
       Product.find({}).exec(),
       Category.find({ status: "public" }).exec()
     ];
 
-    Promise.all(queryAll).then(([products, categories]) => {
+    Promise.all(queryAll).then(([globalVars, products, categories]) => {
       //console.log(`Category is: ${categories}`);
       //res.send(categories);
       res.render("admin/product-add", {
+        globalvars: globalVars,
         products: products,
         categories: categories
       });

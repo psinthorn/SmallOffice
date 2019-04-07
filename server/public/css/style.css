@@ -34,7 +34,7 @@ main {
   font-size: 30px;
   font-size: 3rem;
   background-color: #fff;
-  color: #e53935;
+  color: #cccc;
 
   /* background-color:     #e53935;  */
   /*$brand-primary:           #084672;*/
@@ -317,6 +317,7 @@ a:hover {
   align-self: start;
 }
 
+/* Logo font */
 .top-logo {
   padding-top: 2px;
   color: #e53935;

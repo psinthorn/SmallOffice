@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Contact = require("../models/Contact");
 const About = require("../models/About");
 const Welcome = require("../models/Welcome");
+const Global = require("./../models/GlobalModel");
 const ProductCategory = require("./../models/ProductCategory");
 const Product = require("../models/Product");
 const Intro = require("../models/Intro");
 const Service = require("./../models/Service");
-
 const Policy = require("./../models/Policy");
 
 module.exports = {
@@ -24,6 +24,7 @@ module.exports = {
 
   index(req, res) {
     let promisesAll = [
+      Global.findOne().exec(),
       Product.find({ status: "Public" })
         .limit(8)
         .sort({ date: -1 })
@@ -34,13 +35,18 @@ module.exports = {
       Contact.find({}).exec()
     ];
 
-    Promise.all(promisesAll).then(([products, services, contact]) => {
-      res.render("index/home", {
-        products: products,
-        services: services,
-        contact: contact
-      });
-    });
+    Promise.all(promisesAll).then(
+      ([globalVars, products, services, contact]) => {
+        res.render("index/home", {
+          globalVars: globalVars,
+          products: products,
+          services: services,
+          contact: contact,
+          websitename: "SmallOffice",
+          websitetitle: "SmallOffice - Stable and Flexible is SmallOffice"
+        });
+      }
+    );
 
     // Welcome.findOne({})
     //     .then( welcome => {
@@ -55,42 +61,76 @@ module.exports = {
   },
 
   about(req, res) {
-    About.findOne({}).then(about => {
-      res.render("index/about", { about: about });
+    let promisesAll = [Global.findOne().exec(), About.findOne({})];
+
+    Promise.all(promisesAll).then(([globalVars, about]) => {
+      res.render("index/about", { globalVars: globalVars, about: about });
     });
   },
 
   products(req, res) {
-    Product.find({ status: "Public" })
-      .sort({ date: -1 })
-      .then(products => {
-        res.render("index/products", { products: products });
+    let promiseAll = [
+      Global.findOne().exec(),
+      Product.find({ status: "Public" })
+        .sort({ date: -1 })
+        .exec()
+    ];
+
+    Promise.all(promiseAll).then(([globalVars, products]) => {
+      res.render("index/products", {
+        globalVars: globalVars,
+        products: products
       });
+    });
   },
 
   productShow(req, res) {
     const id = req.params.id;
 
-    Product.findById({ _id: id })
-      .populate("subcontact")
-      .then(product => {
-        res.render("index/product-show", { product: product });
+    let promiseAll = [
+      Global.findOne().exec(),
+      Product.findById({ _id: id })
+        .populate("subcontact")
+        .exec()
+    ];
+
+    Promise.all(promiseAll).then(([globalVars, product]) => {
+      res.render("index/product-show", {
+        globalVars: globalVars,
+        product: product
       });
+    });
   },
 
   services(req, res) {
-    Service.find({ status: "Public" })
-      .sort({ order: 1 })
-      .then(services => {
-        res.render("index/services", { services: services });
+    let promiseAll = [
+      Global.findOne().exec(),
+      Service.find({ status: "Public" })
+        .sort({ order: 1 })
+        .exec()
+    ];
+
+    Promise.all(promiseAll).then(([globalVars, services]) => {
+      res.render("index/services", {
+        globalVars: globalVars,
+        services: services
       });
+    });
   },
 
   serviceShow(req, res) {
     const id = req.params.id;
 
-    Service.findById({ _id: id }).then(service => {
-      res.render("index/service-show", { service: service });
+    let promiseAll = [
+      Global.findOne().exec(),
+      Service.findById({ _id: id }).exec()
+    ];
+
+    Promise.all(promiseAll).then(([globalVars, service]) => {
+      res.render("index/service-show", {
+        globalVars: globalVars,
+        service: service
+      });
     });
   },
 
@@ -112,14 +152,23 @@ module.exports = {
   },
 
   termPolicy(req, res) {
-    Policy.find({}).then(policy => {
-      res.render("index/term-policies", { policy: policy });
+    let promiseAll = [Global.findOne().exec(), Policy.find({}).exec()];
+    Promise.all(promiseAll).then(([globalVars, policy]) => {
+      res.render("index/term-policies", {
+        globalVars: globalVars,
+        policy: policy
+      });
     });
   },
 
   contact(req, res) {
-    Contact.findOne({}).then(contact => {
-      res.render("index/contact-us", { contact: contact });
+    let promiseAll = [Global.findOne().exec(), Contact.findOne({}).exec()];
+
+    Promise.all(promiseAll).then(([globalVars, contact]) => {
+      res.render("index/contact-us", {
+        globalVars: globalVars,
+        contact: contact
+      });
     });
   },
 
