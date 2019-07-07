@@ -14,9 +14,9 @@ const Global = require("./../../models/GlobalModel");
 
 module.exports = {
   getAll(req, res) {
-    Global.findOne({}).then(global => {
-      console.log(global);
-      res.render("admin/global/global", { global: global });
+    Global.findOne({}).then(globalVars => {
+      // console.log(global);
+      res.render("admin/global/global", { globalVars: globalVars });
     });
   },
 
@@ -27,8 +27,6 @@ module.exports = {
 
   // Create new global setting
   create(req, res) {
-    const globalData = req.body;
-    //console.log(globalData);
     const newGlobal = {};
 
     newGlobal.logo = req.body.logo;
@@ -39,10 +37,10 @@ module.exports = {
     newGlobal.name.wordone = req.body.wordone;
     newGlobal.name.wordtwo = req.body.wordtwo;
 
-    console.log(newGlobal);
+    // console.log(newGlobal);
 
     Global.create(newGlobal).then(global => {
-      res.send(global);
+      res.redirect("/admin/global");
     });
   },
 
@@ -50,20 +48,42 @@ module.exports = {
   editForm(req, res) {
     const id = req.params.id;
     console.log(id);
-    res.send({ greeting: "Hello Edit Form" });
+    Global.findById({ _id: id }).then(globalVars => {
+      res.render("admin/global/global-edit", { globalVars: globalVars });
+    });
   },
 
-  //upload Thumbnail image form
-  imageLogo(req, res) {
-    res.render("admin/logo-upload-form");
-  },
-  //image Thumbnail upload process
-  imageLogoUplaod(req, res) {
+  //Edit form product
+  editUpdate(req, res) {
     const id = req.params.id;
+    const newGlobal = {};
 
+    newGlobal.logo = req.body.logo;
+    newGlobal.slogan = req.body.slogan;
+    newGlobal.desc = req.body.desc;
+    newGlobal.status = req.body.status;
+
+    newGlobal.name = {};
+    newGlobal.name.wordone = req.body.wordone;
+    newGlobal.name.wordtwo = req.body.wordtwo;
+    console.log(newGlobal);
+
+    Global.findByIdAndUpdate({ _id: id }, newGlobal).then(
+      res.redirect("/admin/global")
+    );
+  },
+
+  // //upload Thumbnail image form
+  // imageLogo(req, res) {
+  //   res.render("admin/logo-upload-form");
+  // },
+
+  //image Thumbnail upload process
+  imageUplaod(req, res) {
+    const id = req.params.id;
     const imgUrl = req.files.imgUrl;
     const imgUrlName = Date.now() + "-logo-" + imgUrl.name;
-    const imagesUploads = "./public/images/";
+    const imagesUploads = "./public/images/logo/";
     imgUrl.mv(imagesUploads + imgUrlName, err => {
       if (err) throw err;
     });
@@ -76,16 +96,15 @@ module.exports = {
   },
 
   //Image Thumbnail Update
-
-  imageLogoUpdate(req, res) {
+  imageUpdate(req, res) {
     const id = req.params.id;
     const oldImgUrl = req.body.oldImgUrl;
     const imgUrl = req.files.imgUrl;
     //console.log(oldImgUrl);
     //res.send(imgUrl.name);
 
-    const imgUrlName = Date.now() + "-" + imgUrl.name;
-    const imagesUploads = "./public/images/";
+    const imgUrlName = Date.now() + "-logo-" + imgUrl.name;
+    const imagesUploads = "./public/images/logo/";
     imgUrl.mv(imagesUploads + imgUrlName, err => {
       if (err) throw err;
     });
@@ -107,9 +126,7 @@ module.exports = {
           })
         )
         .then(global => {
-          res.render("admin/global-config-edit", {
-            global: global
-          });
+          res.redirect("/admin/global-edit");
         });
     });
   }

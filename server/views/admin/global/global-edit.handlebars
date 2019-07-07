@@ -1,6 +1,6 @@
 <div class="container-fluid top-title-header">
     <div class="container">
-        ค่าเริ่มต้นเว็บไซร์
+        แก้ไขค่าเริ่มต้นเว็บไซร์
     </div>
     <div class="divider"></div>
     <div class="container">
@@ -25,18 +25,27 @@
                 <div class="card white darken-1">
                     <div class="card-content gray-text">
 
-                        <form action="/admin/global" method="post" enctype="multipart/form-data">
+                        <form action="/admin/global/{{ globalVars.id }}?_method=PUT" method="post"
+                            enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <div class="top-logo" style="font-size: 48px; font-size: 3.0rem; font-weight: bold;">
+
+                                {{ globalVars.name.wordone}}<span
+                                    style="color: #000">{{ globalVars.name.wordtwo}}</span>
+                                {{!-- Small<span style="color: #000">Office</span> --}}
+                            </div>
 
                             <div class="row">
                                 <div class="input-field col s6 m6 l6">
 
-                                    <input type="text" name="wordone" required>
+                                    <input type="text" name="wordone" value={{globalVars.name.wordone}}>
                                     <label for="wordone">ชื่อเว็บไซร์#1 (*Required)</label>
 
                                 </div>
                                 <div class="input-field col s6 m6 l6">
 
-                                    <input type="text" name="wordtwo" required>
+                                    <input type="text" name="wordtwo" value={{globalVars.name.wordtwo}}>
                                     <label for="wordtwo">ชื่อเว็บไซร์#2 (*Required)</label>
 
                                 </div>
@@ -46,7 +55,7 @@
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
 
-                                    <input type="text" name="slogan" required>
+                                    <input type="text" name="slogan" value="{{globalVars.slogan}}">
                                     <label for="slogan">Slogan (*Required)</label>
 
                                 </div>
@@ -59,23 +68,13 @@
                                 <div class="input-field col s12 m12 l12">
 
                                     <h5>คำอธิบายเว็บไซร์</h5>
-                                    <textarea id="desc" name="desc" class="materialize-textarea" required></textarea>
+                                    <textarea id="desc" name="desc"
+                                        class="materialize-textarea">{{ globalVars.desc }}</textarea>
 
                                 </div>
 
                             </div>
 
-                            {{!-- <div class="row">
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>Logo Image</span>
-                                        <input type="file" name="logo" required>
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
-                            </div> --}}
 
 
                             {{!-- <div class="row">
@@ -95,21 +94,20 @@
 
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <select name="status" id="status">
 
+                                    <select name="status" id="status">
+                                        {{#select globalVars.status }}
                                         <option value="Public" selected>Public</option>
                                         <option value="Private">Private</option>
                                         <option value="Unpublished">Unpublished</option>
-
-                                        <ect></ect>
-                                        <ect></ect>
+                                        {{/select}}
                                     </select>
                                     <label for="status">สถานะ</label>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <input type="submit" value="Add" class="btn right">
+                                <input type="submit" value="ตกลง" class="btn right">
                             </div>
                         </form>
                     </div>
@@ -117,4 +115,10 @@
             </div>
         </div>
     </div>
+
+
+</div>
+
+<div class="container">
+    {{> _image-upload-logo}}
 </div>

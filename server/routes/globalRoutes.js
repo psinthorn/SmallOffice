@@ -7,23 +7,23 @@ module.exports = app => {
   //888888888888888888888888888
 
   //Get all global List
-  app.get("/admin/global", GlobalController.getAll);
+  app.get("/admin/global", ensureAuthenticated, GlobalController.getAll);
 
   //Get all tour List
-  app.get("/admin/global/add", GlobalController.addForm);
+  app.get("/admin/global/add", ensureAuthenticated, GlobalController.addForm);
 
   //Create new global
-  app.post("/admin/global", GlobalController.create);
+  app.post("/admin/global", ensureAuthenticated, GlobalController.create);
 
   //Edit form
-  app.get("/admin/global/:id", GlobalController.editForm);
+  app.get("/admin/global/:id", ensureAuthenticated, GlobalController.editForm);
 
-  // //Edit process
-  // app.put(
-  //   "/admin/global/:id",
-  //   ensureAuthenticated,
-  //   GlobalController.editUpdate
-  // );
+  //Edit process
+  app.put(
+    "/admin/global/:id",
+    ensureAuthenticated,
+    GlobalController.editUpdate
+  );
 
   // //Delete global
   // app.delete("/admin/global/:id", ensureAuthenticated, GlobalController.delete);
@@ -71,12 +71,13 @@ module.exports = app => {
   //   ensureAuthenticated,
   //   GlobalController.imageUplaod
   // );
-  // //Image Edit Section
-  // app.put(
-  //   "/admin/global/image/:id",
-  //   ensureAuthenticated,
-  //   GlobalController.imageUpdate
-  // );
+
+  //Image Edit Section
+  app.put(
+    "/admin/global/image/:id",
+    ensureAuthenticated,
+    GlobalController.imageUpdate
+  );
 
   // //get banner image form
   // app.get("/admin/global/banner", ensureAuthenticated, GlobalController.banner);

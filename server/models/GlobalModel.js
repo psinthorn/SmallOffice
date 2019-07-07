@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GlobalSchema = new Schema({
-  logo: {
+  imgUrl: {
     type: String
   },
   name: {
@@ -50,7 +50,10 @@ const GlobalSchema = new Schema({
         type: String
       }
     }
-  ]
+  ],
+  status: {
+    type: String
+  }
 });
 const Global = mongoose.model("global", GlobalSchema, "globals");
 module.exports = Global;

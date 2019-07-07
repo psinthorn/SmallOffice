@@ -3,7 +3,7 @@
 
     <li>
         <a href="/admin/welcomes">
-            <i class="material-icons">dehaze</i>หน้าแรก</a>
+            <i class="material-icons">dashboard</i>หน้าแรก</a>
     </li>
 
     <li class="divider"></li>
@@ -92,12 +92,24 @@
             <i class="material-icons">apps</i>
             <div class="logo">
                 {{!-- <img src="/images/logo-btp.png" alt="apdl.ca"> --}}
+                {{#if global.name.wordone }}
                 <b>{{globalVars.name.wordone}}{{globalVars.name.wordtwo}}</b>
+                {{else}}
+                <b>Menu</b>
+                {{/if}}
             </div>
 
 
         </a>
     </li>
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="/admin/global">
+            <i class="material-icons">battery_charging_full</i>ตั้งค่าเริ่มต้น</a>
+    </li>
+
 
 
     <li class="divider"></li>
@@ -109,6 +121,8 @@
 
         </a>
     </li>
+
+
 
 
 

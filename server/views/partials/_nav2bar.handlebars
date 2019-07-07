@@ -29,10 +29,22 @@
                                 <div class="menu-icon active top-logo"><i class="material-icons Large menu-icon"
                                         style="color: #888">menu</i></div>
                             </a>
+                        </li>
+
+
+
+                        {{#if globalVars.imgUrll }}
                         <li>
+                            <img class="responsive-img" src="/images/logo/{{ globalVars.imgUrl }}"
+                                style="height: 50px; padding-top: 10px;" />
+                        </li>
+
+                        {{ else }}
+
                         <li>
                             <a href="/" data-activates="main-menu">
                                 <div class="top-logo" style="font-size: 48px; font-size: 3.0rem; font-weight: bold;">
+
 
                                     {{ globalVars.name.wordone}}<span
                                         style="color: #000">{{ globalVars.name.wordtwo}}</span>
@@ -40,7 +52,8 @@
                                 </div>
 
                             </a>
-                        <li>
+                        </li>
+                        {{/if}}
                     </ul>
                 </div>
 

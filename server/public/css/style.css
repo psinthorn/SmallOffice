@@ -20,11 +20,12 @@ html {
 body {
   font-size: 1.6em;
   height: 100vh;
+  /* background-color: #424242; */
 }
 
-main {
+/* main {
   flex: 1 0 auto;
-}
+} */
 
 .nav-wrapper .fa-bars {
   font-size: 30px;
@@ -43,6 +44,7 @@ main {
 
 footer {
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #delete-form {
